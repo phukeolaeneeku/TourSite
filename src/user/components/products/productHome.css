@@ -81,6 +81,7 @@ a {
     margin-top: 2rem;
 }
 .contentImageProducts2 {
+    height: 55vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
@@ -125,6 +126,10 @@ a {
 }
 .txtOFproduct h4{
     font-size: 17px;
+}
+.txtOFproduct h4:hover{
+    color: #3d76fb;
+    transition: 0.5s;
 }
 
 .loadmore_btn_more {
