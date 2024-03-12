@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate, Link, useParams } from "react-router-dom";
 import "./productBuy.css";
-import Menu from "../menu/Menu";
+import Footer from "../menu/Footer";
 import Header from "../header/Header";
 import { IoIosArrowBack } from "react-icons/io";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import axios from "axios";
-import Payment from "../cart/Payment";
+// import Payment from "../cart/Payment";
 
 function ProductDetails() {
   const token = localStorage.getItem("token");
@@ -255,7 +255,7 @@ function ProductDetails() {
               <p>Loading...</p>
             )}
           </div>
-          <Menu />
+          <Footer />
         </>
       )}
     </>
