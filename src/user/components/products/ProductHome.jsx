@@ -120,7 +120,7 @@ const ProductHome = () => {
         <div className="content_itemBox">
           <div className="container_product">
             <h3 className="htxthead">
-              <span className="spennofStyle"></span>Activity Recommended Products
+              <span className="spennofStyle"></span>Activity Recommended
             </h3>
           </div>
           <div className="contentImageProducts2">
@@ -166,7 +166,7 @@ const ProductHome = () => {
         <div className="content_itemBox">
           <div className="container_product">
             <h3 className="htxthead">
-              <span className="spennofStyle"></span>Hotel Recommended Products
+              <span className="spennofStyle"></span>Hotel Recommended
             </h3>
           </div>
           <div className="contentImageProducts2">
@@ -258,7 +258,7 @@ const ProductHome = () => {
         <div className="content_itemBox">
           <div className="container_product">
             <h3 className="htxthead">
-              <span className="spennofStyle"></span>Laos Coupon Recommended Products
+              <span className="spennofStyle"></span>Laos Coupon Recommended
             </h3>
           </div>
           <div className="contentImageProducts2">
@@ -301,7 +301,7 @@ const ProductHome = () => {
         <div className="content_itemBox">
           <div className="container_product">
             <h3 className="htxthead">
-              <span className="spennofStyle"></span>New Recommended Products
+              <span className="spennofStyle"></span>New Recommended
             </h3>
           </div>
           <div className="contentImageProducts2">
