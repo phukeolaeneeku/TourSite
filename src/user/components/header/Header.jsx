@@ -26,7 +26,7 @@ const Header = () => {
                   id="search"
                   type="text"
                   className="input_search_heaederr"
-                  placeholder="search..."
+                  placeholder="Search..."
                 ></input>
                 <button type="submit">
                   <FaMagnifyingGlass className="iconSearch" />
@@ -42,8 +42,10 @@ const Header = () => {
               </div>
             </div>
           </div>
+          
         </div>
       </section>
+      
     </>
   );
 };

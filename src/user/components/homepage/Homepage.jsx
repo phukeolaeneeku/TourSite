@@ -1,4 +1,4 @@
-import "./productHome.css";
+import "./css/homepage.css";
 import Header from "../header/Header";
 import patusai from "../../../img/patusai.jpg";
 import thadluang from "../../../img/thadluang.jpg";
@@ -21,14 +21,13 @@ import recommended3 from "../../../img/recommended3.jpg";
 import resort from "../../../img/resort.jpg";
 import resort2 from "../../../img/resort2.jpg";
 import resort3 from "../../../img/resort3.jpg";
+import { Link } from "react-router-dom";
 
-
-
-const ProductHome = () => {
+const Homepage = () => {
   return (
     <div>
       <Header />
-      <section id="product1">
+      <section id="container_product">
         <div className="productHead_content">
           <h1 className="htxthead">
             <span className="spennofStyle"></span>Laos Play Category Best
@@ -36,14 +35,13 @@ const ProductHome = () => {
         </div>
         <div className="contentImageProducts1">
           <div className="group_itemBox">
-            <div className="img">
+            <Link to="/details" className="img">
               <img src={patusai} alt="img" />
-            </div>
+            </Link>
             <div className="txtOFproduct">
               <h4>Vientiane Airport Pickup Service</h4>
               <p>
-                We will conveniently transport you from the airport to your
-                hotel.
+                We will conveniently transport you from the airport to your hotel.
               </p>
               <p> $10 ￦15,000 </p>
             </div>
@@ -74,7 +72,6 @@ const ProductHome = () => {
           <div className="container_product">
             <h3 className="htxthead">
               <span className="spennofStyle"></span>Super Special Recommended
-              Products
             </h3>
           </div>
           <div className="contentImageProducts2">
@@ -206,6 +203,7 @@ const ProductHome = () => {
                 <p>$55 ￦85,000</p>
               </div>
             </div>
+            
           </div>
         </div>
 
@@ -347,4 +345,4 @@ const ProductHome = () => {
   );
 };
 
-export default ProductHome;
+export default Homepage;

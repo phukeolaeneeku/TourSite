@@ -46,8 +46,8 @@
     width: 140px;
     height: 20vh;
     position: absolute;
-    border: solid 1px #ccc;
     border-radius: 3px;
+    background: #f2f2f2;
   }
   
   .dropdown-menu ul {
@@ -56,7 +56,7 @@
   .dropdown-menu ul li {
     margin: 0.8rem 0;
   }
-  .dropdown-menu ul li:hover {
+  .dropdown-menu a:hover {
     color: #3d76fb;
     transition: 0.5s;
   }

@@ -37,7 +37,8 @@
 }
 
 .txt_pFoot:hover {
-    color: #FF4F16;
+    color: #165cff;
+    transition: 0.5s;
 }
 
 
@@ -52,7 +53,7 @@
 }
 
 .footLink {
-    background-color: #FF4F16;
+    background-color: #165cff;
     color: #fff;
     padding: 10px 30px;
     border-radius: 7px;
