@@ -47,6 +47,19 @@ const Homepage = () => {
             </div>
           </div>
           <div className="group_itemBox">
+            <Link to="/details" className="img">
+              <img src={patusai} alt="img" />
+            </Link>
+            <div className="txtOFproduct">
+              <h4>Vientiane Airport Pickup Service</h4>
+              <p>
+                We will conveniently transport you from the airport to your hotel.
+              </p>
+              <p> $10 ￦15,000 </p>
+            </div>
+          </div>
+         
+          <div className="group_itemBox">
             <div className="img">
               <img src={thadluang} alt="img" />
             </div>

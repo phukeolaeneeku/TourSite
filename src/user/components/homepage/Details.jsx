@@ -49,6 +49,11 @@ function Details() {
                             <img src={patusai} alt="img" />
                         </div>
                     </div>
+                    <div className="group_item_details">
+                        <div className="img">
+                            <img src={patusai} alt="img" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
