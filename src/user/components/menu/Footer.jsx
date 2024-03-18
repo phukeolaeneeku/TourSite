@@ -41,7 +41,7 @@ const Menu = () => {
                 <hr className="hrfoo"/>
                 <p className="lastFooter">
                     Copyright &#169;
-                    TACA 2023
+                    TOURS 2024
                 </p>
             </footer>
 

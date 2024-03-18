@@ -53,13 +53,13 @@ const Header = () => {
               <ul>
                 <li>
                   
-                  <Link to="#"><p>One day tour</p></Link>
+                  <Link to="/oneday"><p>One day tour</p></Link>
                 </li>
                 <li>
-                <Link to="#"><p>Half day tour</p></Link>
+                <Link to="/halfday"><p>Half day tour</p></Link>
                 </li>
                 <li>
-                <Link to="#"><p>Golf</p></Link>
+                <Link to="/golf"><p>Golf</p></Link>
                 </li>
                 <li>
                   <Link to="#"><p>Night tour</p></Link>

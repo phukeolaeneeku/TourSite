@@ -1,0 +1,95 @@
+.containnergolf_body {
+    width: 80%;
+    margin: 7rem auto 0 auto;
+}
+body {
+    background-color: #FFF;
+}
+
+.back_icons_back_golf {
+    display: flex;
+    font-size: 20px;
+    gap: 0.5rem;
+    color: #858080;
+    align-items: center;
+    margin-left: 3.5rem;
+    margin-bottom: 2rem;
+}
+
+.content_itemGolf{
+    width: 90%;
+    margin: auto;
+    margin-top: -3rem;
+}
+
+.container_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 0rem;
+    margin-top: 3rem;
+}
+
+.container_head h3 {
+    font-size: 23px;
+    font-family: 600;
+}
+
+.txt_head{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.span_Style {
+    width: 20px;
+    height: 40px;
+    background-color: #3d76fb;
+    border-radius: 4px;
+}
+.content_image_Products {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.group_item_Box {
+    width: 100%;
+    height: auto;
+    display: flex;
+    border: 1px solid #eee;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.group_item_Box:hover {
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+}
+
+.group_item_Box .image {
+    width: 320px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.group_item_Box .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.txt_desc {
+    display: flex;
+    padding: 15px 15px;
+    flex-direction: column;
+    text-align: start;
+    gap: 16px;
+    list-style: none;
+}
+.txt_desc h3:hover{
+    color: #3d76fb;
+    transition: 0.5s;
+}
