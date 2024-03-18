@@ -19,56 +19,64 @@ function Oneday() {
                 <IoIosArrowBack/>
                 <p>Back</p>
             </Link>
-            <div className="box_container">
-                <div className="box_container_body">
-                    <Link to="/details"  className="container_image">
-                        <img src={patusai} alt="image" />
-                    </Link>
-                    <div className="container_des">
-                        <h2>Vientiane</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                        </p>
-                        <p> $10 ￦15,000 </p>
-                        <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
-                        <p>Review: 220</p>
-                    </div>
+            <div className="content_item_Oneday">
+                <div className="container_txt_head">
+                    <h3 className="txt_head_Oneday">
+                        <span className="span_Styles"></span>Half day tour
+                    </h3>
                 </div>
-                <div className="box_container_body">
-                    <div className="container_image">
-                        <img src={thadluang} alt="image" />
+                <div className="box_container">
+                    <div className="box_container_body">
+                        <Link to="/details"  className="container_image">
+                            <img src={patusai} alt="image" />
+                        </Link>
+                        <div className="container_des">
+                            <h2>Vientiane</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
+                            </p>
+                            <p> $10 ￦15,000 </p>
+                            <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
+                            <p>Review: 220</p>
+                        </div>
                     </div>
-                    <div className="container_des">
-                        <h2>Vang Vieng</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                        </p>
-                        <p> $10 ￦15,000 </p>
-                        <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vang Vieng</p>
-                        <p>Review: 150</p>
+                    <div className="box_container_body">
+                        <div className="container_image">
+                            <img src={thadluang} alt="image" />
+                        </div>
+                        <div className="container_des">
+                            <h2>Vang Vieng</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
+                            </p>
+                            <p> $10 ￦15,000 </p>
+                            <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vang Vieng</p>
+                            <p>Review: 150</p>
+                        </div>
                     </div>
-                </div>
-                <div className="box_container_body">
-                    <div className="container_image">
-                        <img src={patusai} alt="image" />
-                    </div>
-                    <div className="container_des">
-                        <h2>Vientiane</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                        </p>
-                        <p> $10 ￦15,000 </p>
-                        <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
-                        <p>Review: 200</p>
+                    <div className="box_container_body">
+                        <div className="container_image">
+                            <img src={patusai} alt="image" />
+                        </div>
+                        <div className="container_des">
+                            <h2>Vientiane</h2>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
+                            </p>
+                            <p> $10 ￦15,000 </p>
+                            <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
+                            <p>Review: 200</p>
+                        </div>
                     </div>
                 </div>
             </div>
+            
         </div>
         <Footer />
     </>

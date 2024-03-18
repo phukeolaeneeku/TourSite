@@ -35,7 +35,7 @@ function Details() {
             <div className="content_item_details">
                 <div className="container_details">
                     <h3 className="htxthead">
-                        <span className="spennofStyle"></span>INFORMATION
+                        <span className="spennofStyle"></span>View More
                     </h3>
                 </div>
                 <div className="contentImageDetails">

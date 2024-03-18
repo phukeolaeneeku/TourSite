@@ -62,7 +62,7 @@ const Header = () => {
                 <Link to="/golf"><p>Golf</p></Link>
                 </li>
                 <li>
-                  <Link to="#"><p>Night tour</p></Link>
+                  <Link to="/nightday"><p>Night tour</p></Link>
                 </li>
               </ul>
             </div>

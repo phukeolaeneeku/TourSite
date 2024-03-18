@@ -4,6 +4,8 @@ import Details from "../user/components/homepage/Details";
 import Oneday from "../user/components/tourpage/Oneday";
 import Halfday from "../user/components/tourpage/Halfday"
 import Golf from "../user/components/tourpage/Golf"
+import Nightday from "../user/components/tourpage/Nightday"
+
 
 /* ============================== */
 import Login from '../user/components/login_register/Login';
@@ -21,6 +23,7 @@ const Links = () => {
                 <Route exact path="/oneday" Component={Oneday}/>
                 <Route exact path="/halfday" Component={Halfday}/>
                 <Route exact path="/golf" Component={Golf}/>
+                <Route exact path="/nightday" Component={Nightday}/>
 
                 {/*====================== */}
                 <Route exact path="/login" Component={Login}/>
