@@ -9,7 +9,7 @@ import paksong from "../../../img/paksong.jpg";
 import paksong2 from "../../../img/paksong2.jpg";
 import paksong3 from "../../../img/paksong3.jpg";
 
-function Paksong() {
+function HotelPaksong() {
   return (
     <>
       <Header />
@@ -99,4 +99,4 @@ function Paksong() {
   );
 }
 
-export default Paksong;
+export default HotelPaksong;

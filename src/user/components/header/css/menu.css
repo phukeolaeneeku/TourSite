@@ -47,7 +47,8 @@
     height: 20vh;
     position: absolute;
     border-radius: 3px;
-    background: #f2f2f2;
+    border: solid 1px #ccc;
+    background: #fff;
   }
   
   .dropdown-menu ul {

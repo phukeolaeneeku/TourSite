@@ -7,7 +7,7 @@ import { IoIosArrowBack } from "react-icons/io";
 import { IoStar } from "react-icons/io5";
 import siphandone3 from "../../../img/siphandone3.jpg";
 
-function Siphandone() {
+function HotelSiphandone() {
   return (
     <>
       <Header />
@@ -97,4 +97,4 @@ function Siphandone() {
   );
 }
 
-export default Siphandone;
+export default HotelSiphandone;

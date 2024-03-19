@@ -9,7 +9,7 @@ import hotel_pakse2 from "../../../img/hotel_pakse2.jpg";
 import hotel_pakse3 from "../../../img/hotel_pakse3.jpg";
 import hotel_pakse4 from "../../../img/hotel_pakse4.jpg";
 
-function Pakse() {
+function HotelPakse() {
   return (
     <>
       <Header />
@@ -99,4 +99,4 @@ function Pakse() {
   );
 }
 
-export default Pakse;
+export default HotelPakse;
