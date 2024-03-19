@@ -51,16 +51,16 @@ const Menu = () => {
                 <Link to="/" className="box-menu active">
                     <span className="iconMenuSpan"><HiOutlineHome/></span><span>Home</span>
                 </Link>
-                <Link to="/text" className="box-menu">
+                <Link to="/hotel" className="box-menu">
                     <span className="iconMenuSpan"><HiOutlineHome /></span><span>Home</span>
                 </Link>
-                <Link to="/order" className="box-menu">
+                <Link to="/" className="box-menu">
                     <span className="iconMenuSpan"><HiOutlineHome/></span><span>Home</span>
                 </Link>
-                <Link to="/cart" className="box-menu">
+                <Link to="/" className="box-menu">
                     <span className="iconMenuSpan"><HiOutlineHome/></span><span>Home</span>
                 </Link>
-                <Link to="/cart" className="box-menu">
+                <Link to="/" className="box-menu">
                     <span className="iconMenuSpan"><HiOutlineHome/></span><span>Home</span>
                 </Link>
             </div>

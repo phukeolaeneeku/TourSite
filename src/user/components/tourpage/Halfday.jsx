@@ -37,7 +37,10 @@ function Oneday() {
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                             </p>
-                            <p> $10 ￦15,000 </p>
+                            <div className="txt_oneday">
+                                <p className="price_number_one">$10</p>
+                                <p className="txt_price"> ￦15,000 </p>
+                            </div>
                             <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
                             <p>Review: 220</p>
                         </div>
@@ -53,7 +56,10 @@ function Oneday() {
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                             </p>
-                            <p> $10 ￦15,000 </p>
+                            <div className="txt_oneday">
+                                <p className="price_number_one">$10</p>
+                                <p className="txt_price"> ￦15,000 </p>
+                            </div>
                             <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vang Vieng</p>
                             <p>Review: 150</p>
                         </div>
@@ -69,7 +75,10 @@ function Oneday() {
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                             </p>
-                            <p> $10 ￦15,000 </p>
+                            <div className="txt_oneday">
+                                <p className="price_number_one">$10</p>
+                                <p className="txt_price"> ￦15,000 </p>
+                            </div>
                             <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
                             <p>Review: 200</p>
                         </div>

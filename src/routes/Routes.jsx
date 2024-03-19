@@ -6,6 +6,13 @@ import Halfday from "../user/components/tourpage/Halfday"
 import Golf from "../user/components/tourpage/Golf"
 import Nightday from "../user/components/tourpage/Nightday"
 
+import Hotel from "../user/components/hotelpage/Hotel";
+import Pakse from "../user/components/hotelpage/Pakse";
+import Paksong from "../user/components/hotelpage/Paksong";
+import Siphandone from "../user/components/hotelpage/Siphandone";
+
+import Restaurant from "../user/components/restaurantpage/Restaurant";
+
 
 /* ============================== */
 import Login from '../user/components/login_register/Login';
@@ -24,6 +31,13 @@ const Links = () => {
                 <Route exact path="/halfday" Component={Halfday}/>
                 <Route exact path="/golf" Component={Golf}/>
                 <Route exact path="/nightday" Component={Nightday}/>
+
+                <Route exact path="/hotel" Component={Hotel}/>
+                <Route exact path="/pakse" Component={Pakse}/>
+                <Route exact path="/paksong" Component={Paksong}/>
+                <Route exact path="/siphandone" Component={Siphandone}/>
+
+                <Route exact path="/restaurant" Component={Restaurant}/>
 
                 {/*====================== */}
                 <Route exact path="/login" Component={Login}/>

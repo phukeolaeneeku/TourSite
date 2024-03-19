@@ -43,7 +43,11 @@ const Homepage = () => {
               <p>
                 We will conveniently transport you from the airport to your hotel.
               </p>
-              <p> $10 ￦15,000 </p>
+              <div className="price">
+                <p className="price_num">$10</p>
+                <p> ￦15,000 </p>
+              </div>
+              
             </div>
           </div>
           <div className="group_itemBox">
@@ -55,7 +59,10 @@ const Homepage = () => {
               <p>
                 We will conveniently transport you from the airport to your hotel.
               </p>
-              <p> $10 ￦15,000 </p>
+              <div className="price">
+                <p className="price_num">$10</p>
+                <p> ￦15,000 </p>
+              </div>
             </div>
           </div>
          
@@ -66,7 +73,10 @@ const Homepage = () => {
             <div className="txtOFproduct">
               <h4> Vientiane City Tour </h4>
               <p>You can travel around Vientiane comfortably.</p>
-              <p> $19 ￦30,000 </p>
+              <div className="price">
+                <p className="price_num">$10</p>
+                <p> ￦15,000 </p>
+              </div>
             </div>
           </div>
           <div className="group_itemBox">
@@ -76,7 +86,10 @@ const Homepage = () => {
             <div className="txtOFproduct">
               <h4>Buggy Tour Vang Vieng</h4>
               <p>Take a buggy ride around Vang Vieng</p>
-              <p> $35 ￦50,000 </p>
+              <div className="price">
+                <p className="price_num">$10</p>
+                <p> ￦15,000 </p>
+              </div>
             </div>
           </div>
         </div>
@@ -97,7 +110,10 @@ const Homepage = () => {
                 <p>
                   We will take you to Kuang Si Falls safely and comfortably.
                 </p>
-                <p>$30 ￦40,000</p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
               </div>
             </div>
             <div className="group_itemBox">
@@ -109,7 +125,10 @@ const Homepage = () => {
                 <p>
                   We will make good memories in the beautiful Vang Vieng sky.
                 </p>
-                <p>$50 ￦90,000</p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
               </div>
             </div>
             <div className="group_itemBox">
@@ -121,7 +140,10 @@ const Homepage = () => {
                 <p>
                   One-day pack that you can enjoy all day in Vang Vieng
                 </p>
-                <p>$25 ￦35,000</p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
               </div>
             </div>
           </div>
@@ -143,7 +165,10 @@ const Homepage = () => {
                 <p>
                   A unique experience that includes kayaking and cave tubing.
                 </p>
-                <p>$10 ￦25,000</p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
               </div>
             </div>
             <div className="group_itemBox">
@@ -155,7 +180,10 @@ const Homepage = () => {
                 <p>
                   Enjoy kayaking and swim in the Blue Lagoon!
                 </p>
-                <p>$15 ￦20,000</p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
               </div>
             </div>
             <div className="group_itemBox">
@@ -167,7 +195,10 @@ const Homepage = () => {
                 <p>
                   Fly over Vang Vieng and see its beauty!
                 </p>
-                <p>$55 ￦95,000</p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
               </div>
             </div>
           </div>
@@ -189,7 +220,10 @@ const Homepage = () => {
                 <p>
                   Good value hotel in Vang Vieng
                 </p>
-                <p>$50 ￦75,000</p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
               </div>
             </div>
             <div className="group_itemBox">
@@ -201,7 +235,10 @@ const Homepage = () => {
                 <p>
                 Good value hotel in Vang Vieng
                 </p>
-                <p>$25 ￦30,000</p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
               </div>
             </div>
             <div className="group_itemBox">
@@ -213,7 +250,10 @@ const Homepage = () => {
                 <p>
                   Good value hotel in Vang Vieng
                 </p>
-                <p>$55 ￦85,000</p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
               </div>
             </div>
             
@@ -236,7 +276,10 @@ const Homepage = () => {
                 <p>
                   Good value hotel in Vang Vieng
                 </p>
-                <p>$50 ￦75,000</p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
               </div>
             </div>
             <div className="group_itemBox">
@@ -248,7 +291,10 @@ const Homepage = () => {
                 <p>
                 Good value hotel in Vang Vieng
                 </p>
-                <p>$25 ￦30,000</p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
               </div>
             </div>
             <div className="group_itemBox">
@@ -260,7 +306,10 @@ const Homepage = () => {
                 <p>
                   Good value hotel in Vang Vieng
                 </p>
-                <p>$55 ￦85,000</p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
               </div>
             </div>
           </div>
@@ -325,7 +374,10 @@ const Homepage = () => {
                 <p>
                   My Dream Boutique Resort
                 </p>
-                <p>$50 ￦95,000</p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
               </div>
             </div>
             <div className="group_itemBox">
@@ -337,7 +389,10 @@ const Homepage = () => {
                 <p>
                 We will take you comfortably between Vientiane and Vang Vieng.
                 </p>
-                <p>$55 ￦85,000</p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
               </div>
             </div>
             <div className="group_itemBox">
@@ -349,6 +404,10 @@ const Homepage = () => {
                 <p>
                   Discover a variety of beers from around the world!
                 </p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
               </div>
             </div>
           </div>

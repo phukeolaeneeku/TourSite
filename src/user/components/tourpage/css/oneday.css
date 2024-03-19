@@ -101,6 +101,23 @@ body {
     color: #3d76fb;
 }
 
+.txt_oneday{
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+.txt_price{
+    margin-left: -1.2rem;
+}
+.txt_price:hover{
+    color: #3d76fb;
+    transition: 0.5s;
+}
+.price_number_one{
+    color: #fb4d3d;
+    font-weight: 600;
+}
+
 
 
 /*===== Responsive =====*/
@@ -139,5 +156,11 @@ body {
         display: grid;
         grid-template-columns: 1fr;
         gap: 1rem;
+    }
+    .container_des{
+        width: 100%;
+    }
+    .container_des p{
+        font-size: 20px;
     }
 }

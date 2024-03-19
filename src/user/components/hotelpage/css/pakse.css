@@ -1,4 +1,4 @@
-.containnergolf_body {
+.containner_Hotel_pakse {
     width: 80%;
     margin: 7rem auto 0 auto;
 }
@@ -6,7 +6,7 @@ body {
     background-color: #FFF;
 }
 
-.back_icons_back_golf {
+.back_icons_back_pakse {
     display: flex;
     font-size: 20px;
     gap: 0.5rem;
@@ -16,43 +16,43 @@ body {
     margin-bottom: 2rem;
 }
 
-.content_itemGolf{
+.content_itemPakse{
     width: 90%;
     margin: auto;
     margin-top: -3rem;
 }
 
-.container_head {
+.container_head_pakse {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 3rem 0rem;
 }
 
-.container_head h3 {
+.container_head_pakse h3 {
     font-size: 23px;
     font-family: 600;
 }
 
-.txt_head{
+.txt_head_pakse{
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.span_Style {
+.span_Style_pakse {
     width: 20px;
     height: 40px;
     background-color: #3d76fb;
     border-radius: 4px;
 }
-.content_image_Products {
+.content_image_Hotel_pakse {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
 }
 
-.group_item_Box {
+.group_item_Box_pakse {
     width: 100%;
     height: auto;
     display: flex;
@@ -64,32 +64,32 @@ body {
     overflow: hidden;
 }
 
-.group_item_Box:hover {
+.group_item_Box_pakse:hover {
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 
-.group_item_Box .image {
+.group_item_Box_pakse .image {
     width: 345px;
     height: auto;
     overflow: hidden;
 }
 
-.group_item_Box .image img {
+.group_item_Box_pakse .image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    padding: 7px;
+    padding: 10px;
 }
 
-.txt_desc {
+.txt_desc_pakse {
     display: flex;
-    padding: 10px 10px;
+    padding: 12px 12px;
     flex-direction: column;
     text-align: start;
     gap: 16px;
     list-style: none;
 }
-.txt_desc h3:hover{
+.txt_desc_pakse h3:hover{
     color: #3d76fb;
     transition: 0.5s;
 }
@@ -109,27 +109,41 @@ body {
     font-weight: 600;
 }
 
+.box_icon_star{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+#icon_star{
+    font-size: 20px;
+    color: #ffcd06;
+}
+
 
 /* Small Screens */
 
 @media (max-width: 768px) {
-    .containnergolf_body,
-    .content_itemGolf {
+    .containner_Hotel_pakse,
+    .content_itemPakse {
       width: 90%;
       margin: 0 auto;
       margin-top: 6.5rem;
     }
+
+    .back_icons_back_pakse{
+        margin-left: 1px;
+    }
   
-    .container_head {
+    .container_head_pakse {
       padding: 2rem 0rem;
     }
   
-    .content_image_Products {
+    .content_image_Hotel_pakse {
       grid-template-columns: 1fr;
       gap: 0.8rem;
     }
   
-    .group_item_Box {
+    .group_item_Box_pakse {
       width: 100%;
       overflow: hidden;
     }
@@ -137,23 +151,23 @@ body {
         margin-left: 8px;
     }
   
-    .group_item_Box .image {
+    .group_item_Box_pakse .image {
       width: 100%;
       height: auto;
     }
-    .group_item_Box .image {
+    .group_item_Box_pakse .image {
         width: 300px;
         height: auto;
         overflow: hidden;
     }
     
-    .group_item_Box .image img {
+    .group_item_Box_pakse .image img {
         width: 100%;
         height: 100%;
         object-fit: contain;
     }
 
-    .content_itemGolf {
+    .content_itemPakse {
         width: 90%;
         margin-top: -2.5rem;
     }

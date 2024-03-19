@@ -25,9 +25,9 @@ function Details() {
                 </div>
 
                 <div className="txtContentproduct">
-                  <h2 className="txt_nameP">Vientiane Airport Pickup Service</h2>
+                  <h1>Vientiane Airport Pickup Service</h1>
                   <p className="txt_description">We will conveniently transport you from the airport to your hotel.</p>
-                  <p className="money_txt">$10 ￦15,000 </p>
+                  <div className="price"><p className="price_num">$10</p><p > ￦15,000 </p></div>
                   <p className="txt_review">Review:12.300</p>
                 </div>
             </div>

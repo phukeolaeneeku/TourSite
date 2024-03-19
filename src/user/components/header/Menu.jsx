@@ -42,7 +42,7 @@ const Header = () => {
   return (
     <div className="navbar">
       <div className="menu">
-        <div
+        <Link to="/"
           className="list-menu"
           onMouseEnter={handleTourMouseEnter}
           onMouseLeave={handleTourMouseLeave}
@@ -67,8 +67,8 @@ const Header = () => {
               </ul>
             </div>
           )}
-        </div>
-        <div
+        </Link>
+        <Link to="/hotel"
           className="list-menu"
           onMouseEnter={handleHotelMouseEnter}
           onMouseLeave={handleHotelMouseLeave}
@@ -78,19 +78,19 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li>
-                  <Link to="#"><p>Pakse</p></Link>
+                  <Link to="/pakse"><p>Pakse</p></Link>
                 </li>
                 <li>
-                  <Link to="#"><p>Paksong</p></Link>
+                  <Link to="/paksong"><p>Paksong</p></Link>
                 </li>
                 <li>
-                  <Link to="#"><p>Siphandone</p></Link>
+                  <Link to="/siphandone"><p>Siphandone</p></Link>
                 </li>
               </ul>
             </div>
           )}
-        </div>
-        <div
+        </Link>
+        <Link to="/restaurant"
           className="list-menu"
           onMouseEnter={handleRestaurantMouseEnter}
           onMouseLeave={handleRestaurantMouseLeave}
@@ -111,7 +111,7 @@ const Header = () => {
               </ul>
             </div>
           )}
-        </div>
+        </Link>
         <div
           className="list-menu"
           onMouseEnter={handleTicketMouseEnter}

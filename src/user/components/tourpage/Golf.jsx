@@ -12,60 +12,69 @@ function Oneday() {
   return (
     <>
       <Header />
-        <div className="containnergolf_body">
-          <Link to="/" className="back_icons_back_golf">
-            <IoIosArrowBack />
-            <p>Back</p>
-          </Link>
-          <div className="content_itemGolf">
-            <div className="container_head">
-              <h3 className="txt_head">
-                <span className="span_Style"></span>Golf
-              </h3>
+      <div className="containnergolf_body">
+        <Link to="/" className="back_icons_back_golf">
+          <IoIosArrowBack />
+          <p>Back</p>
+        </Link>
+        <div className="content_itemGolf">
+          <div className="container_head">
+            <h3 className="txt_head">
+              <span className="span_Style"></span>Golf
+            </h3>
+          </div>
+          <div className="content_image_Products">
+            <div className="group_item_Box">
+              <Link to="/details" className="image">
+                <img src={golf} alt="img" />
+              </Link>
+              <div className="txt_desc">
+                <h3>Vientiane</h3>
+                <p>
+                  We will take you to Kuang Si Falls safely and comfortably.
+                </p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
+                </div>
+                <p>Review: 200</p>
+              </div>
             </div>
-            <div className="content_image_Products">
-              <div className="group_item_Box">
-                <Link to="/details" className="image">
-                  <img src={golf} alt="img" /> 
-                </Link>
-                <div className="txt_desc">
-                  <h3>Vientiane</h3>
-                  <p>
-                    We will take you to Kuang Si Falls safely and comfortably.
-                  </p>
-                  <p>$30 ￦40,000</p>
-                  <p>Review: 200</p>
-                </div>
+            <div className="group_item_Box">
+              <div className="image">
+                <img src={golf2} alt="img" />
               </div>
-              <div className="group_item_Box">
-                <div className="image">
-                  <img src={golf2} alt="img" />
+              <div className="txt_desc">
+                <h3>Vientiane</h3>
+                <p>
+                  We will take you to Kuang Si Falls safely and comfortably.
+                </p>
+                <div className="price">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
                 </div>
-                <div className="txt_desc">
-                  <h3>Vientiane</h3>
-                  <p>
-                    We will take you to Kuang Si Falls safely and comfortably.
-                  </p>
-                  <p>$30 ￦40,000</p>
-                  <p>Review: 200</p>
-                </div>
+                <p>Review: 200</p>
               </div>
-              <div className="group_item_Box">
-                <div className="image">
-                  <img src={golf4} alt="img" />
+            </div>
+            <div className="group_item_Box">
+              <div className="image">
+                <img src={golf4} alt="img" />
+              </div>
+              <div className="txt_desc">
+                <h3>Vientiane</h3>
+                <p>
+                  We will take you to Kuang Si Falls safely and comfortably.
+                </p>
+                <div className="txt_sprice">
+                  <p className="price_num">$10</p>
+                  <p> ￦15,000 </p>
                 </div>
-                <div className="txt_desc">
-                  <h3>Vientiane</h3>
-                  <p>
-                    We will take you to Kuang Si Falls safely and comfortably.
-                  </p>
-                  <p>$30 ￦40,000</p>
-                  <p>Review: 200</p>
-                </div>
+                <p>Review: 200</p>
               </div>
             </div>
           </div>
         </div>
+      </div>
       <Footer />
     </>
   );
