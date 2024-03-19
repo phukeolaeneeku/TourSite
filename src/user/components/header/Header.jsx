@@ -3,6 +3,7 @@ import "./css/header.css";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { BiLogIn } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { AiFillDashboard } from "react-icons/ai";
 import tour_logo from "../../../img/tour_logo.gif";
 
 const Header = () => {
@@ -34,12 +35,11 @@ const Header = () => {
               </form>
             </div>
             <div className="icon_account_login">
-              <div>
-                <Link to="/login" className="head_colorr">
-                  <p>Login</p>
-                  <BiLogIn className="login" />
-                </Link>
-              </div>
+              <Link to="#"><AiFillDashboard id="icon_dashboard"/></Link>
+              <Link to="/login" className="head_colorr">
+                <p>Login</p>
+                <BiLogIn className="login" />
+              </Link>
             </div>
           </div>
           
