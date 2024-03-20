@@ -1,5 +1,6 @@
 import "./css/homepage.css";
 import Header from "../header/Header";
+import Menu from "../header/Menu"
 import patusai from "../../../img/patusai.jpg";
 import thadluang from "../../../img/thadluang.jpg";
 import motorcycle from "../../../img/motorcycle.jpg";
@@ -27,6 +28,7 @@ const Homepage = () => {
   return (
     <div>
       <Header />
+      <Menu />
       <section id="container_product">
         <div className="productHead_content">
           <h1 className="htxthead">

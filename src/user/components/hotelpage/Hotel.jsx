@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../menu/Footer";
 import Header from "../header/Header";
+import Menu from "../header/Menu"
 import "./css/hotel.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { SiGooglemaps } from "react-icons/si";
@@ -16,6 +17,7 @@ function Hotel() {
   return (
     <>
         <Header />
+        <Menu />
         <div className="containnerHotel_body">
             <Link to="/" className="back_icons_back_hotel">
                 <IoIosArrowBack/>

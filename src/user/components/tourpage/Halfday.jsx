@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../menu/Footer";
 import Header from "../header/Header";
+import Menu from "../header/Menu"
 import "./css/oneday.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { SiGooglemaps } from "react-icons/si";
@@ -14,6 +15,7 @@ function Oneday() {
   return (
     <>
         <Header />
+        <Menu />
         <div className="containnerOneday_body">
             <Link to="/" className="back_icons_back_one">
                 <IoIosArrowBack/>

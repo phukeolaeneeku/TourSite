@@ -9,6 +9,7 @@
     position: fixed;
 }
 
+
 .headWithBox {
     width: 80%;
     display: flex;
@@ -43,6 +44,10 @@
 #icon_dashboard:hover{
     color: #165cff;
     transition: 0.5s;
+}
+
+.kdsjfpwjgkpodgnhbojfogftohj{
+    margin-top: 5rem;
 }
 
 .headMenu {
@@ -84,6 +89,8 @@
     display: flex;
     justify-content: space-between;
 }
+
+
 
 /* Search bar */
 .ulHead_box .searchBarForm {
@@ -140,7 +147,6 @@
 #banner div {
     margin-top: 2rem;
 }
-
 
 
 

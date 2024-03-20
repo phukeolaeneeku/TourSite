@@ -100,13 +100,13 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li>
-                  <Link to="#"><p>Pakse</p></Link>
+                  <Link to="/pakse"><p>Pakse</p></Link>
                 </li>
                 <li>
-                  <Link to="#"><p>Paksong</p></Link>
+                  <Link to="/paksong"><p>Paksong</p></Link>
                 </li>
                 <li>
-                  <Link to="#"><p>Siphandone</p></Link>
+                  <Link to="/siphandone"><p>Siphandone</p></Link>
                 </li>
               </ul>
             </div>
@@ -122,13 +122,13 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li>
-                  <Link to="#"><p>Airplane</p></Link>
+                  <Link to="/airplane"><p>Airplane</p></Link>
                 </li>
                 <li>
-                  <Link to="#"><p>Rent car</p></Link>
+                  <Link to="/rent"><p>Rent car</p></Link>
                 </li>
                 <li>
-                  <Link to="#"><p>entertainment</p></Link>
+                  <Link to="/entertainment"><p>Entertainment</p></Link>
                 </li>
                 <li>
                   <Link to="#"><p>Massage</p></Link>

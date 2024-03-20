@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../menu/Footer";
 import Header from "../header/Header";
+import Menu from "../header/Menu"
 import "./css/pakse.css";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoStar } from "react-icons/io5";
@@ -13,6 +14,7 @@ function HotelPaksong() {
   return (
     <>
       <Header />
+      <Menu />
         <div className="containner_Hotel_pakse">
             <Link to="/" className="back_icons_back_pakse">
               <IoIosArrowBack />

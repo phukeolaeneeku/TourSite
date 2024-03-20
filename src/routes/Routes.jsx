@@ -12,6 +12,12 @@ import HotelPaksong from "../user/components/hotelpage/HotelPaksong";
 import HotelSiphandone from "../user/components/hotelpage/HotelSiphandone";
 
 import Restaurant from "../user/components/restaurantpage/Restaurant";
+import Pakse from "../user/components/restaurantpage/Pakse";
+import Paksong from "../user/components/restaurantpage/Paksong"
+import Siphandone from "../user/components/restaurantpage/Siphandone"
+
+import Airplane from "../user/components/ticketpage/Airplane";
+import Rent from "../user/components/ticketpage/Rent";
 
 
 /* ============================== */
@@ -38,7 +44,13 @@ const Links = () => {
                 <Route exact path="/hotelsiphandone" Component={HotelSiphandone}/>
 
                 <Route exact path="/restaurant" Component={Restaurant}/>
+                <Route exact path="/pakse" Component={Pakse}/>
+                <Route exact path="/paksong" Component={Paksong}/>
+                <Route exact path="/siphandone" Component={Siphandone}/>
 
+                <Route exact path="/airplane" Component={Airplane}/>
+                <Route exact path="/rent" Component={Rent}/>
+                
                 {/*====================== */}
                 <Route exact path="/login" Component={Login}/>
                 <Route exact path="/register" Component={Register}/>

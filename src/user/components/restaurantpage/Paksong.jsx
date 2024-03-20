@@ -7,8 +7,10 @@ import "./css/restaurant.css";
 import { IoIosArrowBack } from "react-icons/io";
 import recommended2 from "../../../img/recommended2.jpg";
 import resort3 from "../../../img/resort3.jpg";
+import Restaurant_paksong from "../../../img/Restaurant_paksong.jpg"
 
-function Restaurant() {
+
+function Pakse() {
   return (
     <>
       <Header />
@@ -21,13 +23,13 @@ function Restaurant() {
         <div className="content_itemRestaurant">
             <div className="container_head_restaurant">
                 <h3 className="txt_head_restaurant">
-                  <span className="span_Style_restaurant"></span>Restaurant
+                  <span className="span_Style_restaurant"></span>Paksong
                 </h3>
             </div>
             <div className="content_image_restaurant">
                 <div className="group_item_Box_restaurant">
                   <Link to="/details" className="image">
-                    <img src={recommended2} alt="img" />
+                    <img src={Restaurant_paksong} alt="img" />
                   </Link>
                   <div className="txt_desc_restaurant">
                     <h3>Pakse</h3>
@@ -66,4 +68,4 @@ function Restaurant() {
   );
 }
 
-export default Restaurant;
+export default Pakse;

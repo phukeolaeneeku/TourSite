@@ -9,12 +9,14 @@ import { SiGooglemaps } from "react-icons/si";
 import patusai from "../../../img/patusai.jpg";
 import thadluang from "../../../img/thadluang.jpg";
 import motorcycle from "../../../img/motorcycle.jpg";
+import Menu from "../header/Menu";
 
 
 function Oneday() {
   return (
     <>
         <Header />
+        <Menu />
         <div className="containnerOneday_body">
             <Link to="/" className="back_icons_back_one">
                 <IoIosArrowBack/>

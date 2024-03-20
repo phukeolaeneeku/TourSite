@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../menu/Footer";
 import Header from "../header/Header";
+import Menu from "../header/Menu";
 import "./css/golf.css";
 import { IoIosArrowBack } from "react-icons/io";
 import golf from "../../../img/golf.png";
@@ -12,6 +13,7 @@ function Oneday() {
   return (
     <>
       <Header />
+      <Menu />
       <div className="containnergolf_body">
         <Link to="/" className="back_icons_back_golf">
           <IoIosArrowBack />
