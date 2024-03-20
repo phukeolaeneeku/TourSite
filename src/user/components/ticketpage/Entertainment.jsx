@@ -50,7 +50,7 @@ function Massage() {
                   </div>
                   <div className="group_item_Box_airplane">
                     <Link to="/details" className="image">
-                      <img src={Entertainment} alt="img" />
+                      <img src={Entertainment2} alt="img" />
                     </Link>
                     <div className="txt_desc_airplane">
                       <h3>Entertainment in Vientaine</h3>
