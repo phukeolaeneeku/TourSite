@@ -18,6 +18,7 @@ import Siphandone from "../user/components/restaurantpage/Siphandone"
 
 import Airplane from "../user/components/ticketpage/Airplane";
 import Rent from "../user/components/ticketpage/Rent";
+import Entertainment from "../user/components/ticketpage/Entertainment"
 import Massage from "../user/components/ticketpage/Massage";
 
 
@@ -51,6 +52,7 @@ const Links = () => {
 
                 <Route exact path="/airplane" Component={Airplane}/>
                 <Route exact path="/rent" Component={Rent}/>
+                <Route exact path="/entertainment" Component={Entertainment}/>
                 <Route exact path="/massage" Component={Massage}/>
                 
                 {/*====================== */}

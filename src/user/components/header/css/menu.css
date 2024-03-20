@@ -67,4 +67,10 @@
   .navbar a {
     text-decoration: none;
   }
+
+  @media screen and (max-width: 431px) {
+    .navbar{
+      display: none;
+    }
+}
  

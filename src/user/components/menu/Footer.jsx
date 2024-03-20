@@ -52,16 +52,13 @@ const Menu = () => {
                     <span className="iconMenuSpan"><HiOutlineHome/></span><span>Home</span>
                 </Link>
                 <Link to="/hotel" className="box-menu">
-                    <span className="iconMenuSpan"><HiOutlineHome /></span><span>Home</span>
+                    <span className="iconMenuSpan"><HiOutlineHome /></span><span>Hotel</span>
                 </Link>
-                <Link to="/" className="box-menu">
-                    <span className="iconMenuSpan"><HiOutlineHome/></span><span>Home</span>
+                <Link to="/restaurant" className="box-menu">
+                    <span className="iconMenuSpan"><HiOutlineHome/></span><span>Restaurant</span>
                 </Link>
-                <Link to="/" className="box-menu">
-                    <span className="iconMenuSpan"><HiOutlineHome/></span><span>Home</span>
-                </Link>
-                <Link to="/" className="box-menu">
-                    <span className="iconMenuSpan"><HiOutlineHome/></span><span>Home</span>
+                <Link to="#" className="box-menu">
+                    <span className="iconMenuSpan"><HiOutlineHome/></span><span>Ticket</span>
                 </Link>
             </div>
 

@@ -16,7 +16,7 @@ function HotelPakse() {
       <Header />
       <Menu />
       <div className="containner_Hotel_pakse">
-        <Link to="/" className="back_icons_back_pakse">
+        <Link to="/hotel" className="back_icons_back_pakse">
           <IoIosArrowBack />
           <p>Back</p>
         </Link>

@@ -78,6 +78,10 @@ body {
     object-fit: contain;
     border-radius: 5px;
 }
+.container_image:hover img {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
 .container_des{
     width: 70%;
 }

@@ -111,6 +111,10 @@ a {
     object-fit: contain;
     padding: 15px;
 }
+.group_itemBox .img:hover img{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
 
 .txtOFproduct {
     display: flex;
