@@ -7,6 +7,7 @@ const Header = () => {
   const [hotelHovered, setHotelHovered] = useState(false);
   const [restaurantHovered, setRestaurantHovered] = useState(false);
   const [ticketHovered, setTicketHovered] = useState(false);
+  const [ticketGuide, setTicketGuide] = useState(false);
 
   const handleTourMouseEnter = () => {
     setTourHovered(true);
@@ -37,6 +38,15 @@ const Header = () => {
 
   const handleTicketMouseLeave = () => {
     setTicketHovered(false);
+  };
+
+
+  const handleGuideMouseEnter = () => {
+    setTicketGuide(true);
+  };
+
+  const handleGuideMouseLeave = () => {
+    setTicketGuide(false);
   };
 
   return (
@@ -131,14 +141,31 @@ const Header = () => {
                   <Link to="/entertainment"><p>Entertainment</p></Link>
                 </li>
                 <li>
-                  <Link to="#"><p>Massage</p></Link>
+                  <Link to="/massage"><p>Massage</p></Link>
                 </li>
               </ul>
             </div>
           )}
         </div>
-        <div className="btn-menu">
-          <Link to="#">GUID</Link>
+
+        <div
+          className="list-menu"
+          onMouseEnter={handleGuideMouseEnter}
+          onMouseLeave={handleGuideMouseLeave}
+        >
+          <div className="btn-menu">GUIDE</div>
+          {ticketGuide && (
+            <div className="dropdown-menu">
+              <ul>
+                <li>
+                  <Link to="#"><p>Korean</p></Link>
+                </li>
+                <li>
+                  <Link to="#"><p>Laotian</p></Link>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>

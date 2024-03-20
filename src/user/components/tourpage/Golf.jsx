@@ -31,13 +31,13 @@ function Oneday() {
                 <img src={golf} alt="img" />
               </Link>
               <div className="txt_desc">
-                <h3>Vientiane</h3>
+                <h3>Laos Golf Pack 3 Nights 5 Days</h3>
                 <p>
-                  We will take you to Kuang Si Falls safely and comfortably.
+                  A city golf trip in Vientiane, the capital of Laos
                 </p>
                 <div className="price">
-                  <p className="price_num">$10</p>
-                  <p> ￦15,000 </p>
+                  <p className="price_num">$400</p>
+                  <p> ￦450,100 </p>
                 </div>
                 <p>Review: 200</p>
               </div>
@@ -47,13 +47,13 @@ function Oneday() {
                 <img src={golf2} alt="img" />
               </div>
               <div className="txt_desc">
-                <h3>Vientiane</h3>
+                <h3>Laos Golf Pack 4 nights and 6 days</h3>
                 <p>
-                  We will take you to Kuang Si Falls safely and comfortably.
+                  City golf trip in Vientiane
                 </p>
                 <div className="price">
-                  <p className="price_num">$10</p>
-                  <p> ￦15,000 </p>
+                  <p className="price_num">$600</p>
+                  <p> ￦800,000 </p>
                 </div>
                 <p>Review: 200</p>
               </div>
@@ -63,13 +63,13 @@ function Oneday() {
                 <img src={golf4} alt="img" />
               </div>
               <div className="txt_desc">
-                <h3>Vientiane</h3>
+                <h3>Laos Golf Pack 2 Nights 3 Days</h3>
                 <p>
-                  We will take you to Kuang Si Falls safely and comfortably.
+                  A city golf trip in Vientiane, the capital of Laos
                 </p>
                 <div className="txt_sprice">
-                  <p className="price_num">$10</p>
-                  <p> ￦15,000 </p>
+                  <p className="price_num">$150</p>
+                  <p> ￦350,000 </p>
                 </div>
                 <p>Review: 200</p>
               </div>

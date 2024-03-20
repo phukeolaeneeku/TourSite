@@ -73,6 +73,10 @@ body {
     height: auto;
     overflow: hidden;
 }
+.group_item_Box_airplane .image:hover img {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
 
 .group_item_Box_airplane .image img {
     width: 100%;
