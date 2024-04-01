@@ -19,6 +19,7 @@ function Airplane() {
                 <IoIosArrowBack />
                 <p>Back</p>
               </Link>
+
               <div className="content_itemAirplane">
                 <div className="container_head_airplane">
                   <h3 className="txt_head_airplane">

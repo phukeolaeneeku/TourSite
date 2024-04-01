@@ -27,6 +27,7 @@
     align-items: center;
     font-size: 1.3rem;
 }
+
 .storename img{
     width: 100%;
     height: 65px;
@@ -38,7 +39,7 @@
     align-items: center;
 }
 #icon_dashboard{
-    font-size: 28px;
+    font-size: 25px;
     color: #999;
 }
 #icon_dashboard:hover{
