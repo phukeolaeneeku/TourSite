@@ -8,6 +8,7 @@ const Header = () => {
   const [hotelHovered, setHotelHovered] = useState(false);
   const [restaurantHovered, setRestaurantHovered] = useState(false);
   const [ticketHovered, setTicketHovered] = useState(false);
+  const [packageHovered, setPackageHovered] = useState(false);
   const [ticketGuide, setTicketGuide] = useState(false);
 
   const handleTourMouseEnter = () => {
@@ -17,18 +18,18 @@ const Header = () => {
   const handleTourMouseLeave = () => {
     setTourHovered(false);
   };
-
   const handleHotelMouseEnter = () => {
     setHotelHovered(true);
   };
 
+
   const handleHotelMouseLeave = () => {
     setHotelHovered(false);
   };
-
   const handleRestaurantMouseEnter = () => {
     setRestaurantHovered(true);
   };
+
 
   const handleRestaurantMouseLeave = () => {
     setRestaurantHovered(false);
@@ -36,16 +37,22 @@ const Header = () => {
   const handleTicketMouseEnter = () => {
     setTicketHovered(true);
   };
-
   const handleTicketMouseLeave = () => {
     setTicketHovered(false);
+  };
+
+
+  const handlePackageMouseEnter = () => {
+    setPackageHovered(true);
+  };
+  const handlePackageMouseLeave = () => {
+    setPackageHovered(false);
   };
 
 
   const handleGuideMouseEnter = () => {
     setTicketGuide(true);
   };
-
   const handleGuideMouseLeave = () => {
     setTicketGuide(false);
   };
@@ -165,6 +172,28 @@ const Header = () => {
                 <div className="hr"></div>
                 <li className="menu_inline">
                   <Link to="/massage"><p className="txtP">Massage</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
+        <div
+          className="list-menu"
+          onMouseEnter={handlePackageMouseEnter}
+          onMouseLeave={handlePackageMouseLeave}
+        >
+          <div className="btn-menu">PACKAGE</div>
+          {packageHovered && (
+            <div className="dropdown-menu">
+              <ul>
+                <li className="menu_inline">
+                  <Link to="#"><p className="txtP">3 Days 2 Nights</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                </li>
+                <div className="hr"></div>
+                <li className="menu_inline">
+                  <Link to="#"><p className="txtP">5 Days 4 Nights</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
               </ul>
