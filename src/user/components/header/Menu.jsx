@@ -1,6 +1,7 @@
 import "./css/menu.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Header = () => {
   const [tourHovered, setTourHovered] = useState(false);
@@ -52,7 +53,7 @@ const Header = () => {
   return (
     <div className="navbar">
       <div className="menu">
-        <Link to="/"
+        <div
           className="list-menu"
           onMouseEnter={handleTourMouseEnter}
           onMouseLeave={handleTourMouseLeave}
@@ -61,24 +62,30 @@ const Header = () => {
           {tourHovered && (
             <div className="dropdown-menu">
               <ul>
-                <li>
-                  
+                <li className="menu_inline">
                   <Link to="/oneday"><p>One day tour</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
-                <li>
-                <Link to="/halfday"><p>Half day tour</p></Link>
+                <div className="hr"></div>
+                <li className="menu_inline">
+                  <Link to="/halfday"><p>Half day tour</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
-                <li>
-                <Link to="/golf"><p>Golf</p></Link>
+                <div className="hr"></div>
+                <li className="menu_inline">
+                  <Link to="/golf"><p>Golf</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
-                <li>
+                <div className="hr"></div>
+                <li className="menu_inline">
                   <Link to="/nightday"><p>Night tour</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
               </ul>
             </div>
           )}
-        </Link>
-        <Link to="/hotel"
+        </div>
+        <div
           className="list-menu"
           onMouseEnter={handleHotelMouseEnter}
           onMouseLeave={handleHotelMouseLeave}
@@ -87,20 +94,25 @@ const Header = () => {
           {hotelHovered && (
             <div className="dropdown-menu">
               <ul>
-                <li>
+                <li className="menu_inline">
                   <Link to="/hotelpakse"><p>Pakse</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
-                <li>
+                <div className="hr"></div>
+                <li className="menu_inline">
                   <Link to="/hotelpaksong"><p>Paksong</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
-                <li>
+                <div className="hr"></div>
+                <li className="menu_inline">
                   <Link to="/hotelsiphandone"><p>Siphandone</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
               </ul>
             </div>
           )}
-        </Link>
-        <Link to="/restaurant"
+        </div>
+        <div
           className="list-menu"
           onMouseEnter={handleRestaurantMouseEnter}
           onMouseLeave={handleRestaurantMouseLeave}
@@ -109,19 +121,24 @@ const Header = () => {
           {restaurantHovered && (
             <div className="dropdown-menu">
               <ul>
-                <li>
+                <li className="menu_inline">
                   <Link to="/pakse"><p>Pakse</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
-                <li>
+                <div className="hr"></div>
+                <li className="menu_inline">
                   <Link to="/paksong"><p>Paksong</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
-                <li>
+                <div className="hr"></div>
+                <li className="menu_inline">
                   <Link to="/siphandone"><p>Siphandone</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
               </ul>
             </div>
           )}
-        </Link>
+        </div>
         <div
           className="list-menu"
           onMouseEnter={handleTicketMouseEnter}
@@ -131,17 +148,24 @@ const Header = () => {
           {ticketHovered && (
             <div className="dropdown-menu">
               <ul>
-                <li>
+                <li className="menu_inline">
                   <Link to="/airplane"><p>Airplane</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
-                <li>
+                <div className="hr"></div>
+                <li className="menu_inline">
                   <Link to="/rent"><p>Rent car</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
-                <li>
+                <div className="hr"></div>
+                <li className="menu_inline">
                   <Link to="/entertainment"><p>Entertainment</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
-                <li>
+                <div className="hr"></div>
+                <li className="menu_inline">
                   <Link to="/massage"><p>Massage</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
               </ul>
             </div>
@@ -157,11 +181,14 @@ const Header = () => {
           {ticketGuide && (
             <div className="dropdown-menu">
               <ul>
-                <li>
+                <li className="menu_inline">
                   <Link to="#"><p>Korean</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
-                <li>
+                <div className="hr"></div>
+                <li className="menu_inline">
                   <Link to="#"><p>Laotian</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
               </ul>
             </div>

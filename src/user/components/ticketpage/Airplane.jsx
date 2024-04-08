@@ -4,7 +4,6 @@ import Footer from "../menu/Footer";
 import Header from "../header/Header";
 import Menu from "../header/Menu";
 import "./css/airplane.css";
-import { IoIosArrowBack } from "react-icons/io";
 import airplane from "../../../img/airplane.jpg";
 import airplane1 from "../../../img/airplane1.jpg";
 import airplane2 from "../../../img/airplane2.jpg";
@@ -15,10 +14,6 @@ function Airplane() {
         <Header />
         <Menu />
             <div className="containner_airplane">
-              <Link to="/" className="back_icons_back_airpane">
-                <IoIosArrowBack />
-                <p>Back</p>
-              </Link>
 
               <div className="content_itemAirplane">
                 <div className="container_head_airplane">

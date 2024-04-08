@@ -15,10 +15,6 @@ function Oneday() {
       <Header />
       <Menu />
       <div className="containnergolf_body">
-        <Link to="/" className="back_icons_back_golf">
-          <IoIosArrowBack />
-          <p>Back</p>
-        </Link>
         <div className="content_itemGolf">
           <div className="container_head">
             <h3 className="txt_head">

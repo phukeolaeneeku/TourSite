@@ -16,10 +16,6 @@ function Pakse() {
       <Header />
       <Menu />
       <div className="containner_Hotel_restaurant">
-        <Link to="/restaurant" className="back_icons_back_restaurant">
-          <IoIosArrowBack />
-          <p>Back</p>
-        </Link>
         <div className="content_itemRestaurant">
             <div className="container_head_restaurant">
                 <h3 className="txt_head_restaurant">

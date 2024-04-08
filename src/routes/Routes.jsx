@@ -6,7 +6,7 @@ import Halfday from "../user/components/tourpage/Halfday"
 import Golf from "../user/components/tourpage/Golf"
 import Nightday from "../user/components/tourpage/Nightday"
 
-import Hotel from "../user/components/hotelpage/Hotel";
+
 import HotelPakse from "../user/components/hotelpage/HotelPakse";
 import HotelPaksong from "../user/components/hotelpage/HotelPaksong";
 import HotelSiphandone from "../user/components/hotelpage/HotelSiphandone";
@@ -40,7 +40,6 @@ const Links = () => {
                 <Route exact path="/golf" Component={Golf}/>
                 <Route exact path="/nightday" Component={Nightday}/>
 
-                <Route exact path="/hotel" Component={Hotel}/>
                 <Route exact path="/hotelpakse" Component={HotelPakse}/>
                 <Route exact path="/hotelpaksong" Component={HotelPaksong}/>
                 <Route exact path="/hotelsiphandone" Component={HotelSiphandone}/>

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Header from "../header/Header";
+import Menu from "../header/Menu";
 import "./css/login.css";
 import { MdArrowBack } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
@@ -68,15 +70,16 @@ const LoginUser = () => {
         set_errorText("The username or password do not match.");
       });
   };
-  
-  
+
   return (
     <>
+      <Header />
+      <Menu />
       <section>
-        <form className="box_container_login2">
-          <div className="cover">
+        <form className="box_container_login">
+          <div className="Box_login">
             <Link to="/" className="box_iconBack_login">
-              <MdArrowBack id="iconBack" />
+              {/* <MdArrowBack id="iconBack" /> */}
             </Link>
             <h2 className="box_container_login_text">{login_en}</h2>
             <p className="box_pleaselogin">Please Log in to use the service!</p>
@@ -115,7 +118,7 @@ const LoginUser = () => {
             </div>
 
             <div className="loginbtn_login">
-              <button type="submit" className="login_btn" onClick={Login}>
+              <button type="submit" className="login_button" onClick={Login}>
                 Login
               </button>
             </div>
@@ -160,11 +163,7 @@ const LoginUser = () => {
           </div>
         </form>
       </section>
-      {loginSuccess && (
-        <div className="alert_success">
-          Login successful!
-        </div>
-      )}
+      {loginSuccess && <div className="alert_success">Login successful!</div>}
     </>
   );
 };

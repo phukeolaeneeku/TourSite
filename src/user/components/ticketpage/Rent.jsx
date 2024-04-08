@@ -4,7 +4,6 @@ import Footer from "../menu/Footer";
 import Header from "../header/Header";
 import Menu from "../header/Menu";
 import "./css/airplane.css";
-import { IoIosArrowBack } from "react-icons/io";
 import car from "../../../img/car.jpg";
 import resort2 from "../../../img/resort2.jpg";
 
@@ -14,10 +13,6 @@ function Rent() {
         <Header />
         <Menu />
             <div className="containner_airplane">
-              <Link to="/" className="back_icons_back_airpane">
-                <IoIosArrowBack />
-                <p>Back</p>
-              </Link>
               <div className="content_itemAirplane">
                 <div className="container_head_airplane">
                   <h3 className="txt_head_airplane">

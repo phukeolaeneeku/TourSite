@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
-import "./css/forgotpassword.css"
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import "./css/forgotpassword.css";
+import Header from "../header/Header";
+import Menu from "../header/Menu";
+import { Link } from "react-router-dom";
 import { MdArrowBack } from "react-icons/md";
-  
+
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [code, setCode] = useState("");
@@ -31,17 +33,21 @@ const ForgotPassword = () => {
 
   return (
     <>
+      <Header />
+      <Menu />
       <section>
         <div className="box_forgot">
-          <Link to="/login" className="box_iconBack_forgot">
-            <MdArrowBack id='iconBack'/>
-          </Link>
           <h2>Find password</h2>
-          <div className="title">Please change your password after verifying your email!</div>
-          <form className='container_form_forgot' onSubmit={handleForgotPassword}>
-            <div className='box_infor'>Enter basic information</div>
-            <div className='container_form_forgot2'>
-              <input 
+          <div className="title">
+            Please change your password after verifying your email!
+          </div>
+          <form
+            className="container_form_forgot"
+            onSubmit={handleForgotPassword}
+          >
+            <div className="box_infor">Enter basic information</div>
+            <div className="container_form_forgot2">
+              <input
                 type="email"
                 name="email"
                 placeholder="Email"
@@ -49,12 +55,10 @@ const ForgotPassword = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-              <div className='verification'>
-                Verify
-              </div>
+              <div className="verification">Verify</div>
             </div>
 
-            <input 
+            <input
               type="text"
               name="code"
               placeholder="Verification number"
@@ -62,7 +66,7 @@ const ForgotPassword = () => {
               onChange={(e) => setCode(e.target.value)}
               required
             />
-            <input 
+            <input
               type="password"
               name="password"
               placeholder="New password"
@@ -70,7 +74,7 @@ const ForgotPassword = () => {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <input 
+            <input
               type="password2"
               name="password2"
               placeholder="Confirm password"
@@ -79,20 +83,15 @@ const ForgotPassword = () => {
               required
             />
 
-            <button type="submit" >
-              Confirmation
-            </button>
+            <button type="submit">Confirmation</button>
           </form>
         </div>
         {forgotpasswordSuccess && (
-          <div className="alert_success_find">
-            Change password successful!
-          </div>
+          <div className="alert_success_find">Change password successful!</div>
         )}
       </section>
-      
     </>
-  )
-}
+  );
+};
 
-export default ForgotPassword
+export default ForgotPassword;

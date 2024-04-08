@@ -4,7 +4,6 @@ import Footer from "../menu/Footer";
 import Header from "../header/Header";
 import Menu from "../header/Menu";
 import "./css/airplane.css";
-import { IoIosArrowBack } from "react-icons/io";
 import guide from "../../../img/guide.jpg";
 import massage1 from "../../../img/massage1.jpg";
 import massage2 from "../../../img/massage2.jpg";
@@ -15,10 +14,6 @@ function Massage() {
         <Header />
         <Menu />
             <div className="containner_airplane">
-              <Link to="/" className="back_icons_back_airpane">
-                <IoIosArrowBack />
-                <p>Back</p>
-              </Link>
               <div className="content_itemAirplane">
                 <div className="container_head_airplane">
                   <h3 className="txt_head_airplane">

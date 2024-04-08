@@ -4,7 +4,6 @@ import Footer from "../menu/Footer";
 import Header from "../header/Header";
 import Menu from "../header/Menu"
 import "./css/restaurant.css";
-import { IoIosArrowBack } from "react-icons/io";
 import recommended2 from "../../../img/recommended2.jpg";
 import resort3 from "../../../img/resort3.jpg";
 import Restaurant_paksong from "../../../img/Restaurant_paksong.jpg"
@@ -16,10 +15,6 @@ function Pakse() {
       <Header />
       <Menu />
       <div className="containner_Hotel_restaurant">
-        <Link to="/restaurant" className="back_icons_back_restaurant">
-          <IoIosArrowBack />
-          <p>Back</p>
-        </Link>
         <div className="content_itemRestaurant">
             <div className="container_head_restaurant">
                 <h3 className="txt_head_restaurant">

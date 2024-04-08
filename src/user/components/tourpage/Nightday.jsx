@@ -18,10 +18,6 @@ function Oneday() {
         <Header />
         <Menu />
         <div className="containnerOneday_body">
-            <Link to="/" className="back_icons_back_one">
-                <IoIosArrowBack/>
-                <p>Back</p>
-            </Link>
             <div className="content_item_Oneday">
                 <div className="container_txt_head">
                     <h3 className="txt_head_Oneday">
