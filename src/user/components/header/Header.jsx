@@ -36,8 +36,8 @@ const Header = () => {
               </form>
             </div>
             <div className="icon_account_login">
-              <Link to="#"><FaUser id="icon_dashboard"/></Link>
-              <Link to="#"><AiFillDashboard id="icon_dashboard"/></Link>
+              <Link to="/account-user"><FaUser id="icon_dashboard"/></Link>
+              <Link to="/dashboard"><AiFillDashboard id="icon_dashboard"/></Link>
               <Link to="/login" className="head_colorr">
                 <p>Login</p>
                 <BiLogIn className="login" />

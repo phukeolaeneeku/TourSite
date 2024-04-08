@@ -5,7 +5,6 @@ import Footer from "../menu/Footer";
 import Header from "../header/Header";
 import Menu from "../header/Menu"
 import "./css/oneday.css";
-import { IoIosArrowBack } from "react-icons/io";
 import { SiGooglemaps } from "react-icons/si";
 import night_vientiane2 from "../../../img/night_vientiane2.jpg";
 import night_vangvieng from "../../../img/night_vangvieng.jpg";

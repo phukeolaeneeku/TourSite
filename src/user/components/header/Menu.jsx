@@ -63,22 +63,22 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li className="menu_inline">
-                  <Link to="/oneday"><p>One day tour</p></Link>
+                  <Link to="/oneday"><p className="txtP">One day tour</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/halfday"><p>Half day tour</p></Link>
+                  <Link to="/halfday"><p className="txtP">Half day tour</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/golf"><p>Golf</p></Link>
+                  <Link to="/golf"><p className="txtP">Golf</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/nightday"><p>Night tour</p></Link>
+                  <Link to="/nightday"><p className="txtP">Night tour</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
               </ul>
@@ -95,17 +95,17 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li className="menu_inline">
-                  <Link to="/hotelpakse"><p>Pakse</p></Link>
+                  <Link to="/hotelpakse"><p className="txtP">Pakse</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/hotelpaksong"><p>Paksong</p></Link>
+                  <Link to="/hotelpaksong"><p className="txtP">Paksong</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/hotelsiphandone"><p>Siphandone</p></Link>
+                  <Link to="/hotelsiphandone"><p className="txtP">Siphandone</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
               </ul>
@@ -122,17 +122,17 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li className="menu_inline">
-                  <Link to="/pakse"><p>Pakse</p></Link>
+                  <Link to="/pakse"><p className="txtP">Pakse</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/paksong"><p>Paksong</p></Link>
+                  <Link to="/paksong"><p className="txtP">Paksong</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/siphandone"><p>Siphandone</p></Link>
+                  <Link to="/siphandone"><p className="txtP">Siphandone</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
               </ul>
@@ -149,22 +149,22 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li className="menu_inline">
-                  <Link to="/airplane"><p>Airplane</p></Link>
+                  <Link to="/airplane"><p className="txtP">Airplane</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/rent"><p>Rent car</p></Link>
+                  <Link to="/rent"><p className="txtP">Rent car</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/entertainment"><p>Entertainment</p></Link>
+                  <Link to="/entertainment"><p className="txtP">Entertainment</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/massage"><p>Massage</p></Link>
+                  <Link to="/massage"><p className="txtP">Massage</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
               </ul>
@@ -182,12 +182,12 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li className="menu_inline">
-                  <Link to="#"><p>Korean</p></Link>
+                  <Link to="#"><p className="txtP">Korean</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="#"><p>Laotian</p></Link>
+                  <Link to="#"><p className="txtP">Laotian</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
               </ul>

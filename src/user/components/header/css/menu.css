@@ -78,13 +78,17 @@
   justify-content: space-between;
 }
 
-.menu_inline p:hover {
+.menu_inline:hover .txtP{
   color: #3d76fb;
+  transition: 0.5s;
+}
+.menu_inline:hover #icon_AiOutlineRight{
+  color: black;
   transition: 0.5s;
 }
 
 #icon_AiOutlineRight {
-  font-size: 20px;
+  font-size: 22px;
   color: #ccc;
 }
 
