@@ -6,18 +6,13 @@ import { LuUser } from "react-icons/lu";
 import { FaAngleLeft } from "react-icons/fa";
 import { CiImageOn } from "react-icons/ci";
 import { FiPhone } from "react-icons/fi";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { IoKeyOutline } from "react-icons/io5";
+
 function EditAccount() {
   return (
     <>
       <AdminMenu />
       <section id="addAmin">
-        <div className="goback">
-          <Link to="/account-admin" className="box_guopIconbAck">
-            <FaAngleLeft id="box_icon_Back" />
-            <p>Back</p>
-          </Link>
-        </div>
         <div className="box_addAdmin">
           {/* <h3>{message && message}</h3> */}
           <form>
@@ -78,7 +73,7 @@ function EditAccount() {
                   Password:
                 </label>
                 <div className="boxiconnandinput">
-                  <FiPhone className="iconinput" />
+                  <IoKeyOutline className="iconinput" />
                   <input
                     type="text"
                     id="pass"

@@ -23,7 +23,7 @@ function Pakse() {
             </div>
             <div className="content_image_restaurant">
                 <div className="group_item_Box_restaurant">
-                  <Link to="/details" className="image">
+                  <Link to="/details" className="images">
                     <img src={Restaurant_paksong} alt="img" />
                   </Link>
                   <div className="txt_desc_restaurant">
@@ -34,7 +34,7 @@ function Pakse() {
                   </div>
                 </div>
                 <div className="group_item_Box_restaurant">
-                  <Link to="/details" className="image">
+                  <Link to="/details" className="images">
                     <img src={resort3} alt="img" />
                   </Link>
                   <div className="txt_desc_restaurant">
@@ -45,7 +45,7 @@ function Pakse() {
                   </div>
                 </div>
                 <div className="group_item_Box_restaurant">
-                  <Link to="/details" className="image">
+                  <Link to="/details" className="images">
                     <img src={recommended2} alt="img" />
                   </Link>
                   <div className="txt_desc_restaurant">

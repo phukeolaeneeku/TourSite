@@ -63,44 +63,44 @@ const AdminMenu = () => {
         <div className="left">
           <div className="menu">
             <NavLink to="/dashboard" className="link">
-              <RxDashboard />
-              <p>Dashboard</p>
+              <RxDashboard id="icon_das_pro_use_logout"/>
+              <p className="txtP">Dashboard</p>
             </NavLink>
             <NavLink to="/product-admin" className="link">
-              <IoDocumentText />
-              <p>Products</p>
+              <IoDocumentText id="icon_das_pro_use_logout"/>
+              <p className="txtP">Products</p>
             </NavLink>
             
             <NavLink to="/users" className="link">
-              <BiUser />
-              <p>Users</p>
+              <BiUser id="icon_das_pro_use_logout"/>
+              <p className="txtP">Users</p>
             </NavLink>
-            {/* <NavLink to="/admins" className="link">
+            <NavLink to="/admins" className="link">
               <LiaUserCogSolid />
               <p>Admins</p>
-            </NavLink> */}
+            </NavLink>
             <div onClick={() => setShowConfirmation(true)} className="link">
-              <IoLogOutOutline />
-              <p>Log Out</p>
+              <IoLogOutOutline id="icon_das_pro_use_logout"/>
+              <p className="txtP">Log Out</p>
             </div>
             {showConfirmation && (
               <div className="background_addproductpopup_box">
                 <div className="hover_addproductpopup_box">
                   <div className="box_logout">
-                    <p>정말로 로그아웃하시겠습니까?</p>
+                    <p>Are you sure you want to log out?</p>
                   </div>
                   <div className="btn_foasdf">
                     <button
                       className="btn_cancel btn_addproducttxt_popup"
                       onClick={handleCancelLogout}
                     >
-                      아니요
+                      No
                     </button>
                     <button
                       className="btn_confirm btn_addproducttxt_popup"
                       onClick={handleConfirmLogout}
                     >
-                      예
+                      Yes
                     </button>
                   </div>
                 </div>

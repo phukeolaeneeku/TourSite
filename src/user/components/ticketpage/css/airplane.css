@@ -68,17 +68,17 @@ body {
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 
-.group_item_Box_airplane .image {
+.group_item_Box_airplane .images {
     width: 345px;
     height: auto;
     overflow: hidden;
 }
-.group_item_Box_airplane .image:hover img {
+.group_item_Box_airplane .images:hover img {
     transform: scale(1.1);
     transition: 0.5s;
 }
 
-.group_item_Box_airplane .image img {
+.group_item_Box_airplane .images img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -145,17 +145,17 @@ body {
         margin-left: 8px;
     }
   
-    .group_item_Box_airplane .image {
+    .group_item_Box_airplane .images {
       width: 100%;
       height: auto;
     }
-    .group_item_Box_airplane .image {
+    .group_item_Box_airplane .images {
         width: 300px;
         height: auto;
         overflow: hidden;
     }
     
-    .group_item_Box_airplane .image img {
+    .group_item_Box_airplane .images img {
         width: 100%;
         height: 100%;
         object-fit: contain;

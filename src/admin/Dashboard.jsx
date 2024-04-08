@@ -5,7 +5,7 @@ const Dashboard = () => {
   return (
     <>
       <AdminMenu />
-      {/* <Board /> */}
+      <Board />
     </>
   );
 };

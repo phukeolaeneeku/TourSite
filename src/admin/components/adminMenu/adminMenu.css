@@ -34,17 +34,28 @@ body {
 }
 
 #dashboard .left .menu .link:hover {
-    color: #ff7446;
+    color: #165cffaa;
+    transition: 0.3s;
+}
+#dashboard .left .menu .link:hover .txtP{
+    color: #165cffaa;
+    transition: 0.3s;
 }
 
 #dashboard .left .menu .active {
-    background: #ff7446;
+    background: #165cffaa;
     color: #FFF;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.10);
+}
+#dashboard .left .menu .active .txtP{
+    color: #FFF;
 }
 
 
 #dashboard .left .menu .active:hover {
+    color: #FFF;
+}
+#dashboard .left .menu .active:hover .txtP{
     color: #FFF;
 }
 
