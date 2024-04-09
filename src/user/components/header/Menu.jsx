@@ -188,12 +188,17 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li className="menu_inline">
-                  <Link to="#"><p className="txtP">3 Days 2 Nights</p></Link>
+                  <Link to="#"><p className="txtP">3 Days</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="#"><p className="txtP">5 Days 4 Nights</p></Link>
+                  <Link to="#"><p className="txtP">4 Days</p></Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                </li>
+                <div className="hr"></div>
+                <li className="menu_inline">
+                  <Link to="#"><p className="txtP">5 Days</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
               </ul>

@@ -22,7 +22,7 @@ function Massage() {
                 </div>
                 <div className="content_image_airplane">
                   <div className="group_item_Box_airplane">
-                    <Link to="/details" className="image">
+                    <Link to="/details" className="images">
                       <img src={Entertainment} alt="img" />
                     </Link>
                     <div className="txt_desc_airplane">
@@ -33,7 +33,7 @@ function Massage() {
                     </div>
                   </div>
                   <div className="group_item_Box_airplane">
-                    <Link to="/details" className="image">
+                    <Link to="/details" className="images">
                       <img src={Entertainment1} alt="img" />
                     </Link>
                     <div className="txt_desc_airplane">
@@ -44,7 +44,7 @@ function Massage() {
                     </div>
                   </div>
                   <div className="group_item_Box_airplane">
-                    <Link to="/details" className="image">
+                    <Link to="/details" className="images">
                       <img src={Entertainment2} alt="img" />
                     </Link>
                     <div className="txt_desc_airplane">
