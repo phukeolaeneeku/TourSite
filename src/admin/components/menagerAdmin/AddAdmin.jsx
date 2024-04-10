@@ -1,11 +1,10 @@
-import "./addAdmin.css";
+import "./css/addAdmin.css";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { MdOutlineEmail } from "react-icons/md";
 import { LuUser } from "react-icons/lu";
 import { FaAngleLeft } from "react-icons/fa";
 import { CiImageOn } from "react-icons/ci";
-import { FiPhone } from "react-icons/fi";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { IoKeySharp } from "react-icons/io5";
 
 const AddAdmin = () => {
@@ -13,7 +12,7 @@ const AddAdmin = () => {
   return (
     <>
       <AdminMenu />
-      <section id="addAmin">
+      <section id="addAmins">
         <div className="goback">
           <Link to="/admins" className="box_guopIconbAck">
             <FaAngleLeft id="box_icon_Back" />
@@ -43,6 +42,18 @@ const AddAdmin = () => {
                   />
                 </div>
               </div>
+              <div className="add-box">
+                <label htmlFor="fname" className="titlelabel">Nick name:</label>
+                <div className="boxiconnandinput">
+                  <LuUser className="iconinput" />
+                  <input
+                    type="text"
+                    id="nickname"
+                    className="input"
+                    placeholder="Nick name..."
+                  />
+                </div>
+              </div>
 
               <div className="add-box">
                 <label htmlFor="email" className="titlelabel">Email:</label>
@@ -55,19 +66,6 @@ const AddAdmin = () => {
                     placeholder="Email address..."
                   />
                 </div>
-              </div>
-              <div className="add-box">
-                <label htmlFor="phone" className="titlelabel">Phone number:</label>
-                <div className="boxiconnandinput">
-                  <FiPhone className="iconinput" />
-                  <input
-                    type="text"
-                    id="phone"
-                    className="input"
-                    placeholder="Phone number..."
-                  />
-                </div>
-
               </div>
               <div className="add-box">
                 <label htmlFor="lname" className="titlelabel">Password:</label>

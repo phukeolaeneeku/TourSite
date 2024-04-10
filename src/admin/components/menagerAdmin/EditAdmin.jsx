@@ -1,4 +1,4 @@
-import "./addAdmin.css";
+import "./css/addAdmin.css";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { MdOutlineEmail } from "react-icons/md";
 import { LuUser } from "react-icons/lu";
@@ -13,7 +13,7 @@ const EditAdmin = () => {
   return (
     <>
       <AdminMenu />
-      <section id="addAmin">
+      <section id="addAmins">
         <div className="goback">
           <Link to="/admins" className="box_guopIconbAck">
             <FaAngleLeft id="box_icon_Back" />
@@ -43,6 +43,18 @@ const EditAdmin = () => {
                   />
                 </div>
               </div>
+              <div className="add-box">
+                <label htmlFor="fname" className="titlelabel">Nick name:</label>
+                <div className="boxiconnandinput">
+                  <LuUser className="iconinput" />
+                  <input
+                    type="text"
+                    id="nickname"
+                    className="input"
+                    placeholder="Nick name..."
+                  />
+                </div>
+              </div>
 
               <div className="add-box">
                 <label htmlFor="email" className="titlelabel">Email:</label>
@@ -55,19 +67,6 @@ const EditAdmin = () => {
                     placeholder="Email address..."
                   />
                 </div>
-              </div>
-              <div className="add-box">
-                <label htmlFor="phone" className="titlelabel">Phone number:</label>
-                <div className="boxiconnandinput">
-                  <FiPhone className="iconinput" />
-                  <input
-                    type="text"
-                    id="phone"
-                    className="input"
-                    placeholder="Phone number..."
-                  />
-                </div>
-
               </div>
               <div className="add-box">
                 <label htmlFor="pass" className="titlelabel">Password:</label>

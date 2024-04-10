@@ -96,7 +96,7 @@ const AdminMenu = () => {
               <BiUser id="icon_das_pro_use_logout"/>
               <p className="txtP">Users</p>
             </NavLink>
-            <NavLink to="/" className="link">
+            <NavLink to="/admins" className="link">
               <LiaUserCogSolid id="icon_das_pro_use_logout"/>
               <p className="txtP">Admins</p>
             </NavLink>

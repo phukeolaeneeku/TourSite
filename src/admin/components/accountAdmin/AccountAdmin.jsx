@@ -4,8 +4,6 @@ import AdminMenu from "../adminMenu/AdminMenu";
 import { MdOutlineEmail } from "react-icons/md";
 import { LuUser } from "react-icons/lu";
 import { CiImageOn } from "react-icons/ci";
-import { FiPhone } from "react-icons/fi";
-import { Link } from "react-router-dom";
 import { IoKeyOutline } from "react-icons/io5";
 
 function AccountAdmin() {
@@ -13,7 +11,6 @@ function AccountAdmin() {
     <>
       <AdminMenu />
       <section id="addAmin">
-        
         <div className="box_addAdmin">
           <form>
             <div className="addAdminForm">
@@ -23,9 +20,9 @@ function AccountAdmin() {
                   <button type="submit" className="submit_delete">
                     Delete
                   </button>
-                  <Link to="/edit-account" type="submit" className="submit_add">
+                  <button type="submit" className="submit_add">
                     Edit
-                  </Link>
+                  </button>
                 </div>
               </div>
 
@@ -43,6 +40,20 @@ function AccountAdmin() {
                   />
                 </div>
               </div>
+              <div className="add-box">
+                <label htmlFor="fname" className="titlelabel">
+                  Nickname:
+                </label>
+                <div className="boxiconnandinput">
+                  <LuUser className="iconinput" />
+                  <input
+                    type="text"
+                    id="nickname"
+                    className="input"
+                    placeholder="Nickname..."
+                  />
+                </div>
+              </div>
 
               <div className="add-box">
                 <label htmlFor="email" className="titlelabel">
@@ -55,20 +66,6 @@ function AccountAdmin() {
                     id="email"
                     className="input"
                     placeholder="Email address..."
-                  />
-                </div>
-              </div>
-              <div className="add-box">
-                <label htmlFor="phone" className="titlelabel">
-                  Phone number:
-                </label>
-                <div className="boxiconnandinput">
-                  <FiPhone className="iconinput" />
-                  <input
-                    type="text"
-                    id="phone"
-                    className="input"
-                    placeholder="Phone number..."
                   />
                 </div>
               </div>

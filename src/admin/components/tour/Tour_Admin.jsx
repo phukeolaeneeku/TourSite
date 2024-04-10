@@ -7,9 +7,7 @@ import { BiPlus } from "react-icons/bi";
 import { MdOutlineEdit } from "react-icons/md";
 import { CiCamera } from "react-icons/ci";
 import imageicon from "../../../img/imageicon.jpg";
-import banner_no from "../../../img/banner_no.jpg";
 import { AiOutlineDelete } from "react-icons/ai";
-import { MdClose } from "react-icons/md";
 
 const Tour_Admin = () => {
   const [products, setProducts] = useState([

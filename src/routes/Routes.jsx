@@ -36,6 +36,8 @@ import User_details from "../admin/components/menagerUser/User_details";
 import Account_Admin from "../admin/components/accountAdmin/AccountAdmin";
 import Edit_Account from '../admin/components/accountAdmin/EditAccount';
 import Admins from "../admin/components/menagerAdmin/Admins"
+import Add_Admin from "../admin/components/menagerAdmin/AddAdmin"
+import Edit_Admin from "../admin/components/menagerAdmin/EditAdmin"
 
 const Links = () => {
   return (
@@ -77,6 +79,9 @@ const Links = () => {
         <Route path="/user-details" Component={User_details} />
         <Route path="/account-admin" Component={Account_Admin} />
         <Route path="/edit-account" Component={Edit_Account} />
+        <Route path="/admins" Component={Admins} />
+        <Route path="/add-admin" Component={Add_Admin} />
+        <Route path="/edit-admin" Component={Edit_Admin} />
       </Routes>
     </Router>
   );

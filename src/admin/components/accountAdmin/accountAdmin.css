@@ -18,7 +18,7 @@
     background-color: #ff7446;
     cursor: pointer;
     border: none;
-    box-shadow: 0 0.125rem 0.25rem 0 rgba(57, 54, 52, 0.4);
+    box-shadow: 0 0.125rem 0.25rem 0 rgba(57, 54, 52, 0.201);
 }
 .submit_delete_update {
     padding: 0.1rem 2rem;
@@ -48,7 +48,8 @@
 #addAmin {
     position: absolute;
     width: 99%;
-    padding: 7.5rem 1.5rem 0 17rem;
+    margin-top: 6rem;
+    padding: 1.5rem 1.5rem 0 17rem;
 }
 #addAmin form {
     margin-top: 2rem;

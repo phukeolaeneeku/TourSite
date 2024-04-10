@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./css/users.css";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { IoSearchOutline } from "react-icons/io5";
 import AdminMenu from "../adminMenu/AdminMenu";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import user from "../../../img/user.png";
 
 const User_details = () => {
