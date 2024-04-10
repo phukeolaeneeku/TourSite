@@ -32,7 +32,7 @@ const Homepage = () => {
       <section id="container_product">
         <div className="productHead_content">
           <h1 className="htxthead">
-            <span className="spennofStyle"></span>Laos Play Category Best
+            <span className="span_Styles"></span>Laos Play Category Best
           </h1>
         </div>
         <div className="contentImageProducts1">
@@ -99,7 +99,7 @@ const Homepage = () => {
         <div className="content_itemBox">
           <div className="container_product">
             <h3 className="htxthead">
-              <span className="spennofStyle"></span>Super Special Recommended
+              <span className="span_Styles"></span>Super Special Recommended
             </h3>
           </div>
           <div className="contentImageProducts2">
@@ -154,7 +154,7 @@ const Homepage = () => {
         <div className="content_itemBox">
           <div className="container_product">
             <h3 className="htxthead">
-              <span className="spennofStyle"></span>Activity Recommended
+              <span className="span_Styles"></span>Activity Recommended
             </h3>
           </div>
           <div className="contentImageProducts2">
@@ -209,7 +209,7 @@ const Homepage = () => {
         <div className="content_itemBox">
           <div className="container_product">
             <h3 className="htxthead">
-              <span className="spennofStyle"></span>Hotel Recommended
+              <span className="span_Styles"></span>Hotel Recommended
             </h3>
           </div>
           <div className="contentImageProducts2">
@@ -265,7 +265,7 @@ const Homepage = () => {
         <div className="content_itemBox">
           <div className="container_product">
             <h3 className="htxthead">
-              <span className="spennofStyle"></span>Recommended products for sale/rental
+              <span className="span_Styles"></span>Recommended products for sale/rental
             </h3>
           </div>
           <div className="contentImageProducts2">
@@ -320,7 +320,7 @@ const Homepage = () => {
         <div className="content_itemBox">
           <div className="container_product">
             <h3 className="htxthead">
-              <span className="spennofStyle"></span>Laos Coupon Recommended
+              <span className="span_Styles"></span>Laos Coupon Recommended
             </h3>
           </div>
           <div className="contentImageProducts2">
@@ -363,7 +363,7 @@ const Homepage = () => {
         <div className="content_itemBox">
           <div className="container_product">
             <h3 className="htxthead">
-              <span className="spennofStyle"></span>New Recommended
+              <span className="span_Styles"></span>New Recommended
             </h3>
           </div>
           <div className="contentImageProducts2">

@@ -21,7 +21,12 @@ a {
 .box_icon_cart:hover {
     color: #FF4F16;
 }
-
+.span_Styles {
+    width: 20px;
+    height: 40px;
+    background-color: #3d76fb;
+    border-radius: 4px;
+}
 
 .htxthead,
 .categoryBoxfiler {

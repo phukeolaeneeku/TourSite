@@ -29,8 +29,8 @@ import ForgotPassword from "../user/components/login_register/ForgotPassword";
 
 /* =========== Admin components ============= */
 import Dashboard from "../admin/Dashboard";
-import Product_admin from "../admin/components/products/Product_Admin";
-import Addproduct_admin from "../admin/components/products/AddProduct";
+import Tour_admin from "../admin/components/tour/Tour_Admin";
+import Addtour_admin from "../admin/components/tour/AddTour";
 import Users from "../admin/components/menagerUser/Users";
 import User_details from "../admin/components/menagerUser/User_details";
 import Account_Admin from "../admin/components/accountAdmin/AccountAdmin";
@@ -71,8 +71,8 @@ const Links = () => {
 
         {/* =========== Admin components ============= */}
         <Route path="/dashboard" Component={Dashboard} />
-        <Route path="/product-admin" Component={Product_admin} />
-        <Route path="/addproduct-admin" Component={Addproduct_admin} />
+        <Route path="/tour-admin" Component={Tour_admin} />
+        <Route path="/addtour-admin" Component={Addtour_admin} />
         <Route path="/users" Component={Users} />
         <Route path="/user-details" Component={User_details} />
         <Route path="/account-admin" Component={Account_Admin} />

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./users.css";
+import "./css/users.css";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { IoSearchOutline } from "react-icons/io5";
 import AdminMenu from "../adminMenu/AdminMenu";
@@ -73,6 +73,9 @@ const User_details = () => {
             <div className="box_num_product">
               <div className="num_admin_product">
                 <p >1</p>
+              </div>
+              <div className="num_admin_product">
+                <p >2</p>
               </div>
             </div>
 

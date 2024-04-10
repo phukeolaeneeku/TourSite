@@ -1,4 +1,4 @@
-import "./user_details.css";
+import "./css/user_details.css";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { FaAngleLeft } from "react-icons/fa";
 import { AiOutlineDelete } from "react-icons/ai";
@@ -7,14 +7,18 @@ import { useEffect, useState } from "react";
 import { MdOutlineEmail } from "react-icons/md";
 import { LuUser } from "react-icons/lu";
 import { FiPhone } from "react-icons/fi";
+import { IoKeyOutline } from "react-icons/io5";
+import { BiSolidUserPlus } from "react-icons/bi";
+
+
 
 const User = () => {
   return (
     <>
       <AdminMenu />
-      <section id="addAmin">
+      <section id="addUser">
         <div className="goback">
-          <Link to="/users" className="box_guopIconbAck">
+          <Link to="/users" className="box_guopIconbAcks">
             <FaAngleLeft id="box_icon_Back" />
             <p>Back</p>
           </Link>
@@ -33,7 +37,7 @@ const User = () => {
               <div className="add-box">
                 <label htmlFor="fname" className="titlelabel">User ID:</label>
                 <div className="boxiconnandinput">
-                  <LuUser className="iconinput" />
+                  <BiSolidUserPlus className="iconinput" />
                   <div className="input">
                     <p>a</p>
                   </div>
@@ -53,6 +57,15 @@ const User = () => {
                 <label htmlFor="email" className="titlelabel">Email:</label>
                 <div className="boxiconnandinput">
                   <MdOutlineEmail className="iconinput" />
+                  <div className="input">
+                    <p>a</p>
+                  </div>
+                </div>
+              </div>
+              <div className="add-box">
+                <label htmlFor="email" className="titlelabel">Password:</label>
+                <div className="boxiconnandinput">
+                  <IoKeyOutline className="iconinput" />
                   <div className="input">
                     <p>a</p>
                   </div>

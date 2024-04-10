@@ -12,6 +12,11 @@ import { CiCamera } from "react-icons/ci";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import imageicon from "../../../img/imageicon.jpg";
+import { CgWebsite } from "react-icons/cg";
+import { RiHotelLine } from "react-icons/ri";
+import { IoIosRestaurant } from "react-icons/io";
+import { BsFillTicketDetailedFill } from "react-icons/bs";
+import { GoPackage } from "react-icons/go";
 
 const AdminMenu = () => {
   const [mainImageLogo, setMainImagLogo] = useState(null);
@@ -66,18 +71,34 @@ const AdminMenu = () => {
               <RxDashboard id="icon_das_pro_use_logout"/>
               <p className="txtP">Dashboard</p>
             </NavLink>
-            <NavLink to="/product-admin" className="link">
-              <IoDocumentText id="icon_das_pro_use_logout"/>
-              <p className="txtP">Products</p>
+            <NavLink to="/tour-admin" className="link">
+              <CgWebsite id="icon_das_pro_use_logout"/>
+              <p className="txtP">Tour</p>
+            </NavLink>
+            <NavLink to="/" className="link">
+              <RiHotelLine id="icon_das_pro_use_logout"/>
+              <p className="txtP">Hotel</p>
+            </NavLink>
+            <NavLink to="/" className="link">
+              <IoIosRestaurant id="icon_das_pro_use_logout"/>
+              <p className="txtP">Restaurant</p>
+            </NavLink>
+            <NavLink to="/" className="link">
+              <BsFillTicketDetailedFill id="icon_das_pro_use_logout"/>
+              <p className="txtP">Ticket</p>
+            </NavLink>
+            <NavLink to="/" className="link">
+              <GoPackage id="icon_das_pro_use_logout"/>
+              <p className="txtP">Package</p>
             </NavLink>
             
             <NavLink to="/users" className="link">
               <BiUser id="icon_das_pro_use_logout"/>
               <p className="txtP">Users</p>
             </NavLink>
-            <NavLink to="/admins" className="link">
-              <LiaUserCogSolid />
-              <p>Admins</p>
+            <NavLink to="/" className="link">
+              <LiaUserCogSolid id="icon_das_pro_use_logout"/>
+              <p className="txtP">Admins</p>
             </NavLink>
             <div onClick={() => setShowConfirmation(true)} className="link">
               <IoLogOutOutline id="icon_das_pro_use_logout"/>
