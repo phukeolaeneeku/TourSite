@@ -1,10 +1,8 @@
 import "./adminMenu.css";
-import { IoDocumentText, IoLogOutOutline } from "react-icons/io5";
+import { IoLogOutOutline } from "react-icons/io5";
 import { BiUser } from "react-icons/bi";
-import { HiOutlineBuildingStorefront } from "react-icons/hi2";
 import { LiaUserCogSolid } from "react-icons/lia";
 import { RxDashboard } from "react-icons/rx";
-import { MdOutlineSell } from "react-icons/md";
 import tour_logo from "../../../img/tour_logo.gif";
 import { NavLink } from "react-router-dom";
 import user from "../../../img/user.png";
@@ -67,15 +65,15 @@ const AdminMenu = () => {
       <section id="dashboard">
         <div className="left">
           <div className="menu">
-            <NavLink to="/dashboard" className="link">
+            {/* <NavLink to="/dashboard" className="link">
               <RxDashboard id="icon_das_pro_use_logout"/>
               <p className="txtP">Dashboard</p>
-            </NavLink>
+            </NavLink> */}
             <NavLink to="/tour-admin" className="link">
               <CgWebsite id="icon_das_pro_use_logout"/>
               <p className="txtP">Tour</p>
             </NavLink>
-            <NavLink to="/" className="link">
+            <NavLink to="/hotel-admin" className="link">
               <RiHotelLine id="icon_das_pro_use_logout"/>
               <p className="txtP">Hotel</p>
             </NavLink>

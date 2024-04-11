@@ -68,17 +68,17 @@ body {
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 
-.group_item_Box_restaurant .images {
+.group_item_Box_restaurant .image {
     width: 345px;
     height: auto;
     overflow: hidden;
 }
-.group_item_Box_restaurant .images:hover img {
+.group_item_Box_restaurant .image:hover img {
     transform: scale(1.1);
     transition: 0.5s;
 }
 
-.group_item_Box_restaurant .images img {
+.group_item_Box_restaurant .image img {
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -130,17 +130,17 @@ body {
         margin-left: 8px;
     }
   
-    .group_item_Box_restaurant .images {
+    .group_item_Box_restaurant .image {
       width: 100%;
       height: auto;
     }
-    .group_item_Box_restaurant .images {
+    .group_item_Box_restaurant .image {
         width: 300px;
         height: auto;
         overflow: hidden;
     }
     
-    .group_item_Box_restaurant .images img {
+    .group_item_Box_restaurant .image img {
         width: 100%;
         height: 100%;
         object-fit: contain;

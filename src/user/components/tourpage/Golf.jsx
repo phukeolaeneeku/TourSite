@@ -23,7 +23,7 @@ function Oneday() {
           </div>
           <div className="content_image_Products">
             <div className="group_item_Box">
-              <Link to="/details" className="images">
+              <Link to="/details" className="image">
                 <img src={golf} alt="img" />
               </Link>
               <div className="txt_desc">
@@ -39,7 +39,7 @@ function Oneday() {
               </div>
             </div>
             <div className="group_item_Box">
-              <div className="images">
+              <div className="image">
                 <img src={golf2} alt="img" />
               </div>
               <div className="txt_desc">
@@ -55,7 +55,7 @@ function Oneday() {
               </div>
             </div>
             <div className="group_item_Box">
-              <div className="images">
+              <div className="image">
                 <img src={golf4} alt="img" />
               </div>
               <div className="txt_desc">

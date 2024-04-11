@@ -29,15 +29,17 @@ import ForgotPassword from "../user/components/login_register/ForgotPassword";
 
 /* =========== Admin components ============= */
 import Dashboard from "../admin/Dashboard";
-import Tour_admin from "../admin/components/tour/Tour_Admin";
-import Addtour_admin from "../admin/components/tour/AddTour";
-import Users from "../admin/components/menagerUser/Users";
-import User_details from "../admin/components/menagerUser/User_details";
+import Tour_admin from "../admin/components/managertour/Tour_Admin";
+import Addtour_admin from "../admin/components/managertour/AddTour";
+import Users from "../admin/components/managerUser/Users";
+import User_details from "../admin/components/managerUser/User_details";
 import Account_Admin from "../admin/components/accountAdmin/AccountAdmin";
 import Edit_Account from '../admin/components/accountAdmin/EditAccount';
-import Admins from "../admin/components/menagerAdmin/Admins"
-import Add_Admin from "../admin/components/menagerAdmin/AddAdmin"
-import Edit_Admin from "../admin/components/menagerAdmin/EditAdmin"
+import Admins from "../admin/components/managerAdmin/Admins"
+import Add_Admin from "../admin/components/managerAdmin/AddAdmin"
+import Edit_Admin from "../admin/components/managerAdmin/EditAdmin"
+import Hotel from "../admin/components/managerhotel/Hotel";
+import Edit_Hotel from "../admin/components/managerhotel/EditHotel"
 
 const Links = () => {
   return (
@@ -82,6 +84,8 @@ const Links = () => {
         <Route path="/admins" Component={Admins} />
         <Route path="/add-admin" Component={Add_Admin} />
         <Route path="/edit-admin" Component={Edit_Admin} />
+        <Route path="/hotel-admin" Component={Hotel} />
+        <Route path="/edit-hotel" Component={Edit_Hotel} />
       </Routes>
     </Router>
   );

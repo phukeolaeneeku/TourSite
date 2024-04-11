@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./css/admins.css";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { IoSearchOutline } from "react-icons/io5";
 import AdminMenu from "../adminMenu/AdminMenu";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { BiPlus } from "react-icons/bi";
 import user from "../../../img/user.png";
 
 const Admins = () => {
-
   const [showConfirmation, setShowConfirmation] = useState(false);
 
-  const handleConfirmLogout = () => {
-   
+  const handleConfirmDelete = () => {
     setShowConfirmation(false);
   };
 
-  const handleCancelLogout = () => {
+  const handleCancelDelete = () => {
     setShowConfirmation(false);
   };
   return (
@@ -54,34 +52,39 @@ const Admins = () => {
                 </div>
               </div>
               <div className="btn_box_Cont">
-                <button onClick={() => setShowConfirmation(true)} className="delete_storeDetails">Delete</button>
+                <button
+                  onClick={() => setShowConfirmation(true)}
+                  className="delete_storeDetails"
+                >
+                  Delete
+                </button>
                 <Link to="/edit-admin" className="viewMore_storeDetails">
                   Edit
                 </Link>
               </div>
               {showConfirmation && (
-              <div className="background_addproductpopup_box">
-                <div className="hover_addproductpopup_box">
-                  <div className="box_logout">
-                    <p>Are you sure you want to delete</p>
-                  </div>
-                  <div className="btn_foasdf">
-                    <button
-                      className="btn_cancel btn_addproducttxt_popup"
-                      onClick={handleCancelLogout}
-                    >
-                      No
-                    </button>
-                    <button
-                      className="btn_confirm btn_addproducttxt_popup"
-                      onClick={handleConfirmLogout}
-                    >
-                      Yes
-                    </button>
+                <div className="background_addproductpopup_box">
+                  <div className="hover_addproductpopup_box">
+                    <div className="box_logout">
+                      <p>Are you sure you want to delete</p>
+                    </div>
+                    <div className="btn_foasdf">
+                      <button
+                        className="btn_cancel btn_addproducttxt_popup"
+                        onClick={handleCancelDelete}
+                      >
+                        No
+                      </button>
+                      <button
+                        className="btn_confirm btn_addproducttxt_popup"
+                        onClick={handleConfirmDelete}
+                      >
+                        Yes
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
             </div>
 
             <div className="box_container_next_product">
@@ -104,7 +107,6 @@ const Admins = () => {
                 <AiOutlineRight id="box_icon_left_right_product" />
               </button>
             </div>
-            
           </div>
         </div>
       </section>

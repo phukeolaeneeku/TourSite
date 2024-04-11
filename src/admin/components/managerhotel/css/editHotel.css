@@ -1,0 +1,191 @@
+#post {
+    display: flex;
+}
+
+
+.box_container_product {
+    width: 80%;
+    height: auto;
+    margin-top: 7.5rem;
+    margin-left: 16.5rem;
+    padding: 1.5rem 2.5rem 2.5rem 2.5rem;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.10);
+}
+
+.box_text h2 {
+    padding: 20px 0;
+}
+
+.edit-product-form {
+    width: 100%;
+    padding: 0 2.5rem 2.5rem 2.5rem;
+    display: flex;
+}
+
+
+/* input image */
+.input-img {
+    width: 60%;
+    margin-top: 2rem;
+}
+
+.box_description{
+    padding: 15px 0 ;
+}
+
+.images {
+    width: 80%;
+    display: grid;
+    height: 45vh;
+    margin-top: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    align-items: center;
+    overflow: hidden;
+    object-fit: cover;
+    color: #fff;
+    position: relative;
+}
+
+.box_chooses_image {
+    display: grid;
+    top: 26%;
+    right: 30%;
+    background-color: #00000089;
+    color: white;
+    border-radius: 4px;
+    width: fit-content;
+    padding: 4rem 3rem;
+    cursor: pointer;
+    margin: auto;
+    position: absolute;
+}
+
+ .images img {
+    width: 100%;
+    height: 45vh;
+    margin: auto;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+
+
+/* Gallery */
+.input-img .gallery {
+    margin-top: 1rem;
+    color: #444;
+}
+
+.gallery-box {
+    width: 80%;
+    margin-top: 1rem;
+    height: auto;
+    padding: 15px 15px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    border-radius: 5px;
+    color: #fff;
+    align-items: center;
+    overflow: hidden;
+    object-fit: cover;
+
+}
+
+.gallery-box img {
+    width: 100%;
+    height: 20vh;
+    cursor: pointer;
+    object-fit: cover;
+}
+.gallery-box-view{
+    padding: 5px 5px;
+    position: relative;
+    
+}
+.gallery-box-view img{
+    border: solid 1px #ccc;
+    border-radius: 3px;
+    object-fit: cover;
+}
+.button {
+    background-color: #FA442C;
+    border: none;
+    top: 10px;
+    right: 10px;
+    padding: 0.2rem 0.3rem;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+}
+
+/* Add gallery button */
+.add-gallery {
+    background-color: #3498DB;
+    border-radius: 4px;
+    text-align: center;
+    padding: 0.7rem 10px;
+    margin: 20px 0 20px 14rem;
+    cursor: pointer;
+    position: absolute;
+    
+}
+
+.add-more {
+    color: #3498DB;
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ====== form_input_box ======*/
+.form_input_box{
+    width: 40%;
+    margin-top: 5rem;
+}
+.txt_input{
+    display: grid;
+    padding: 5px 0;
+}
+.txt_input p{
+    padding: 15px 15px;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+}
+.textarea p{
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    padding: 15px 15px;
+    font-size: 16px;
+}
+
+/* Submit button */
+.submit1 {
+    margin-top: -1.5rem;
+    position: absolute;
+    font-size: 18px;
+    right: 7rem;
+}
+
+.submit1 button {
+    background-color: #3498DB;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 0.5rem 1.8rem;
+    cursor: pointer;
+    border: none;
+}

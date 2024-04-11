@@ -4,8 +4,7 @@ import { MdOutlineEmail } from "react-icons/md";
 import { LuUser } from "react-icons/lu";
 import { FaAngleLeft } from "react-icons/fa";
 import { CiImageOn } from "react-icons/ci";
-import { FiPhone } from "react-icons/fi";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { IoKeySharp } from "react-icons/io5";
 
 const EditAdmin = () => {
