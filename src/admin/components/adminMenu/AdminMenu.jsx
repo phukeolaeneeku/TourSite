@@ -77,15 +77,15 @@ const AdminMenu = () => {
               <RiHotelLine id="icon_das_pro_use_logout"/>
               <p className="txtP">Hotel</p>
             </NavLink>
-            <NavLink to="/" className="link">
+            <NavLink to="/restaurant-admin" className="link">
               <IoIosRestaurant id="icon_das_pro_use_logout"/>
               <p className="txtP">Restaurant</p>
             </NavLink>
-            <NavLink to="/" className="link">
+            <NavLink to="/ticket-admin" className="link">
               <BsFillTicketDetailedFill id="icon_das_pro_use_logout"/>
               <p className="txtP">Ticket</p>
             </NavLink>
-            <NavLink to="/" className="link">
+            <NavLink to="/package-admin" className="link">
               <GoPackage id="icon_das_pro_use_logout"/>
               <p className="txtP">Package</p>
             </NavLink>

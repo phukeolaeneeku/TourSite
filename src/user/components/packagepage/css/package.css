@@ -1,4 +1,4 @@
-.containner_airplane {
+.containnergolf_body {
     width: 80%;
     margin: 11.5rem auto 0 auto;
 }
@@ -6,7 +6,7 @@ body {
     background-color: #FFF;
 }
 
-.back_icons_back_airpane {
+.back_icons_back_golf {
     display: flex;
     font-size: 20px;
     gap: 0.5rem;
@@ -16,43 +16,43 @@ body {
     margin-bottom: 2rem;
 }
 
-.content_itemAirplane{
+.content_itemGolf{
     width: 90%;
     margin: auto;
     margin-top: -3rem;
 }
 
-.container_head_airplane {
+.container_head {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2.5rem 0rem;
+    padding: 3rem 0rem;
 }
 
-.container_head_airplane h3 {
+.container_head h3 {
     font-size: 23px;
     font-family: 600;
 }
 
-.txt_head_airplane{
+.txt_head{
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.span_Style_airplane {
+.span_Style {
     width: 20px;
     height: 40px;
     background-color: #3d76fb;
     border-radius: 4px;
 }
-.content_image_airplane {
+.content_image_Products {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
 }
 
-.group_item_Box_airplane {
+.group_item_Box {
     width: 100%;
     height: auto;
     display: flex;
@@ -62,40 +62,41 @@ body {
     border-radius: 5px;
     cursor: pointer;
     overflow: hidden;
+    padding: 5px 5px;
 }
 
-.group_item_Box_airplane:hover {
+.group_item_Box:hover {
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 
-.group_item_Box_airplane .images {
+.image {
     width: 345px;
     height: auto;
     overflow: hidden;
 }
-.group_item_Box_airplane .images:hover img {
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 7px;
+}
+.image:hover img {
     transform: scale(1.1);
     transition: 0.3s;
 }
 
-.group_item_Box_airplane .images img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 10px;
-}
-
-.txt_desc_airplane {
+.txt_desc {
     display: flex;
-    padding: 15px 15px;
+    padding: 10px 10px;
     flex-direction: column;
     text-align: start;
     gap: 16px;
     list-style: none;
 }
-.txt_desc_airplane h3:hover{
+.txt_desc h3:hover{
     color: #3d76fb;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 
 .txt_sprice{
@@ -106,7 +107,7 @@ body {
 }
 .txt_sprice:hover{
     color: #3d76fb;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 .price_num{
     color: #fb4d3d;
@@ -117,27 +118,23 @@ body {
 /* Small Screens */
 
 @media (max-width: 768px) {
-    .containner_airplane,
-    .content_itemAirplane {
+    .containnergolf_body,
+    .content_itemGolf {
       width: 90%;
       margin: 0 auto;
       margin-top: 6.5rem;
     }
-
-    .back_icons_back_airpane{
-        margin-left: 1px;
-    }
   
-    .container_head_airplane {
+    .container_head {
       padding: 2rem 0rem;
     }
   
-    .content_image_airplane {
+    .content_image_Products {
       grid-template-columns: 1fr;
       gap: 0.8rem;
     }
   
-    .group_item_Box_airplane {
+    .group_item_Box {
       width: 100%;
       overflow: hidden;
     }
@@ -145,23 +142,23 @@ body {
         margin-left: 8px;
     }
   
-    .group_item_Box_airplane .images {
+    .image {
       width: 100%;
       height: auto;
     }
-    .group_item_Box_airplane .images {
+    .image {
         width: 300px;
         height: auto;
         overflow: hidden;
     }
     
-    .group_item_Box_airplane .images img {
+    .image img {
         width: 100%;
         height: 100%;
         object-fit: contain;
     }
 
-    .content_itemAirplane {
+    .content_itemGolf {
         width: 90%;
         margin-top: -2.5rem;
     }

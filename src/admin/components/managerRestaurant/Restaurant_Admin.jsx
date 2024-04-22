@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import "./css/hotel.css";
+import "./css/restaurantAdmin.css";
+import { Link } from "react-router-dom";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { BiPlus } from "react-icons/bi";
-import { Link } from "react-router-dom";
-import hotel2 from "../../../img/hotel2.jpg";
+import recommended2 from "../../../img/recommended2.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
-function Hotel() {
+const Restaurant_Admin = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
 
+  /////// Handle Popup delete
   const handleCancelDelete = () => {
     setShowConfirmation(false);
   };
@@ -21,10 +22,10 @@ function Hotel() {
           <div className="box_content_hotel">
             <div className="productHead_content">
               <h2 className="htxthead">
-                <span className="spennofStyleadmin"></span>Hotel
+                <span className="spennofStyleadmin"></span>Restaurant
               </h2>
               <div className="categoryBoxfiler">
-                <Link to="/addtour-admin" className="box_add_product">
+                <Link to="/add-restaurant" className="box_add_product">
                   <BiPlus id="icon_add_product" />
                   <p>Add</p>
                 </Link>
@@ -33,15 +34,14 @@ function Hotel() {
 
             <div className="content_hotel_list_box">
               <div className="content_hotel_lists">
-                <div className="content_hotel_list2">
-                  <div className="box_image_hotel">
-                    <img src={hotel2} alt="Hotel Image" />
+                <div className="content_hotel_list3">
+                  <div className="box_image_tour">
+                    <img src={recommended2} alt="Hotel Image" />
                   </div>
-                  <div className="box_description_hotels">
+                  <div className="box_description_hotel">
                     <p>Name: </p>
-                    <p>Address:</p>
-                    <p>Price:</p>
-                    <p>Description:</p>
+                    <p>Address: </p>
+                    <p>Description: </p>
                   </div>
                 </div>
                 <div className="btn_delete_view">
@@ -51,7 +51,7 @@ function Hotel() {
                   >
                     Delete
                   </div>
-                  <Link to="/edit-hotel" className="box_btn_saveEdit">
+                  <Link to="/edit-restaurant" className="box_btn_saveEdit">
                     Edit
                   </Link>
                 </div>
@@ -104,6 +104,6 @@ function Hotel() {
       </section>
     </>
   );
-}
+};
 
-export default Hotel;
+export default Restaurant_Admin;

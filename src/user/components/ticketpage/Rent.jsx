@@ -21,7 +21,7 @@ function Rent() {
                 </div>
                 <div className="content_image_airplane">
                   <div className="group_item_Box_airplane">
-                    <Link to="/details" className="images">
+                    <Link to="/details" className="image">
                       <img src={resort2} alt="img" />
                     </Link>
                     <div className="txt_desc_airplane">
@@ -36,7 +36,7 @@ function Rent() {
                     </div>
                   </div>
                   <div className="group_item_Box_airplane">
-                    <Link to="/details1" className="images">
+                    <Link to="/details1" className="image">
                       <img src={car} alt="img" />
                     </Link>
                     <div className="txt_desc_airplane">
@@ -51,7 +51,7 @@ function Rent() {
                     </div>
                   </div>
                   <div className="group_item_Box_airplane">
-                    <Link to="/details2" className="images">
+                    <Link to="/details2" className="image">
                       <img src={resort2} alt="img" />
                     </Link>
                     <div className="txt_desc_airplane">

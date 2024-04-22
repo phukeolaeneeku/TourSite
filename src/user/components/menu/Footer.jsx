@@ -51,13 +51,13 @@ const Menu = () => {
                 <Link to="/" className="box-menu active">
                     <span className="iconMenuSpan"><HiOutlineHome/></span><span>Home</span>
                 </Link>
-                <Link to="/hotel" className="box-menu">
+                <Link to="/hotelpakse" className="box-menu">
                     <span className="iconMenuSpan"><HiOutlineHome /></span><span>Hotel</span>
                 </Link>
-                <Link to="/restaurant" className="box-menu">
+                <Link to="/pakse" className="box-menu">
                     <span className="iconMenuSpan"><HiOutlineHome/></span><span>Restaurant</span>
                 </Link>
-                <Link to="#" className="box-menu">
+                <Link to="/airplane" className="box-menu">
                     <span className="iconMenuSpan"><HiOutlineHome/></span><span>Ticket</span>
                 </Link>
             </div>

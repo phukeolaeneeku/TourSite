@@ -19,6 +19,8 @@ import Rent from "../user/components/ticketpage/Rent";
 import Entertainment from "../user/components/ticketpage/Entertainment";
 import Massage from "../user/components/ticketpage/Massage";
 
+import Package from "../user/components/packagepage/Package";
+
 import AccountUser from "../user/components/accountUser/AccountUser";
 import Profile from "../user/components/accountUser/Profile";
 
@@ -40,6 +42,11 @@ import Add_Admin from "../admin/components/managerAdmin/AddAdmin"
 import Edit_Admin from "../admin/components/managerAdmin/EditAdmin"
 import Hotel from "../admin/components/managerhotel/Hotel";
 import Edit_Hotel from "../admin/components/managerhotel/EditHotel"
+import Restaurant_Admin from "../admin/components/managerRestaurant/Restaurant_Admin"
+import EditRestaurant from "../admin/components/managerRestaurant/EditRestaurant";
+import AddRestaurant from "../admin/components/managerRestaurant/AddRestaurant";
+import PackageAdmin from "../admin/components/packageAdmin/PackageAdmin";
+import TicketAdmin from "../admin/components/ticketAdmin/TicketAdmin";
 
 const Links = () => {
   return (
@@ -65,6 +72,9 @@ const Links = () => {
         <Route exact path="/entertainment" Component={Entertainment} />
         <Route exact path="/massage" Component={Massage} />
 
+
+        <Route exact path="/package" Component={Package} />
+
         <Route exact path="/account-user" Component={AccountUser} />
         <Route exact path="/profile-user" Component={Profile} />
 
@@ -86,6 +96,12 @@ const Links = () => {
         <Route path="/edit-admin" Component={Edit_Admin} />
         <Route path="/hotel-admin" Component={Hotel} />
         <Route path="/edit-hotel" Component={Edit_Hotel} />
+        <Route path="/restaurant-admin" Component={Restaurant_Admin} />
+        <Route path="/edit-restaurant" Component={EditRestaurant} />
+        <Route path="/add-restaurant" Component={AddRestaurant} />
+        <Route path="/package-admin" Component={PackageAdmin} />
+        <Route path="/ticket-admin" Component={TicketAdmin} />
+        
       </Routes>
     </Router>
   );

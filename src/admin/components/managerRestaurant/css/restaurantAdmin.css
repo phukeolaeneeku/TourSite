@@ -8,12 +8,6 @@ a {
     text-decoration: none;
 }
 
-#tour_admin {
-    width: 100%;
-    margin: auto;
-    z-index: 999;
-    padding: 100px 40px 20px 265px;
-}
 
 .container_body_admin_tour {
     width: 100%;

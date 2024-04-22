@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./css/details.css";
 import Footer from "../menu/Footer";
 import Header from "../header/Header";
+import Menu from "../header/Menu";
 import { IoIosArrowBack } from "react-icons/io";
 import patusai from "../../../img/patusai.jpg";
 import patusai2 from "../../../img/patusai2.jpg";
@@ -11,6 +12,7 @@ function Details() {
   return (
     <>
         <Header />
+        <Menu />
         <div className="contentBody">
             <Link to="/" className="box_container_back_icons_back">
                 <IoIosArrowBack id="icons_back" />

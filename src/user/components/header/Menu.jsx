@@ -188,7 +188,7 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li className="menu_inline">
-                  <Link to="#"><p className="txtP">3 Days</p></Link>
+                  <Link to="/package"><p className="txtP">3 Days</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
                 <div className="hr"></div>

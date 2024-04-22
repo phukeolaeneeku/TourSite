@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import "./css/hotel.css";
+import "./css/packageAdmin.css";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { BiPlus } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import hotel2 from "../../../img/hotel2.jpg";
+import patusai from "../../../img/patusai.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
-function Hotel() {
+function PackageAdmin() {
   const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleCancelDelete = () => {
@@ -21,7 +21,7 @@ function Hotel() {
           <div className="box_content_hotel">
             <div className="productHead_content">
               <h2 className="htxthead">
-                <span className="spennofStyleadmin"></span>Hotel
+                <span className="spennofStyleadmin"></span>Package
               </h2>
               <div className="categoryBoxfiler">
                 <Link to="/addtour-admin" className="box_add_product">
@@ -35,7 +35,7 @@ function Hotel() {
               <div className="content_hotel_lists">
                 <div className="content_hotel_list2">
                   <div className="box_image_hotel">
-                    <img src={hotel2} alt="Hotel Image" />
+                    <img src={patusai} alt="Hotel Image" />
                   </div>
                   <div className="box_description_hotels">
                     <p>Name: </p>
@@ -106,4 +106,4 @@ function Hotel() {
   );
 }
 
-export default Hotel;
+export default PackageAdmin;

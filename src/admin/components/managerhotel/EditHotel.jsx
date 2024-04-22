@@ -44,8 +44,7 @@ const EditHotel = () => {
       <AdminMenu />
       <section id="post">
         <div className="box_container_product">
-          <h2>Hotel</h2>
-          <form className="edit-product-form">
+          <form className="edit-product-forms">
             <div className="input-img">
               <div className="box_description">
                 <h3>Image</h3>
@@ -75,7 +74,7 @@ const EditHotel = () => {
                     <div className="gallery-box-view" key={index}>
                       <img src={image} alt="" />
                       <div className="button" onClick={() => removeImage(index)}>
-                        <AiOutlineDelete />
+                      <AiOutlineDelete />
                       </div>
                     </div>
                   ))}
@@ -102,30 +101,26 @@ const EditHotel = () => {
             <div className="form_input_box">
               <div className="input">
                 <label htmlFor="name">Name</label>
-                <div className="txt_input">
-                    <p>Hotel.....</p>
-                </div>
+                <input type="text" name="name" placeholder="Name..." />
               </div>
 
               <div className="input">
                 <label htmlFor="price">Price</label>
-                <div className="txt_input">
-                    <p>1500</p>
-                </div>
+                <input type="text" name="price" placeholder="Price..." />
               </div>
-
               <div className="input">
-                <label htmlFor="name">Address</label>
-                <div className="txt_input">
-                    <p>Address.....</p>
-                </div>
+                <label htmlFor="address">Address</label>
+                <input type="text" name="address" placeholder="Address..." />
               </div>
 
               <div className="input">
                 <label htmlFor="description">Description</label>
-                <div className="textarea">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, sunt.</p>
-                </div>
+                <textarea
+                  type="text"
+                  rows="10"
+                  name="description"
+                  placeholder="Description..."
+                ></textarea>
               </div>
             </div>
 

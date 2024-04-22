@@ -18,9 +18,9 @@
     padding: 20px 0;
 }
 
-.edit-product-form {
+.edit-product-forms {
     width: 100%;
-    padding: 0 2.5rem 2.5rem 2.5rem;
+    padding: 1.5rem 2.5rem 2.5rem 2.5rem;
     display: flex;
 }
 
@@ -156,19 +156,22 @@
     width: 40%;
     margin-top: 5rem;
 }
-.txt_input{
+.input{
     display: grid;
+    padding: 8px 0;
+}
+.input label{
     padding: 5px 0;
 }
-.txt_input p{
+.input input{
     padding: 15px 15px;
     border-radius: 5px;
     border: solid 1px #ccc;
 }
-.textarea p{
+.input textarea{
     border-radius: 5px;
     border: solid 1px #ccc;
-    padding: 15px 15px;
+    padding: 10px 15px;
     font-size: 16px;
 }
 

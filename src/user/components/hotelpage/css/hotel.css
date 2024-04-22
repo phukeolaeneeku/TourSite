@@ -1,4 +1,5 @@
-.containnerHotel_body {
+
+.containnerHotel_bodys {
     width: 80%;
     margin: 11.5rem auto 0 auto;
 }
@@ -135,11 +136,25 @@ body {
 
 
 /*===== Responsive =====*/
+@media only screen and (max-width: 768px) {
+    /* Adjustments for smaller screens */
+    .containnerHotel_bodys {
+        width: 90%;
+        margin-top: 8rem;
+    }
 
-@media only screen and (max-width: 576px) {
+    .content_item_Hotel {
+        width: 95%;
+    }
+
+    .container_txt_head {
+        padding: 2rem 0;
+    }
+}
+/* @media only screen and (max-width: 576px) {
     .containnerHotel_body {
         width: 90%;
-        margin: 6.5rem auto 0 auto;
+        margin: 6.5rem auto;
         
     }
 
@@ -177,4 +192,4 @@ body {
     .container_desc p{
         font-size: 20px;
     }
-}
+} */

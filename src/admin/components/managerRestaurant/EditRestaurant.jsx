@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
-import "./css/addTour.css";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const AddProduct = () => {
+const EditRestaurant = () => {
   // State to store the selected image
   const [selectedImage, setSelectedImage] = useState(null);
   // State to store the array of selected images
@@ -103,11 +102,7 @@ const AddProduct = () => {
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" placeholder="Name..." />
               </div>
-
-              <div className="input">
-                <label htmlFor="price">Price</label>
-                <input type="text" name="price" placeholder="Price..." />
-              </div>
+              
               <div className="input">
                 <label htmlFor="address">Address</label>
                 <input type="text" name="address" placeholder="Address..." />
@@ -125,7 +120,7 @@ const AddProduct = () => {
             </div>
 
             <div className="submit1">
-              <button type="submit">Post</button>
+              <button type="submit">Edit</button>
             </div>
           </form>
         </div>
@@ -134,4 +129,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default EditRestaurant;
