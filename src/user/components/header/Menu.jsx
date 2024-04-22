@@ -193,12 +193,12 @@ const Header = () => {
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="#"><p className="txtP">4 Days</p></Link>
+                  <Link to="/package4days"><p className="txtP">4 Days</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="#"><p className="txtP">5 Days</p></Link>
+                  <Link to="/package5days"><p className="txtP">5 Days</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
               </ul>

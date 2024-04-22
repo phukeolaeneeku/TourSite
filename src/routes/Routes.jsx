@@ -20,6 +20,8 @@ import Entertainment from "../user/components/ticketpage/Entertainment";
 import Massage from "../user/components/ticketpage/Massage";
 
 import Package from "../user/components/packagepage/Package";
+import Package4days from "../user/components/packagepage/Package4days";
+import Package5days from "../user/components/packagepage/Package5days";
 
 import AccountUser from "../user/components/accountUser/AccountUser";
 import Profile from "../user/components/accountUser/Profile";
@@ -74,6 +76,8 @@ const Links = () => {
 
 
         <Route exact path="/package" Component={Package} />
+        <Route exact path="/package4days" Component={Package4days} />
+        <Route exact path="/package5days" Component={Package5days} />
 
         <Route exact path="/account-user" Component={AccountUser} />
         <Route exact path="/profile-user" Component={Profile} />
