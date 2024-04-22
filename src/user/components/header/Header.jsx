@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { AiFillDashboard } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import tour_logo from "../../../img/tour_logo.gif";
+import hotel1 from "../../../img/hotel1.jpg";
 
 const Header = () => {
   return (
@@ -17,6 +18,7 @@ const Header = () => {
               <div className="storename">
                 <Link to="/">
                   <img src={tour_logo} alt="Logo" />
+                  {/* <img src={hotel1} alt="Logo" /> */}
                 </Link>
               </div>
             </div>
