@@ -2,7 +2,6 @@ import "./adminMenu.css";
 import { IoLogOutOutline } from "react-icons/io5";
 import { BiUser } from "react-icons/bi";
 import { LiaUserCogSolid } from "react-icons/lia";
-import { RxDashboard } from "react-icons/rx";
 import tour_logo from "../../../img/tour_logo.gif";
 import { NavLink } from "react-router-dom";
 import user from "../../../img/user.png";
@@ -15,6 +14,7 @@ import { RiHotelLine } from "react-icons/ri";
 import { IoIosRestaurant } from "react-icons/io";
 import { BsFillTicketDetailedFill } from "react-icons/bs";
 import { GoPackage } from "react-icons/go";
+import hotel1 from "../../../img/hotel1.jpg";
 
 const AdminMenu = () => {
   const [mainImageLogo, setMainImagLogo] = useState(null);
@@ -129,10 +129,10 @@ const AdminMenu = () => {
 
           <div className="right">
             <div className="box_popupImage_logo">
-              <NavLink to="/" className="logo">
-                <img src={tour_logo} alt="" />
+              <NavLink to="/" className="logo_store_name">
+                <img src={tour_logo} alt="img" />
+                {/* <img src={hotel1} alt="img" /> */}
               </NavLink>
-              {/* <p className="txtName">Humascot</p> */}
               <div className="popup_image_logo" onClick={togglePopupImageLogo}>
                 <CiCamera id="box_icon_camera" />
               </div>
@@ -156,7 +156,7 @@ const AdminMenu = () => {
                           onChange={handleImageLogo}
                           required
                         />
-                        <p className="box_choose_image">이미지 선택</p>
+                        <p className="box_choose_image">Choose img</p>
                       </label>
                     </div>
                     <div className="btn_foasdf">

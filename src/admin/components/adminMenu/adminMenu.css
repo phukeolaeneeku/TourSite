@@ -83,33 +83,33 @@ body {
 }
 
 /* form */
-.logo {
+.logo_store_name {
     margin-left: 2rem;
 }
 
-.logo img {
-    width: 80%;
-    height: auto;
+.logo_store_name img {
+    width: 100%;
     overflow: hidden;
     object-fit: cover;
 }
 .box_popupImage_logo{
-    width: 150px;
+    width: 160px;
     height: auto;
-    padding: 5px 5px;
     position: relative;
     object-fit: cover;
 }
 .box_popupImage_logo img{
     width: 100%;
+    height: 65px;
     object-fit: cover;
     overflow: hidden;
     cursor: pointer;
+    border-radius: 3px;
 }
 .popup_image_logo{
     position: absolute;
-    top: 30px;
-    left: 165px;
+    top: 45px;
+    left: 175px;
     background-color: #fff;
     border-radius: 5px;
     padding: 3px 3px 0 3px;
@@ -158,6 +158,59 @@ body {
     background-color: #00000036;
     z-index: 999;
 }
+.hover_addproductpopup_box_image {
+    width: 30%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.box_input_image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    height: 35vh;
+    object-fit: cover;
+    background-color: #FFF;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.box_input_image input {
+    width: 80%;
+    border-radius: 7px;
+    display: none;
+}
+
+.box_input_image img {
+    width: 215px;
+    height: 185px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 7px;
+
+}
+
+.box_input_image p {
+    font-size: 18px;
+}
+
+.box_choose_image {
+    position: absolute;
+    color: white;
+    top: 17%;
+    left: 26%;
+    padding: 5.2rem 3.8rem;
+    background-color: #00000089;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+
 
 .hover_addproductpopup_box {
     width: 30%;
