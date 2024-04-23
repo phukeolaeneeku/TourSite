@@ -41,6 +41,7 @@ const AdminMenu = () => {
     }
   };
 
+  // handleLog out
   const [showConfirmation, setShowConfirmation] = useState(false);
   const navigate = useNavigate();
 
