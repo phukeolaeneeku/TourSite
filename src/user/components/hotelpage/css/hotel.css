@@ -48,7 +48,7 @@ body {
 
 /*============ box_container =============*/
 
-.box_container_hotel{
+.box_container_hotels{
     width: 100%;
     margin: auto;
     display: grid;
@@ -135,7 +135,8 @@ body {
 }
 
 
-/*===== Responsive =====*/
+/* Responsive Styles */
+
 @media only screen and (max-width: 768px) {
     /* Adjustments for smaller screens */
     .containnerHotel_bodys {
@@ -151,11 +152,11 @@ body {
         padding: 2rem 0;
     }
 }
-/* @media only screen and (max-width: 576px) {
-    .containnerHotel_body {
+
+@media only screen and (max-width: 576px) {
+    .containnerHotel_bodys {
         width: 90%;
-        margin: 6.5rem auto;
-        
+        margin: 6.5rem auto;    
     }
 
     .back_icons_back_hotel {
@@ -172,24 +173,99 @@ body {
     .container_txt_head {
         margin-top: 1rem;
     }
+
+    .container_image {
+        width: 350px;
+        height: 350px;
+    }
+
     .container_image img {
         width: 100%;
         height: 100%;
-        object-fit: contain;
-        border-radius: 5px;
     }
-    .box_container_hotel{
+
+    .box_container_hotels {
         margin-top: -1.5rem;
     }
-    .box_container_body_hotel{
+
+    .box_container_body_hotel {
         display: grid;
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    .container_desc{
+
+    .container_desc {
         width: 100%;
     }
-    .container_desc p{
+
+    .container_desc p {
         font-size: 20px;
     }
-} */
+}
+@media only screen and (max-width: 480px) {
+    .containnerHotel_bodys {
+        width: 90%;
+        margin: 6.5rem auto;
+    }
+
+    .back_icons_back_hotel {
+        margin-left: -0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .content_item_Hotel {
+        width: 100%;
+        margin: auto;
+        margin-top: -2.5rem;
+    }
+
+    .container_txt_head {
+        margin-top: 1rem;
+    }
+
+    .container_image {
+        width: 335px;
+        height: 350px;
+    }
+
+    .container_image img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .box_container_hotels {
+        margin-top: -1.5rem;
+    }
+
+    .box_container_body_hotel {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .container_desc {
+        width: 100%;
+    }
+
+    .container_desc p {
+        font-size: 20px;
+    }
+}
+@media only screen and (max-width: 360px) {
+
+    .container_image {
+        margin-top: -1rem;
+        width: 285px;
+        height: 300px;
+    }
+    .span_Styles {
+        width: 12px;
+        height: 22px;
+    }
+    .container_txt_head h3 {
+        font-size: 18px;
+    }
+    .container_desc h2{
+        font-size: 20px;
+    }
+}

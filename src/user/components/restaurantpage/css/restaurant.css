@@ -126,6 +126,7 @@ body {
       width: 100%;
       overflow: hidden;
     }
+
     .back_icons_back_golf {
         margin-left: 8px;
     }
@@ -134,6 +135,7 @@ body {
       width: 100%;
       height: auto;
     }
+
     .group_item_Box_restaurant .image {
         width: 300px;
         height: auto;
@@ -150,7 +152,17 @@ body {
         width: 90%;
         margin-top: -2.5rem;
     }
+
+    .span_Style_restaurant {
+        width: 12px;
+        height: 25px;
+    }
+
+    .container_head_restaurant h3{
+        font-size: 19px;
+    }
 }
+
 
 
   
