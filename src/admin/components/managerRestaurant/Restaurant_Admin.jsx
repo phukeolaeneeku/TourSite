@@ -48,9 +48,6 @@ const Restaurant_Admin = () => {
                     doloribus ut autem!
                   </Expandable>
 
-                  <div className="txt_tour">
-                    <p className="price_number_ones">Prices: $100</p>
-                  </div>
 
                   <p className="txt_address">Address: Vangvieg</p>
                 </div>

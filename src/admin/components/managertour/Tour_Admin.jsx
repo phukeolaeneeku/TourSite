@@ -5,7 +5,6 @@ import AdminMenu from "../adminMenu/AdminMenu";
 import { BiPlus } from "react-icons/bi";
 import patusai from "../../../img/patusai.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import { SiGooglemaps } from "react-icons/si";
 import Expandable from "./Expandable";
 
 const Tour_Admin = () => {
