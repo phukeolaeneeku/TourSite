@@ -1,75 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Header from "../header/Header";
 import Menu from "../header/Menu";
 import "./css/login.css";
-import { MdArrowBack } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const LoginUser = () => {
   const login_en = "Login";
-  const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
-  const [errorText, set_errorText] = useState("");
-  const [loginSuccess, setLoginSuccess] = useState(false);
-
-  const handleEmail = (e) => {
-    const value = e.target.value;
-    setEmail(value);
-  };
-
-  const handlePass = (e) => {
-    const value = e.target.value;
-    setPass(value);
-  };
-
-  const Login = (e) => {
-    e.preventDefault(); // Prevent the default form submission behavsior
-    let data = JSON.stringify({
-      email: email,
-      password: pass,
-    });
-
-    let config = {
-      method: "post",
-      maxBodyLength: Infinity,
-
-      url: import.meta.env.VITE_API + "/user/signin",
-
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: data,
-    };
-
-    axios
-      .request(config)
-      .then((res) => {
-        const result = res.data;
-        // console.log(JSON.stringify(res.data));
-        const user = {
-          email: result.email,
-          image: result.image,
-          store_id: result.store_id,
-          origin_store_name: result.origin_store_name,
-          user_id: result.user_id,
-          user_name: result.user_name,
-        };
-        const token = result.token.access;
-        if (token) {
-          window.localStorage.setItem("token", token);
-        }
-        window.localStorage.setItem("user", JSON.stringify(user));
-        navigate("/", { replace: true });
-      })
-      .catch((error) => {
-        console.log(error);
-        set_errorText("The username or password do not match.");
-      });
-  };
 
   return (
     <>
@@ -86,29 +23,19 @@ const LoginUser = () => {
             <div className="input">
               <label>Email</label>
               <input
-                className="input_form"
+                className="input_forms"
                 type="email"
                 placeholder="Enter Your Email"
-                value={email}
-                onChange={handleEmail}
                 required
               />
               <label>Password</label>
               <input
-                className="input_form"
+                className="input_forms"
                 type="password"
                 placeholder="Enter Your Password"
-                value={pass}
-                onChange={handlePass}
                 required
               />
             </div>
-
-            {errorText.length > 0 && (
-              <div id="error_msg" className="error mt20">
-                {errorText}
-              </div>
-            )}
 
             <div className="forgot_password">
               Forgot your password?{" "}
@@ -118,7 +45,7 @@ const LoginUser = () => {
             </div>
 
             <div className="loginbtn_login">
-              <button type="submit" className="login_button" onClick={Login}>
+              <button type="submit" className="login_button" >
                 Login
               </button>
             </div>
@@ -163,7 +90,6 @@ const LoginUser = () => {
           </div>
         </form>
       </section>
-      {loginSuccess && <div className="alert_success">Login successful!</div>}
     </>
   );
 };
