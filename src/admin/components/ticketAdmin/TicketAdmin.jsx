@@ -5,6 +5,7 @@ import { BiPlus } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import airplane1 from "../../../img/airplane1.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import Expandable from "../../../admin/components/managertour/Expandable"
 
 function TicketAdmin() {
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -30,19 +31,27 @@ function TicketAdmin() {
                 </Link>
               </div>
             </div>
+            
+            <div className="box_container_tour">
+              <div className="box_container_tour_admin">
+                <div className="container_image_tour">
+                  <img src={airplane1} alt="image" />
+                </div>
+                <div className="container_desc_tour">
+                  <h3>Name: Patusai </h3>
+                  <Expandable>
+                    Description: Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Distinctio cupiditate blanditiis veniam
+                    voluptates sequi pariatur voluptatibus, natus mollitia est
+                    unde illo at nostrum, culpa labore aperiam delectus
+                    doloribus ut autem!
+                  </Expandable>
 
-            <div className="content_hotel_list_box">
-              <div className="content_hotel_lists">
-                <div className="content_hotel_list2">
-                  <div className="box_image_hotel">
-                    <img src={airplane1} alt="Hotel Image" />
+                  <div className="txt_tour">
+                    <p className="price_number_ones">Prices: $100</p>
                   </div>
-                  <div className="box_description_hotels">
-                    <p>Name: </p>
-                    <p>Address:</p>
-                    <p>Price:</p>
-                    <p>Description:</p>
-                  </div>
+
+                  <p className="txt_address">Address: Vangvieg</p>
                 </div>
                 <div className="btn_delete_view">
                   <div

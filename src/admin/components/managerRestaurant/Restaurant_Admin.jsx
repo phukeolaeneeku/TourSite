@@ -5,6 +5,7 @@ import AdminMenu from "../adminMenu/AdminMenu";
 import { BiPlus } from "react-icons/bi";
 import recommended2 from "../../../img/recommended2.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+import Expandable from "../../../admin/components/managertour/Expandable";
 
 const Restaurant_Admin = () => {
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -32,17 +33,26 @@ const Restaurant_Admin = () => {
               </div>
             </div>
 
-            <div className="content_hotel_list_box">
-              <div className="content_hotel_lists">
-                <div className="content_hotel_list3">
-                  <div className="box_image_tour">
-                    <img src={recommended2} alt="Hotel Image" />
+            <div className="box_container_tour">
+              <div className="box_container_tour_admin">
+                <div className="container_image_tour">
+                  <img src={recommended2} alt="image" />
+                </div>
+                <div className="container_desc_tour">
+                  <h3>Name: Restauranr </h3>
+                  <Expandable>
+                    Description: Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Distinctio cupiditate blanditiis veniam
+                    voluptates sequi pariatur voluptatibus, natus mollitia est
+                    unde illo at nostrum, culpa labore aperiam delectus
+                    doloribus ut autem!
+                  </Expandable>
+
+                  <div className="txt_tour">
+                    <p className="price_number_ones">Prices: $100</p>
                   </div>
-                  <div className="box_description_hotel">
-                    <p>Name: </p>
-                    <p>Address: </p>
-                    <p>Description: </p>
-                  </div>
+
+                  <p className="txt_address">Address: Vangvieg</p>
                 </div>
                 <div className="btn_delete_view">
                   <div

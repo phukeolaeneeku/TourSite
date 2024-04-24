@@ -15,14 +15,14 @@ function HotelPaksong() {
     <>
       <Header />
       <Menu />
-      <div className="containnerHotel_body">
+      <div className="containner_Hotel_bodys">
         <div className="content_item_Hotel">
           <div className="container_txt_head">
             <h3 className="txt_head_Hotel">
               <span className="span_Styles"></span>Paksong
             </h3>
           </div>
-          <div className="box_container_hotel">
+          <div className="box_container_hotels">
             <div className="box_container_body">
               <div className="container_image">
                 <img src={hotel3} alt="image" />

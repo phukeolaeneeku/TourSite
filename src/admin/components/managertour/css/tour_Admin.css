@@ -8,22 +8,24 @@ a {
     text-decoration: none;
 }
 
-#tour_admin {
+.box_container_hotel {
     width: 100%;
     margin: auto;
     z-index: 999;
     padding: 100px 40px 20px 265px;
 }
-
-.container_body_admin_tour {
+.box_content_hotel {
     width: 100%;
+    min-height: 80vh;
     height: auto;
     margin: auto;
     margin-top: 1rem;
     padding: 20px 20px 30px 20px;
     background: #FFF;
     box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
 }
+
 
 .box_add_product {
     display: flex;
@@ -44,12 +46,6 @@ a {
 }
 
 
-
-
-/* input search box */
-
-
-
 .tourHead_content {
     width: 100%;
     overflow: hidden;
@@ -57,8 +53,6 @@ a {
     justify-content: space-between;
     margin-bottom: 0.5rem;
 }
-
-
 
 .htxthead,
 .categoryBoxfiler {
@@ -68,116 +62,79 @@ a {
 }
 
 
-.box_product {
+/* ========== box_container ==========*/
+.box_container_tour{
+    width: 90%;
+    margin: auto;
+    display: grid;
+    gap: 1rem;
+}
+.box_container_tour_admin{
     width: 100%;
     height: auto;
     display: flex;
-    border: 1px solid #eee;
+    gap: 2rem;
+    border: solid 1px #eee;
     border-radius: 5px;
+    padding: 15px 20px;
     cursor: pointer;
     overflow: hidden;
-    padding: 10px 10px;
 }
-
-.box_images_cagegory{
-    border: solid 1px #eee;
+.box_container_tour_admin:hover{
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
-
-.box_image {
+.container_image_tour{
+    width: 350px;
+    height: auto;
+    overflow: hidden;
+}
+.container_image_tour img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    overflow: hidden;
+    object-fit: contain;
+    border-radius: 5px;
+}
+.container_image_tour:hover img {
+    transform: scale(1.1);
+    transition: 0.5s;
 }
 
-.box_image img {
-    width:250px;
-    height: auto;
-    cursor: pointer;
-    object-fit: cover;
-    overflow: hidden;
-    padding: 0 10px;
+.container_desc_tour{
+    width: 70%;
 }
-
-
-
-.txtOFproduct {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 0.8rem;
-    list-style: none;
+.container_desc_tour p{
+    padding: 0 15px;
+    margin-top: 15px;
 }
-
-
-#iconCamera_category {
-    color: #f46738;
+.container_desc_tour h2:hover{
+    color: #3d76fb;
+    transition: 0.5s;
 }
-
-.box_icon_MdOutlineEdit {
-    width: 100%;
+.txt_tour{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-}
-.box_icon_MdOutlineEdit p{
-    width: 90%;
+    font-size: 18px;
 }
 
-
-
-.contentImageTour {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    overflow: hidden;
-    padding: 0 25px;
+.price_number_ones{
+    font-size: 16px;
+}
+.price_number_ones:hover{
+    color: #fb4d3d;
 }
 
-
-
-.content_hotel_list_box {
-    width: 100%;
-    margin: auto;
-    margin-top: 2rem;
-    gap: 1rem;
-    display: grid;
+.txt_address{
+    font-size: 16px;
+}
+.txt_address:hover{
+    color: #3d76fb;
+    transition: 0.5s;
+}
+#icon_map{
+    font-size: 1.3rem;
+    color: #3d76fb;
 }
 
-.content_hotel_lists{
-    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
-    border-radius: 7px;
-    width: 90%;
-    margin: auto;
-    padding: 10px; 
-    display: flex;
-    justify-content: space-between;   
-}
-
-.content_hotel_list, .content_hotel_list3{
-    display: flex;
-    /* align-items: center; */
-    gap: 1rem;
-}
-
-.box_image_tour{
-    width: 100%;
-    overflow: hidden;
-    object-fit: cover;
-}
-
-.box_image_tour img{
-    width: 300px;
-    height: auto;
-
-}
-
-.box_description_hotel{
-    display: grid;
-    gap: 10px;
-}
 
 .btn_delete_view{
     display: flex;
@@ -198,4 +155,16 @@ a {
     border-radius: 5px;
     color: #FFF;
     cursor: pointer;  
+}
+
+/*========= read more text p ===========*/
+.btn_read_more{
+    padding: 3px 5px;
+    border: solid 1px #0E64D2;
+    border-radius: 3px;
+    background: #FFF;
+    cursor: pointer;
+}
+.btn_read_more:hover{
+    border: solid 1px #fa1f1fd7;
 }

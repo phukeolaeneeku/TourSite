@@ -15,7 +15,7 @@ function HotelPakse() {
     <>
         <Header />
         <Menu />
-        <div className="containnerHotel_bodys">
+        <div className="containner_Hotel_bodys">
             <div className="content_item_Hotel">
                 <div className="container_txt_head">
                     <h3 className="txt_head_Hotel">
