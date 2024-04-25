@@ -80,9 +80,10 @@ body {
 
 .group_item_Box_restaurant .image img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 10px;
+    height: 310px;
+    object-fit: cover;
+    overflow: hidden;
+    padding: 15px;
 }
 
 .txt_desc_restaurant {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Expandable = ({ children, maxChars = 150 }) => {
+const Expandable = ({ children, maxChars = 100 }) => {
   const [expanded, setExpandad] = useState(true);
   if (children.length <= maxChars) return <p>{children}</p>;
 

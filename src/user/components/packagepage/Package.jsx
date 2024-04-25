@@ -6,6 +6,7 @@ import Menu from "../header/Menu";
 import "./css/package.css";
 import patusai from "../../../img/patusai.jpg";
 import thadluang from "../../../img/thadluang.jpg";
+import Expandable from "../../../admin/components/managertour/Expandable";
 
 function Package() {
   return (
@@ -26,9 +27,9 @@ function Package() {
               </Link>
               <div className="txt_desc">
                 <h3>3 Days</h3>
-                <p>
+                <Expandable>
                   A city thadluang trip in Vientiane, the capital of Laos
-                </p>
+                </Expandable>
                 <div className="price">
                   <p className="price_num">$400</p>
                   <p> ￦450,100 </p>
@@ -42,9 +43,9 @@ function Package() {
               </div>
               <div className="txt_desc">
                 <h3>3 days</h3>
-                <p>
-                A city thadluang trip in Vientiane, the capital of Laos
-                </p>
+                <Expandable>
+                  A city thadluang trip in Vientiane, the capital of Laos
+                </Expandable>
                 <div className="price">
                   <p className="price_num">$600</p>
                   <p> ￦800,000 </p>
@@ -58,9 +59,11 @@ function Package() {
               </div>
               <div className="txt_desc">
                 <h3>3 Days</h3>
-                <p>
-                  A city thadluang trip in Vientiane, the capital of Laos
-                </p>
+                <Expandable>
+                  A city thadluang trip in Vientiane, the capital of Laos Lorem
+                  ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
+                  asperiores.
+                </Expandable>
                 <div className="txt_sprice">
                   <p className="price_num">$150</p>
                   <p> ￦350,000 </p>

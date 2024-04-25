@@ -9,6 +9,7 @@ import hotel1 from "../../../img/hotel1.jpg";
 import hotel2 from "../../../img/hotel2.jpg";
 import hotel3 from "../../../img/hotel3.jpg";
 import { IoStar } from "react-icons/io5";
+import Expandable from "../../../admin/components/managertour/Expandable"
 
 function HotelPaksong() {
   return (
@@ -29,12 +30,12 @@ function HotelPaksong() {
               </div>
               <div className="container_des">
                 <h2>Silver Naga Hotel</h2>
-                <p>
+                <Expandable>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Explicabo, modi! Lorem ipsum dolor sit amet consectetur
                   adipisicing elit. Explicabo, modi! Lorem ipsum dolor sit amet
                   consectetur adipisicing elit. Explicabo, modi!
-                </p>
+                </Expandable>
                 <div className="txt_hotel">
                   <p className="price_number_hotel">$10</p>
                   <p className="txt_price"> ￦15,000 </p>
@@ -57,12 +58,12 @@ function HotelPaksong() {
               </Link>
               <div className="container_desc">
                 <h2>Amart Hotel Vang Vieng</h2>
-                <p>
+                <Expandable>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Explicabo, modi! Lorem ipsum dolor sit amet consectetur
                   adipisicing elit. Explicabo, modi! Lorem ipsum dolor sit amet
                   consectetur adipisicing elit. Explicabo, modi!
-                </p>
+                </Expandable>
                 <div className="txt_hotel">
                   <p className="price_number_hotel">$10</p>
                   <p className="txt_price"> ￦15,000 </p>

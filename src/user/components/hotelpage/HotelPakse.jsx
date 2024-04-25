@@ -8,6 +8,7 @@ import "./css/hotel.css";
 import { SiGooglemaps } from "react-icons/si";
 import hotel3 from "../../../img/hotel3.jpg";
 import { IoStar } from "react-icons/io5";
+import Expandable from "../../../admin/components/managertour/Expandable"
 
 
 function HotelPakse() {
@@ -29,11 +30,11 @@ function HotelPakse() {
                         </div>
                         <div className="container_desc">
                             <h2>Silver Naga Hotel</h2>
-                            <p>
+                            <Expandable>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                            </p>
+                            </Expandable>
                             <div className="txt_hotel">
                                 <p className="price_number_hotel">$10</p>
                                 <p className="txt_price"> ￦15,000 </p>
@@ -54,11 +55,11 @@ function HotelPakse() {
                         </div>
                         <div className="container_desc">
                             <h2>Silver Naga Hotel</h2>
-                            <p>
+                            <Expandable>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                            </p>
+                            </Expandable>
                             <div className="txt_hotel">
                                 <p className="price_number_hotel">$10</p>
                                 <p className="txt_price"> ￦15,000 </p>

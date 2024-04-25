@@ -4,10 +4,10 @@ import Footer from "../menu/Footer";
 import Header from "../header/Header";
 import Menu from "../header/Menu";
 import "./css/golf.css";
-import { IoIosArrowBack } from "react-icons/io";
 import golf from "../../../img/golf.png";
 import golf2 from "../../../img/golf2.jpg";
 import golf4 from "../../../img/golf4.png";
+import Expandable from "../../../admin/components/managertour/Expandable";
 
 function Oneday() {
   return (
@@ -23,14 +23,14 @@ function Oneday() {
           </div>
           <div className="content_image_Products">
             <div className="group_item_Box">
-              <Link to="/details" className="image">
+              <Link to="/details" className="golf_image">
                 <img src={golf} alt="img" />
               </Link>
               <div className="txt_desc">
                 <h3>Laos Golf Pack 3 Nights 5 Days</h3>
-                <p>
+                <Expandable>
                   A city golf trip in Vientiane, the capital of Laos
-                </p>
+                </Expandable>
                 <div className="price">
                   <p className="price_num">$400</p>
                   <p> ￦450,100 </p>
@@ -39,14 +39,16 @@ function Oneday() {
               </div>
             </div>
             <div className="group_item_Box">
-              <div className="image">
+              <div className="golf_image">
                 <img src={golf2} alt="img" />
               </div>
               <div className="txt_desc">
                 <h3>Laos Golf Pack 4 nights and 6 days</h3>
-                <p>
-                  City golf trip in Vientiane
-                </p>
+                <Expandable>
+                  City golf trip in Vientiane, Lorem ipsum, dolor sit amet
+                  consectetur adipisicing elit. Dicta magni omnis accusamus,
+                  illo rerum qui unde harum magnam at repellat.
+                </Expandable>
                 <div className="price">
                   <p className="price_num">$600</p>
                   <p> ￦800,000 </p>
@@ -55,14 +57,14 @@ function Oneday() {
               </div>
             </div>
             <div className="group_item_Box">
-              <div className="image">
+              <div className="golf_image">
                 <img src={golf4} alt="img" />
               </div>
               <div className="txt_desc">
                 <h3>Laos Golf Pack 2 Nights 3 Days</h3>
-                <p>
+                <Expandable>
                   A city golf trip in Vientiane, the capital of Laos
-                </p>
+                </Expandable>
                 <div className="txt_sprice">
                   <p className="price_num">$150</p>
                   <p> ￦350,000 </p>

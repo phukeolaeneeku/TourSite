@@ -216,7 +216,7 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li className="menu_inline">
-                  <Link to="#"><p className="txtP">Korean</p></Link>
+                  <Link to="/korean"><p className="txtP">Korean</p></Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
                 </li>
                 <div className="hr"></div>

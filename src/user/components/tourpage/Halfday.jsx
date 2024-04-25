@@ -5,10 +5,10 @@ import Footer from "../menu/Footer";
 import Header from "../header/Header";
 import Menu from "../header/Menu"
 import "./css/oneday.css";
-import { IoIosArrowBack } from "react-icons/io";
 import { SiGooglemaps } from "react-icons/si";
 import patusai from "../../../img/patusai.jpg";
 import thadluang from "../../../img/thadluang.jpg";
+import Expandable from "../../../admin/components/managertour/Expandable"
 
 
 function Oneday() {
@@ -30,11 +30,11 @@ function Oneday() {
                         </Link>
                         <div className="container_des">
                             <h2>Vientiane</h2>
-                            <p>
+                            <Expandable>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                            </p>
+                            </Expandable>
                             <div className="txt_oneday">
                                 <p className="price_number_one">$10</p>
                                 <p className="txt_price"> ￦15,000 </p>
@@ -49,11 +49,11 @@ function Oneday() {
                         </div>
                         <div className="container_des">
                             <h2>Vang Vieng</h2>
-                            <p>
+                            <Expandable>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                            </p>
+                            </Expandable>
                             <div className="txt_oneday">
                                 <p className="price_number_one">$10</p>
                                 <p className="txt_price"> ￦15,000 </p>
@@ -68,11 +68,11 @@ function Oneday() {
                         </div>
                         <div className="container_des">
                             <h2>Vientiane</h2>
-                            <p>
+                            <Expandable>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                            </p>
+                            </Expandable>
                             <div className="txt_oneday">
                                 <p className="price_number_one">$10</p>
                                 <p className="txt_price"> ￦15,000 </p>

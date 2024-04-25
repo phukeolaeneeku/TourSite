@@ -9,6 +9,7 @@ import { SiGooglemaps } from "react-icons/si";
 import night_vientiane2 from "../../../img/night_vientiane2.jpg";
 import night_vangvieng from "../../../img/night_vangvieng.jpg";
 import night_luangphabang from "../../../img/night_luangphabang.jpg";
+import Expandable from "../../../admin/components/managertour/Expandable"
 
 
 function Oneday() {
@@ -30,11 +31,11 @@ function Oneday() {
                         </Link>
                         <div className="container_des">
                             <h2>Vientiane</h2>
-                            <p>
+                            <Expandable>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                            </p>
+                            </Expandable>
                             <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
                             <p>Review: 220</p>
                         </div>
@@ -45,11 +46,11 @@ function Oneday() {
                         </div>
                         <div className="container_des">
                             <h2>Vang Vieng</h2>
-                            <p>
+                            <Expandable>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                            </p>
+                            </Expandable>
                             <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vang Vieng</p>
                             <p>Review: 150</p>
                         </div>
@@ -60,11 +61,9 @@ function Oneday() {
                         </div>
                         <div className="container_des">
                             <h2>Luang prabang</h2>
-                            <p>
+                            <Expandable>
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
-                            </p>
+                            </Expandable>
                             <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Luang prabang</p>
                             <p>Review: 200</p>
                         </div>

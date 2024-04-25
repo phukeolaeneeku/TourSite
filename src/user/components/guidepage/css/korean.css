@@ -1,4 +1,4 @@
-.containnerOneday_body {
+.containner_korean_body {
     width: 70%;
     margin: 11.5rem auto 0 auto;
 }
@@ -16,23 +16,23 @@ body {
     margin-bottom: 2rem;
 }
 
-.content_item_Oneday{
+.content_item_korean{
     width: 90%;
     margin: auto;
     margin-top: -3rem;
 }
-.container_txt_head {
+.container_korean {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 3rem 0rem;
 }
 
-.container_txt_head h3 {
+.container_korean h3 {
     font-size: 23px;
     font-family: 600;
 }
-.txt_head_Oneday{
+.txt_span_korean{
     display: flex;
     align-items: center;
     gap: 10px;
@@ -47,13 +47,13 @@ body {
 
 /*============ box_container =============*/
 
-.box_container{
+.box_container_korean{
     width: 100%;
     margin: auto;
     display: grid;
     gap: 1rem;
 }
-.box_container_body{
+.box_container_korean_body{
     width: 100%;
     height: auto;
     display: flex;
@@ -64,32 +64,33 @@ body {
     cursor: pointer;
     overflow: hidden;
 }
-.box_container_body:hover{
+.box_container_korean_body:hover{
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
-.container_image{
-    width: 300px;
+.container_korean_image{
+    width: 600px;
     height: auto;
     overflow: hidden;
 }
-.container_image img {
+.container_korean_image img {
     width: 100%;
-    height: 100%;
+    height: 300px;
     object-fit: contain;
+    overflow: hidden;
     border-radius: 5px;
 }
-.container_image:hover img {
+.container_korean_image:hover img {
     transform: scale(1.1);
     transition: 0.5s;
 }
-.container_des{
+.container_korean_desc{
     width: 70%;
 }
-.container_des p{
+.container_korean_desc p{
     padding: 0 15px;
     margin-top: 15px;
 }
-.container_des h2:hover{
+.container_korean_desc h2:hover{
     color: #3d76fb;
     transition: 0.5s;
 }
@@ -127,7 +128,7 @@ body {
 /*===== Responsive =====*/
 
 @media only screen and (max-width: 576px) {
-    .containnerOneday_body {
+    .containner_korean_body {
         width: 90%;
         margin: 6.5rem auto 0 auto;
         
@@ -138,7 +139,7 @@ body {
         margin-bottom: 1rem;
     }
 
-    .content_item_Oneday {
+    .content_item_korean {
         width: 100%;
         margin: auto;
         margin-top: -2.5rem;
@@ -147,24 +148,24 @@ body {
     .container_txt_head {
         margin-top: 1rem;
     }
-    .container_image img {
+    .container_korean_image img {
         width: 100%;
         height: 100%;
         object-fit: contain;
         border-radius: 5px;
     }
-    .box_container{
+    .box_container_korean{
         margin-top: -1.5rem;
     }
-    .box_container_body{
+    .box_container_korean_body{
         display: grid;
         grid-template-columns: 1fr;
         gap: 1rem;
     }
-    .container_des{
+    .container_korean_desc{
         width: 100%;
     }
-    .container_des p{
+    .container_korean_desc p{
         font-size: 20px;
     }
 }

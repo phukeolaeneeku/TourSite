@@ -68,21 +68,22 @@ body {
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 
-.group_item_Box_airplane .images {
+.group_item_Box_airplane .image {
     width: 345px;
     height: auto;
     overflow: hidden;
 }
-.group_item_Box_airplane .images:hover img {
+.group_item_Box_airplane .image:hover img {
     transform: scale(1.1);
     transition: 0.3s;
 }
 
-.group_item_Box_airplane .images img {
+.group_item_Box_airplane .image img {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 10px;
+    height: 310px;
+    object-fit: cover;
+    overflow: hidden;
+    padding: 15px;
 }
 
 .txt_desc_airplane {
