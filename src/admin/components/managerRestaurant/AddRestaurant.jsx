@@ -109,6 +109,15 @@ const AddRestaurant = () => {
               </div>
 
               <div className="input">
+                <label htmlFor="category">Category</label>
+                <select >
+                  <option value="pakse">Pakse</option>
+                  <option value="paksong">Paksong</option>
+                  <option value="siphadone">Siphadone</option>
+                </select>
+              </div>
+
+              <div className="input">
                 <label htmlFor="description">Description</label>
                 <textarea
                   type="text"

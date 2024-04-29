@@ -37,7 +37,6 @@ function Oneday() {
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                             </Expandable>
                             <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
-                            <p>Review: 220</p>
                         </div>
                     </div>
                     <div className="box_container_body">
@@ -52,7 +51,6 @@ function Oneday() {
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                             </Expandable>
                             <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vang Vieng</p>
-                            <p>Review: 150</p>
                         </div>
                     </div>
                     <div className="box_container_body">
@@ -65,7 +63,6 @@ function Oneday() {
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, modi!
                             </Expandable>
                             <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Luang prabang</p>
-                            <p>Review: 200</p>
                         </div>
                     </div>
                 </div>

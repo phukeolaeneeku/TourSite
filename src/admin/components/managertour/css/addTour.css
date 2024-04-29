@@ -168,6 +168,13 @@
     border-radius: 5px;
     border: solid 1px #ccc;
 }
+.input select{
+    padding: 15px 15px;
+    border-radius: 5px;
+    border: solid 1px #ccc;
+    cursor: pointer;
+}
+
 .input textarea{
     border-radius: 5px;
     border: solid 1px #ccc;

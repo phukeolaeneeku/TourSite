@@ -37,7 +37,6 @@ function Korean() {
                 <p className="SiGooglemaps">
                   <SiGooglemaps id="icon_map" /> Korean
                 </p>
-                <p>Review: 220</p>
               </div>
             </div>
           </div>

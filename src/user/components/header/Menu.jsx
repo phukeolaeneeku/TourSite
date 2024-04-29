@@ -14,26 +14,24 @@ const Header = () => {
   const handleTourMouseEnter = () => {
     setTourHovered(true);
   };
-
   const handleTourMouseLeave = () => {
     setTourHovered(false);
   };
+
   const handleHotelMouseEnter = () => {
     setHotelHovered(true);
   };
-
-
   const handleHotelMouseLeave = () => {
     setHotelHovered(false);
   };
+
   const handleRestaurantMouseEnter = () => {
     setRestaurantHovered(true);
   };
-
-
   const handleRestaurantMouseLeave = () => {
     setRestaurantHovered(false);
   };
+
   const handleTicketMouseEnter = () => {
     setTicketHovered(true);
   };
@@ -41,14 +39,12 @@ const Header = () => {
     setTicketHovered(false);
   };
 
-
   const handlePackageMouseEnter = () => {
     setPackageHovered(true);
   };
   const handlePackageMouseLeave = () => {
     setPackageHovered(false);
   };
-
 
   const handleGuideMouseEnter = () => {
     setTicketGuide(true);
@@ -60,6 +56,10 @@ const Header = () => {
   return (
     <div className="navbar">
       <div className="menu">
+        <Link to="/" className="list-menu">
+          <p className="btn-menu">HOME PAGE</p>
+        </Link>
+
         <div
           className="list-menu"
           onMouseEnter={handleTourMouseEnter}
@@ -70,28 +70,37 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li className="menu_inline">
-                  <Link to="/oneday"><p className="txtP">One day tour</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/oneday">
+                    <p className="txtP">One day tour</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/halfday"><p className="txtP">Half day tour</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/halfday">
+                    <p className="txtP">Half day tour</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/golf"><p className="txtP">Golf</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/golf">
+                    <p className="txtP">Golf</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/nightday"><p className="txtP">Night tour</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/nightday">
+                    <p className="txtP">Night tour</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
               </ul>
             </div>
           )}
         </div>
+
         <div
           className="list-menu"
           onMouseEnter={handleHotelMouseEnter}
@@ -102,23 +111,30 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li className="menu_inline">
-                  <Link to="/hotelpakse"><p className="txtP">Pakse</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/hotelpakse">
+                    <p className="txtP">Pakse</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/hotelpaksong"><p className="txtP">Paksong</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/hotelpaksong">
+                    <p className="txtP">Paksong</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/hotelsiphandone"><p className="txtP">Siphandone</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/hotelsiphandone">
+                    <p className="txtP">Siphandone</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
               </ul>
             </div>
           )}
         </div>
+
         <div
           className="list-menu"
           onMouseEnter={handleRestaurantMouseEnter}
@@ -129,23 +145,37 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li className="menu_inline">
-                  <Link to="/pakse"><p className="txtP">Pakse</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/pakse">
+                    <p className="txtP">Pakse</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/paksong"><p className="txtP">Paksong</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/paksong">
+                    <p className="txtP">Paksong</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/siphandone"><p className="txtP">Siphandone</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/siphandone">
+                    <p className="txtP">Siphandone</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
+                </li>
+                <div className="hr"></div>
+                <li className="menu_inline">
+                  <Link to="/entertainment">
+                    <p className="txtP">Entertainment</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
               </ul>
             </div>
           )}
         </div>
+
         <div
           className="list-menu"
           onMouseEnter={handleTicketMouseEnter}
@@ -156,28 +186,31 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li className="menu_inline">
-                  <Link to="/airplane"><p className="txtP">Airplane</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/airplane">
+                    <p className="txtP">Airplane</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/rent"><p className="txtP">Rent car</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/rent">
+                    <p className="txtP">Rent car</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
+
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/entertainment"><p className="txtP">Entertainment</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
-                </li>
-                <div className="hr"></div>
-                <li className="menu_inline">
-                  <Link to="/massage"><p className="txtP">Massage</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/massage">
+                    <p className="txtP">Massage</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
               </ul>
             </div>
           )}
         </div>
+        
         <div
           className="list-menu"
           onMouseEnter={handlePackageMouseEnter}
@@ -188,18 +221,24 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li className="menu_inline">
-                  <Link to="/package"><p className="txtP">3 Days</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/package">
+                    <p className="txtP">3 Days</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/package4days"><p className="txtP">4 Days</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/package4days">
+                    <p className="txtP">4 Days</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="/package5days"><p className="txtP">5 Days</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/package5days">
+                    <p className="txtP">5 Days</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
               </ul>
             </div>
@@ -216,13 +255,17 @@ const Header = () => {
             <div className="dropdown-menu">
               <ul>
                 <li className="menu_inline">
-                  <Link to="/korean"><p className="txtP">Korean</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="/korean">
+                    <p className="txtP">Korean</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="#"><p className="txtP">Laotian</p></Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight"/>
+                  <Link to="#">
+                    <p className="txtP">Laotian</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>
               </ul>
             </div>

@@ -124,15 +124,7 @@ body {
     color: #fb4d3d;
     font-weight: 600;
 }
-.box_icon_star{
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-#icon_star{
-    font-size: 20px;
-    color: #ffcd06;
-}
+
 
 
 /* Responsive Styles */

@@ -8,6 +8,7 @@ import recommended2 from "../../../img/recommended2.jpg";
 import resort3 from "../../../img/resort3.jpg";
 import Restaurant_paksong from "../../../img/Restaurant_paksong.jpg";
 import Expandable from "../../../admin/components/managertour/Expandable";
+import { SiGooglemaps } from "react-icons/si";
 
 function Pakse() {
   return (
@@ -31,6 +32,7 @@ function Pakse() {
                 <Expandable>
                   We will take you to Kuang Si Falls safely and comfortably.
                 </Expandable>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Siphadone</p>
               </div>
             </div>
             <div className="group_item_Box_restaurant">
@@ -44,6 +46,7 @@ function Pakse() {
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Repudiandae, similique!
                 </Expandable>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Siphadone</p>
               </div>
             </div>
             <div className="group_item_Box_restaurant">
@@ -55,6 +58,7 @@ function Pakse() {
                 <Expandable>
                   We will take you to Kuang Si Falls safely and comfortably.
                 </Expandable>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Siphadone</p>
               </div>
             </div>
           </div>

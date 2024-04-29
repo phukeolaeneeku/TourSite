@@ -43,13 +43,7 @@ function HotelPaksong() {
                 <p className="SiGooglemaps">
                   <SiGooglemaps id="icon_map" /> Vang Vieng
                 </p>
-                <p className="box_icon_star">
-                  <IoStar id="icon_star" />
-                  <IoStar id="icon_star" />
-                  <IoStar id="icon_star" />
-                  <IoStar id="icon_star" />
-                  <IoStar id="icon_star" />
-                </p>
+                
               </div>
             </div>
             <div className="box_container_body_hotel">
@@ -71,13 +65,7 @@ function HotelPaksong() {
                 <p className="SiGooglemaps">
                   <SiGooglemaps id="icon_map" /> Laos
                 </p>
-                <p className="box_icon_star">
-                  <IoStar id="icon_star" />
-                  <IoStar id="icon_star" />
-                  <IoStar id="icon_star" />
-                  <IoStar id="icon_star" />
-                  <IoStar id="icon_star" />
-                </p>
+                
               </div>
             </div>
             <div className="box_container_body">
@@ -99,13 +87,7 @@ function HotelPaksong() {
                 <p className="SiGooglemaps">
                   <SiGooglemaps id="icon_map" /> Luang Prabang
                 </p>
-                <p className="box_icon_star">
-                  <IoStar id="icon_star" />
-                  <IoStar id="icon_star" />
-                  <IoStar id="icon_star" />
-                  <IoStar id="icon_star" />
-                  <IoStar id="icon_star" />
-                </p>
+                
               </div>
             </div>
           </div>

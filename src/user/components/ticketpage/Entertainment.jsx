@@ -8,6 +8,7 @@ import Entertainment from "../../../img/Entertainment.jpg";
 import Entertainment1 from "../../../img/Entertainment1.jpg";
 import Entertainment2 from "../../../img/Entertainment2.jpg";
 import Expandable from "../../../admin/components/managertour/Expandable";
+import { SiGooglemaps } from "react-icons/si";
 
 function Massage() {
   return (
@@ -32,6 +33,7 @@ function Massage() {
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Optio, eaque!
                 </Expandable>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Pakse</p>
               </div>
             </div>
             <div className="group_item_Box_airplane">
@@ -44,6 +46,7 @@ function Massage() {
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
                   Optio, eaque!
                 </Expandable>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Pakse</p>
               </div>
             </div>
             <div className="group_item_Box_airplane">
@@ -57,6 +60,7 @@ function Massage() {
                   Aspernatur eveniet sint quidem aliquam ratione velit non
                   reprehenderit voluptatem accusamus dignissimos!
                 </Expandable>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Pakse</p>
               </div>
             </div>
           </div>

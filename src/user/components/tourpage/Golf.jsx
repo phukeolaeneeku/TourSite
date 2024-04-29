@@ -7,6 +7,7 @@ import "./css/golf.css";
 import golf from "../../../img/golf.png";
 import golf2 from "../../../img/golf2.jpg";
 import golf4 from "../../../img/golf4.png";
+import { SiGooglemaps } from "react-icons/si";
 import Expandable from "../../../admin/components/managertour/Expandable";
 
 function Oneday() {
@@ -35,7 +36,7 @@ function Oneday() {
                   <p className="price_num">$400</p>
                   <p> ￦450,100 </p>
                 </div>
-                <p>Review: 200</p>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vang Vieng</p>
               </div>
             </div>
             <div className="group_item_Box">
@@ -53,7 +54,7 @@ function Oneday() {
                   <p className="price_num">$600</p>
                   <p> ￦800,000 </p>
                 </div>
-                <p>Review: 200</p>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vang Vieng</p>
               </div>
             </div>
             <div className="group_item_Box">
@@ -69,7 +70,7 @@ function Oneday() {
                   <p className="price_num">$150</p>
                   <p> ￦350,000 </p>
                 </div>
-                <p>Review: 200</p>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vang Vieng</p>
               </div>
             </div>
           </div>

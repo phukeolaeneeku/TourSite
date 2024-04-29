@@ -7,6 +7,7 @@ import "./css/package.css";
 import patusai from "../../../img/patusai.jpg";
 import thadluang from "../../../img/thadluang.jpg";
 import Expandable from "../../../admin/components/managertour/Expandable";
+import { SiGooglemaps } from "react-icons/si";
 
 function Package() {
   return (
@@ -34,7 +35,7 @@ function Package() {
                   <p className="price_num">$400</p>
                   <p> ￦450,100 </p>
                 </div>
-                <p>Review: 200</p>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_item_Box">
@@ -50,7 +51,7 @@ function Package() {
                   <p className="price_num">$600</p>
                   <p> ￦800,000 </p>
                 </div>
-                <p>Review: 200</p>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_item_Box">
@@ -68,7 +69,7 @@ function Package() {
                   <p className="price_num">$150</p>
                   <p> ￦350,000 </p>
                 </div>
-                <p>Review: 200</p>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
           </div>

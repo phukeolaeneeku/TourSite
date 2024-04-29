@@ -8,6 +8,7 @@ import vangvieng from "../../../img/vangvieng.gif";
 import vangvieng2 from "../../../img/vangvieng2.jpg";
 import motorcycle from "../../../img/motorcycle.jpg";
 import Expandable from "../../../admin/components/managertour/Expandable"
+import { SiGooglemaps } from "react-icons/si";
 
 function Package4days() {
   return (
@@ -35,7 +36,7 @@ function Package4days() {
                   <p className="price_num">$400</p>
                   <p> ￦450,100 </p>
                 </div>
-                <p>Review: 200</p>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_item_Box">
@@ -51,7 +52,7 @@ function Package4days() {
                   <p className="price_num">$600</p>
                   <p> ￦800,000 </p>
                 </div>
-                <p>Review: 200</p>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_item_Box">
@@ -67,7 +68,7 @@ function Package4days() {
                   <p className="price_num">$150</p>
                   <p> ￦350,000 </p>
                 </div>
-                <p>Review: 200</p>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
           </div>

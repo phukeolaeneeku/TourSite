@@ -9,7 +9,6 @@ const AddProduct = () => {
   // State to store the array of selected images
   const [images, setImages] = useState([]);
 
-
   // Function to handle image selection
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -36,8 +35,6 @@ const AddProduct = () => {
   const removeImage = (index) => {
     setImages(images.filter((_, i) => i !== index));
   };
-
-  
 
   return (
     <>
@@ -73,8 +70,11 @@ const AddProduct = () => {
                   {images.map((image, index) => (
                     <div className="gallery-box-view" key={index}>
                       <img src={image} alt="" />
-                      <div className="button" onClick={() => removeImage(index)}>
-                      <AiOutlineDelete />
+                      <div
+                        className="button"
+                        onClick={() => removeImage(index)}
+                      >
+                        <AiOutlineDelete />
                       </div>
                     </div>
                   ))}
@@ -111,6 +111,15 @@ const AddProduct = () => {
               <div className="input">
                 <label htmlFor="address">Address</label>
                 <input type="text" name="address" placeholder="Address..." />
+              </div>
+              <div className="input">
+                <label htmlFor="category">Category</label>
+                <select>
+                  <option value="pakse">One day tour</option>
+                  <option value="paksong">Half day tour</option>
+                  <option value="siphadone">Night tour</option>
+                  <option value="siphadone">Golf</option>
+                </select>
               </div>
 
               <div className="input">

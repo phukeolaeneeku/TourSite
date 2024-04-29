@@ -8,6 +8,7 @@ import airplane from "../../../img/airplane.jpg";
 import airplane1 from "../../../img/airplane1.jpg";
 import airplane2 from "../../../img/airplane2.jpg";
 import Expandable from "../../../admin/components/managertour/Expandable";
+import { SiGooglemaps } from "react-icons/si";
 
 function Airplane() {
   return (
@@ -37,6 +38,7 @@ function Airplane() {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_item_Box_airplane">
@@ -54,6 +56,7 @@ function Airplane() {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_item_Box_airplane">
@@ -69,6 +72,7 @@ function Airplane() {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
           </div>

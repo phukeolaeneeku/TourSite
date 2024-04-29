@@ -8,6 +8,7 @@ import guide from "../../../img/guide.jpg";
 import massage1 from "../../../img/massage1.jpg";
 import massage2 from "../../../img/massage2.jpg";
 import Expandable from "../../../admin/components/managertour/Expandable";
+import { SiGooglemaps } from "react-icons/si";
 
 function Massage() {
   return (
@@ -36,6 +37,7 @@ function Massage() {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_item_Box_airplane">
@@ -53,6 +55,7 @@ function Massage() {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_item_Box_airplane">
@@ -69,6 +72,7 @@ function Massage() {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
           </div>

@@ -7,6 +7,7 @@ import "./css/airplane.css";
 import car from "../../../img/car.jpg";
 import resort2 from "../../../img/resort2.jpg";
 import Expandable from "../../../admin/components/managertour/Expandable";
+import { SiGooglemaps } from "react-icons/si";
 
 function Rent() {
   return (
@@ -32,10 +33,13 @@ function Rent() {
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Quidem, quia.
                 </Expandable>
+                <p>Bran: .....</p>
+                <p>Car_number: .....</p>
                 <div className="price">
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_item_Box_airplane">
@@ -47,10 +51,13 @@ function Rent() {
                 <Expandable>
                   We will take you comfortably between Vientiane and Vang Vieng.
                 </Expandable>
+                <p>Bran: .....</p>
+                <p>Car_number: .....</p>
                 <div className="price">
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_item_Box_airplane">
@@ -63,10 +70,13 @@ function Rent() {
                   We will take you comfortably between Vientiane and Luang
                   prabang.
                 </Expandable>
+                <p>Bran: .....</p>
+                <p>Car_number: .....</p>
                 <div className="price">
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
           </div>
