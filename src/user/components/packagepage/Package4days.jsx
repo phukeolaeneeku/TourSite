@@ -6,8 +6,8 @@ import Menu from "../header/Menu";
 import "./css/package.css";
 import vangvieng from "../../../img/vangvieng.gif";
 import vangvieng2 from "../../../img/vangvieng2.jpg";
-import vangvieng3 from "../../../img/vangvieng3.jpg";
 import motorcycle from "../../../img/motorcycle.jpg";
+import Expandable from "../../../admin/components/managertour/Expandable"
 
 function Package4days() {
   return (
@@ -28,9 +28,9 @@ function Package4days() {
               </Link>
               <div className="txt_desc">
                 <h3>4 Days</h3>
-                <p>
+                <Expandable>
                   A city thadluang trip in Vientiane, the capital of Laos
-                </p>
+                </Expandable>
                 <div className="price">
                   <p className="price_num">$400</p>
                   <p> ￦450,100 </p>
@@ -44,9 +44,9 @@ function Package4days() {
               </div>
               <div className="txt_desc">
                 <h3>4 days</h3>
-                <p>
+                <Expandable>
                 A city thadluang trip in Vientiane, the capital of Laos
-                </p>
+                </Expandable>
                 <div className="price">
                   <p className="price_num">$600</p>
                   <p> ￦800,000 </p>
