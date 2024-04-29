@@ -23,6 +23,7 @@ import resort from "../../../img/resort.jpg";
 import resort2 from "../../../img/resort2.jpg";
 import resort3 from "../../../img/resort3.jpg";
 import { Link } from "react-router-dom";
+import { SiGooglemaps } from "react-icons/si";
 
 
 const Homepage = () => {
@@ -50,7 +51,7 @@ const Homepage = () => {
                 <p className="price_num">$10</p>
                 <p> ￦15,000 </p>
               </div>
-              
+              <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
             </div>
           </div>
           <div className="group_itemBox">
@@ -66,6 +67,7 @@ const Homepage = () => {
                 <p className="price_num">$10</p>
                 <p> ￦15,000 </p>
               </div>
+              <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
             </div>
           </div>
          
@@ -80,6 +82,7 @@ const Homepage = () => {
                 <p className="price_num">$10</p>
                 <p> ￦15,000 </p>
               </div>
+              <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
             </div>
           </div>
           <div className="group_itemBox">
@@ -93,6 +96,7 @@ const Homepage = () => {
                 <p className="price_num">$10</p>
                 <p> ￦15,000 </p>
               </div>
+              <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
             </div>
           </div>
         </div>
@@ -117,6 +121,7 @@ const Homepage = () => {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_itemBox">
@@ -132,6 +137,7 @@ const Homepage = () => {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_itemBox">
@@ -147,6 +153,7 @@ const Homepage = () => {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
           </div>
@@ -172,6 +179,7 @@ const Homepage = () => {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_itemBox">
@@ -187,6 +195,7 @@ const Homepage = () => {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_itemBox">
@@ -202,6 +211,7 @@ const Homepage = () => {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
           </div>
@@ -227,6 +237,7 @@ const Homepage = () => {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_itemBox">
@@ -242,6 +253,7 @@ const Homepage = () => {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_itemBox">
@@ -257,6 +269,7 @@ const Homepage = () => {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             
@@ -283,6 +296,7 @@ const Homepage = () => {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_itemBox">
@@ -298,6 +312,7 @@ const Homepage = () => {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_itemBox">
@@ -313,6 +328,7 @@ const Homepage = () => {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
           </div>
@@ -334,6 +350,7 @@ const Homepage = () => {
                 <p>
                   Wellness spa to truly relax your body
                 </p>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_itemBox">
@@ -345,6 +362,7 @@ const Homepage = () => {
                 <p>
                   Enjoy a cold Belgian beer!
                 </p>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_itemBox">
@@ -356,6 +374,7 @@ const Homepage = () => {
                 <p>
                   Best massage in Vang Vieng
                 </p>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
           </div>
@@ -381,6 +400,7 @@ const Homepage = () => {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_itemBox">
@@ -396,6 +416,7 @@ const Homepage = () => {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
             <div className="group_itemBox">
@@ -411,6 +432,7 @@ const Homepage = () => {
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
                 </div>
+                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
               </div>
             </div>
           </div>

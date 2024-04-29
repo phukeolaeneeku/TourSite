@@ -33,8 +33,8 @@ function Rent() {
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                   Quidem, quia.
                 </Expandable>
-                <p>Bran: .....</p>
-                <p>Car_number: .....</p>
+                <p>Brand: TOYOTA</p>
+                <p>Car_number: 6666</p>
                 <div className="price">
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
@@ -51,8 +51,8 @@ function Rent() {
                 <Expandable>
                   We will take you comfortably between Vientiane and Vang Vieng.
                 </Expandable>
-                <p>Bran: .....</p>
-                <p>Car_number: .....</p>
+                <p>Brand: Lamborghini</p>
+                <p>Car_number: 8888</p>
                 <div className="price">
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
@@ -70,8 +70,8 @@ function Rent() {
                   We will take you comfortably between Vientiane and Luang
                   prabang.
                 </Expandable>
-                <p>Bran: .....</p>
-                <p>Car_number: .....</p>
+                <p>Brand: Honda</p>
+                <p>Car_number: 9999</p>
                 <div className="price">
                   <p className="price_num">$10</p>
                   <p> ￦15,000 </p>
