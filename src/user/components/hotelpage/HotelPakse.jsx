@@ -7,7 +7,6 @@ import Menu from "../header/Menu"
 import "./css/hotel.css";
 import { SiGooglemaps } from "react-icons/si";
 import hotel3 from "../../../img/hotel3.jpg";
-import { IoStar } from "react-icons/io5";
 import Expandable from "../../../admin/components/managertour/Expandable"
 
 

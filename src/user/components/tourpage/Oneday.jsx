@@ -1,17 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../menu/Footer";
 import Header from "../header/Header";
 import "./css/oneday.css";
-import { IoIosArrowBack } from "react-icons/io";
 import { SiGooglemaps } from "react-icons/si";
-import patusai from "../../../img/patusai.jpg";
 import thadluang from "../../../img/thadluang.jpg";
-import motorcycle from "../../../img/motorcycle.jpg";
 import Menu from "../header/Menu";
-import Expandable from "../../../admin/components/managertour/Expandable"
+import axios from "axios";
+import Expandable from "../../../admin/components/managertour/Expandable";
 
 function Oneday() {
+  const [tour, setTour] = useState([]);
+
+  console.log("Tour........", tour);
+
+  useEffect(() => {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: import.meta.env.VITE_API + "/tourapi/tour/",
+      // url: "http://127.0.0.1:8000/tourapi/tour/",
+
+      headers: {},
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        // console.log(JSON.stringify(response.data));
+        setTour(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  
+  
   return (
     <>
       <Header />
@@ -23,73 +47,27 @@ function Oneday() {
               <span className="span_Styles"></span>One day tour
             </h3>
           </div>
+
           <div className="box_container">
-            <div className="box_container_body">
-              <Link to="/details" className="container_image">
-                <img src={thadluang} alt="image" />
-              </Link>
-              <div className="container_des">
-                <h2>Vientiane</h2>
-                <Expandable>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo, modi! Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Explicabo, modi! Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Explicabo, modi!
-                </Expandable>
+            {tour.map((tour, index) => (
+              <div className="box_container_body" key={index}>
+                <Link to="/details" className="container_image">
+                  <img src={tour.image} alt="image" />
+                </Link>
+                <div className="container_des">
+                  <h2>{tour.name}</h2>
+                  <Expandable>{tour.description}</Expandable>
 
-                <div className="txt_oneday">
-                  <p className="price_number_one">$10</p>
-                  <p className="txt_price"> ￦15,000 </p>
+                  <div className="txt_oneday">
+                    <p className="price_number_one">$ {tour.price}</p>
+                  </div>
+
+                  <p className="SiGooglemaps">
+                    <SiGooglemaps id="icon_map" /> {tour.address}
+                  </p>
                 </div>
-
-                <p className="SiGooglemaps">
-                  <SiGooglemaps id="icon_map" /> Vientiane
-                </p>
               </div>
-            </div>
-            <div className="box_container_body">
-              <div className="container_image">
-                <img src={motorcycle} alt="image" />
-              </div>
-              <div className="container_des">
-                <h2>Vang Vieng</h2>
-                <Expandable>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo, modi! Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Explicabo, modi! Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Explicabo, modi!
-                </Expandable>
-
-                <div className="txt_oneday">
-                  <p className="price_number_one">$10</p>
-                  <p className="txt_price"> ￦15,000 </p>
-                </div>
-
-                <p className="SiGooglemaps">
-                  <SiGooglemaps id="icon_map" /> Vang Vieng
-                </p>
-              </div>
-            </div>
-            <div className="box_container_body">
-              <div className="container_image">
-                <img src={patusai} alt="image" />
-              </div>
-              <div className="container_des">
-                <h2>Vientiane</h2>
-                <Expandable>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo, modi! Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit.
-                </Expandable>
-                <div className="txt_oneday">
-                  <p className="price_number_one">$10</p>
-                  <p className="txt_price"> ￦15,000 </p>
-                </div>
-                <p className="SiGooglemaps">
-                  <SiGooglemaps id="icon_map" /> Vientiane
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

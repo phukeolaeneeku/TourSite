@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const AddHotel = () => {
+const EditHotel = () => {
   // State to store the selected image
   const [selectedImage, setSelectedImage] = useState(null);
   // State to store the array of selected images
