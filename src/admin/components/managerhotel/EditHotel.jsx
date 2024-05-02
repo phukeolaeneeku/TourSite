@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
-import "./css/editHotel.css";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const EditHotel = () => {
+const AddHotel = () => {
   // State to store the selected image
   const [selectedImage, setSelectedImage] = useState(null);
   // State to store the array of selected images
   const [images, setImages] = useState([]);
-
 
   // Function to handle image selection
   const handleImageChange = (e) => {
@@ -18,6 +16,7 @@ const EditHotel = () => {
       setSelectedImage(imageUrl);
     }
   };
+
 
   // Function to handle image selection
   const handleImageChangeCategory = (e) => {
@@ -37,13 +36,12 @@ const EditHotel = () => {
     setImages(images.filter((_, i) => i !== index));
   };
 
-  
-
   return (
     <>
       <AdminMenu />
       <section id="post">
         <div className="box_container_product">
+          <h2>Hotel</h2>
           <form className="edit-product-forms">
             <div className="input-img">
               <div className="box_description">
@@ -73,8 +71,11 @@ const EditHotel = () => {
                   {images.map((image, index) => (
                     <div className="gallery-box-view" key={index}>
                       <img src={image} alt="" />
-                      <div className="button" onClick={() => removeImage(index)}>
-                      <AiOutlineDelete />
+                      <div
+                        className="button"
+                        onClick={() => removeImage(index)}
+                      >
+                        <AiOutlineDelete />
                       </div>
                     </div>
                   ))}
@@ -112,6 +113,14 @@ const EditHotel = () => {
                 <label htmlFor="address">Address</label>
                 <input type="text" name="address" placeholder="Address..." />
               </div>
+              <div className="input">
+                <label htmlFor="category">Category</label>
+                <select>
+                  <option value="pakse">Pakse</option>
+                  <option value="paksong">Paksong</option>
+                  <option value="siphadone">Siphadone</option>
+                </select>
+              </div>
 
               <div className="input">
                 <label htmlFor="description">Description</label>
@@ -125,7 +134,7 @@ const EditHotel = () => {
             </div>
 
             <div className="submit1">
-              <button type="submit">Edit</button>
+              <button type="submit">Post</button>
             </div>
           </form>
         </div>

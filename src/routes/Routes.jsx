@@ -51,6 +51,7 @@ import EditRestaurant from "../admin/components/managerRestaurant/EditRestaurant
 import AddRestaurant from "../admin/components/managerRestaurant/AddRestaurant";
 import PackageAdmin from "../admin/components/packageAdmin/PackageAdmin";
 import TicketAdmin from "../admin/components/ticketAdmin/TicketAdmin";
+import Add_Hotel from "../admin/components/managerhotel/AddHotel";
 
 const Links = () => {
   return (
@@ -109,6 +110,7 @@ const Links = () => {
         <Route path="/add-restaurant" Component={AddRestaurant} />
         <Route path="/package-admin" Component={PackageAdmin} />
         <Route path="/ticket-admin" Component={TicketAdmin} />
+        <Route path="/add-hotel" Component={Add_Hotel} />
         
       </Routes>
     </Router>

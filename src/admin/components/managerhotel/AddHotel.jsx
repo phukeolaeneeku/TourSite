@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
-import "./css/addTour.css";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const addTour = () => {
+const AddHotel = () => {
   // State to store the selected image
   const [selectedImage, setSelectedImage] = useState(null);
   // State to store the array of selected images
@@ -17,7 +16,7 @@ const addTour = () => {
       setSelectedImage(imageUrl);
     }
   };
-  
+
 
   // Function to handle image selection
   const handleImageChangeCategory = (e) => {
@@ -42,7 +41,7 @@ const addTour = () => {
       <AdminMenu />
       <section id="post">
         <div className="box_container_product">
-          <h2>Tour</h2>
+          <h2>Hotel</h2>
           <form className="edit-product-forms">
             <div className="input-img">
               <div className="box_description">
@@ -117,10 +116,9 @@ const addTour = () => {
               <div className="input">
                 <label htmlFor="category">Category</label>
                 <select>
-                  <option value="pakse">One day tour</option>
-                  <option value="paksong">Half day tour</option>
-                  <option value="siphadone">Night tour</option>
-                  <option value="siphadone">Golf</option>
+                  <option value="pakse">Pakse</option>
+                  <option value="paksong">Paksong</option>
+                  <option value="siphadone">Siphadone</option>
                 </select>
               </div>
 
@@ -145,4 +143,4 @@ const addTour = () => {
   );
 };
 
-export default addTour;
+export default AddHotel;
