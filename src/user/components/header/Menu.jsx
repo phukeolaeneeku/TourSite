@@ -57,7 +57,7 @@ const Header = () => {
     <div className="navbar">
       <div className="menu">
         <Link to="/" className="list-menu">
-          <p className="btn-menu">HOME PAGE</p>
+          <p className="btn-menu">HOME</p>
         </Link>
 
         <div

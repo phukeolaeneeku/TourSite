@@ -49,7 +49,7 @@ function Oneday() {
           </div>
 
           <div className="box_container">
-            {tour.map((tour, index) => (
+          {tour.map((tour, index) => (
               <div className="box_container_body" key={index}>
                 <Link to="/details" className="container_image">
                   <img src={tour.image} alt="image" />
