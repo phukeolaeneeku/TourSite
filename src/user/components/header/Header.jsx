@@ -7,6 +7,7 @@ import { AiFillDashboard } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
 import tour_logo from "../../../img/tour_logo.gif";
 import hotel1 from "../../../img/hotel1.jpg";
+import { IoMdCart } from "react-icons/io";
 
 const Header = () => {
   return (
@@ -38,8 +39,15 @@ const Header = () => {
               </form>
             </div>
             <div className="icon_account_login">
-              <Link to="/account-user"><FaUser id="icon_dashboard"/></Link>
-              <Link to="/tour-admin"><AiFillDashboard id="icon_dashboard"/></Link>
+              <Link to="/cart">
+              <IoMdCart id="icon_dashboard"/>
+              </Link>
+              <Link to="/account-user">
+                <FaUser id="icon_dashboard_user" />
+              </Link>
+              <Link to="/tour-admin">
+                <AiFillDashboard id="icon_dashboard" />
+              </Link>
               <Link to="/login" className="head_colorr">
                 <p>Login</p>
                 <BiLogIn className="login" />

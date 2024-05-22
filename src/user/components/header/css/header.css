@@ -49,8 +49,16 @@
     align-items: center;
 }
 #icon_dashboard{
-    font-size: 22px;
+    font-size: 20px;
     color: #999;
+}
+#icon_dashboard_user{
+    font-size: 18px;
+    color: #999;
+}
+#icon_dashboard_user:hover{
+    color: #165cff;
+    transition: 0.5s;
 }
 #icon_dashboard:hover{
     color: #165cff;

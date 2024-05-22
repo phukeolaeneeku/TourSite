@@ -8,8 +8,8 @@ import { SiGooglemaps } from "react-icons/si";
 import hotel1 from "../../../img/hotel1.jpg";
 import hotel2 from "../../../img/hotel2.jpg";
 import hotel3 from "../../../img/hotel3.jpg";
-import { IoStar } from "react-icons/io5";
-import Expandable from "../../../admin/components/managertour/Expandable"
+import { IoMdCart } from "react-icons/io";
+import Expandable from "../../../admin/components/managertour/Expandable";
 
 function HotelPaksong() {
   return (
@@ -43,7 +43,9 @@ function HotelPaksong() {
                 <p className="SiGooglemaps">
                   <SiGooglemaps id="icon_map" /> Vang Vieng
                 </p>
-                
+                <p className="IoMdCart">
+                  <IoMdCart id="icon_IoMdCart" />
+                </p>
               </div>
             </div>
             <div className="box_container_body_hotel">
@@ -65,7 +67,9 @@ function HotelPaksong() {
                 <p className="SiGooglemaps">
                   <SiGooglemaps id="icon_map" /> Laos
                 </p>
-                
+                <p className="IoMdCart">
+                  <IoMdCart id="icon_IoMdCart" />
+                </p>
               </div>
             </div>
             <div className="box_container_body">
@@ -87,7 +91,9 @@ function HotelPaksong() {
                 <p className="SiGooglemaps">
                   <SiGooglemaps id="icon_map" /> Luang Prabang
                 </p>
-                
+                <p className="IoMdCart">
+                  <IoMdCart id="icon_IoMdCart" />
+                </p>
               </div>
             </div>
           </div>

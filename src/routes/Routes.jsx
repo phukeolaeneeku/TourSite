@@ -28,6 +28,9 @@ import Korean from "../user/components/guidepage/Korean"
 import AccountUser from "../user/components/accountUser/AccountUser";
 import Profile from "../user/components/accountUser/Profile";
 
+import Cart from "../user/components/cart/Cart";
+import Payment from "../user/components/payment/Payment";
+
 /* =============== Form login, register, Find password =============== */
 import Login from "../user/components/login_register/Login";
 import Register from "../user/components/login_register/Register";
@@ -86,6 +89,9 @@ const Links = () => {
 
         <Route exact path="/account-user" Component={AccountUser} />
         <Route exact path="/profile-user" Component={Profile} />
+
+        <Route exact path="/cart" Component={Cart} />
+        <Route exact path="/payment" Component={Payment} />
 
         {/*========== Form login, register, Find password ============ */}
         <Route exact path="/login" Component={Login} />

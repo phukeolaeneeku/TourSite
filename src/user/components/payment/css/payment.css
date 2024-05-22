@@ -1,0 +1,126 @@
+body {
+    background-color: #ffffff;
+}
+
+.container_Payment {
+    width: 50%;
+    margin: auto;
+    margin-top: 11rem;
+    padding: 30px;
+    border: 1px solid #cccccc5a;
+    border-radius: 5px;
+    background-color: #fff;
+    
+}
+.container_Payment h3{
+    text-align: center;
+    font-size: 22px;
+}
+.container_Payment:hover {
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
+    
+}
+
+.box_container_text {
+    display: grid;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.input_form {
+    width: 100%;
+    height: 58px;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+}
+
+.input_form {
+    padding: 20px 15px;
+    font-size: 16px;
+}
+
+.input_textarea {
+    width: 100%;
+    height: 100px;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+}
+
+.input_textarea {
+    padding: 15px 15px;
+    font-size: 16px;
+}
+
+.text_qrcode {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.box_RQCode{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.box_RQCode img{
+    width: 50%;
+}
+
+
+.box_confirm{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn_confirm_button{
+    padding: 8px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #165cffc7;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .container_Payment {
+        width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container_Payment {
+        width: 90%;
+        margin-top: 6rem;
+        margin-bottom: 5rem;
+        padding: 20px;
+    }
+    .box_confirm {
+        flex-direction: column;
+        gap: 10px;
+    }
+   
+}
+
+@media (max-width: 480px) {
+    .container_Payment {
+        width: 95%;
+        margin-top: 5.5rem;
+        padding: 15px;
+    }
+    .text_qrcode {
+        font-size: 16px;
+    }
+    .btn_confirm_button {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+    .box_RQCode img {
+        width: 70%;
+    }
+   
+}

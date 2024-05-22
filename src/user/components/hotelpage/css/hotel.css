@@ -108,6 +108,14 @@ body {
     color: #3d76fb;
 }
 
+.IoMdCart{
+    display: flex;
+    align-items: center;
+}
+#icon_IoMdCart{
+    font-size: 22px;
+}
+
 .txt_hotel{
     display: flex;
     align-items: center;
