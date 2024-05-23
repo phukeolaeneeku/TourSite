@@ -13,16 +13,11 @@ const Menu = () => {
                 <div className="footer_Container">
                     <div className="footconentBox">
                         <h3 className="txt_footHead">About us</h3>
-                        <p><Link to="/" className="txt_pFoot">Something</Link></p>
-                        <p><Link to="/" className="txt_pFoot">Something</Link></p>
-                        <p><Link to="/" className="txt_pFoot">Something</Link></p>
-                        <p><Link to="/" className="txt_pFoot">Something</Link></p>
-                        <p><Link to="/" className="txt_pFoot">Something</Link></p>
+                        <p><Link to="/" className="txt_pFoot">TourSite</Link></p>
                     </div>
 
                     <div className="footconentBox">
                         <h3 className="txt_footHead">Contact us</h3>
-                        <p><Link to="/" className="txt_pFoot">Phone: 020 998878788</Link></p>
                         <p><Link to="/" className="txt_pFoot">Phone: 020 998878788</Link></p>
                         <p><Link to="/" className="txt_pFoot">Email: humascot@gmail.com</Link></p>
                         <p><Link to="/" className="txt_pFoot">Address: Asean mall</Link></p>

@@ -5,14 +5,18 @@ import Header from "../header/Header";
 import Menu from "../header/Menu";
 import "./css/oneday.css";
 import { SiGooglemaps } from "react-icons/si";
-import night_vientiane2 from "../../../img/night_vientiane2.jpg";
-import night_vangvieng from "../../../img/night_vangvieng.jpg";
-import night_luangphabang from "../../../img/night_luangphabang.jpg";
+import { IoMdCart } from "react-icons/io";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function Oneday() {
   const [tour_night, setTour_night] = useState([]);
+
+  const [cart, setCart] = useState(() => {
+    const localCart = localStorage.getItem("cart");
+    return localCart ? JSON.parse(localCart) : [];
+  });
 
   console.log("Tour_night........", tour_night);
 
@@ -21,21 +25,38 @@ function Oneday() {
       method: "get",
       maxBodyLength: Infinity,
       url: import.meta.env.VITE_API + "/tourapi/tour/",
-      // url: "http://127.0.0.1:8000/tourapi/tour/",
-
-      headers: {},
     };
 
     axios
       .request(config)
       .then((response) => {
-        // console.log(JSON.stringify(response.data));
         setTour_night(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
+
+    //Add item to cart
+    useEffect(() => {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
+  
+    const handleAddToCart = (tour_night) => {
+      if (cart.some((item) => item.id === tour_night.id)) {
+        Swal.fire({
+          text: "This item is already cart!",
+          icon: "error",
+        });
+      } else {
+        setCart([...cart, tour_night]);
+  
+        Swal.fire({
+          text: "Add item to cart success!",
+          icon: "success",
+        });
+      }
+    };
 
   return (
     <>
@@ -49,20 +70,37 @@ function Oneday() {
             </h3>
           </div>
           <div className="box_container">
-            {tour_night.map((night, index) => (
-              <div className="box_container_body" key={index}>
-                <Link to="/details" className="container_image">
-                  <img src={night.image} alt="image" />
-                </Link>
-                <div className="container_des">
-                  <h2>{night.name}</h2>
-                  <Expandable>{night.description}</Expandable>
-                  <p className="SiGooglemaps">
-                    <SiGooglemaps id="icon_map" /> {night.address}
-                  </p>
+            {tour_night
+              .filter((night) => {
+                console.log("Tour item:", night); // Log each tour item
+                return night.category === 2;
+              })
+              .map((night, index) => (
+                <div className="box_container_body" key={index}>
+                  <Link to="/details" className="container_image">
+                    <img src={night.image} alt="image" />
+                  </Link>
+                  <div className="container_des">
+                    <h2>{night.name}</h2>
+                    <Expandable>{night.description}</Expandable>
+
+                    <div className="txt_oneday">
+                      <p className="price_number_one">${night.price}</p>
+                    </div>
+
+                    <p className="SiGooglemaps">
+                      <SiGooglemaps id="icon_map" /> {night.address}
+                    </p>
+
+                    <p className="IoMdCart">
+                      <IoMdCart
+                        id="icon_IoMdCart"
+                        onClick={() => handleAddToCart(night, index)}
+                      />
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </div>

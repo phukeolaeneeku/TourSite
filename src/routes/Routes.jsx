@@ -30,6 +30,7 @@ import Profile from "../user/components/accountUser/Profile";
 
 import Cart from "../user/components/cart/Cart";
 import Payment from "../user/components/payment/Payment";
+import EmailForm from "../user/components/cart/EmailForm"
 
 /* =============== Form login, register, Find password =============== */
 import Login from "../user/components/login_register/Login";
@@ -92,6 +93,7 @@ const Links = () => {
 
         <Route exact path="/cart" Component={Cart} />
         <Route exact path="/payment" Component={Payment} />
+        <Route exact path="/email-form" Component={EmailForm} />
 
         {/*========== Form login, register, Find password ============ */}
         <Route exact path="/login" Component={Login} />

@@ -25,6 +25,13 @@ a {
     gap: 1rem;
 
 }
+.no-reviews-message{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    color: #aea8a8;
+    margin-bottom: 5rem;
+}
 
 .box_container_cart .display_products {
     width: 48%;
@@ -66,7 +73,25 @@ a {
     box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 
+.txt_box_delete{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.btn_delete_item {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    cursor: pointer;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    background: #fa442c;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 18px;
+  }
 
 
 .box_item_text {
@@ -264,7 +289,7 @@ a {
         height: auto;
         left: 0;
         margin-top: 1rem;
-        margin-bottom: 7rem;
+        margin-bottom: 10rem;
     }
 
     .btn {

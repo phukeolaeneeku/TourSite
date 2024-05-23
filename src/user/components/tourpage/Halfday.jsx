@@ -5,13 +5,17 @@ import Header from "../header/Header";
 import Menu from "../header/Menu";
 import "./css/oneday.css";
 import { SiGooglemaps } from "react-icons/si";
-import patusai from "../../../img/patusai.jpg";
-import thadluang from "../../../img/thadluang.jpg";
+import { IoMdCart } from "react-icons/io";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function Oneday() {
   const [tour_half, setTour_half] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const localCart = localStorage.getItem("cart");
+    return localCart ? JSON.parse(localCart) : [];
+  });
 
   console.log("Tour_half........", tour_half);
 
@@ -20,7 +24,6 @@ function Oneday() {
       method: "get",
       maxBodyLength: Infinity,
       url: import.meta.env.VITE_API + "/tourapi/tour/",
-      // url: "http://127.0.0.1:8000/tourapi/tour/",
 
       headers: {},
     };
@@ -28,13 +31,34 @@ function Oneday() {
     axios
       .request(config)
       .then((response) => {
-        // console.log(JSON.stringify(response.data));
         setTour_half(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
+
+  
+  //Add item to cart
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const handleAddToCart = (tour_half) => {
+    if (cart.some((item) => item.id === tour_half.id)) {
+      Swal.fire({
+        text: "This item is already cart!",
+        icon: "error",
+      });
+    } else {
+      setCart([...cart, tour_half]);
+
+      Swal.fire({
+        text: "Add item to cart success!",
+        icon: "success",
+      });
+    }
+  };
 
   return (
     <>
@@ -48,23 +72,38 @@ function Oneday() {
             </h3>
           </div>
           <div className="box_container">
-            {tour_half.map((half, index) => (
-              <div className="box_container_body" key={index}>
-                <Link to="/details" className="container_image">
-                  <img src={half.image} alt="image" />
-                </Link>
-                <div className="container_des">
-                  <h2>{half.name}</h2>
-                  <Expandable>{half.description}</Expandable>
-                  <div className="txt_oneday">
-                    <p className="price_number_one">${half.price}</p>
+            {tour_half
+              .filter((half) => {
+                console.log("Tour item:", half); // Log each tour item
+                return half.category === 3;
+              })
+              .map((half, index) => (
+                <div className="box_container_body" key={index}>
+                  <Link to="/details" className="container_image">
+                    <img src={half.image} alt="image" />{" "}
+                    {/* Improved alt text */}
+                  </Link>
+                  <div className="container_des">
+                    <h2>{half.name}</h2>
+                    <Expandable>{half.description}</Expandable>
+
+                    <div className="txt_oneday">
+                      <p className="price_number_one">${half.price}</p>
+                    </div>
+
+                    <p className="SiGooglemaps">
+                      <SiGooglemaps id="icon_map" /> {half.address}
+                    </p>
+
+                    <p className="IoMdCart">
+                      <IoMdCart
+                        id="icon_IoMdCart"
+                        onClick={() => handleAddToCart(half, index)}
+                      />
+                    </p>
                   </div>
-                  <p className="SiGooglemaps">
-                    <SiGooglemaps id="icon_map" /> {half.address}
-                  </p>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </div>
