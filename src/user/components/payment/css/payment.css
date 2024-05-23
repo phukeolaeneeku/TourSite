@@ -73,6 +73,10 @@ body {
     align-items: center;
     justify-content: space-between;
 }
+.box_text_checkbox{
+    display: flex;
+    align-items: center;
+}
 
 .btn_confirm_button{
     padding: 8px 20px;
@@ -89,6 +93,7 @@ body {
 @media (max-width: 1024px) {
     .container_Payment {
         width: 70%;
+        margin-bottom: 10rem;
     }
 }
 
@@ -96,12 +101,8 @@ body {
     .container_Payment {
         width: 90%;
         margin-top: 6rem;
-        margin-bottom: 5rem;
+        margin-bottom: 8rem;
         padding: 20px;
-    }
-    .box_confirm {
-        flex-direction: column;
-        gap: 10px;
     }
    
 }
@@ -111,6 +112,7 @@ body {
         width: 95%;
         margin-top: 5.5rem;
         padding: 15px;
+        margin-bottom: 10rem;
     }
     .text_qrcode {
         font-size: 16px;

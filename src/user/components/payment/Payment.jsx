@@ -33,8 +33,10 @@ const Payment = () => {
             <img src={qr} alt="qrcode" />
           </div>
           <div className="box_confirm">
-            <div>
+            <div className="box_text_checkbox">
+              
               <Checkbox id="Checkbox" />
+              <p>if you paid please check box</p>
             </div>
             <button className="btn_confirm_button">Confirm</button>
           </div>

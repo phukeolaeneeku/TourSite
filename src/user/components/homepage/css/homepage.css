@@ -216,6 +216,7 @@ a {
 @media screen and (max-width: 767px) {
     #container_product {
         width: 90%;
+        margin-bottom: 8rem;
     }
 
     .box_cart_search {
