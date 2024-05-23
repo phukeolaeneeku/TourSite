@@ -8,9 +8,14 @@ import { SiGooglemaps } from "react-icons/si";
 import { IoMdCart } from "react-icons/io";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function Oneday() {
   const [tour_golf, setTour_golf] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const localCart = localStorage.getItem("cart");
+    return localCart ? JSON.parse(localCart) : [];
+  });
 
   console.log("Tour_golf........", tour_golf);
 
@@ -30,6 +35,27 @@ function Oneday() {
         console.log(error);
       });
   }, []);
+
+  //Add item to cart
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const handleAddToCart = (tour_golf) => {
+    if (cart.some((item) => item.id === tour_golf.id)) {
+      Swal.fire({
+        text: "This item is already cart!",
+        icon: "error",
+      });
+    } else {
+      setCart([...cart, tour_golf]);
+
+      Swal.fire({
+        text: "Add item to cart success!",
+        icon: "success",
+      });
+    }
+  };
 
   return (
     <>
@@ -64,7 +90,10 @@ function Oneday() {
                     </p>
 
                     <p className="IoMdCart">
-                      <IoMdCart id="icon_IoMdCart" />
+                      <IoMdCart
+                        id="icon_IoMdCart"
+                        onClick={() => handleAddToCart(golf, index)}
+                      />
                     </p>
                   </div>
                 </div>

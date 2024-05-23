@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../menu/Footer";
 import Header from "../header/Header";
@@ -9,9 +9,57 @@ import hotel1 from "../../../img/hotel1.jpg";
 import hotel2 from "../../../img/hotel2.jpg";
 import hotel3 from "../../../img/hotel3.jpg";
 import { IoMdCart } from "react-icons/io";
+import axios from "axios";
 import Expandable from "../../../admin/components/managertour/Expandable";
+import Swal from "sweetalert2";
 
 function HotelSiphandone() {
+  const [siphadone, setSiphadone] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const localCart = localStorage.getItem("cart");
+    return localCart ? JSON.parse(localCart) : [];
+  });
+
+  console.log("siphadone..", siphadone);
+
+  useEffect(() => {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: import.meta.env.VITE_API + "/tourapi/hotel/",
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        setSiphadone(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+    //Add item to cart
+    useEffect(() => {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }, [cart]);
+  
+    const handleAddToCart = (siphadone) => {
+      if (cart.some((item) => item.id === siphadone.id)) {
+        Swal.fire({
+          text: "This item is already cart!",
+          icon: "error",
+        });
+      } else {
+        setCart([...cart, siphadone]);
+  
+        Swal.fire({
+          text: "Add item to cart success!",
+          icon: "success",
+        });
+      }
+    };
+
   return (
     <>
       <Header />
@@ -24,78 +72,31 @@ function HotelSiphandone() {
             </h3>
           </div>
           <div className="box_container_hotels">
-            <div className="box_container_body">
-              <div className="container_image">
-                <img src={hotel3} alt="image" />
-              </div>
-              <div className="container_des">
-                <h2>Silver Naga Hotel</h2>
-                <Expandable>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo, modi! Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Explicabo, modi! Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Explicabo, modi!
-                </Expandable>
-                <div className="txt_hotel">
-                  <p className="price_number_hotel">$10</p>
-                  <p className="txt_price"> ￦15,000 </p>
+            {siphadone
+              .filter((sipha) => sipha.category === 3)
+              .map((sipha, index) => (
+                <div className="box_container_body" key={index}>
+                  <div className="container_image">
+                    <img src={sipha.image} alt="image" />
+                  </div>
+                  <div className="container_des">
+                    <h2>{sipha.name}</h2>
+                    <Expandable>{sipha.description}</Expandable>
+                    <div className="txt_hotel">
+                      <p className="price_number_hotel">${sipha.price}</p>
+                    </div>
+                    <p className="SiGooglemaps">
+                      <SiGooglemaps id="icon_map" /> {sipha.address}
+                    </p>
+                    <p className="IoMdCart">
+                      <IoMdCart
+                        id="icon_IoMdCart"
+                        onClick={() => handleAddToCart(sipha, index)}
+                      />
+                    </p>
+                  </div>
                 </div>
-                <p className="SiGooglemaps">
-                  <SiGooglemaps id="icon_map" /> Vang Vieng
-                </p>
-                <p className="IoMdCart">
-                  <IoMdCart id="icon_IoMdCart" />
-                </p>
-              </div>
-            </div>
-            <div className="box_container_body_hotel">
-              <Link to="/details" className="container_image">
-                <img src={hotel1} alt="image" />
-              </Link>
-              <div className="container_desc">
-                <h2>Amart Hotel Vang Vieng</h2>
-                <Expandable>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo, modi! Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Explicabo, modi! Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Explicabo, modi!
-                </Expandable>
-                <div className="txt_hotel">
-                  <p className="price_number_hotel">$10</p>
-                  <p className="txt_price"> ￦15,000 </p>
-                </div>
-                <p className="SiGooglemaps">
-                  <SiGooglemaps id="icon_map" /> Laos
-                </p>
-                <p className="IoMdCart">
-                  <IoMdCart id="icon_IoMdCart" />
-                </p>
-              </div>
-            </div>
-            <div className="box_container_body">
-              <div className="container_image">
-                <img src={hotel2} alt="image" />
-              </div>
-              <div className="container_des">
-                <h2>Indigo House Hotel</h2>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Explicabo, modi! Lorem ipsum dolor sit amet consectetur
-                  adipisicing elit. Explicabo, modi! Lorem ipsum dolor sit amet
-                  consectetur adipisicing elit. Explicabo, modi!
-                </p>
-                <div className="txt_hotel">
-                  <p className="price_number_hotel">$10</p>
-                  <p className="txt_price"> ￦15,000 </p>
-                </div>
-                <p className="SiGooglemaps">
-                  <SiGooglemaps id="icon_map" /> Siphadone
-                </p>
-                <p className="IoMdCart">
-                  <IoMdCart id="icon_IoMdCart" />
-                </p>
-              </div>
-            </div>
+              ))}
           </div>
         </div>
       </div>
