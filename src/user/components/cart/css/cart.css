@@ -19,30 +19,31 @@ a {
     justify-content: space-between;
 }
 
-.display_products{
+.display_products {
     width: 100%;
     display: grid;
     gap: 1rem;
-   
+
 }
 
 .box_container_cart .display_products {
     width: 48%;
 }
 
-.Box_choose_date{
+.Box_choose_date {
     display: flex;
 }
 
-.custom-input{
+.custom-input {
     padding: 2px 20px;
-    border:  1px solid #ccc;
+    border: 1px solid #ccc;
     background-color: #FFF;
     cursor: pointer;
     border-start-start-radius: 3px;
     border-bottom-left-radius: 3px;
 }
-#icon_FaCalendarAlt{
+
+#icon_FaCalendarAlt {
     width: 20px;
     height: 25px;
     margin-left: 3px;
@@ -85,12 +86,14 @@ a {
     margin-top: 7.8rem;
     font-size: 22px;
 }
+
 /* icon delete*/
 
 #btnicon_delete {
     font-size: 20px;
     color: #FFF;
 }
+
 .box_icon_order {
     position: relative;
 
@@ -235,11 +238,6 @@ a {
         width: 60%;
     }
 
-    /* Text products */
-    /* .box_item_text {
-        font-size: 10px;
-        margin-left: 1rem;
-    } */
 
     .box_item_text .name,
     .box_item_text .description {
