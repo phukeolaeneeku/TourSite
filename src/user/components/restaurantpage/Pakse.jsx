@@ -1,16 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../menu/Footer";
 import Header from "../header/Header";
 import Menu from "../header/Menu";
 import "./css/restaurant.css";
-import recommended2 from "../../../img/recommended2.jpg";
-import resort3 from "../../../img/resort3.jpg";
-import Restaurant_pakse from "../../../img/Restaurant_pakse.jpg";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import { SiGooglemaps } from "react-icons/si";
+import axios from "axios";
 
 function Pakse() {
+  const [restaurant_list, setRestaurant_list] = useState([]);
+
+  useEffect(() => {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: import.meta.env.VITE_API + "/tourapi/restaurant/",
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        setRestaurant_list(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <>
       <Header />
@@ -23,44 +40,22 @@ function Pakse() {
             </h3>
           </div>
           <div className="content_image_restaurant">
-            <div className="group_item_Box_restaurant">
-              <Link to="/details" className="image">
-                <img src={Restaurant_pakse} alt="img" />
-              </Link>
-              <div className="txt_desc_restaurant">
-                <h3>Pakse</h3>
-                <Expandable>
-                  We will take you to Kuang Si Falls safely and comfortably.
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Ipsam, tenetur!
-                </Expandable>
-                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Pakse</p>
-              </div>
-            </div>
-            <div className="group_item_Box_restaurant">
-              <Link to="/details" className="image">
-                <img src={resort3} alt="img" />
-              </Link>
-              <div className="txt_desc_restaurant">
-                <h3>Paksong</h3>
-                <Expandable>
-                  We will take you to Kuang Si Falls safely and comfortably.
-                </Expandable>
-                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Pakse</p>
-              </div>
-            </div>
-            <div className="group_item_Box_restaurant">
-              <Link to="/details" className="image">
-                <img src={recommended2} alt="img" />
-              </Link>
-              <div className="txt_desc_restaurant">
-                <h3>Siphandone</h3>
-                <Expandable>
-                  We will take you to Kuang Si Falls safely and comfortably.
-                </Expandable>
-                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Pakse</p>
-              </div>
-            </div>
+            {restaurant_list
+              .filter((res) => res.category === 1)
+              .map((res, index) => (
+                <div className="group_item_Box_restaurant" key={index}>
+                  <Link to="/details" className="image">
+                    <img src={res.image} alt="img" />
+                  </Link>
+                  <div className="txt_desc_restaurant">
+                    <h3>{res.name}</h3>
+                    <Expandable>{res.description}</Expandable>
+                    <p className="SiGooglemaps">
+                      <SiGooglemaps id="icon_map" /> {res.address}
+                    </p>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       </div>

@@ -92,7 +92,7 @@ const Links = () => {
         <Route exact path="/profile-user" Component={Profile} />
 
         <Route exact path="/cart" Component={Cart} />
-        <Route exact path="/payment" Component={Payment} />
+        <Route exact path="/payment-bk-@2024@-w-eb-tour@site&&0921345&abcdfghi223432@&&dfre" Component={Payment} />
         <Route exact path="/email-form" Component={EmailForm} />
 
         {/*========== Form login, register, Find password ============ */}
