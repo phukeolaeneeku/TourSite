@@ -115,6 +115,15 @@ body {
     font-weight: 600;
 }
 
+.box_IoMdCart{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+#icon_IoMdCart{
+    font-size: 22px;
+}
+
 
 /* Small Screens */
 

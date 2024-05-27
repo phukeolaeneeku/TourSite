@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../menu/Footer";
 import Header from "../header/Header";
@@ -9,8 +9,57 @@ import airplane1 from "../../../img/airplane1.jpg";
 import airplane2 from "../../../img/airplane2.jpg";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import { SiGooglemaps } from "react-icons/si";
+import { IoMdCart } from "react-icons/io";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function Airplane() {
+  const [airplane_list, setAirplane_list] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const localCart = localStorage.getItem("cart");
+    return localCart ? JSON.parse(localCart) : [];
+  });
+
+  console.log("airplane_list.....", airplane_list);
+
+  useEffect(() => {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: import.meta.env.VITE_API + "/tourapi/ticket/",
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        setAirplane_list(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  //Add item to cart
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const handleAddToCart = (airplane_list) => {
+    if (cart.some((item) => item.id === airplane_list.id)) {
+      Swal.fire({
+        text: "This item is already cart!",
+        icon: "error",
+      });
+    } else {
+      setCart([...cart, airplane_list]);
+
+      Swal.fire({
+        text: "Add item to cart success!",
+        icon: "success",
+      });
+    }
+  };
+
   return (
     <>
       <Header />
@@ -24,57 +73,31 @@ function Airplane() {
             </h3>
           </div>
           <div className="content_image_airplane">
-            <div className="group_item_Box_airplane">
-              <Link to="/details" className="image">
-                <img src={airplane1} alt="img" />
-              </Link>
-              <div className="txt_desc_airplane">
-                <h3>Vientiane Airport Dropping Service</h3>
-                <Expandable>
-                  We will conveniently transport you from the hotel to the
-                  airport.
-                </Expandable>
-                <div className="price">
-                  <p className="price_num">$10</p>
-                  <p> ￦15,000 </p>
+            {airplane_list
+              .filter((plane) => plane.category === 1)
+              .map((plane, index) => (
+                <div className="group_item_Box_airplane" key={index}>
+                  <Link to="/details" className="image">
+                    <img src={plane.image} alt="img" />
+                  </Link>
+                  <div className="txt_desc_airplane">
+                    <h3>{plane.name}</h3>
+                    <Expandable>{plane.description}</Expandable>
+                    <div className="price">
+                      <p className="price_num">$ {plane.price}</p>
+                    </div>
+                    <p className="SiGooglemaps">
+                      <SiGooglemaps id="icon_map" /> {plane.address}
+                    </p>
+                    <p className="box_IoMdCart">
+                      <IoMdCart
+                        id="icon_IoMdCart"
+                        onClick={() => handleAddToCart(plane, index)}
+                      />
+                    </p>
+                  </div>
                 </div>
-                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
-              </div>
-            </div>
-            <div className="group_item_Box_airplane">
-              <Link to="/details1" className="image">
-                <img src={airplane} alt="img" />
-              </Link>
-              <div className="txt_desc_airplane">
-                <h3>Airplane</h3>
-                <Expandable>
-                  We will take you to Kuang Si Falls safely and comfortably.
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Eveniet, eaque?
-                </Expandable>
-                <div className="price">
-                  <p className="price_num">$10</p>
-                  <p> ￦15,000 </p>
-                </div>
-                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
-              </div>
-            </div>
-            <div className="group_item_Box_airplane">
-              <Link to="/details2" className="image">
-                <img src={airplane2} alt="img" />
-              </Link>
-              <div className="txt_desc_airplane">
-                <h3>Airport Vang Vieng private pick-up service</h3>
-                <Expandable>
-                  Private transfer from Vientiane Airport to Vang Vieng hotel!
-                </Expandable>
-                <div className="price">
-                  <p className="price_num">$10</p>
-                  <p> ￦15,000 </p>
-                </div>
-                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
-              </div>
-            </div>
+              ))}
           </div>
         </div>
       </div>

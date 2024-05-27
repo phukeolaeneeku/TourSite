@@ -89,7 +89,7 @@ function Oneday() {
                       <SiGooglemaps id="icon_map" /> {golf.address}
                     </p>
 
-                    <p className="IoMdCart">
+                    <p className="box_IoMdCart">
                       <IoMdCart
                         id="icon_IoMdCart"
                         onClick={() => handleAddToCart(golf, index)}

@@ -1,15 +1,62 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../menu/Footer";
 import Header from "../header/Header";
 import Menu from "../header/Menu";
 import "./css/package.css";
-import patusai from "../../../img/patusai.jpg";
-import thadluang from "../../../img/thadluang.jpg";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import { SiGooglemaps } from "react-icons/si";
+import { IoMdCart } from "react-icons/io";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function Package() {
+  const [package_list, setPackage_list] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const localCart = localStorage.getItem("cart");
+    return localCart ? JSON.parse(localCart) : [];
+  });
+
+  console.log("package_list.....", package_list);
+
+  useEffect(() => {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: import.meta.env.VITE_API + "/tourapi/packet/",
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        setPackage_list(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  //Add item to cart
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const handleAddToCart = (package_list) => {
+    if (cart.some((item) => item.id === package_list.id)) {
+      Swal.fire({
+        text: "This item is already cart!",
+        icon: "error",
+      });
+    } else {
+      setCart([...cart, package_list]);
+
+      Swal.fire({
+        text: "Add item to cart success!",
+        icon: "success",
+      });
+    }
+  };
+
   return (
     <>
       <Header />
@@ -22,56 +69,33 @@ function Package() {
             </h3>
           </div>
           <div className="content_image_Products">
-            <div className="group_item_Box">
-              <Link to="/details" className="image">
-                <img src={patusai} alt="img" />
-              </Link>
-              <div className="txt_desc">
-                <h3>3 Days</h3>
-                <Expandable>
-                  A city thadluang trip in Vientiane, the capital of Laos
-                </Expandable>
-                <div className="price">
-                  <p className="price_num">$400</p>
-                  <p> ￦450,100 </p>
+            {package_list
+              .filter((packet) => packet.category === 1)
+              .map((packet, index) => (
+                <div className="group_item_Box">
+                  <Link to="/details" className="image">
+                    <img src={packet.image} alt="img" />
+                  </Link>
+                  <div className="txt_desc">
+                    <h3>{packet.name}</h3>
+                    <Expandable>
+                      {packet.description}
+                    </Expandable>
+                    <div className="price">
+                      <p className="price_num">${packet.price}</p>
+                    </div>
+                    <p className="SiGooglemaps">
+                      <SiGooglemaps id="icon_map" /> {packet.address}
+                    </p>
+                    <p className="box_IoMdCart">
+                      <IoMdCart
+                        id="icon_IoMdCart"
+                        onClick={() => handleAddToCart(packet, index)}
+                      />
+                    </p>
+                  </div>
                 </div>
-                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
-              </div>
-            </div>
-            <div className="group_item_Box">
-              <div className="image">
-                <img src={thadluang} alt="img" />
-              </div>
-              <div className="txt_desc">
-                <h3>3 days</h3>
-                <Expandable>
-                  A city thadluang trip in Vientiane, the capital of Laos
-                </Expandable>
-                <div className="price">
-                  <p className="price_num">$600</p>
-                  <p> ￦800,000 </p>
-                </div>
-                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
-              </div>
-            </div>
-            <div className="group_item_Box">
-              <div className="image">
-                <img src={patusai} alt="img" />
-              </div>
-              <div className="txt_desc">
-                <h3>3 Days</h3>
-                <Expandable>
-                  A city thadluang trip in Vientiane, the capital of Laos Lorem
-                  ipsum dolor sit amet consectetur adipisicing elit. Nostrum,
-                  asperiores.
-                </Expandable>
-                <div className="txt_sprice">
-                  <p className="price_num">$150</p>
-                  <p> ￦350,000 </p>
-                </div>
-                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
-              </div>
-            </div>
+              ))}
           </div>
         </div>
       </div>

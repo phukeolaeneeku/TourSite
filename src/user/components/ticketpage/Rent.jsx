@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../menu/Footer";
 import Header from "../header/Header";
@@ -8,8 +8,57 @@ import car from "../../../img/car.jpg";
 import resort2 from "../../../img/resort2.jpg";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import { SiGooglemaps } from "react-icons/si";
+import { IoMdCart } from "react-icons/io";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function Rent() {
+  const [rent_list, setRent_list] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const localCart = localStorage.getItem("cart");
+    return localCart ? JSON.parse(localCart) : [];
+  });
+
+  console.log("rent_list.....", rent_list);
+
+  useEffect(() => {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: import.meta.env.VITE_API + "/tourapi/ticket/",
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        setRent_list(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  //Add item to cart
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const handleAddToCart = (rent_list) => {
+    if (cart.some((item) => item.id === rent_list.id)) {
+      Swal.fire({
+        text: "This item is already cart!",
+        icon: "error",
+      });
+    } else {
+      setCart([...cart, rent_list]);
+
+      Swal.fire({
+        text: "Add item to cart success!",
+        icon: "success",
+      });
+    }
+  };
+
   return (
     <>
       <Header />
@@ -22,63 +71,33 @@ function Rent() {
             </h3>
           </div>
           <div className="content_image_airplane">
-            <div className="group_item_Box_airplane">
-              <Link to="/details" className="image">
-                <img src={resort2} alt="img" />
-              </Link>
-              <div className="txt_desc_airplane">
-                <h3>Vientiane - Vang Vieng private car service.</h3>
-                <Expandable>
-                  We will take you comfortably between Vientiane and Vang Vieng.
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Quidem, quia.
-                </Expandable>
-                <p>Brand: TOYOTA</p>
-                <p>Car_number: 6666</p>
-                <div className="price">
-                  <p className="price_num">$10</p>
-                  <p> ￦15,000 </p>
+            {rent_list
+              .filter((rent) => rent.category === 2)
+              .map((rent, index) => (
+                <div className="group_item_Box_airplane" key={index}>
+                  <Link to="/details" className="image">
+                    <img src={rent.image} alt="img" />
+                  </Link>
+                  <div className="txt_desc_airplane">
+                    <h3>{rent.name}</h3>
+                    <Expandable>{rent.description}</Expandable>
+                    <p>Brand: TOYOTA</p>
+                    <p>Car_number: 6666</p>
+                    <div className="price">
+                      <p className="price_num">${rent.price}</p>
+                    </div>
+                    <p className="SiGooglemaps">
+                      <SiGooglemaps id="icon_map" /> {rent.address}
+                    </p>
+                    <p className="box_IoMdCart">
+                      <IoMdCart
+                        id="icon_IoMdCart"
+                        onClick={() => handleAddToCart(rent, index)}
+                      />
+                    </p>
+                  </div>
                 </div>
-                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
-              </div>
-            </div>
-            <div className="group_item_Box_airplane">
-              <Link to="/details1" className="image">
-                <img src={car} alt="img" />
-              </Link>
-              <div className="txt_desc_airplane">
-                <h3>Vang Vieng - Vientiane private car service.</h3>
-                <Expandable>
-                  We will take you comfortably between Vientiane and Vang Vieng.
-                </Expandable>
-                <p>Brand: Lamborghini</p>
-                <p>Car_number: 8888</p>
-                <div className="price">
-                  <p className="price_num">$10</p>
-                  <p> ￦15,000 </p>
-                </div>
-                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
-              </div>
-            </div>
-            <div className="group_item_Box_airplane">
-              <Link to="/details2" className="image">
-                <img src={resort2} alt="img" />
-              </Link>
-              <div className="txt_desc_airplane">
-                <h3>Vientiane - Luang Prabang private car service.</h3>
-                <Expandable>
-                  We will take you comfortably between Vientiane and Luang
-                  prabang.
-                </Expandable>
-                <p>Brand: Honda</p>
-                <p>Car_number: 9999</p>
-                <div className="price">
-                  <p className="price_num">$10</p>
-                  <p> ￦15,000 </p>
-                </div>
-                <p className="SiGooglemaps"><SiGooglemaps id="icon_map"/> Vientiane</p>
-              </div>
-            </div>
+              ))}
           </div>
         </div>
       </div>
