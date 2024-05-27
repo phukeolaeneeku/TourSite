@@ -4,15 +4,18 @@ import Footer from "../menu/Footer";
 import Header from "../header/Header";
 import Menu from "../header/Menu";
 import "./css/airplane.css";
-import guide from "../../../img/guide.jpg";
-import massage1 from "../../../img/massage1.jpg";
-import massage2 from "../../../img/massage2.jpg";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import { SiGooglemaps } from "react-icons/si";
+import { IoMdCart } from "react-icons/io";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 function Massage() {
   const [massage_list, setMassage_list] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const localCart = localStorage.getItem("cart");
+    return localCart ? JSON.parse(localCart) : [];
+  });
 
   console.log("massage_list........", massage_list);
 
@@ -33,6 +36,28 @@ function Massage() {
       });
   }, []);
 
+  //Add item to cart
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const handleAddToCart = (massage_list) => {
+    if (cart.some((item) => item.id === massage_list.id)) {
+      Swal.fire({
+        text: "This item is already cart!",
+        icon: "error",
+      });
+    } else {
+      setCart([...cart, massage_list]);
+
+      Swal.fire({
+        text: "Add item to cart success!",
+        icon: "success",
+      });
+    }
+  };
+
+
   return (
     <>
       <Header />
@@ -48,23 +73,35 @@ function Massage() {
             {massage_list
               .filter((massage) => massage.category === 3)
               .map((massage, index) => (
-                <div className="group_item_Box_airplane" key={index}>
-                  <Link to="/details" className="image">
+                <Link
+                  to={`/details/${massage.id}`}
+                  
+                  className="group_item_Box_airplane"
+                  key={index}
+                >
+                  <div className="image">
                     <img src={massage.image} alt="img" />
-                  </Link>
+                  </div>
                   <div className="txt_desc_airplane">
                     <h3>{massage.name}</h3>
-                    <Expandable>
-                      {massage.description}
-                    </Expandable>
+                    <Expandable>{massage.description}</Expandable>
                     <div className="price">
                       <p className="price_num">${massage.price}</p>
                     </div>
                     <p className="SiGooglemaps">
                       <SiGooglemaps id="icon_map" /> {massage.address}
                     </p>
+                    <p className="box_IoMdCart">
+                      <IoMdCart
+                        id="icon_IoMdCart"
+                        onClick={() => handleAddToCart(massage, index)}
+                      />
+                    </p>
                   </div>
-                </div>
+                  {console.log("massage.id.....", massage.id)}
+
+                  
+                </Link>
               ))}
           </div>
         </div>

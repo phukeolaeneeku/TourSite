@@ -62,7 +62,7 @@ const Links = () => {
     <Router>
       <Routes>
         <Route exact path="/" Component={Home} />
-        <Route exact path="/details" Component={Details} />
+        <Route exact path="/details/:id" Component={Details} />
         <Route exact path="/oneday" Component={Oneday} />
         <Route exact path="/halfday" Component={Halfday} />
         <Route exact path="/golf" Component={Golf} />

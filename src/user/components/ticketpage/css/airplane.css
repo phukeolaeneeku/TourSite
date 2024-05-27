@@ -118,6 +118,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: end;
+    cursor: pointer;
 }
 #icon_IoMdCart{
     font-size: 22px;

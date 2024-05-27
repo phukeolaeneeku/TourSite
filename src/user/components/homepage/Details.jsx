@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./css/details.css";
 import Footer from "../menu/Footer";
@@ -7,20 +7,19 @@ import Menu from "../header/Menu";
 import { IoIosArrowBack } from "react-icons/io";
 import patusai from "../../../img/patusai.jpg";
 import patusai2 from "../../../img/patusai2.jpg";
-import Expandable from "../../../admin/components/managertour/Expandable";
 import { SiGooglemaps } from "react-icons/si";
+import { IoMdCart } from "react-icons/io";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function Details() {
+
   return (
     <>
       <Header />
       <Menu />
       <div className="contentBody">
-        <Link to="/" className="box_container_back_icons_back">
-          <IoIosArrowBack id="icons_back" />
-          <p>Back</p>
-        </Link>
-
+    
         <div className="boxProduct_deteils">
           <div className="product-page-img">
             <div className="myslides">
@@ -30,7 +29,7 @@ function Details() {
 
           <div className="txtContentproduct">
             <h1>Vientiane Airport Pickup Service</h1>
-            <Expandable className="txt_description">
+            <p className="txt_description">
               We will conveniently transport you from the airport to your hotel.
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem,
               non dolorum, molestias saepe nemo aut rerum, sit ut adipisci omnis
@@ -45,12 +44,17 @@ function Details() {
               dolor saepe deserunt suscipit doloremque sequi officia fugit ipsum
               excepturi vitae iste delectus sapiente, minus culpa enim sit quos
               recusandae. Molestiae.
-            </Expandable>
+            </p>
             <div className="price">
               <p className="price_num">$10</p>
             </div>
             <p className="SiGooglemaps">
               <SiGooglemaps id="icon_map" /> Vientiane
+            </p>
+            <p className="box_IoMdCart">
+              <IoMdCart
+                id="icon_IoMdCart"
+              />
             </p>
           </div>
         </div>

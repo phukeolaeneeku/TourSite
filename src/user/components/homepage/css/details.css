@@ -167,6 +167,16 @@ body {
     transition: 0.5s;
 }
 
+.box_IoMdCart{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    cursor: pointer;
+}
+#icon_IoMdCart{
+    font-size: 22px;
+}
+
 
 /* Media Queries for Responsiveness */
 

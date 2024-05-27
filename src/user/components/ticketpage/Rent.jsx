@@ -4,8 +4,6 @@ import Footer from "../menu/Footer";
 import Header from "../header/Header";
 import Menu from "../header/Menu";
 import "./css/airplane.css";
-import car from "../../../img/car.jpg";
-import resort2 from "../../../img/resort2.jpg";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import { SiGooglemaps } from "react-icons/si";
 import { IoMdCart } from "react-icons/io";
