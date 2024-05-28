@@ -2,6 +2,7 @@ import React from "react";
 import "./css/register.css";
 import Header from "../header/Header";
 import Menu from "../header/Menu";
+import Footer from "../menu/Footer";
 
 const Signup = () => {
   return (
@@ -49,6 +50,7 @@ const Signup = () => {
           </form>
         </div>
       </section>
+      <Footer/>
     </>
   );
 };

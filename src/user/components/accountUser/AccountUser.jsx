@@ -72,11 +72,6 @@ export const AccountUser = () => {
                 <p className="txtP">Privay Policy</p>
               </Link>
               <hr className="hr" />
-              <Link to="/forgotpassword" className="menu_icon">
-                <IoKeySharp id="icon_more" />
-                <p className="txtP">Change password</p>
-              </Link>
-              <hr className="hr" />
               <div
                 onClick={() => setShowConfirmation(true)}
                 className="menu_icon"
