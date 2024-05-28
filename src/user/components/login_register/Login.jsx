@@ -23,14 +23,14 @@ const LoginUser = () => {
             <div className="input">
               <label>Email</label>
               <input
-                className="input_form"
+                className="input_forms"
                 type="email"
                 placeholder="Enter Your Email"
                 required
               />
               <label>Password</label>
               <input
-                className="input_form"
+                className="input_forms"
                 type="password"
                 placeholder="Enter Your Password"
                 required
