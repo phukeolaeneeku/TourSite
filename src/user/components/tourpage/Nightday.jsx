@@ -9,6 +9,7 @@ import { IoMdCart } from "react-icons/io";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import axios from "axios";
 import Swal from "sweetalert2";
+import iconImage from "../../../img/iconImage.png";
 
 function Oneday() {
   const [tour_night, setTour_night] = useState([]);
@@ -18,7 +19,7 @@ function Oneday() {
     return localCart ? JSON.parse(localCart) : [];
   });
 
-  console.log("Tour_night........", tour_night);
+  // console.log("Tour_night........", tour_night);
 
   useEffect(() => {
     let config = {
@@ -32,10 +33,13 @@ function Oneday() {
       .then((response) => {
         setTour_night(response.data);
       })
+
       .catch((error) => {
         console.log(error);
       });
   }, []);
+
+
 
     //Add item to cart
     useEffect(() => {
@@ -73,12 +77,12 @@ function Oneday() {
             {tour_night
               .filter((night) => {
                 console.log("Tour item:", night); // Log each tour item
-                return night.category === 2;
+                return night.category.id === 2;
               })
               .map((night, index) => (
                 <div className="box_container_body" key={index}>
                   <Link to="/details" className="container_image">
-                    <img src={night.image} alt="image" />
+                    <img src={night.image || iconImage} alt="image" />
                   </Link>
                   <div className="container_des">
                     <h2>{night.name}</h2>

@@ -9,6 +9,7 @@ import { IoMdCart } from "react-icons/io";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import axios from "axios";
 import Swal from "sweetalert2";
+import iconImage from "../../../img/iconImage.png";
 
 function Oneday() {
   const [tour_golf, setTour_golf] = useState([]);
@@ -72,12 +73,12 @@ function Oneday() {
             {tour_golf
               .filter((golf) => {
                 console.log("Tour item:", golf); // Log each tour item
-                return golf.category === 4;
+                return golf.category.id === 4;
               })
               .map((golf, index) => (
                 <div className="group_item_Box" key={index}>
                   <Link to="/details" className="golf_image">
-                    <img src={golf.image} alt="img" />
+                    <img src={golf.image || iconImage} alt="img" />
                   </Link>
                   <div className="txt_desc">
                     <h3>{golf.name}</h3>

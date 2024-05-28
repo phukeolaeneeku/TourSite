@@ -9,6 +9,7 @@ import axios from "axios";
 import { IoMdCart } from "react-icons/io";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import Swal from "sweetalert2";
+import iconImage from "../../../img/iconImage.png";
 
 function Oneday() {
   const [tour, setTour] = useState([]);
@@ -30,6 +31,7 @@ function Oneday() {
     axios
       .request(config)
       .then((response) => {
+        // console.log("All tours: ", response.data)
         setTour(response.data);
       })
       .catch((error) => {
@@ -74,12 +76,13 @@ function Oneday() {
             {tour
               .filter((i) => {
                 console.log("Tour item:", i); // Log each tour item
-                return i.category === 1;
+                return i.category.id === 1;
               })
               .map((i, index) => (
                 <div className="box_container_body" key={index}>
                   <Link to="/details" className="container_image">
-                    <img src={i.image} alt="image" /> {/* Improved alt text */}
+                    <img src={i.image || iconImage} alt="image" /> {/* Improved alt text */}
+                    {/* <img src={i.image.image || recommended3} alt="image" />  */}
                   </Link>
                   <div className="container_des">
                     <h2>{i.name}</h2>

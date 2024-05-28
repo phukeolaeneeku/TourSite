@@ -71,7 +71,7 @@ function HotelPakse() {
 
           <div className="box_container_hotels">
             {hotelPakse
-              .filter((pakse) => pakse.category === 1)
+              .filter((pakse) => pakse.category.id === 1)
               .map((pakse, index) => (
                 <div className="box_container_body_hotel" key={index}>
                   <div className="container_image">

@@ -1,13 +1,68 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../header/Header";
 import Menu from "../header/Menu";
 import Footer from "../menu/Footer";
+import Swal from "sweetalert2";
+import axios from "axios";
+import withReactContent from "sweetalert2-react-content";
 
 import "./css/login.css";
 
 const LoginUser = () => {
   const login_en = "Login";
+  const navigate = useNavigate();
+  const MySwal = withReactContent(Swal);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorText, set_errorText] = useState("");
+
+  const handleEmail = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+  };
+
+  const handlePassword = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+  };
+
+  const Login = (e) => {
+    e.preventDefault(); // Prevent the default form submission behavsior
+    let data = JSON.stringify({
+      email: email,
+      password: password,
+    });
+
+    let config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url: import.meta.env.VITE_API + "/users/login/",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    console.log("Data..........", data);
+
+    axios
+      .request(config)
+      .then((response) => {
+        const result = response.data;
+        
+       
+        navigate("/", { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          text: "The username or password do not match.",
+          icon: "error",
+        });
+      });
+  };
   return (
     <>
       <Header />
@@ -26,6 +81,8 @@ const LoginUser = () => {
                 className="input_forms"
                 type="email"
                 placeholder="Enter Your Email"
+                value={email}
+                onChange={handleEmail}
                 required
               />
               <label>Password</label>
@@ -33,6 +90,8 @@ const LoginUser = () => {
                 className="input_forms"
                 type="password"
                 placeholder="Enter Your Password"
+                value={password}
+                onChange={handlePassword}
                 required
               />
             </div>
@@ -45,7 +104,7 @@ const LoginUser = () => {
             </div>
 
             <div className="loginbtn_login">
-              <button type="submit" className="login_button" >
+              <button type="submit" className="login_button" onClick={Login}>
                 Login
               </button>
             </div>
