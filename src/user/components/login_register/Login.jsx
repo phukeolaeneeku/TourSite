@@ -51,8 +51,20 @@ const LoginUser = () => {
       .request(config)
       .then((response) => {
         const result = response.data;
-        
-       
+        const user = {
+          user_id: result.user_id,
+          is_admin: result.is_admin,
+          is_owner: result.is_owner,
+          user_name: result.user_name,
+          email: result.email,
+          image: result.image,
+        };
+
+        const token = result.token.access;
+        if (token) {
+          window.localStorage.setItem("token", token);
+        }
+        window.localStorage.setItem("user", JSON.stringify(user));
         navigate("/", { replace: true });
       })
       .catch((error) => {

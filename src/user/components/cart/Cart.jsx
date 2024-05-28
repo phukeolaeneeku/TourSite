@@ -86,6 +86,8 @@ const Cart = () => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
+  console.log("cart: ", cart);
+
   return (
     <>
       <Header />
@@ -99,83 +101,86 @@ const Cart = () => {
                 Dolore, veniam.
               </div>
               <hr />
-              {cart.length === 0 ? (
-                <p className="no-reviews-message">Empty Cart</p>
-              ) : (
-                cart.map((cartItem, index) => (
-                  <div className="container_cart_item" key={cartItem.id}>
-                    <div className="txt_box_delete">
-                      <h3>Item: {cartItem.name}</h3>
-                      <button
-                        className="btn_delete_item"
-                        onClick={() => unfavorite(cartItem.id)}
-                      >
-                        <AiOutlineDelete />
-                      </button>
+              {cart.length > 0 ? (
+                <div>
+                  {cart.map((cartItem, index) => (
+                    <div className="container_cart_item" key={cartItem.id}>
+                      <div className="txt_box_delete">
+                        <h3>Item: {cartItem.name}</h3>
+                        <button
+                          className="btn_delete_item"
+                          onClick={() => unfavorite(cartItem.id)}
+                        >
+                          <AiOutlineDelete />
+                        </button>
+                      </div>
+                      <div className="box_item_text">
+                        <label>
+                          <DatePicker
+                            selected={dates[index].startDate}
+                            onChange={(date) =>
+                              handleDateChange(index, "startDate", date)
+                            }
+                            customInput={<CustomInput />}
+                          />
+                        </label>
+                        <p>to</p>
+                        <label>
+                          <DatePicker
+                            selected={dates[index].endDate}
+                            onChange={(date) =>
+                              handleDateChange(index, "endDate", date)
+                            }
+                            customInput={<CustomInput />}
+                          />
+                        </label>
+                      </div>
                     </div>
-                    <div className="box_item_text">
-                      <label>
-                        <DatePicker
-                          selected={dates[index].startDate}
-                          onChange={(date) =>
-                            handleDateChange(index, "startDate", date)
-                          }
-                          customInput={<CustomInput />}
-                        />
-                      </label>
-                      <p>to</p>
-                      <label>
-                        <DatePicker
-                          selected={dates[index].endDate}
-                          onChange={(date) =>
-                            handleDateChange(index, "endDate", date)
-                          }
-                          customInput={<CustomInput />}
-                        />
-                      </label>
-                    </div>
-                  </div>
-                ))
-              )}
-              <div className="box_container_input">
-                <label>Item:</label>
-                <textarea
-                  name="message"
-                  className="form_textarea_sendEmail"
-                  value={message}
-                  readOnly
-                  required
-                />
-                <label>Name:</label>
-                <input
-                  type="text"
-                  name="user_name"
-                  className="form_input_sendEmail"
-                  placeholder="Please enter your name..."
-                  required
-                />
-                <label>Email:</label>
-                <input
-                  type="email"
-                  name="user_email"
-                  className="form_input_sendEmail"
-                  placeholder="Please enter your email..."
-                  required
-                />
-                <label>Message:</label>
+                  ))}{" "}
+                  <div className="box_container_input">
+                    <label>Item:</label>
+                    <textarea
+                      name="message"
+                      className="form_textarea_sendEmail"
+                      value={message}
+                      readOnly
+                      required
+                    />
+                    <label>Name:</label>
+                    <input
+                      type="text"
+                      name="user_name"
+                      className="form_input_sendEmail"
+                      placeholder="Please enter your name..."
+                      required
+                    />
+                    <label>Email:</label>
+                    <input
+                      type="email"
+                      name="user_email"
+                      className="form_input_sendEmail"
+                      placeholder="Please enter your email..."
+                      required
+                    />
+                    <label>Message:</label>
 
-                <textarea
-                  name="message1"
-                  className="form_textarea_sendEmail"
-                  placeholder="Tour introduction (optional/maximum 300 characters)"
-                  required
-                />
-                <input
-                  type="submit"
-                  value="Send Email"
-                  className="btn_sendEmail"
-                />
-              </div>
+                    <textarea
+                      name="message1"
+                      className="form_textarea_sendEmail"
+                      placeholder="Tour introduction (optional/maximum 300 characters)"
+                      required
+                    />
+                    <input
+                      type="submit"
+                      value="Send Email"
+                      className="btn_sendEmail"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <p className="no-reviews-message">Empty Cart</p>
+              )}
+
             </div>
           </div>
         </form>
