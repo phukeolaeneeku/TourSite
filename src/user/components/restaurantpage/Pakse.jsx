@@ -7,6 +7,7 @@ import "./css/restaurant.css";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import { SiGooglemaps } from "react-icons/si";
 import axios from "axios";
+import iconImage from "../../../img/iconImage.png";
 
 function Pakse() {
   const [restaurant_list, setRestaurant_list] = useState([]);
@@ -45,7 +46,7 @@ function Pakse() {
               .map((res, index) => (
                 <div className="group_item_Box_restaurant" key={index}>
                   <Link to="/details" className="image">
-                    <img src={res.image} alt="img" />
+                    <img src={res.image || iconImage} alt="img" />
                   </Link>
                   <div className="txt_desc_restaurant">
                     <h3>{res.name}</h3>

@@ -7,6 +7,7 @@ import "./css/airplane.css";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import { SiGooglemaps } from "react-icons/si";
 import axios from "axios";
+import iconImage from "../../../img/iconImage.png";
 
 function Entertainment() {
   const [entertainment_list, setEntertainment_list] = useState([]);
@@ -43,11 +44,11 @@ function Entertainment() {
           </div>
           <div className="content_image_airplane">
             {entertainment_list
-              .filter((entertainment) => entertainment.category === 4)
+              .filter((entertainment) => entertainment.category.id === 4)
               .map((entertainment, index) => (
                 <div className="group_item_Box_airplane" key={index}>
                   <Link to="/details" className="image">
-                    <img src={entertainment.image} alt="img" />
+                    <img src={entertainment.image || iconImage} alt="img" />
                   </Link>
                   <div className="txt_desc_airplane">
                     <h3>{entertainment.name}</h3>

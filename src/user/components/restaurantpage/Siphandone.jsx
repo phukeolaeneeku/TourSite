@@ -7,6 +7,7 @@ import "./css/restaurant.css";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import { SiGooglemaps } from "react-icons/si";
 import axios from "axios";
+import iconImage from "../../../img/iconImage.png";
 
 function Siphandone() {
   const [restaurantSiphandone_list, setRestaurantSiphandone_list] = useState([]);
@@ -43,11 +44,11 @@ function Siphandone() {
           </div>
           <div className="content_image_restaurant">
             {restaurantSiphandone_list
-              .filter((res_siphandone) => res_siphandone.category === 3)
+              .filter((res_siphandone) => res_siphandone.category.id === 3)
               .map((res_siphandone, index) => (
                 <div className="group_item_Box_restaurant" key={index}>
                   <Link to="/details" className="image">
-                    <img src={res_siphandone.image} alt="img" />
+                    <img src={res_siphandone.image || iconImage} alt="img" />
                   </Link>
                   <div className="txt_desc_restaurant">
                     <h3>{res_siphandone.name}</h3>

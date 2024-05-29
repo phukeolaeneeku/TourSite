@@ -9,6 +9,7 @@ import { SiGooglemaps } from "react-icons/si";
 import { IoMdCart } from "react-icons/io";
 import axios from "axios";
 import Swal from "sweetalert2";
+import iconImage from "../../../img/iconImage.png";
 
 function Massage() {
   const [massage_list, setMassage_list] = useState([]);
@@ -71,7 +72,7 @@ function Massage() {
           </div>
           <div className="content_image_airplane">
             {massage_list
-              .filter((massage) => massage.category === 3)
+              .filter((massage) => massage.category.id === 3)
               .map((massage, index) => (
                 <Link
                   to={`/details/${massage.id}`}
@@ -80,7 +81,7 @@ function Massage() {
                   key={index}
                 >
                   <div className="image">
-                    <img src={massage.image} alt="img" />
+                    <img src={massage.image || iconImage} alt="img" />
                   </div>
                   <div className="txt_desc_airplane">
                     <h3>{massage.name}</h3>

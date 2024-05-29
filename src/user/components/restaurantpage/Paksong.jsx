@@ -7,6 +7,7 @@ import "./css/restaurant.css";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import { SiGooglemaps } from "react-icons/si";
 import axios from "axios";
+import iconImage from "../../../img/iconImage.png";
 
 function Paksong() {
   const [restaurantPaksong_list, setRestaurantPaksong_list] = useState([]);
@@ -43,11 +44,11 @@ function Paksong() {
           </div>
           <div className="content_image_restaurant">
             {restaurantPaksong_list
-              .filter((paksong) => paksong.category === 2)
+              .filter((paksong) => paksong.category.id === 2)
               .map((paksong, index) => (
                 <div className="group_item_Box_restaurant" key={index}>
                   <Link to="/details" className="image">
-                    <img src={paksong.image} alt="img" />
+                    <img src={paksong.image || iconImage} alt="img" />
                   </Link>
                   <div className="txt_desc_restaurant">
                     <h3>{paksong.name}</h3>

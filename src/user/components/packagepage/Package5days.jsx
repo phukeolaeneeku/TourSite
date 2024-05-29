@@ -9,6 +9,7 @@ import { SiGooglemaps } from "react-icons/si";
 import { IoMdCart } from "react-icons/io";
 import axios from "axios";
 import Swal from "sweetalert2";
+import iconImage from "../../../img/iconImage.png";
 
 function Package5days() {
   const [package5_list, setPackage5_list] = useState([]);
@@ -70,11 +71,11 @@ function Package5days() {
           </div>
           <div className="content_image_Products">
             {package5_list
-              .filter((packet) => packet.category === 3)
+              .filter((packet) => packet.category.id === 3)
               .map((packet, index) => (
                 <div className="group_item_Box" key={index}>
                   <Link to="/details" className="image">
-                    <img src={packet.image} alt="img" />
+                    <img src={packet.image || iconImage} alt="img" />
                   </Link>
                   <div className="txt_desc">
                     <h3>{packet.name}</h3>

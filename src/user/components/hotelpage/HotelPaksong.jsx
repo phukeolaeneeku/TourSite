@@ -12,6 +12,7 @@ import { IoMdCart } from "react-icons/io";
 import axios from "axios";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import Swal from "sweetalert2";
+import iconImage from "../../../img/iconImage.png";
 
 function HotelPaksong() {
   const [hotelPaksong, setHotelPaksong] = useState([]);
@@ -72,11 +73,11 @@ function HotelPaksong() {
           </div>
           <div className="box_container_hotels">
             {hotelPaksong
-              .filter((paksong) => paksong.category === 2)
+              .filter((paksong) => paksong.category.id === 2)
               .map((paksong, index) => (
                 <div className="box_container_body" key={index}>
                   <div className="container_image">
-                    <img src={paksong.image} alt="image" />
+                    <img src={paksong.image || iconImage} alt="image" />
                   </div>
                   <div className="container_des">
                     <h2>{paksong.name}</h2>

@@ -4,14 +4,12 @@ import Footer from "../menu/Footer";
 import Header from "../header/Header";
 import Menu from "../header/Menu";
 import "./css/airplane.css";
-import airplane from "../../../img/airplane.jpg";
-import airplane1 from "../../../img/airplane1.jpg";
-import airplane2 from "../../../img/airplane2.jpg";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import { SiGooglemaps } from "react-icons/si";
 import { IoMdCart } from "react-icons/io";
 import axios from "axios";
 import Swal from "sweetalert2";
+import iconImage from "../../../img/iconImage.png";
 
 function Airplane() {
   const [airplane_list, setAirplane_list] = useState([]);
@@ -74,11 +72,11 @@ function Airplane() {
           </div>
           <div className="content_image_airplane">
             {airplane_list
-              .filter((plane) => plane.category === 1)
+              .filter((plane) => plane.category.id === 1)
               .map((plane, index) => (
                 <div className="group_item_Box_airplane" key={index}>
                   <Link to="/details" className="image">
-                    <img src={plane.image} alt="img" />
+                    <img src={plane.image || iconImage} alt="img" />
                   </Link>
                   <div className="txt_desc_airplane">
                     <h3>{plane.name}</h3>

@@ -10,10 +10,13 @@ import Header from "../header/Header";
 import Menu from "../header/Menu";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 export const AccountUser = () => {
-  // handleLog out
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showConfirmationDelete, setShowConfirmationDelete] = useState(false);
+  const userID = localStorage.getItem("userID");
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -26,20 +29,52 @@ export const AccountUser = () => {
     handleLogout();
     setShowConfirmation(false);
   };
-
   const handleCancelLogout = () => {
     setShowConfirmation(false);
   };
 
-  // handleLog out
-  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+  const handleConfirmDelete = () => {
+    handleDeleteAccount();
+    setShowConfirmationDelete(false);
+  };
   const handleCancelDelete = () => {
-    setShowDeleteConfirmation(false);
+    setShowConfirmationDelete(false);
   };
 
-  const handleConfirmDelete = () => {
-    // Add your delete account logic here
-    setShowDeleteConfirmation(false);
+  const user = localStorage.getItem("user");
+
+  //Function Delete
+  const handleDeleteAccount = async () => {
+    try {
+      const config = {
+        method: "delete",
+        url: `${import.meta.env.VITE_API}/users/userviewpage/`, // Assuming your API URL is stored in environment variables
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`, // Include token for authentication
+        },
+      };
+
+      const response = await axios(config);
+      if (response.status === 204) {
+        // Account deleted successfully
+        // alert("Account deleted successfully");
+        Swal.fire({
+          text: "Account deleted successfully.",
+          icon: "success",
+        });
+        console.log("Account deleted successfully");
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        navigate("/");
+        // Perform any other actions (e.g., redirect to home page)
+      } else {
+        console.error("Failed to delete account:", response.data.message);
+        alert("Failed to delete account:", response.data.message);
+      }
+    } catch (error) {
+      console.error("Error deleting account:", error);
+    }
   };
 
   return (
@@ -52,8 +87,20 @@ export const AccountUser = () => {
           <div className="MorePage">
             <div className="profile_box">
               <div className="left_box">
-                <img src={profile} alt="" />
-                <div className="user_name">Name:</div>
+                {JSON.parse(window.localStorage.getItem("user")).image !=
+                false ? (
+                  <img
+                    src={JSON.parse(window.localStorage.getItem("user")).image}
+                    alt=""
+                  />
+                ) : (
+                  <img src={profile} alt="" />
+                )}
+                <div className="user_name">
+                  Name:{" "}
+                  {JSON.parse(window.localStorage.getItem("user")).user_name ||
+                    null}
+                </div>
               </div>
               <Link to="/profile-user" className="right_box">
                 <button>View</button>
@@ -72,6 +119,7 @@ export const AccountUser = () => {
                 <p className="txtP">Privay Policy</p>
               </Link>
               <hr className="hr" />
+
               <div
                 onClick={() => setShowConfirmation(true)}
                 className="menu_icon"
@@ -80,12 +128,15 @@ export const AccountUser = () => {
                 <p className="txtP">Log out </p>
               </div>
               <hr className="hr" />
-              <div onClick={() => setShowDeleteConfirmation(true)} className="menu_icon">
+
+              <div
+                onClick={() => setShowConfirmationDelete(true)}
+                className="menu_icon"
+              >
                 <MdDelete id="icon_more" />
                 <p className="txtP">Delete account</p>
               </div>
               <hr className="hr" />
-              
 
               {showConfirmation && (
                 <div className="background_addproductpopup_box">
@@ -110,8 +161,8 @@ export const AccountUser = () => {
                   </div>
                 </div>
               )}
-              
-              {showDeleteConfirmation && (
+
+              {showConfirmationDelete && (
                 <div className="background_addproductpopup_box">
                   <div className="hover_addproductpopup_box">
                     <div className="box_logout">

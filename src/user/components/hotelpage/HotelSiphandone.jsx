@@ -12,6 +12,7 @@ import { IoMdCart } from "react-icons/io";
 import axios from "axios";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import Swal from "sweetalert2";
+import iconImage from "../../../img/iconImage.png";
 
 function HotelSiphandone() {
   const [siphadone, setSiphadone] = useState([]);
@@ -73,11 +74,11 @@ function HotelSiphandone() {
           </div>
           <div className="box_container_hotels">
             {siphadone
-              .filter((sipha) => sipha.category === 3)
+              .filter((sipha) => sipha.category.id === 3)
               .map((sipha, index) => (
                 <div className="box_container_body" key={index}>
                   <div className="container_image">
-                    <img src={sipha.image} alt="image" />
+                    <img src={sipha.image || iconImage} alt="image" />
                   </div>
                   <div className="container_des">
                     <h2>{sipha.name}</h2>

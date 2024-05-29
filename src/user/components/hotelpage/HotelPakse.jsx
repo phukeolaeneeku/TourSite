@@ -10,6 +10,7 @@ import { IoMdCart } from "react-icons/io";
 import axios from "axios";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import Swal from "sweetalert2";
+import iconImage from "../../../img/iconImage.png";
 
 function HotelPakse() {
   const [hotelPakse, setHotelPakse] = useState([]);
@@ -75,7 +76,7 @@ function HotelPakse() {
               .map((pakse, index) => (
                 <div className="box_container_body_hotel" key={index}>
                   <div className="container_image">
-                    <img src={pakse.image} alt="image" />
+                    <img src={pakse.image || iconImage} alt="image" />
                   </div>
                   <div className="container_desc">
                     <h2>{pakse.name}</h2>

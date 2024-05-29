@@ -9,6 +9,7 @@ import { SiGooglemaps } from "react-icons/si";
 import { IoMdCart } from "react-icons/io";
 import axios from "axios";
 import Swal from "sweetalert2";
+import iconImage from "../../../img/iconImage.png";
 
 function Rent() {
   const [rent_list, setRent_list] = useState([]);
@@ -70,11 +71,11 @@ function Rent() {
           </div>
           <div className="content_image_airplane">
             {rent_list
-              .filter((rent) => rent.category === 2)
+              .filter((rent) => rent.category.id === 2)
               .map((rent, index) => (
                 <div className="group_item_Box_airplane" key={index}>
                   <Link to="/details" className="image">
-                    <img src={rent.image} alt="img" />
+                    <img src={rent.image || iconImage} alt="img" />
                   </Link>
                   <div className="txt_desc_airplane">
                     <h3>{rent.name}</h3>
