@@ -1,171 +1,122 @@
-.containner_korean_body {
-    width: 70%;
-    margin: 11.5rem auto 0 auto;
+/*  */
+.box_container_guide {
+  width: 100%;
+  margin: auto;
+  z-index: 999;
+  padding: 100px 40px 20px 265px;
 }
-body {
-    background-color: #FFF;
+.box_content_guide {
+  width: 100%;
+  min-height: 80vh;
+  height: auto;
+  margin: auto;
+  margin-top: 1rem;
+  padding: 20px 20px 30px 20px;
+  background: #fff;
+  box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
 }
-
-.back_icons_back_one {
-    display: flex;
-    font-size: 20px;
-    gap: 0.5rem;
-    color: #858080;
-    align-items: center;
-    margin-left: 3.5rem;
-    margin-bottom: 2rem;
-}
-
-.content_item_korean{
-    width: 90%;
-    margin: auto;
-    margin-top: -3rem;
-}
-.container_korean {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 3rem 0rem;
+.GuideHead_content {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
 }
 
-.container_korean h3 {
-    font-size: 23px;
-    font-family: 600;
-}
-.txt_span_korean{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-.span_Styles {
-    width: 20px;
-    height: 40px;
-    background-color: #3d76fb;
-    border-radius: 4px;
+.text-head-guide{
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-
-/*============ box_container =============*/
-
-.box_container_korean{
-    width: 100%;
-    margin: auto;
-    display: grid;
-    gap: 1rem;
-}
-.box_container_korean_body{
-    width: 100%;
-    height: auto;
-    display: flex;
-    gap: 2rem;
-    border: solid 1px #eee;
-    border-radius: 5px;
-    padding: 15px 20px;
-    cursor: pointer;
-    overflow: hidden;
-}
-.box_container_korean_body:hover{
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
-}
-.container_korean_image{
-    width: 600px;
-    height: auto;
-    overflow: hidden;
-}
-.container_korean_image img {
-    width: 100%;
-    height: 300px;
-    object-fit: contain;
-    overflow: hidden;
-    border-radius: 5px;
-}
-.container_korean_image:hover img {
-    transform: scale(1.1);
-    transition: 0.5s;
-}
-.container_korean_desc{
-    width: 70%;
-}
-.container_korean_desc p{
-    padding: 0 15px;
-    margin-top: 15px;
-}
-.container_korean_desc h2:hover{
-    color: #3d76fb;
-    transition: 0.5s;
-}
-.SiGooglemaps{
-    font-size: 16px;
-}
-.SiGooglemaps:hover{
-    color: #3d76fb;
-    transition: 0.5s;
-}
-#icon_map{
-    font-size: 1.3rem;
-    color: #3d76fb;
+.box_add_guide{
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  padding: 7px 15px;
+  border-radius: 5px;
+  margin-right: 2rem;
+  color: #ffffff;
+  background-color: #15c65c;
 }
 
-.txt_oneday{
-    display: flex;
-    align-items: center;
-    font-size: 18px;
+.box_container_tourguide {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  gap: 1rem;
 }
-.txt_price{
-    margin-left: -1.2rem;
+.box_container_tourguide_admin {
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 2rem;
+  border: solid 1px #eee;
+  border-radius: 5px;
+  padding: 15px 20px;
+  cursor: pointer;
+  overflow: hidden;
 }
-.txt_price:hover{
-    color: #3d76fb;
-    transition: 0.5s;
-}
-.price_number_one{
-    color: #fb4d3d;
-    font-weight: 600;
+.box_container_tourguide_admin:hover {
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 
-
-
-/*===== Responsive =====*/
-
-@media only screen and (max-width: 576px) {
-    .containner_korean_body {
-        width: 90%;
-        margin: 6.5rem auto 0 auto;
-        
-    }
-
-    .back_icons_back_one {
-        margin-left: -0.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .content_item_korean {
-        width: 100%;
-        margin: auto;
-        margin-top: -2.5rem;
-    }
-
-    .container_txt_head {
-        margin-top: 1rem;
-    }
-    .container_korean_image img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        border-radius: 5px;
-    }
-    .box_container_korean{
-        margin-top: -1.5rem;
-    }
-    .box_container_korean_body{
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    .container_korean_desc{
-        width: 100%;
-    }
-    .container_korean_desc p{
-        font-size: 20px;
-    }
+.container_image_tourguide {
+  width: 350px;
+  height: auto;
+  overflow: hidden;
 }
+.container_image_tourguide img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.container_image_tourguide:hover img {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+/*  */
+
+.container_desc_tourguide {
+  width: 70%;
+}
+.container_desc_tourguide p {
+  padding: 0 15px;
+  margin-top: 15px;
+}
+.container_desc_tourguide h2:hover {
+  color: #3d76fb;
+  transition: 0.5s;
+}
+
+.txt_address {
+  font-size: 16px;
+}
+.txt_address:hover {
+  color: #3d76fb;
+  transition: 0.5s;
+}
+.btn_delete_view {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+}
+.box_btn_saveDelete {
+  background-color: #fa1f1fd7;
+  padding: 8px 25px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+.box_btn_saveEdit {
+  background-color: #0e64d2;
+  padding: 8px 25px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+/*  */
