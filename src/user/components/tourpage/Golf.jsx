@@ -28,8 +28,7 @@ function Oneday() {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + `/tourapi/tour/list/`,
-      headers: {},
+      url: import.meta.env.VITE_API + "/tourapi/tour/list/",
     };
 
     axios

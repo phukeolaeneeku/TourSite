@@ -2,14 +2,25 @@ import React, { useEffect, useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import "./css/addTour.css";
 import { AiOutlineDelete } from "react-icons/ai";
+import { useParams, useNavigate } from "react-router-dom";
 
 const EditTour = () => {
-  const [addtour, set_addtour] = useState();
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const [userId, setUserId] = useState("");
+  const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [description, setDescription] = useState("");
+  const [address, setAddress] = useState("");
+  const [image, setImage] = useState(null);
+  const [images, setImages] = useState(null);
+
+
 
   useEffect(() => {});
 
   const [selectedImage, setSelectedImage] = useState(null);
-  const [images, setImages] = useState([]);
 
   // Function to handle image selection
   const handleImageChange = (e) => {
