@@ -22,22 +22,26 @@ function Oneday() {
   console.log("Tour........", tour);
 
   useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/tourapi/tour/",
+      url: "http://127.0.0.1:8000/tourapi/tour/list/",
+      headers: {},
     };
 
     axios
       .request(config)
       .then((response) => {
-        // console.log("All tours: ", response.data)
-        setTour(response.data);
+        setTour(response.data)
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  };
 
   //Add item to cart
   useEffect(() => {
@@ -76,12 +80,13 @@ function Oneday() {
             {tour
               .filter((i) => {
                 console.log("Tour item:", i); // Log each tour item
-                return i.category.id === 1;
+                return i.category == "one_day";
               })
               .map((i, index) => (
                 <div className="box_container_body" key={index}>
                   <Link to={`/details/${i.id}`} className="container_image">
-                    <img src={i.image || iconImage} alt="image"/> {/* Improved alt text */}
+                    <img src={i.image || iconImage} alt="image" />{" "}
+                    {/* Improved alt text */}
                     {/* <img src={i.image.image || recommended3} alt="image" />  */}
                   </Link>
                   <div className="container_des">

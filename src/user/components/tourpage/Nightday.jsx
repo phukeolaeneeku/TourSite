@@ -19,25 +19,30 @@ function Oneday() {
     return localCart ? JSON.parse(localCart) : [];
   });
 
-  // console.log("Tour_night........", tour_night);
+  console.log("Tour_night........", tour_night);
+
 
   useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/tourapi/tour/",
+      url: "http://127.0.0.1:8000/tourapi/tour/list/",
+      headers: {},
     };
 
     axios
       .request(config)
       .then((response) => {
-        setTour_night(response.data);
+        setTour_night(response.data)
       })
-
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  };
 
 
 
@@ -77,7 +82,7 @@ function Oneday() {
             {tour_night
               .filter((night) => {
                 console.log("Tour item:", night); // Log each tour item
-                return night.category.id === 2;
+                return night.category == "night_tour";
               })
               .map((night, index) => (
                 <div className="box_container_body" key={index}>

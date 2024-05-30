@@ -8,12 +8,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import { FaRegCalendarAlt } from "react-icons/fa";
 import { AiOutlineDelete } from "react-icons/ai";
 import Swal from "sweetalert2";
-
 import emailjs from "@emailjs/browser";
 
-const CustomInput = React.forwardRef(({ value, onClick }) => (
+const CustomInput = React.forwardRef(({ value, onClick }, ref) => (
   <div className="Box_choose_date">
-    <button className="custom-input" onClick={onClick}>
+    <button className="custom-input" onClick={onClick} ref={ref}>
       {value || "Select date"}
     </button>
     <FaRegCalendarAlt id="icon_FaCalendarAlt" />
@@ -28,14 +27,8 @@ const Cart = () => {
 
   const initialDates = cart.map(() => ({ startDate: null, endDate: null }));
   const [dates, setDates] = useState(initialDates);
-
-  const handleDateChange = (index, type, date) => {
-    const newDates = [...dates];
-    newDates[index][type] = date;
-    setDates(newDates);
-  };
-
   const [message, setMessage] = useState("");
+  const form = useRef();
 
   useEffect(() => {
     const messages = cart.map((item, index) => {
@@ -50,29 +43,29 @@ const Cart = () => {
     setMessage(messages.join("\n"));
   }, [cart, dates]);
 
-  const form = useRef();
+  const handleDateChange = (index, type, date) => {
+    const newDates = [...dates];
+    newDates[index][type] = date;
+    setDates(newDates);
+  };
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_pu6qmbs", "template_bcy1hld", form.current, {
-        publicKey: "4MJe6ZrfbarB_dfAA",
-      })
+      .sendForm("service_pu6qmbs", "template_bcy1hld", form.current, "4MJe6ZrfbarB_dfAA")
       .then(
         () => {
           Swal.fire({
             text: "Email sent successfully!",
             icon: "success",
           });
-          console.log("SUCCESS!");
         },
         (error) => {
           Swal.fire({
             text: "Failed to send email. Please try again later.",
             icon: "error",
           });
-          console.log("FAILED...", error.text);
         }
       );
     e.target.reset();
@@ -86,8 +79,6 @@ const Cart = () => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  console.log("cart: ", cart);
-
   return (
     <>
       <Header />
@@ -97,8 +88,7 @@ const Cart = () => {
           <div className="display_products">
             <div className="box_item_total">
               <div className="box_item_total_text">
-                Desc: Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Dolore, veniam.
+                Desc: Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, veniam.
               </div>
               <hr />
               {cart.length > 0 ? (
@@ -118,9 +108,7 @@ const Cart = () => {
                         <label>
                           <DatePicker
                             selected={dates[index].startDate}
-                            onChange={(date) =>
-                              handleDateChange(index, "startDate", date)
-                            }
+                            onChange={(date) => handleDateChange(index, "startDate", date)}
                             customInput={<CustomInput />}
                           />
                         </label>
@@ -128,15 +116,13 @@ const Cart = () => {
                         <label>
                           <DatePicker
                             selected={dates[index].endDate}
-                            onChange={(date) =>
-                              handleDateChange(index, "endDate", date)
-                            }
+                            onChange={(date) => handleDateChange(index, "endDate", date)}
                             customInput={<CustomInput />}
                           />
                         </label>
                       </div>
                     </div>
-                  ))}{" "}
+                  ))}
                   <div className="box_container_input">
                     <label>Item:</label>
                     <textarea
@@ -163,12 +149,11 @@ const Cart = () => {
                       required
                     />
                     <label>Message:</label>
-
                     <textarea
                       name="message1"
                       className="form_textarea_sendEmail"
                       placeholder="Tour introduction (optional/maximum 300 characters)"
-                      required
+                      maxLength="300"
                     />
                     <input
                       type="submit"
@@ -180,7 +165,6 @@ const Cart = () => {
               ) : (
                 <p className="no-reviews-message">Empty Cart</p>
               )}
-
             </div>
           </div>
         </form>
