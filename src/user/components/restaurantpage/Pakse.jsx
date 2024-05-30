@@ -16,7 +16,7 @@ function Pakse() {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/tourapi/restaurant/",
+      url: import.meta.env.VITE_API + "/tourapi/restaurant/list/",
     };
 
     axios
@@ -42,7 +42,7 @@ function Pakse() {
           </div>
           <div className="content_image_restaurant">
             {restaurant_list
-              .filter((res) => res.category.id === 1)
+              .filter((res) => res.category == "pakse")
               .map((res, index) => (
                 <div className="group_item_Box_restaurant" key={index}>
                   <Link to="/details" className="image">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./css/restaurantAdmin.css";
 import { Link } from "react-router-dom";
 import AdminMenu from "../adminMenu/AdminMenu";
@@ -6,13 +6,29 @@ import { BiPlus } from "react-icons/bi";
 import recommended2 from "../../../img/recommended2.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Expandable from "../../../admin/components/managertour/Expandable";
+import axios from "axios";
 
 const Restaurant_Admin = () => {
-  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [datas, setDatas] = useState([]);
 
-  /////// Handle Popup delete
+  useEffect(() => {
+    fetchData();
+  }, []);
+  console.log(datas);
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_API}/tourapi/restaurant/list/`
+      );
+      setDatas(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const handleCancelDelete = () => {
-    setShowConfirmation(false);
+    setShowConfirm(!showConfirm);
   };
 
   return (
@@ -33,37 +49,40 @@ const Restaurant_Admin = () => {
               </div>
             </div>
 
-            <div className="box_container_tour">
-              <div className="box_container_tour_admin">
-                <div className="container_image_tour">
-                  <img src={recommended2} alt="image" />
-                </div>
-                <div className="container_desc_tour">
-                  <h3>Name: Restauranr </h3>
-                  <Expandable>
-                    Description: Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Distinctio cupiditate blanditiis veniam
-                    voluptates sequi pariatur voluptatibus, natus mollitia est
-                    unde illo at nostrum, culpa labore aperiam delectus
-                    doloribus ut autem!
-                  </Expandable>
-
-
-                  <p className="txt_address">Address: Vangvieg</p>
-                </div>
-                <div className="btn_delete_view">
-                  <div
-                    onClick={() => setShowConfirmation(true)}
-                    className="box_btn_saveDelete"
-                  >
-                    Delete
+            {datas.length > 0 ? (
+              datas.map((data, index) => (
+                <div className="box_container_tour" key={index}>
+                  <div className="box_container_tour_admin">
+                    <div className="container_image_tour">
+                      <img src={data.image} alt="image" />
+                    </div>
+                    <div className="container_desc_tour">
+                      <h3>{data.name}</h3>
+                      <Expandable>{data.description}</Expandable>
+                      <div className="txt_tour">
+                        <p className="price_number_ones">
+                          Prices: ${data.price}
+                        </p>
+                      </div>
+                      <p className="txt_address">Address: {data.address}</p>
+                    </div>
+                    <div className="btn_delete_view">
+                      <div
+                        onClick={handleCancelDelete}
+                        className="box_btn_saveDelete"
+                      >
+                        Delete
+                      </div>
+                      <Link to="/edit-tour" className="box_btn_saveEdit">
+                        Edit
+                      </Link>
+                    </div>
                   </div>
-                  <Link to="/edit-restaurant" className="box_btn_saveEdit">
-                    Edit
-                  </Link>
                 </div>
-              </div>
-            </div>
+              ))
+            ) : (
+              <p>No tours available</p>
+            )}
 
             <div className="box_container_next_product">
               <button className="box_prev_left_product">
@@ -86,7 +105,7 @@ const Restaurant_Admin = () => {
               </button>
             </div>
 
-            {showConfirmation && (
+            {showConfirm && (
               <div className="background_addproductpopup_box">
                 <div className="hover_addproductpopup_box">
                   <div className="box_logout">

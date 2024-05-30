@@ -18,7 +18,7 @@ function Siphandone() {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/tourapi/restaurant/",
+      url: import.meta.env.VITE_API + "/tourapi/restaurant/list/",
     };
 
     axios
@@ -44,7 +44,7 @@ function Siphandone() {
           </div>
           <div className="content_image_restaurant">
             {restaurantSiphandone_list
-              .filter((res_siphandone) => res_siphandone.category.id === 3)
+              .filter((res_siphandone) => res_siphandone.category == "siphadone")
               .map((res_siphandone, index) => (
                 <div className="group_item_Box_restaurant" key={index}>
                   <Link to="/details" className="image">

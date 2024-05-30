@@ -116,7 +116,7 @@ const AddHotel = () => {
       <section id="post">
         <div className="box_container_product">
           <h2>Hotel</h2>
-          <form className="edit-product-forms">
+          <form className="edit-product-forms" onSubmit={handleSubmit}>
             <div className="input-img">
               <div className="box_description">
                 <h3>Image</h3>
