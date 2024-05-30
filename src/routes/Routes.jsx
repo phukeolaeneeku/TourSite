@@ -63,6 +63,8 @@ import EditRent from "../admin/components/ticketAdmin/EditRent";
 import EditTicket from "../admin/components/ticketAdmin/EditTicket";
 import AddPackage from "../admin/components/packageAdmin/AddPackage";
 import EditPackage from "../admin/components/packageAdmin/EditPackage";
+import Guide_admin from "../admin/components/manageGuide/Guide_admin";
+import AddGuide from "../admin/components/manageGuide/AddGuide";
 
 const Links = () => {
   return (
@@ -135,6 +137,8 @@ const Links = () => {
         <Route path="/add-package" Component={AddPackage} />
         <Route path="/edit-package" Component={EditPackage} />
         <Route path="/add-hotel" Component={Add_Hotel} />
+        <Route path="/guide-admin" Component={Guide_admin} />
+        <Route path="/add-guide" Component={AddGuide} />
       </Routes>
     </Router>
   );
