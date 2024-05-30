@@ -1,18 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { BiPlus } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import airplane1 from "../../../img/airplane1.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Expandable from "../managertour/Expandable";
+import axios from "axios";
 
 function RentAdmin() {
-  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [datas, setDatas] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  console.log(datas);
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_API}/tourapi/ticket/list/`
+      );
+      setDatas(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const handleCancelDelete = () => {
-    setShowConfirmation(false);
+    setShowConfirm(!showConfirm);
   };
- 
 
   return (
     <>
@@ -31,50 +47,46 @@ function RentAdmin() {
                 </Link>
               </div>
             </div>
-
-            <div className="box_container_tour">
-              <div className="box_container_btn">
-                <button></button>
-              </div>
-              <div className="box_container_tour_admin">
-                <div className="container_image_tour">
-                  <img src={airplane1} alt="image" />
+            {datas.length > 0 ? (
+              datas.map((data, index) => (
+                <div className="box_container_tour" key={index}>
+                  <div className="box_container_tour_admin">
+                    <div className="container_image_tour">
+                      <img src={data.image} alt="image" />
+                    </div>
+                    <div className="container_desc_tour">
+                      <h3>{data.name}</h3>
+                      <Expandable>{data.description}</Expandable>
+                      <div className="txt_tour">
+                        <p className="price_number_ones">Prices: $ {data.price}</p>
+                      </div>
+                      <div className="txt_tour">
+                        <p className="txt_brand_car">Brand: {data.brand}</p>
+                      </div>
+                      <div className="txt_tour">
+                        <p className="txt_brand_car"> Car number:{data.carnumber}</p>
+                      </div>
+                      <p className="txt_address">Address: {data.address}</p>
+                    </div>
+                    <div className="btn_delete_view">
+                      <div
+                        onClick={handleCancelDelete}
+                        className="box_btn_saveDelete"
+                      >
+                        Delete
+                      </div>
+                      <Link to="/edit-tour" className="box_btn_saveEdit">
+                        Edit
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-                <div className="container_desc_tour">
-                  <h3>Name: Patusai </h3>
-                  <Expandable>
-                    Description: Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Distinctio cupiditate blanditiis veniam
-                    voluptates sequi pariatur voluptatibus, natus mollitia est
-                    unde illo at nostrum, culpa labore aperiam delectus
-                    doloribus ut autem!
-                  </Expandable>
+              ))
+            ) : (
+              <p>No tours available</p>
+            )}
 
-                  <div className="txt_tour">
-                    <p className="price_number_ones">Prices: $100</p>
-                  </div>
-                  <div className="txt_tour">
-                    <p className="txt_brand_car">Brand: TOYOTA</p>
-                  </div>
-                  <div className="txt_tour">
-                    <p className="txt_brand_car">Car number: 775212</p>
-                  </div>
-
-                  <p className="txt_address">Address: Vangvieg</p>
-                </div>
-                <div className="btn_delete_view">
-                  <div
-                    onClick={() => setShowConfirmation(true)}
-                    className="box_btn_saveDelete"
-                  >
-                    Delete
-                  </div>
-                  <Link to="/edit-rent" className="box_btn_saveEdit">
-                    Edit
-                  </Link>
-                </div>
-              </div>
-            </div>
+           
 
             <div className="box_container_next_product">
               <button className="box_prev_left_product">
@@ -97,7 +109,7 @@ function RentAdmin() {
               </button>
             </div>
 
-            {showConfirmation && (
+            {showConfirm&& (
               <div className="background_addproductpopup_box">
                 <div className="hover_addproductpopup_box">
                   <div className="box_logout">
