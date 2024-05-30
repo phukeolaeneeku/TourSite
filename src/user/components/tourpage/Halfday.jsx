@@ -24,7 +24,7 @@ function Oneday() {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/tourapi/tour/",
+      url: import.meta.env.VITE_API + "/tourapi/tour/list/",
 
       headers: {},
     };
@@ -76,7 +76,7 @@ function Oneday() {
             {tour_half
               .filter((half) => {
                 console.log("Tour item:", half); // Log each tour item
-                return half.category.id === 3;
+                return half.category == "half_day";
               })
               .map((half, index) => (
                 <div className="box_container_body" key={index}>

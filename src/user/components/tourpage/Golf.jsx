@@ -24,7 +24,7 @@ function Oneday() {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/tourapi/tour/",
+      url: import.meta.env.VITE_API + "/tourapi/tour/list/",
     };
 
     axios
@@ -73,7 +73,7 @@ function Oneday() {
             {tour_golf
               .filter((golf) => {
                 console.log("Tour item:", golf); // Log each tour item
-                return golf.category.id === 4;
+                return golf.category == "golf";
               })
               .map((golf, index) => (
                 <div className="group_item_Box" key={index}>

@@ -19,6 +19,8 @@ function Details() {
     return localCart ? JSON.parse(localCart) : [];
   });
 
+  console.log("detail...", detail)
+
   useEffect(() => {
     const fetchDetail = async () => {
       try {
