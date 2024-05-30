@@ -19,12 +19,11 @@ import Rent from "../user/components/ticketpage/Rent";
 import Entertainment from "../user/components/ticketpage/Entertainment";
 import Massage from "../user/components/ticketpage/Massage";
 
-
 import Package from "../user/components/packagepage/Package";
 import Package4days from "../user/components/packagepage/Package4days";
 import Package5days from "../user/components/packagepage/Package5days";
 
-import Korean from "../user/components/guidepage/Korean"
+import Korean from "../user/components/guidepage/Korean";
 
 import AccountUser from "../user/components/accountUser/AccountUser";
 import Profile from "../user/components/accountUser/Profile";
@@ -44,20 +43,19 @@ import Addtour_admin from "../admin/components/managertour/AddTour";
 import Users from "../admin/components/managerUser/Users";
 import User_details from "../admin/components/managerUser/User_details";
 import Account_Admin from "../admin/components/accountAdmin/AccountAdmin";
-import Edit_Account from '../admin/components/accountAdmin/EditAccount';
-import Admins from "../admin/components/managerAdmin/Admins"
-import Add_Admin from "../admin/components/managerAdmin/AddAdmin"
-import Edit_Admin from "../admin/components/managerAdmin/EditAdmin"
+import Edit_Account from "../admin/components/accountAdmin/EditAccount";
+import Admins from "../admin/components/managerAdmin/Admins";
+import Add_Admin from "../admin/components/managerAdmin/AddAdmin";
+import Edit_Admin from "../admin/components/managerAdmin/EditAdmin";
 import Hotel from "../admin/components/managerhotel/Hotel";
-import Edit_Hotel from "../admin/components/managerhotel/EditHotel"
-import Restaurant_Admin from "../admin/components/managerRestaurant/Restaurant_Admin"
+import Edit_Hotel from "../admin/components/managerhotel/EditHotel";
+import Restaurant_Admin from "../admin/components/managerRestaurant/Restaurant_Admin";
 import EditRestaurant from "../admin/components/managerRestaurant/EditRestaurant";
 import AddRestaurant from "../admin/components/managerRestaurant/AddRestaurant";
 import PackageAdmin from "../admin/components/packageAdmin/PackageAdmin";
 import AirplaneAdmin from "../admin/components/ticketAdmin/AirplaneAdmin";
 import Add_Hotel from "../admin/components/managerhotel/AddHotel";
 import AddTicket from "../admin/components/ticketAdmin/AddTicket";
-dmin from "../admin/components/ticketAdmin/Rent<<<<<<< HEAD
 import RentAdmin from "../admin/components/ticketAdmin/RentAdmin";
 import MassageAdmin from "../admin/components/ticketAdmin/MassageAdmin";
 import AddRent from "../admin/components/ticketAdmin/AddRent";
@@ -65,10 +63,6 @@ import EditRent from "../admin/components/ticketAdmin/EditRent";
 import EditTicket from "../admin/components/ticketAdmin/EditTicket";
 import AddPackage from "../admin/components/packageAdmin/AddPackage";
 import EditPackage from "../admin/components/packageAdmin/EditPackage";
-import from "../admin/components/managertour/EditTour";
-=======
-import Guide";
->>>>>>> be82e6c113c31dfcec89d70bb7f9cfa87e61f878
 
 const Links = () => {
   return (
@@ -94,7 +88,6 @@ const Links = () => {
         <Route exact path="/entertainment" Component={Entertainment} />
         <Route exact path="/massage" Component={Massage} />
 
-
         <Route exact path="/package" Component={Package} />
         <Route exact path="/package4days" Component={Package4days} />
         <Route exact path="/package5days" Component={Package5days} />
@@ -105,8 +98,11 @@ const Links = () => {
         <Route exact path="/profile-user" Component={Profile} />
 
         <Route exact path="/cart" Component={Cart} />
-        <Route exact path="/payment-bk-@2024@-w-eb-tour@site&&0921345&abcdfghi223432@&&dfre" Component={Payment} />
-      
+        <Route
+          exact
+          path="/payment-bk-@2024@-w-eb-tour@site&&0921345&abcdfghi223432@&&dfre"
+          Component={Payment}
+        />
 
         {/*========== Form login, register, Find password ============ */}
         <Route exact path="/login" Component={Login} />
@@ -132,16 +128,18 @@ const Links = () => {
         <Route path="/package-admin" Component={PackageAdmin} />
         <Route path="/airplane-admin" Component={AirplaneAdmin} />
         <Route path="/add_ticket" Component={AddTicket} />
- path="/add-hotel" Component={Add_Hotel} />
-<<<<<<< HEAD
         <Route path="/rent-admin" Component={RentAdmin} />
         <Route path="/massage-admin" Component={MassageAdmin} />
         <Route path="/add-rent" Component={AddRent} />
         <Route path="/edit-rent" Component={EditRent} />
         <Route path="/edit-ticket" Component={EditTicket} />
         <Route path="/add-package" Component={AddPackage} />
-        <Route path="/edit-package" Component={EditPackage} /><Route path="/edit-tour" Component={EditTour} />
-=======
->>>>>>> be82e6c113c31dfcec89d70bb7f9cfa87e61f878
-de} />
->>>>>>> be82e6c113c31dfcec89d70bb7f9cfa87e61f878
+        <Route path="/edit-package" Component={EditPackage} />
+        <Route path="/add-hotel" Component={Add_Hotel} />
+
+      </Routes>
+    </Router>
+  );
+};
+
+export default Links;

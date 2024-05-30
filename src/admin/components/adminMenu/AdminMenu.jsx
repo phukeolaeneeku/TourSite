@@ -93,42 +93,43 @@ const AdminMenu = () => {
               <p className="txtP">Restaurant</p>
             </NavLink>
 
-            <div
+            <NavLink
               className="link"
               onMouseEnter={handleTicketMouseEnter}
               onMouseLeave={handleTicketMouseLeave}
             >
-            <NavLink to="/ticket-admin" className="link">
               <BsFillTicketDetailedFill id="icon_das_pro_use_logout" />
-              <p className="txtP">Ticket</p>
-              {ticketHovered && (
-                <div className="dropdown-menus">
-                  <ul>
-                    <li className="menu_inline">
-                      <NavLink to="/airplane-admin">
-                        <p className="txtP">Airplane</p>
-                      </NavLink>
-                      <MdKeyboardArrowRight id="icon_AiOutlineRight" />
-                    </li>
-                    <div className="hr"></div>
-                    <li className="menu_inline">
-                      <NavLink to="/rent-Admin">
-                        <p className="txtP">Rent car</p>
-                      </NavLink>
-                      <MdKeyboardArrowRight id="icon_AiOutlineRight" />
-                    </li>
+          
+                <p className="txtP">Ticket</p>
+                {ticketHovered && (
+                  <div className="dropdown-menus">
+                    <ul>
+                      <li className="menu_inline">
+                        <Link to="/airplane-admin">
+                          <p className="txtP">Airplane</p>
+                        </Link>
+                        <MdKeyboardArrowRight id="icon_AiOutlineRight" />
+                      </li>
+                      <div className="hr"></div>
+                      <li className="menu_inline">
+                        <NavLink to="/rent-Admin">
+                          <p className="txtP">Rent car</p>
+                        </NavLink>
+                        <MdKeyboardArrowRight id="icon_AiOutlineRight" />
+                      </li>
 
-                    <div className="hr"></div>
-                    <li className="menu_inline">
-                      <NavLink to="/massage-admin">
-                        <p className="txtP">Massage</p>
-                      </NavLink>
-                      <MdKeyboardArrowRight id="icon_AiOutlineRight" />
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </div>
+                      <div className="hr"></div>
+                      <li className="menu_inline">
+                        <NavLink to="/massage-admin">
+                          <p className="txtP">Massage</p>
+                        </NavLink>
+                        <MdKeyboardArrowRight id="icon_AiOutlineRight" />
+                      </li>
+                    </ul>
+                  </div>
+                )}
+       
+            </NavLink>
 
             <NavLink to="/package-admin" className="link">
               <GoPackage id="icon_das_pro_use_logout" />

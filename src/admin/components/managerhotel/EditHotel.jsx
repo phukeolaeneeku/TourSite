@@ -17,7 +17,6 @@ const EditHotel = () => {
     }
   };
 
-
   // Function to handle image selection
   const handleImageChangeCategory = (e) => {
     if (e.target.files) {
@@ -101,6 +100,14 @@ const EditHotel = () => {
 
             <div className="form_input_box">
               <div className="input">
+                <label htmlFor="category">Category</label>
+                <select>
+                  <option value="pakse">Pakse</option>
+                  <option value="paksong">Paksong</option>
+                  <option value="siphadone">Siphadone</option>
+                </select>
+              </div>
+              <div className="input">
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" placeholder="Name..." />
               </div>
@@ -112,14 +119,6 @@ const EditHotel = () => {
               <div className="input">
                 <label htmlFor="address">Address</label>
                 <input type="text" name="address" placeholder="Address..." />
-              </div>
-              <div className="input">
-                <label htmlFor="category">Category</label>
-                <select>
-                  <option value="pakse">Pakse</option>
-                  <option value="paksong">Paksong</option>
-                  <option value="siphadone">Siphadone</option>
-                </select>
               </div>
 
               <div className="input">

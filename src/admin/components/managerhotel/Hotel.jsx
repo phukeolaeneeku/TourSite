@@ -25,7 +25,7 @@ function Hotel() {
                 <span className="spennofStyleadmin"></span>Hotel
               </h2>
               <div className="categoryBoxfiler">
-                <Link to="/addtour-admin" className="box_add_product">
+                <Link to="/add-hotel" className="box_add_product">
                   <BiPlus id="icon_add_product" />
                   <p>Add</p>
                 </Link>
