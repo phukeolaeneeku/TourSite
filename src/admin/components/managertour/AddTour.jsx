@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import "./css/addTour.css";
 import { AiOutlineDelete } from "react-icons/ai";
 
 const addTour = () => {
-  // State to store the selected image
+  const [addtour, set_addtour] = useState();
+
+  useEffect(() => {});
+
   const [selectedImage, setSelectedImage] = useState(null);
-  // State to store the array of selected images
   const [images, setImages] = useState([]);
 
   // Function to handle image selection
@@ -17,7 +19,6 @@ const addTour = () => {
       setSelectedImage(imageUrl);
     }
   };
-  
 
   // Function to handle image selection
   const handleImageChangeCategory = (e) => {
@@ -117,8 +118,9 @@ const addTour = () => {
               <div className="input">
                 <label htmlFor="category">Category</label>
                 <select>
-                  <option value="pakse">One day tour</option>
-                  <option value="paksong">Half day tour</option>
+                  <option value="">More...........</option>
+                  <option value="pakse">One day</option>
+                  <option value="paksong">Half day</option>
                   <option value="siphadone">Night tour</option>
                   <option value="siphadone">Golf</option>
                 </select>

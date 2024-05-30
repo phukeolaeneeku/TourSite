@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./css/ticket.css";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { BiPlus } from "react-icons/bi";
 import { Link } from "react-router-dom";
@@ -25,7 +24,7 @@ function TicketAdmin() {
                 <span className="spennofStyleadmin"></span>Ticket
               </h2>
               <div className="categoryBoxfiler">
-                <Link to="/addtour-admin" className="box_add_product">
+                <Link to="/add_ticket" className="box_add_product">
                   <BiPlus id="icon_add_product" />
                   <p>Add</p>
                 </Link>

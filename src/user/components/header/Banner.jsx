@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./css/banner.css";
-import tour_banner2 from "../../../img/tour_banner.jpg"
-import tour_banner1 from "../../../img/tour_banner.jpg"
+import tour_banner2 from "../../../img/tour_banner2.jpg"
+import tour_banner1 from "../../../img/tour_banner1.jpg"
 import tour_banner from "../../../img/tour_banner.jpg"
 
 const Banner = () => {

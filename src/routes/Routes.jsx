@@ -19,6 +19,7 @@ import Rent from "../user/components/ticketpage/Rent";
 import Entertainment from "../user/components/ticketpage/Entertainment";
 import Massage from "../user/components/ticketpage/Massage";
 
+
 import Package from "../user/components/packagepage/Package";
 import Package4days from "../user/components/packagepage/Package4days";
 import Package5days from "../user/components/packagepage/Package5days";
@@ -55,6 +56,7 @@ import AddRestaurant from "../admin/components/managerRestaurant/AddRestaurant";
 import PackageAdmin from "../admin/components/packageAdmin/PackageAdmin";
 import TicketAdmin from "../admin/components/ticketAdmin/TicketAdmin";
 import Add_Hotel from "../admin/components/managerhotel/AddHotel";
+import AddTicket from "../admin/components/ticketAdmin/AddTicket";
 
 const Links = () => {
   return (
@@ -117,6 +119,7 @@ const Links = () => {
         <Route path="/add-restaurant" Component={AddRestaurant} />
         <Route path="/package-admin" Component={PackageAdmin} />
         <Route path="/ticket-admin" Component={TicketAdmin} />
+        <Route path="/add_ticket" Component={AddTicket} />
         <Route path="/add-hotel" Component={Add_Hotel} />
         
       </Routes>

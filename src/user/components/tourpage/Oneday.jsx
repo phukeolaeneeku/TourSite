@@ -80,8 +80,8 @@ function Oneday() {
               })
               .map((i, index) => (
                 <div className="box_container_body" key={index}>
-                  <Link to="/details" className="container_image">
-                    <img src={i.image || iconImage} alt="image" /> {/* Improved alt text */}
+                  <Link to={`/details/${i.id}`} className="container_image">
+                    <img src={i.image || iconImage} alt="image"/> {/* Improved alt text */}
                     {/* <img src={i.image.image || recommended3} alt="image" />  */}
                   </Link>
                   <div className="container_des">

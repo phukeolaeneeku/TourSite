@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const AddRestaurant = () => {
-  // State to store the selected image
+const AddTicket = () => {
+  const [addtour, set_addtour] = useState();
+
+  useEffect(() => {});
+
   const [selectedImage, setSelectedImage] = useState(null);
-  // State to store the array of selected images
   const [images, setImages] = useState([]);
 
   // Function to handle image selection
@@ -40,6 +42,7 @@ const AddRestaurant = () => {
       <AdminMenu />
       <section id="post">
         <div className="box_container_product">
+          <h2>Tour</h2>
           <form className="edit-product-forms">
             <div className="input-img">
               <div className="box_description">
@@ -104,17 +107,20 @@ const AddRestaurant = () => {
               </div>
 
               <div className="input">
+                <label htmlFor="price">Price</label>
+                <input type="text" name="price" placeholder="Price..." />
+              </div>
+              <div className="input">
                 <label htmlFor="address">Address</label>
                 <input type="text" name="address" placeholder="Address..." />
               </div>
-
               <div className="input">
                 <label htmlFor="category">Category</label>
                 <select>
                   <option value="">More...........</option>
-                  <option value="pakse">Pakse</option>
-                  <option value="paksong">Paksong</option>
-                  <option value="siphadone">Siphadone</option>
+                  <option value="pakse">Airplane</option>
+                  <option value="paksong">Rent</option>
+                  <option value="siphadone">Massage</option>
                 </select>
               </div>
 
@@ -139,4 +145,4 @@ const AddRestaurant = () => {
   );
 };
 
-export default AddRestaurant;
+export default AddTicket;

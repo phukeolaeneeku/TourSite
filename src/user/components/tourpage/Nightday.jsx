@@ -81,7 +81,7 @@ function Oneday() {
               })
               .map((night, index) => (
                 <div className="box_container_body" key={index}>
-                  <Link to="/details" className="container_image">
+                  <Link to={`/details/${night.id}`} className="container_image">
                     <img src={night.image || iconImage} alt="image" />
                   </Link>
                   <div className="container_des">
