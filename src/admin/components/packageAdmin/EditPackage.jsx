@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const AddTicket = () => {
+const EditPackage = () => {
   const [addtour, set_addtour] = useState();
 
   useEffect(() => {});
@@ -42,7 +42,7 @@ const AddTicket = () => {
       <AdminMenu />
       <section id="post">
         <div className="box_container_product">
-          <h2>Airplane and massage</h2>
+          <h2>Edit package</h2>
           <form className="edit-product-forms">
             <div className="input-img">
               <div className="box_description">
@@ -102,14 +102,6 @@ const AddTicket = () => {
 
             <div className="form_input_box">
               <div className="input">
-                <label htmlFor="category">Category</label>
-                <select>
-                  <option value="pakse">Airplane</option>
-                  <option value="siphadone">Massage</option>
-                </select>
-              </div>
-
-              <div className="input">
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" placeholder="Name..." />
               </div>
@@ -121,6 +113,14 @@ const AddTicket = () => {
               <div className="input">
                 <label htmlFor="address">Address</label>
                 <input type="text" name="address" placeholder="Address..." />
+              </div>
+              <div className="input">
+                <label htmlFor="category">Category</label>
+                <select>
+                  <option value="pakse">3 days </option>
+                  <option value="paksong">4 days</option>
+                  <option value="siphadone">4 days</option>
+                </select>
               </div>
 
               <div className="input">
@@ -144,4 +144,4 @@ const AddTicket = () => {
   );
 };
 
-export default AddTicket;
+export default EditPackage;

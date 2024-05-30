@@ -103,6 +103,15 @@ const addTour = () => {
 
             <div className="form_input_box">
               <div className="input">
+                <label htmlFor="category">Category</label>
+                <select>
+                  <option value="pakse">One day</option>
+                  <option value="paksong">Half day</option>
+                  <option value="siphadone">Night tour</option>
+                  <option value="siphadone">Golf</option>
+                </select>
+              </div>
+              <div className="input">
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" placeholder="Name..." />
               </div>
@@ -114,16 +123,6 @@ const addTour = () => {
               <div className="input">
                 <label htmlFor="address">Address</label>
                 <input type="text" name="address" placeholder="Address..." />
-              </div>
-              <div className="input">
-                <label htmlFor="category">Category</label>
-                <select>
-                  <option value="">More...........</option>
-                  <option value="pakse">One day</option>
-                  <option value="paksong">Half day</option>
-                  <option value="siphadone">Night tour</option>
-                  <option value="siphadone">Golf</option>
-                </select>
               </div>
 
               <div className="input">

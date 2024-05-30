@@ -1,19 +1,18 @@
 import React, { useState } from "react";
-import "./css/tour_Admin.css";
-import { Link } from "react-router-dom";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { BiPlus } from "react-icons/bi";
-import patusai from "../../../img/patusai.jpg";
+import { Link } from "react-router-dom";
+import airplane1 from "../../../img/airplane1.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import Expandable from "./Expandable";
+import Expandable from "../managertour/Expandable";
 
-const Tour_Admin = () => {
+function AirplaneAdmin() {
   const [showConfirmation, setShowConfirmation] = useState(false);
 
-  /////// Handle Popup delete
   const handleCancelDelete = () => {
     setShowConfirmation(false);
   };
+ 
 
   return (
     <>
@@ -23,10 +22,10 @@ const Tour_Admin = () => {
           <div className="box_content_hotel">
             <div className="productHead_content">
               <h2 className="htxthead">
-                <span className="spennofStyleadmin"></span>Tour
+                <span className="spennofStyleadmin"></span>Airplane
               </h2>
               <div className="categoryBoxfiler">
-                <Link to="/addtour-admin" className="box_add_product">
+                <Link to="/add_ticket" className="box_add_product">
                   <BiPlus id="icon_add_product" />
                   <p>Add</p>
                 </Link>
@@ -34,9 +33,12 @@ const Tour_Admin = () => {
             </div>
 
             <div className="box_container_tour">
+              <div className="box_container_btn">
+                <button></button>
+              </div>
               <div className="box_container_tour_admin">
                 <div className="container_image_tour">
-                  <img src={patusai} alt="image" />
+                  <img src={airplane1} alt="image" />
                 </div>
                 <div className="container_desc_tour">
                   <h3>Name: Patusai </h3>
@@ -61,7 +63,7 @@ const Tour_Admin = () => {
                   >
                     Delete
                   </div>
-                  <Link to="/edit-tour" className="box_btn_saveEdit">
+                  <Link to="/edit-ticket" className="box_btn_saveEdit">
                     Edit
                   </Link>
                 </div>
@@ -114,6 +116,6 @@ const Tour_Admin = () => {
       </section>
     </>
   );
-};
+}
 
-export default Tour_Admin;
+export default AirplaneAdmin;

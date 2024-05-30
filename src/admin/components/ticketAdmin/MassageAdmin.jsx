@@ -4,14 +4,15 @@ import { BiPlus } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import airplane1 from "../../../img/airplane1.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import Expandable from "../../../admin/components/managertour/Expandable"
+import Expandable from "../managertour/Expandable";
 
-function TicketAdmin() {
+function MassageAdmin() {
   const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleCancelDelete = () => {
     setShowConfirmation(false);
   };
+ 
 
   return (
     <>
@@ -21,7 +22,7 @@ function TicketAdmin() {
           <div className="box_content_hotel">
             <div className="productHead_content">
               <h2 className="htxthead">
-                <span className="spennofStyleadmin"></span>Ticket
+                <span className="spennofStyleadmin"></span>Massage
               </h2>
               <div className="categoryBoxfiler">
                 <Link to="/add_ticket" className="box_add_product">
@@ -30,8 +31,11 @@ function TicketAdmin() {
                 </Link>
               </div>
             </div>
-            
+
             <div className="box_container_tour">
+              <div className="box_container_btn">
+                <button></button>
+              </div>
               <div className="box_container_tour_admin">
                 <div className="container_image_tour">
                   <img src={airplane1} alt="image" />
@@ -59,7 +63,7 @@ function TicketAdmin() {
                   >
                     Delete
                   </div>
-                  <Link to="/edit-hotel" className="box_btn_saveEdit">
+                  <Link to="/edit-ticket" className="box_btn_saveEdit">
                     Edit
                   </Link>
                 </div>
@@ -114,4 +118,4 @@ function TicketAdmin() {
   );
 }
 
-export default TicketAdmin;
+export default MassageAdmin;

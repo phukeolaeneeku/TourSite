@@ -54,9 +54,17 @@ import Restaurant_Admin from "../admin/components/managerRestaurant/Restaurant_A
 import EditRestaurant from "../admin/components/managerRestaurant/EditRestaurant";
 import AddRestaurant from "../admin/components/managerRestaurant/AddRestaurant";
 import PackageAdmin from "../admin/components/packageAdmin/PackageAdmin";
-import TicketAdmin from "../admin/components/ticketAdmin/TicketAdmin";
+import AirplaneAdmin from "../admin/components/ticketAdmin/AirplaneAdmin";
 import Add_Hotel from "../admin/components/managerhotel/AddHotel";
 import AddTicket from "../admin/components/ticketAdmin/AddTicket";
+import RentAdmin from "../admin/components/ticketAdmin/RentAdmin";
+import MassageAdmin from "../admin/components/ticketAdmin/MassageAdmin";
+import AddRent from "../admin/components/ticketAdmin/AddRent";
+import EditRent from "../admin/components/ticketAdmin/EditRent";
+import EditTicket from "../admin/components/ticketAdmin/EditTicket";
+import AddPackage from "../admin/components/packageAdmin/AddPackage";
+import EditPackage from "../admin/components/packageAdmin/EditPackage";
+import EditTour from "../admin/components/managertour/EditTour";
 
 const Links = () => {
   return (
@@ -118,9 +126,17 @@ const Links = () => {
         <Route path="/edit-restaurant" Component={EditRestaurant} />
         <Route path="/add-restaurant" Component={AddRestaurant} />
         <Route path="/package-admin" Component={PackageAdmin} />
-        <Route path="/ticket-admin" Component={TicketAdmin} />
+        <Route path="/airplane-admin" Component={AirplaneAdmin} />
         <Route path="/add_ticket" Component={AddTicket} />
         <Route path="/add-hotel" Component={Add_Hotel} />
+        <Route path="/rent-admin" Component={RentAdmin} />
+        <Route path="/massage-admin" Component={MassageAdmin} />
+        <Route path="/add-rent" Component={AddRent} />
+        <Route path="/edit-rent" Component={EditRent} />
+        <Route path="/edit-ticket" Component={EditTicket} />
+        <Route path="/add-package" Component={AddPackage} />
+        <Route path="/edit-package" Component={EditPackage} />
+        <Route path="/edit-tour" Component={EditTour} />
         
       </Routes>
     </Router>

@@ -22,7 +22,7 @@ function Korean() {
           </div>
           <div className="box_container_korean">
             <div className="box_container_korean_body">
-              <Link to="/details" className="container_korean_image">
+              <Link to="#" className="container_korean_image">
                 <img src={korean} alt="image" />
               </Link>
               <div className="container_korean_desc">

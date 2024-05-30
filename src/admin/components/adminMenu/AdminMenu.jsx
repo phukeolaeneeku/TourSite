@@ -3,7 +3,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { BiUser } from "react-icons/bi";
 import { LiaUserCogSolid } from "react-icons/lia";
 import tour_logo from "../../../img/tour_logo.gif";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import user from "../../../img/user.png";
 import { CiCamera } from "react-icons/ci";
 import { useState } from "react";
@@ -15,6 +15,7 @@ import { IoIosRestaurant } from "react-icons/io";
 import { BsFillTicketDetailedFill } from "react-icons/bs";
 import { GoPackage } from "react-icons/go";
 import hotel1 from "../../../img/hotel1.jpg";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 const AdminMenu = () => {
   const [mainImageLogo, setMainImagLogo] = useState(null);
@@ -60,6 +61,14 @@ const AdminMenu = () => {
     setShowConfirmation(false);
   };
 
+  ///// //////////////////
+  const [ticketHovered, setTicketHovered] = useState(false);
+  const handleTicketMouseEnter = () => {
+    setTicketHovered(true);
+  };
+  const handleTicketMouseLeave = () => {
+    setTicketHovered(false);
+  };
 
   return (
     <>
@@ -71,36 +80,69 @@ const AdminMenu = () => {
               <p className="txtP">Dashboard</p>
             </NavLink> */}
             <NavLink to="/tour-admin" className="link">
-              <CgWebsite id="icon_das_pro_use_logout"/>
+              <CgWebsite id="icon_das_pro_use_logout" />
               <p className="txtP">Tour</p>
             </NavLink>
             <NavLink to="/hotel-admin" className="link">
-              <RiHotelLine id="icon_das_pro_use_logout"/>
+              <RiHotelLine id="icon_das_pro_use_logout" />
               <p className="txtP">Hotel</p>
             </NavLink>
             <NavLink to="/restaurant-admin" className="link">
-              <IoIosRestaurant id="icon_das_pro_use_logout"/>
+              <IoIosRestaurant id="icon_das_pro_use_logout" />
               <p className="txtP">Restaurant</p>
             </NavLink>
-            <NavLink to="/ticket-admin" className="link">
-              <BsFillTicketDetailedFill id="icon_das_pro_use_logout"/>
+
+            <div
+              className="link"
+              onMouseEnter={handleTicketMouseEnter}
+              onMouseLeave={handleTicketMouseLeave}
+            >
+              <BsFillTicketDetailedFill id="icon_das_pro_use_logout" />
               <p className="txtP">Ticket</p>
-            </NavLink>
+              {ticketHovered && (
+                <div className="dropdown-menus">
+                  <ul>
+                    <li className="menu_inline">
+                      <NavLink to="/airplane-admin">
+                        <p className="txtP">Airplane</p>
+                      </NavLink>
+                      <MdKeyboardArrowRight id="icon_AiOutlineRight" />
+                    </li>
+                    <div className="hr"></div>
+                    <li className="menu_inline">
+                      <NavLink to="/rent-Admin">
+                        <p className="txtP">Rent car</p>
+                      </NavLink>
+                      <MdKeyboardArrowRight id="icon_AiOutlineRight" />
+                    </li>
+
+                    <div className="hr"></div>
+                    <li className="menu_inline">
+                      <NavLink to="/massage-admin">
+                        <p className="txtP">Massage</p>
+                      </NavLink>
+                      <MdKeyboardArrowRight id="icon_AiOutlineRight" />
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+
             <NavLink to="/package-admin" className="link">
-              <GoPackage id="icon_das_pro_use_logout"/>
+              <GoPackage id="icon_das_pro_use_logout" />
               <p className="txtP">Package</p>
             </NavLink>
-            
+
             <NavLink to="/users" className="link">
-              <BiUser id="icon_das_pro_use_logout"/>
+              <BiUser id="icon_das_pro_use_logout" />
               <p className="txtP">Users</p>
             </NavLink>
             <NavLink to="/admins" className="link">
-              <LiaUserCogSolid id="icon_das_pro_use_logout"/>
+              <LiaUserCogSolid id="icon_das_pro_use_logout" />
               <p className="txtP">Admins</p>
             </NavLink>
             <div onClick={() => setShowConfirmation(true)} className="link">
-              <IoLogOutOutline id="icon_das_pro_use_logout"/>
+              <IoLogOutOutline id="icon_das_pro_use_logout" />
               <p className="txtP">Log Out</p>
             </div>
             {showConfirmation && (
