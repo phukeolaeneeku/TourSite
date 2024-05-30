@@ -103,8 +103,7 @@ const Links = () => {
           path="/payment-bk-@2024@-w-eb-tour@site&&0921345&abcdfghi223432@&&dfre"
           Component={Payment}
         />
-
-        {/*========== Form login, register, Find password ============ */}
+        {/*========== Form login, register, Find password =========== */}
         <Route exact path="/login" Component={Login} />
         <Route exact path="/register" Component={Register} />
         <Route exact path="/forgotpassword" Component={ForgotPassword} />
@@ -136,7 +135,6 @@ const Links = () => {
         <Route path="/add-package" Component={AddPackage} />
         <Route path="/edit-package" Component={EditPackage} />
         <Route path="/add-hotel" Component={Add_Hotel} />
-
       </Routes>
     </Router>
   );
