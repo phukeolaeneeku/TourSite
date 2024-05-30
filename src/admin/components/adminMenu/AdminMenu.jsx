@@ -90,7 +90,7 @@ const AdminMenu = () => {
               <GoPackage id="icon_das_pro_use_logout" />
               <p className="txtP">Package</p>
             </NavLink>
-            <NavLink to="/add-guide" className="link">
+            <NavLink to="/guide-admin" className="link">
               <BsPersonBadge id="icon_das_pro_use_logout" />
               <p className="txtP">Guide</p>
             </NavLink>

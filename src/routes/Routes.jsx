@@ -58,6 +58,7 @@ import TicketAdmin from "../admin/components/ticketAdmin/TicketAdmin";
 import Add_Hotel from "../admin/components/managerhotel/AddHotel";
 import AddTicket from "../admin/components/ticketAdmin/AddTicket";
 import AddGuide from "../admin/components/manageGuide/AddGuide";
+import Guide_admin from "../admin/components/manageGuide/Guide_admin";
 
 const Links = () => {
   return (
@@ -123,6 +124,7 @@ const Links = () => {
         <Route path="/add_ticket" Component={AddTicket} />
         <Route path="/add-hotel" Component={Add_Hotel} />
         <Route path="/add-guide" Component={AddGuide} />
+        <Route path="/guide-admin" Component={Guide_admin} />
         
       </Routes>
     </Router>
