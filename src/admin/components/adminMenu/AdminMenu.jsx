@@ -16,6 +16,7 @@ import { BsFillTicketDetailedFill } from "react-icons/bs";
 import { GoPackage } from "react-icons/go";
 import hotel1 from "../../../img/hotel1.jpg";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { BsPersonBadge } from "react-icons/bs";
 
 const AdminMenu = () => {
   const [mainImageLogo, setMainImagLogo] = useState(null);
@@ -97,6 +98,7 @@ const AdminMenu = () => {
               onMouseEnter={handleTicketMouseEnter}
               onMouseLeave={handleTicketMouseLeave}
             >
+            <NavLink to="/ticket-admin" className="link">
               <BsFillTicketDetailedFill id="icon_das_pro_use_logout" />
               <p className="txtP">Ticket</p>
               {ticketHovered && (
@@ -131,6 +133,10 @@ const AdminMenu = () => {
             <NavLink to="/package-admin" className="link">
               <GoPackage id="icon_das_pro_use_logout" />
               <p className="txtP">Package</p>
+            </NavLink>
+            <NavLink to="/add-guide" className="link">
+              <BsPersonBadge id="icon_das_pro_use_logout" />
+              <p className="txtP">Guide</p>
             </NavLink>
 
             <NavLink to="/users" className="link">

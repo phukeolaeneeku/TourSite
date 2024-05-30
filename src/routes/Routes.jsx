@@ -57,6 +57,7 @@ import PackageAdmin from "../admin/components/packageAdmin/PackageAdmin";
 import AirplaneAdmin from "../admin/components/ticketAdmin/AirplaneAdmin";
 import Add_Hotel from "../admin/components/managerhotel/AddHotel";
 import AddTicket from "../admin/components/ticketAdmin/AddTicket";
+dmin from "../admin/components/ticketAdmin/Rent<<<<<<< HEAD
 import RentAdmin from "../admin/components/ticketAdmin/RentAdmin";
 import MassageAdmin from "../admin/components/ticketAdmin/MassageAdmin";
 import AddRent from "../admin/components/ticketAdmin/AddRent";
@@ -64,7 +65,10 @@ import EditRent from "../admin/components/ticketAdmin/EditRent";
 import EditTicket from "../admin/components/ticketAdmin/EditTicket";
 import AddPackage from "../admin/components/packageAdmin/AddPackage";
 import EditPackage from "../admin/components/packageAdmin/EditPackage";
-import EditTour from "../admin/components/managertour/EditTour";
+import from "../admin/components/managertour/EditTour";
+=======
+import Guide";
+>>>>>>> be82e6c113c31dfcec89d70bb7f9cfa87e61f878
 
 const Links = () => {
   return (
@@ -128,19 +132,15 @@ const Links = () => {
         <Route path="/package-admin" Component={PackageAdmin} />
         <Route path="/airplane-admin" Component={AirplaneAdmin} />
         <Route path="/add_ticket" Component={AddTicket} />
-        <Route path="/add-hotel" Component={Add_Hotel} />
+ path="/add-hotel" Component={Add_Hotel} />
+<<<<<<< HEAD
         <Route path="/rent-admin" Component={RentAdmin} />
         <Route path="/massage-admin" Component={MassageAdmin} />
         <Route path="/add-rent" Component={AddRent} />
         <Route path="/edit-rent" Component={EditRent} />
         <Route path="/edit-ticket" Component={EditTicket} />
         <Route path="/add-package" Component={AddPackage} />
-        <Route path="/edit-package" Component={EditPackage} />
-        <Route path="/edit-tour" Component={EditTour} />
-        
-      </Routes>
-    </Router>
-  );
-};
-
-export default Links;
+        <Route path="/edit-package" Component={EditPackage} /><Route path="/edit-tour" Component={EditTour} />
+=======
+de} />
+>>>>>>> be82e6c113c31dfcec89d70bb7f9cfa87e61f878
