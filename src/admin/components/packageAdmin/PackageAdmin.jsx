@@ -25,7 +25,7 @@ function PackageAdmin() {
                 <span className="spennofStyleadmin"></span>Package
               </h2>
               <div className="categoryBoxfiler">
-                <Link to="/addtour-admin" className="box_add_product">
+                <Link to="/add-package" className="box_add_product">
                   <BiPlus id="icon_add_product" />
                   <p>Add</p>
                 </Link>
@@ -60,7 +60,7 @@ function PackageAdmin() {
                   >
                     Delete
                   </div>
-                  <Link to="/edit-hotel" className="box_btn_saveEdit">
+                  <Link to="/edit-package" className="box_btn_saveEdit">
                     Edit
                   </Link>
                 </div>

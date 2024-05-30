@@ -3,7 +3,7 @@ import { IoLogOutOutline } from "react-icons/io5";
 import { BiUser } from "react-icons/bi";
 import { LiaUserCogSolid } from "react-icons/lia";
 import tour_logo from "../../../img/tour_logo.gif";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import user from "../../../img/user.png";
 import { CiCamera } from "react-icons/ci";
 import { useState } from "react";
@@ -15,6 +15,7 @@ import { IoIosRestaurant } from "react-icons/io";
 import { BsFillTicketDetailedFill } from "react-icons/bs";
 import { GoPackage } from "react-icons/go";
 import hotel1 from "../../../img/hotel1.jpg";
+import { MdKeyboardArrowRight } from "react-icons/md";
 import { BsPersonBadge } from "react-icons/bs";
 
 const AdminMenu = () => {
@@ -61,6 +62,15 @@ const AdminMenu = () => {
     setShowConfirmation(false);
   };
 
+  ///// //////////////////
+  const [ticketHovered, setTicketHovered] = useState(false);
+  const handleTicketMouseEnter = () => {
+    setTicketHovered(true);
+  };
+  const handleTicketMouseLeave = () => {
+    setTicketHovered(false);
+  };
+
   return (
     <>
       <section id="dashboard">
@@ -82,10 +92,45 @@ const AdminMenu = () => {
               <IoIosRestaurant id="icon_das_pro_use_logout" />
               <p className="txtP">Restaurant</p>
             </NavLink>
-            <NavLink to="/ticket-admin" className="link">
+
+            <NavLink
+              className="link"
+              onMouseEnter={handleTicketMouseEnter}
+              onMouseLeave={handleTicketMouseLeave}
+            >
               <BsFillTicketDetailedFill id="icon_das_pro_use_logout" />
-              <p className="txtP">Ticket</p>
+          
+                <p className="txtP">Ticket</p>
+                {ticketHovered && (
+                  <div className="dropdown-menus">
+                    <ul>
+                      <li className="menu_inline">
+                        <Link to="/airplane-admin">
+                          <p className="txtP">Airplane</p>
+                        </Link>
+                        <MdKeyboardArrowRight id="icon_AiOutlineRight" />
+                      </li>
+                      <div className="hr"></div>
+                      <li className="menu_inline">
+                        <NavLink to="/rent-Admin">
+                          <p className="txtP">Rent car</p>
+                        </NavLink>
+                        <MdKeyboardArrowRight id="icon_AiOutlineRight" />
+                      </li>
+
+                      <div className="hr"></div>
+                      <li className="menu_inline">
+                        <NavLink to="/massage-admin">
+                          <p className="txtP">Massage</p>
+                        </NavLink>
+                        <MdKeyboardArrowRight id="icon_AiOutlineRight" />
+                      </li>
+                    </ul>
+                  </div>
+                )}
+       
             </NavLink>
+
             <NavLink to="/package-admin" className="link">
               <GoPackage id="icon_das_pro_use_logout" />
               <p className="txtP">Package</p>

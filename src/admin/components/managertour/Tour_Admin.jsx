@@ -61,7 +61,7 @@ const Tour_Admin = () => {
                   >
                     Delete
                   </div>
-                  <Link to="/edit-hotel" className="box_btn_saveEdit">
+                  <Link to="/edit-tour" className="box_btn_saveEdit">
                     Edit
                   </Link>
                 </div>

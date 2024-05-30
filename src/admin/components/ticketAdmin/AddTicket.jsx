@@ -42,7 +42,7 @@ const AddTicket = () => {
       <AdminMenu />
       <section id="post">
         <div className="box_container_product">
-          <h2>Tour</h2>
+          <h2>Airplane and massage</h2>
           <form className="edit-product-forms">
             <div className="input-img">
               <div className="box_description">
@@ -102,6 +102,14 @@ const AddTicket = () => {
 
             <div className="form_input_box">
               <div className="input">
+                <label htmlFor="category">Category</label>
+                <select>
+                  <option value="pakse">Airplane</option>
+                  <option value="siphadone">Massage</option>
+                </select>
+              </div>
+
+              <div className="input">
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" placeholder="Name..." />
               </div>
@@ -113,15 +121,6 @@ const AddTicket = () => {
               <div className="input">
                 <label htmlFor="address">Address</label>
                 <input type="text" name="address" placeholder="Address..." />
-              </div>
-              <div className="input">
-                <label htmlFor="category">Category</label>
-                <select>
-                  <option value="">More...........</option>
-                  <option value="pakse">Airplane</option>
-                  <option value="paksong">Rent</option>
-                  <option value="siphadone">Massage</option>
-                </select>
               </div>
 
               <div className="input">

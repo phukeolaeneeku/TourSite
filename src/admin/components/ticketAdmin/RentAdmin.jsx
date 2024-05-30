@@ -1,18 +1,18 @@
 import React, { useState } from "react";
-import "./css/hotel.css";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { BiPlus } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import hotel2 from "../../../img/hotel2.jpg";
+import airplane1 from "../../../img/airplane1.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import Expandable from "../../../admin/components/managertour/Expandable"
+import Expandable from "../managertour/Expandable";
 
-function Hotel() {
+function RentAdmin() {
   const [showConfirmation, setShowConfirmation] = useState(false);
 
   const handleCancelDelete = () => {
     setShowConfirmation(false);
   };
+ 
 
   return (
     <>
@@ -22,10 +22,10 @@ function Hotel() {
           <div className="box_content_hotel">
             <div className="productHead_content">
               <h2 className="htxthead">
-                <span className="spennofStyleadmin"></span>Hotel
+                <span className="spennofStyleadmin"></span>Rent car
               </h2>
               <div className="categoryBoxfiler">
-                <Link to="/add-hotel" className="box_add_product">
+                <Link to="/add-rent" className="box_add_product">
                   <BiPlus id="icon_add_product" />
                   <p>Add</p>
                 </Link>
@@ -33,12 +33,15 @@ function Hotel() {
             </div>
 
             <div className="box_container_tour">
+              <div className="box_container_btn">
+                <button></button>
+              </div>
               <div className="box_container_tour_admin">
                 <div className="container_image_tour">
-                  <img src={hotel2} alt="image" />
+                  <img src={airplane1} alt="image" />
                 </div>
                 <div className="container_desc_tour">
-                  <h3>Name: VangVeing </h3>
+                  <h3>Name: Patusai </h3>
                   <Expandable>
                     Description: Lorem ipsum dolor sit amet consectetur
                     adipisicing elit. Distinctio cupiditate blanditiis veniam
@@ -50,6 +53,12 @@ function Hotel() {
                   <div className="txt_tour">
                     <p className="price_number_ones">Prices: $100</p>
                   </div>
+                  <div className="txt_tour">
+                    <p className="txt_brand_car">Brand: TOYOTA</p>
+                  </div>
+                  <div className="txt_tour">
+                    <p className="txt_brand_car">Car number: 775212</p>
+                  </div>
 
                   <p className="txt_address">Address: Vangvieg</p>
                 </div>
@@ -60,7 +69,7 @@ function Hotel() {
                   >
                     Delete
                   </div>
-                  <Link to="/edit-hotel" className="box_btn_saveEdit">
+                  <Link to="/edit-rent" className="box_btn_saveEdit">
                     Edit
                   </Link>
                 </div>
@@ -115,4 +124,4 @@ function Hotel() {
   );
 }
 
-export default Hotel;
+export default RentAdmin;

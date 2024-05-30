@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { AiOutlineDelete } from "react-icons/ai";
 
-const EditHotel = () => {
-  // State to store the selected image
+const EditTicket = () => {
+  const [addtour, set_addtour] = useState();
+
+  useEffect(() => {});
+
   const [selectedImage, setSelectedImage] = useState(null);
-  // State to store the array of selected images
   const [images, setImages] = useState([]);
 
   // Function to handle image selection
@@ -40,7 +42,7 @@ const EditHotel = () => {
       <AdminMenu />
       <section id="post">
         <div className="box_container_product">
-          <h2>Hotel</h2>
+          <h2> Edia Airplane and massage</h2>
           <form className="edit-product-forms">
             <div className="input-img">
               <div className="box_description">
@@ -102,11 +104,11 @@ const EditHotel = () => {
               <div className="input">
                 <label htmlFor="category">Category</label>
                 <select>
-                  <option value="pakse">Pakse</option>
-                  <option value="paksong">Paksong</option>
-                  <option value="siphadone">Siphadone</option>
+                  <option value="pakse">Airplane</option>
+                  <option value="siphadone">Massage</option>
                 </select>
               </div>
+
               <div className="input">
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" placeholder="Name..." />
@@ -142,4 +144,4 @@ const EditHotel = () => {
   );
 };
 
-export default EditHotel;
+export default EditTicket;

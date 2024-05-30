@@ -40,6 +40,7 @@ const AddRestaurant = () => {
       <AdminMenu />
       <section id="post">
         <div className="box_container_product">
+        <h2>Add restaurant</h2>
           <form className="edit-product-forms">
             <div className="input-img">
               <div className="box_description">
@@ -99,6 +100,14 @@ const AddRestaurant = () => {
 
             <div className="form_input_box">
               <div className="input">
+                <label htmlFor="category">Category</label>
+                <select>
+                  <option value="pakse">Pakse</option>
+                  <option value="paksong">Paksong</option>
+                  <option value="siphadone">Siphadone</option>
+                </select>
+              </div>
+              <div className="input">
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" placeholder="Name..." />
               </div>
@@ -106,16 +115,6 @@ const AddRestaurant = () => {
               <div className="input">
                 <label htmlFor="address">Address</label>
                 <input type="text" name="address" placeholder="Address..." />
-              </div>
-
-              <div className="input">
-                <label htmlFor="category">Category</label>
-                <select>
-                  <option value="">More...........</option>
-                  <option value="pakse">Pakse</option>
-                  <option value="paksong">Paksong</option>
-                  <option value="siphadone">Siphadone</option>
-                </select>
               </div>
 
               <div className="input">
