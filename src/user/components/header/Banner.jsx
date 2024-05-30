@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./css/banner.css";
-import tour_banner2 from "../../../img/tour_banner2.jpg"
-import tour_banner1 from "../../../img/tour_banner1.jpg"
 import tour_banner from "../../../img/tour_banner.jpg"
 
 const Banner = () => {
-  const [slides, setSlides] = useState([tour_banner1, tour_banner2, tour_banner]);
+  const [slides, setSlides] = useState([tour_banner]);
   const [activeSlide, setActiveSlide] = useState(0);
   const [direction, setDirection] = useState("right");
 
