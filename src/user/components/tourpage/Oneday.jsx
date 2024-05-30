@@ -29,8 +29,7 @@ function Oneday() {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: "http://127.0.0.1:8000/tourapi/tour/list/",
-      // url: import.meta.env.VITE_API + "/tourapi/tour/list/",
+      url: import.meta.env.VITE_API + "/tourapi/tour/list/",
       headers: {},
     };
 

@@ -21,6 +21,10 @@ function Oneday() {
   console.log("Tour_golf........", tour_golf);
 
   useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
@@ -30,12 +34,12 @@ function Oneday() {
     axios
       .request(config)
       .then((response) => {
-        setTour_golf(response.data);
+        setTour_golf(response.data)
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  };
 
   //Add item to cart
   useEffect(() => {

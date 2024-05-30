@@ -80,7 +80,8 @@ const AddTour = () => {
 
     const config = {
       method: "post",
-      url: "http://127.0.0.1:8000/tourapi/tour/create/",
+      url: import.meta.env.VITE_API + `/tourapi/tour/create/`,
+      
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -91,6 +92,19 @@ const AddTour = () => {
       .request(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
+
+        setAddTourData({
+          category: "",
+          name: "",
+          price: "",
+          address: "",
+          description: "",
+          image: null,
+          images: [],
+        });
+
+        setSelectedImage(null)
+        setImagePreviews([])
       })
       .catch((error) => {
         console.error(error);
@@ -129,14 +143,19 @@ const AddTour = () => {
                   {imagePreviews.map((image, index) => (
                     <div className="gallery-box-view" key={index}>
                       <img src={image} alt="Preview" />
-                      <div className="button" onClick={() => removeImage(index)}>
+                      <div
+                        className="button"
+                        onClick={() => removeImage(index)}
+                      >
                         <AiOutlineDelete />
                       </div>
                     </div>
                   ))}
                   <div
                     className="add-more"
-                    onClick={() => document.getElementById("fileInputMultiple").click()}
+                    onClick={() =>
+                      document.getElementById("fileInputMultiple").click()
+                    }
                   >
                     +
                   </div>

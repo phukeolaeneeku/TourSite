@@ -21,6 +21,10 @@ function Oneday() {
   console.log("Tour_half........", tour_half);
 
   useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
@@ -32,12 +36,12 @@ function Oneday() {
     axios
       .request(config)
       .then((response) => {
-        setTour_half(response.data);
+        setTour_half(response.data)
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  };
 
   
   //Add item to cart

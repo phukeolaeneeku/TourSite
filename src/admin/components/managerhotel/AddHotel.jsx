@@ -1,38 +1,113 @@
 import React, { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { AiOutlineDelete } from "react-icons/ai";
+import axios from "axios";
 
 const AddHotel = () => {
-  // State to store the selected image
-  const [selectedImage, setSelectedImage] = useState(null);
-  // State to store the array of selected images
-  const [images, setImages] = useState([]);
+  const [addHotelData, setAddHotelData] = useState({
+    category: "",
+    name: "",
+    price: "",
+    address: "",
+    description: "",
+    image: null,
+    images: [],
+  });
 
-  // Function to handle image selection
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [imagePreviews, setImagePreviews] = useState([]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setAddHotelData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
-      // Create a URL for the selected file
-      const imageUrl = URL.createObjectURL(e.target.files[0]);
+      const file = e.target.files[0];
+      const imageUrl = URL.createObjectURL(file);
       setSelectedImage(imageUrl);
+      setAddHotelData((prevState) => ({
+        ...prevState,
+        image: file,
+      }));
     }
   };
 
-  // Function to handle image selection
-  const handleImageChangeCategory = (e) => {
+  const handleMultipleImageChange = (e) => {
     if (e.target.files) {
-      const filesArray = Array.from(e.target.files).map((file) =>
-        URL.createObjectURL(file)
-      );
+      const filesArray = Array.from(e.target.files);
+      const previewsArray = filesArray.map((file) => URL.createObjectURL(file));
 
-      // Append new images to the existing array
-      setImages((prevImages) => prevImages.concat(filesArray));
-      // It's important to revoke the object URLs to avoid memory leaks
+      setImagePreviews((prevPreviews) => prevPreviews.concat(previewsArray));
+      setAddHotelData((prevState) => ({
+        ...prevState,
+        images: prevState.images.concat(filesArray),
+      }));
+
       e.target.value = null;
     }
   };
-  // Function to remove an image from the array
+
   const removeImage = (index) => {
-    setImages(images.filter((_, i) => i !== index));
+    const newImages = addHotelData.images.filter((_, i) => i !== index);
+    const newPreviews = imagePreviews.filter((_, i) => i !== index);
+
+    setAddHotelData((prevState) => ({
+      ...prevState,
+      images: newImages,
+    }));
+    setImagePreviews(newPreviews);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("category", addHotelData.category);
+    formData.append("name", addHotelData.name);
+    formData.append("price", addHotelData.price);
+    formData.append("address", addHotelData.address);
+    formData.append("description", addHotelData.description);
+    formData.append("image", addHotelData.image);
+    addHotelData.images.forEach((img, i) => {
+      formData.append(`images[${i}]`, img);
+    });
+
+    const config = {
+      method: "post",
+      url: import.meta.env.VITE_API + `/tourapi/hotel/create/`,
+
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      data: formData,
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        console.log(JSON.stringify(response.data));
+
+        setAddHotelData({
+          category: "",
+          name: "",
+          price: "",
+          address: "",
+          description: "",
+          image: null,
+          images: [],
+        });
+
+        setSelectedImage(null);
+        setImagePreviews([]);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -46,7 +121,6 @@ const AddHotel = () => {
               <div className="box_description">
                 <h3>Image</h3>
                 <div className="images">
-                  {/* Display the selected image, or a placeholder if not selected */}
                   <img src={selectedImage} alt="img" />
                   <div
                     className="box_chooses_image"
@@ -54,7 +128,6 @@ const AddHotel = () => {
                   >
                     Choose image
                   </div>
-                  {/* Hidden file input for triggering the file selection dialog */}
                   <input
                     type="file"
                     id="fileInput"
@@ -67,7 +140,7 @@ const AddHotel = () => {
               <div className="gallery">
                 <h3>View More Images</h3>
                 <div className="gallery-box">
-                  {images.map((image, index) => (
+                  {imagePreviews.map((image, index) => (
                     <div className="gallery-box-view" key={index}>
                       <img src={image} alt="" />
                       <div
@@ -91,7 +164,7 @@ const AddHotel = () => {
                     type="file"
                     id="fileInputMultiple"
                     style={{ display: "none" }}
-                    onChange={handleImageChangeCategory}
+                    onChange={handleMultipleImageChange}
                     multiple // Allow multiple file selection
                   />
                 </div>
@@ -101,7 +174,12 @@ const AddHotel = () => {
             <div className="form_input_box">
               <div className="input">
                 <label htmlFor="category">Category</label>
-                <select>
+                <select
+                  name="category"
+                  value={addHotelData.category}
+                  onChange={handleChange}
+                >
+                  <option value="">Select category</option>
                   <option value="pakse">Pakse</option>
                   <option value="paksong">Paksong</option>
                   <option value="siphadone">Siphadone</option>
@@ -109,25 +187,48 @@ const AddHotel = () => {
               </div>
               <div className="input">
                 <label htmlFor="name">Name</label>
-                <input type="text" name="name" placeholder="Name..." />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name..."
+                  value={addHotelData.name}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               <div className="input">
                 <label htmlFor="price">Price</label>
-                <input type="text" name="price" placeholder="Price..." />
+                <input
+                  type="text"
+                  name="price"
+                  placeholder="Price..."
+                  value={addHotelData.price}
+                  onChange={handleChange}
+                  required
+                />
               </div>
               <div className="input">
                 <label htmlFor="address">Address</label>
-                <input type="text" name="address" placeholder="Address..." />
+                <input
+                  type="text"
+                  name="address"
+                  placeholder="Address..."
+                  value={addHotelData.address}
+                  onChange={handleChange}
+                  required
+                />
               </div>
 
               <div className="input">
                 <label htmlFor="description">Description</label>
                 <textarea
-                  type="text"
-                  rows="10"
                   name="description"
+                  rows="10"
                   placeholder="Description..."
+                  value={addHotelData.description}
+                  onChange={handleChange}
+                  required
                 ></textarea>
               </div>
             </div>
