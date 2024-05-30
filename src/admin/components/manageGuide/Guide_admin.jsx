@@ -16,26 +16,26 @@ const Guide_admin = () => {
     <>
          <AdminMenu />
          <section>
-        <div className="box_container_hotel">
-          <div className="box_content_hotel">
-            <div className="productHead_content">
-              <h2 className="htxthead">
+        <div className="box_container_guide">
+          <div className="box_content_guide">
+            <div className="GuideHead_content">
+              <h2 className="text-head-guide">
                 <span className="spennofStyleadmin"></span>Korean
               </h2>
               <div className="categoryBoxfiler">
-                <Link to="/add-guide" className="box_add_product">
+                <Link to="/add-guide" className="box_add_guide">
                   <BiPlus id="icon_add_product" />
                   <p>Add</p>
                 </Link>
               </div>
             </div>
 
-            <div className="box_container_tour">
-              <div className="box_container_tour_admin">
-                <div className="container_image_tour">
+            <div className="box_container_tourguide">
+              <div className="box_container_tourguide_admin">
+                <div className="container_image_tourguide">
                 <img src={korean} alt="image" />
                 </div>
-                <div className="container_desc_tour">
+                <div className="container_desc_tourguide">
                   <h3>Name Guide: Korean </h3>
                   <Expandable>
                     Description: Lorem ipsum dolor sit amet consectetur
