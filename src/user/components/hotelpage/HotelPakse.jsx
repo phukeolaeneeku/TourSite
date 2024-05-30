@@ -19,22 +19,28 @@ function HotelPakse() {
     return localCart ? JSON.parse(localCart) : [];
   });
 
+ 
   useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/tourapi/hotel/",
+      url: import.meta.env.VITE_API + `/tourapi/hotel/list/`,
+      headers: {},
     };
 
     axios
       .request(config)
       .then((response) => {
-        setHotelPakse(response.data);
+        setHotelPakse(response.data)
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  };
 
   //Add item to cart
   useEffect(() => {
@@ -72,7 +78,7 @@ function HotelPakse() {
 
           <div className="box_container_hotels">
             {hotelPakse
-              .filter((pakse) => pakse.category.id === 1)
+              .filter((pakse) => pakse.category == "pakse")
               .map((pakse, index) => (
                 <div className="box_container_body_hotel" key={index}>
                   <div className="container_image">

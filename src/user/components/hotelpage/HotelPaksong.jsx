@@ -21,13 +21,17 @@ function HotelPaksong() {
     return localCart ? JSON.parse(localCart) : [];
   });
 
-  console.log("hotelPaksong..", hotelPaksong);
-
+  console.log(hotelPaksong);
   useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/tourapi/hotel/",
+      url: import.meta.env.VITE_API + `/tourapi/hotel/list/`,
+      headers: {},
     };
 
     axios
@@ -38,7 +42,7 @@ function HotelPaksong() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  };
 
   //Add item to cart
   useEffect(() => {
@@ -73,7 +77,7 @@ function HotelPaksong() {
           </div>
           <div className="box_container_hotels">
             {hotelPaksong
-              .filter((paksong) => paksong.category.id === 2)
+              .filter((paksong) => paksong.category == "paksong")
               .map((paksong, index) => (
                 <div className="box_container_body" key={index}>
                   <div className="container_image">

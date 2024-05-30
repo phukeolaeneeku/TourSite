@@ -21,21 +21,26 @@ function Oneday() {
   console.log("Tour_golf........", tour_golf);
 
   useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/tourapi/tour/",
+      url: import.meta.env.VITE_API + `/tourapi/tour/list/`,
+      headers: {},
     };
 
     axios
       .request(config)
       .then((response) => {
-        setTour_golf(response.data);
+        setTour_golf(response.data)
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  };
 
   //Add item to cart
   useEffect(() => {
@@ -73,7 +78,7 @@ function Oneday() {
             {tour_golf
               .filter((golf) => {
                 console.log("Tour item:", golf); // Log each tour item
-                return golf.category.id === 4;
+                return golf.category == "golf";
               })
               .map((golf, index) => (
                 <div className="group_item_Box" key={index}>
