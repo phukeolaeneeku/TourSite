@@ -142,5 +142,6 @@ const Links = () => {
         <Route path="/add-package" Component={AddPackage} />
         <Route path="/edit-package" Component={EditPackage} /><Route path="/edit-tour" Component={EditTour} />
 =======
+>>>>>>> be82e6c113c31dfcec89d70bb7f9cfa87e61f878
 de} />
 >>>>>>> be82e6c113c31dfcec89d70bb7f9cfa87e61f878
