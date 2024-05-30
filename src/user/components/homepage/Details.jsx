@@ -4,9 +4,6 @@ import "./css/details.css";
 import Footer from "../menu/Footer";
 import Header from "../header/Header";
 import Menu from "../header/Menu";
-import { IoIosArrowBack } from "react-icons/io";
-import patusai from "../../../img/patusai.jpg";
-import patusai2 from "../../../img/patusai2.jpg";
 import { SiGooglemaps } from "react-icons/si";
 import { IoMdCart } from "react-icons/io";
 import axios from "axios";
@@ -22,12 +19,11 @@ function Details() {
     return localCart ? JSON.parse(localCart) : [];
   });
 
-
   useEffect(() => {
     const fetchDetail = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_API}/tourapi/tour/${id}/`
+          `${import.meta.env.VITE_API}/tourapi/tour/detail/${id}/`
         );
         setDetail(response.data);
       } catch (error) {
@@ -100,7 +96,12 @@ function Details() {
                   detail.images.map((image, index) => (
                     <div className="group_item_details" key={index}>
                       <div className="img">
-                        <img src={image || iconImage} alt={`Detail ${index}`} />
+
+                        {console.log(image)}
+                        <img
+                          src={image || iconImage}
+                          alt={`Detail ${index}`}
+                        />
                       </div>
                     </div>
                   ))}

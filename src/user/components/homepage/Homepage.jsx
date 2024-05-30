@@ -1,6 +1,6 @@
 import "./css/homepage.css";
 import Header from "../header/Header";
-import Menu from "../header/Menu"
+import Menu from "../header/Menu";
 import patusai from "../../../img/patusai.jpg";
 import thadluang from "../../../img/thadluang.jpg";
 import motorcycle from "../../../img/motorcycle.jpg";
@@ -42,22 +42,27 @@ const Homepage = () => {
   console.log("Tour........", tour);
 
   useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/tourapi/tour/",
+      url: import.meta.env.VITE_API + "/tourapi/tour/list/",
+
+      headers: {},
     };
 
     axios
       .request(config)
       .then((response) => {
-        // console.log("All tours: ", response.data)
-        setTour(response.data);
+        setTour(response.data)
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  };
 
   //Add item to cart
   useEffect(() => {
@@ -82,7 +87,7 @@ const Homepage = () => {
   return (
     <div>
       <Header />
-      <Menu id="menu_barv"/>
+      <Menu id="menu_barv" />
       {/* <section id="container_product">
         <div className="productHead_content">
           <h1 className="htxthead">
@@ -502,12 +507,13 @@ const Homepage = () => {
             {tour
               .filter((i) => {
                 console.log("Tour item:", i); // Log each tour item
-                return i.category.id === 1;
+                return i.category == "one_day";
               })
               .map((i, index) => (
                 <div className="box_container_body" key={index}>
-                  <Link to="/details" className="container_image">
-                    <img src={i.image || iconImage} alt="image" /> {/* Improved alt text */}
+                  <Link to={`/details/${i.id}`} className="container_image">
+                    <img src={i.image || iconImage} alt="image" />{" "}
+                    {/* Improved alt text */}
                     {/* <img src={i.image.image || recommended3} alt="image" />  */}
                   </Link>
                   <div className="container_des">
