@@ -10,7 +10,7 @@ const EditRent = () => {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("");
+  // const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
   const [carnumber, setCarnumber] = useState("");
@@ -71,7 +71,7 @@ const EditRent = () => {
     formData.append("name", name);
     formData.append("address", address);
     formData.append("price", price);
-    formData.append("category", category);
+    // formData.append("category", category);
     formData.append("description", description);
     formData.append("brand", brand);
     formData.append("carnumber", carnumber);

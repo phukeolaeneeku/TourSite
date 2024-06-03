@@ -7,17 +7,20 @@ import axios from "axios";
 import patusai from "../../../img/patusai.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Expandable from "../../../admin/components/managertour/Expandable";
-
+import Swal from "sweetalert2";
 function PackageAdmin() {
   const [datas, setDatas] = useState([]);
+  const [idToDelete, setIdToDelete] = useState(null); // Added state to hold ID of hotel to delete
 
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(datas)
+  console.log(datas);
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API}/tourapi/packet/list/`);
+      const response = await axios.get(
+        `${import.meta.env.VITE_API}/tourapi/packet/list/`
+      );
       setDatas(response.data);
     } catch (error) {
       console.error(error);
@@ -25,26 +28,35 @@ function PackageAdmin() {
   };
 
   // For delete
-  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
+
+  const handleDelete = async (id) => {
+    // Modified handleDelete to take id parameter
+    try {
+      await axios.delete(
+        `http://43.202.102.25:8000/tourapi/packet/delete/${id}/`
+      );
+      Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "Hotel deleted successfully!",
+      });
+      // After successful delete, refetch data
+      fetchData();
+      setShowConfirm(false); // Close confirmation dialog
+    } catch (error) {
+      console.error("Error deleting hotel:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Failed to delete hotel. Please try again later.",
+      });
+    }
+  };
 
   const handleCancelDelete = () => {
-    setShowConfirmation(false);
+    setShowConfirm(false);
   };
-  // Delete post function
-  const deletePost = (id) => {
-    axios.delete(`${import.meta.env.VITE_API}/tourapi/packet/delete/${id}`)
-      .then(response => {
-        if (response.status === 200) {
-          // Update state to remove deleted post
-          setDatas(datas.filter(data => data.id !== id));
-          setShowConfirmation(false);
-        } else {
-          console.error('Error deleting post:', response.statusText);
-        }
-      })
-      .catch(error => console.error('Error deleting post:', error));
-  };
-  
 
   return (
     <>
@@ -72,24 +84,30 @@ function PackageAdmin() {
                     </div>
                     <div className="container_desc_tour">
                       <h3>{data.name}</h3>
-                      <Expandable>
-                        {data.description}
-                      </Expandable>
+                      <Expandable>{data.description}</Expandable>
 
                       <div className="txt_tour">
-                        <p className="price_number_ones">Prices: ${data.price}</p>
+                        <p className="price_number_ones">
+                          Prices: ${data.price}
+                        </p>
                       </div>
 
                       <p className="txt_address">Address: {data.address}</p>
                     </div>
                     <div className="btn_delete_view">
                       <div
-                        onClick={() => setShowConfirmation(true)}
+                        onClick={() => {
+                          setIdToDelete(data.id);
+                          setShowConfirm(true);
+                        }}
                         className="box_btn_saveDelete"
                       >
                         Delete
                       </div>
-                      <Link to={`/edit-package/${data.id}`} className="box_btn_saveEdit">
+                      <Link
+                        to={`/edit-package/${data.id}`}
+                        className="box_btn_saveEdit"
+                      >
                         Edit
                       </Link>
                     </div>
@@ -121,8 +139,7 @@ function PackageAdmin() {
               </button>
             </div>
 
-
-            {showConfirmation && (
+            {showConfirm &&
               datas.map((data, index) => (
                 <div className="background_addproductpopup_box" key={index}>
                   <div className="hover_addproductpopup_box">
@@ -136,14 +153,16 @@ function PackageAdmin() {
                       >
                         No
                       </button>
-                      <button onClick={() => deletePost(data.id)} className="btn_confirm btn_addproducttxt_popup">
+                      <button
+                        onClick={() => handleDelete(idToDelete)}
+                        className="btn_confirm btn_addproducttxt_popup"
+                      >
                         Yes
                       </button>
                     </div>
                   </div>
                 </div>
-              ))
-            )}
+              ))}
           </div>
         </div>
       </section>

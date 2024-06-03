@@ -230,7 +230,7 @@ const EditRestaurant = () => {
             </div>
 
             <div className="submit1">
-              <button type="submit">Edit</button>
+              <button type="submit">Update</button>
             </div>
           </form>
         </div>
