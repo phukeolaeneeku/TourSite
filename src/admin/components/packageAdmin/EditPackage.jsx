@@ -3,6 +3,7 @@ import AdminMenu from "../adminMenu/AdminMenu";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const EditPackage = () => {
   const { id } = useParams();
@@ -90,9 +91,22 @@ const EditPackage = () => {
         }
       );
 
-      console.log("Packet updated successfully");
-      alert("Update success")
+      Swal.fire({
+        title: "Success!",
+        text: "Packet updated successfully.",
+        icon: "success",
+        confirmButtonText: "OK",
+      }).then(() => {
+        console.log("Packet updated successfully");
+        // Optionally, you can clear form data or perform other actions here
+      });
     } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: "There was an error updating the packet.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
       console.error(
         "There was an error updating the packet:",
         error.response.data

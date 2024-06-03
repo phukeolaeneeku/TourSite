@@ -3,6 +3,7 @@ import AdminMenu from "../adminMenu/AdminMenu";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const EditGuide = () => {
   const { id } = useParams();
@@ -59,20 +60,20 @@ const EditGuide = () => {
 
   const updateGuide = async (e) => {
     e.preventDefault();
-
+  
     const formData = new FormData();
     formData.append("name", name);
     formData.append("category", category);
     formData.append("description", description);
-
+  
     if (newImageFile) {
       formData.append("image", newImageFile); // Append new main image if it exists
     }
-
+  
     if (newImageFiles) {
       newImageFiles.forEach((file, i) => formData.append(`images`, file)); // Append new images
     }
-
+  
     try {
       await axios.patch(
         import.meta.env.VITE_API + `/tourapi/guide/update/${id}/`,
@@ -83,14 +84,24 @@ const EditGuide = () => {
           },
         }
       );
-
-      console.log("Guide updated successfully");
-      alert("Update success")
+  
+      Swal.fire({
+        title: "Success!",
+        text: "Guide updated successfully.",
+        icon: "success",
+        confirmButtonText: "OK",
+      }).then(() => {
+        console.log("Guide updated successfully");
+        // Optionally, you can clear form data or perform other actions here
+      });
     } catch (error) {
-      console.error(
-        "There was an error updating the guide:",
-        error.response.data
-      );
+      Swal.fire({
+        title: "Error!",
+        text: "There was an error updating the guide.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      console.error("There was an error updating the guide:", error.response.data);
     }
   };
 
