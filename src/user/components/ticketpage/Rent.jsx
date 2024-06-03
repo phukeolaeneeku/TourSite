@@ -24,7 +24,7 @@ function Rent() {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/tourapi/ticket/",
+      url: import.meta.env.VITE_API + "/tourapi/ticket/list/",
     };
 
     axios
@@ -71,17 +71,17 @@ function Rent() {
           </div>
           <div className="content_image_airplane">
             {rent_list
-              .filter((rent) => rent.category.id === 2)
+              .filter((rent) => rent.category == "rent")
               .map((rent, index) => (
                 <div className="group_item_Box_airplane" key={index}>
-                  <Link to="/details" className="image">
+                  <Link to={`/details-rent/${rent.id}`} className="image">
                     <img src={rent.image || iconImage} alt="img" />
                   </Link>
                   <div className="txt_desc_airplane">
-                    <h3>{rent.name}</h3>
-                    <Expandable>{rent.description}</Expandable>
-                    <p>Brand: TOYOTA</p>
-                    <p>Car_number: 6666</p>
+                    <h3>Name: {rent.name}</h3>
+                    <Expandable>Description: {rent.description}</Expandable>
+                    <p>Brand: {rent.brand}</p>
+                    <p>Car_number: {rent.carnumber}</p>
                     <div className="price">
                       <p className="price_num">${rent.price}</p>
                     </div>

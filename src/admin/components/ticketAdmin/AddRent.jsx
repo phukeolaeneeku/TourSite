@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { AiOutlineDelete } from "react-icons/ai";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddRent = () => {
   const [addRentcarData, setAddRentcarData] = useState({
@@ -10,6 +11,7 @@ const AddRent = () => {
     address: "",
     description: "",
     brand: "",
+    price: "",
     carnumber: "",
     image: null,
     images: [],
@@ -73,6 +75,7 @@ const AddRent = () => {
     formData.append("address", addRentcarData.address);
     formData.append("description", addRentcarData.description);
     formData.append("brand", addRentcarData.brand);
+    formData.append("price", addRentcarData.price);
     formData.append("carnumber", addRentcarData.carnumber);
     formData.append("image", addRentcarData.image);
     addRentcarData.images.forEach((img, i) => {
@@ -82,7 +85,6 @@ const AddRent = () => {
     const config = {
       method: "post",
       url: import.meta.env.VITE_API + `/tourapi/ticket/create/`,
-
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -92,27 +94,37 @@ const AddRent = () => {
     axios
       .request(config)
       .then((response) => {
-        console.log(JSON.stringify(response.data));
-
-        setAddRentcarData({
-          category: "",
-          name: "",
-          address: "",
-          description: "",
-          brand: "",
-          carnumber: "",
-          image: null,
-          images: [],
+        Swal.fire({
+          title: "Success!",
+          text: "Rent car created successfully.",
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then(() => {
+          setAddRentcarData({
+            category: "",
+            name: "",
+            address: "",
+            description: "",
+            brand: "",
+            price: "",
+            carnumber: "",
+            image: null,
+            images: [],
+          });
+          setSelectedImage(null);
+          setImagePreviews([]);
         });
-
-        setSelectedImage(null);
-        setImagePreviews([]);
       })
       .catch((error) => {
+        Swal.fire({
+          title: "Error!",
+          text: "There was an error creating the rent car.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
         console.error(error);
       });
   };
-
   return (
     <>
       <AdminMenu />
@@ -178,14 +190,14 @@ const AddRent = () => {
 
             <div className="form_input_box">
               <div className="input">
-              <label htmlFor="category">Category</label>
+                <label htmlFor="category">Category</label>
                 <select
                   name="category"
                   value={addRentcarData.category}
                   onChange={handleChange}
                 >
                   <option value="">Select category</option>
-                  <option value="pakse">Rent</option>
+                  <option value="rent">Rent</option>
                 </select>
               </div>
               <div className="input">
@@ -197,7 +209,7 @@ const AddRent = () => {
                   value={addRentcarData.name}
                   onChange={handleChange}
                   required
-                />{" "}
+                />
               </div>
 
               <div className="input">
@@ -209,7 +221,7 @@ const AddRent = () => {
                   value={addRentcarData.price}
                   onChange={handleChange}
                   required
-                />{" "}
+                />
               </div>
               <div className="input">
                 <label htmlFor="address">Address</label>
@@ -220,7 +232,7 @@ const AddRent = () => {
                   value={addRentcarData.address}
                   onChange={handleChange}
                   required
-                />{" "}
+                />
               </div>
               <div className="input">
                 <label htmlFor="brand">Brand:</label>

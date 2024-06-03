@@ -217,7 +217,7 @@ const Header = () => {
             </div>
           )}
         </div>
-        
+
         <div
           className="list-menu"
           onMouseEnter={handlePackageMouseEnter}
@@ -254,33 +254,6 @@ const Header = () => {
 
         <div
           className="list-menu"
-          onMouseEnter={handleKakaoMouseEnter}
-          onMouseLeave={handleKakaoMouseLeave}
-        >
-          <div className="btn-menu">KAKAO</div>
-          {kakaoHovered && (
-            <div className="dropdown-menu">
-              <ul>
-                <li className="menu_inline">
-                  <Link to="/package">
-                    <p className="txtP">.......</p>
-                  </Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
-                </li>
-                <div className="hr"></div>
-                <li className="menu_inline">
-                  <Link to="/package4days">
-                    <p className="txtP">......</p>
-                  </Link>
-                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
-                </li>
-              </ul>
-            </div>
-          )}
-        </div>
-
-        <div
-          className="list-menu"
           onMouseEnter={handleGuideMouseEnter}
           onMouseLeave={handleGuideMouseLeave}
         >
@@ -305,6 +278,9 @@ const Header = () => {
             </div>
           )}
         </div>
+        <Link to="/kakao" className="list-menu">
+          <p className="btn-menu">KAKAO</p>
+        </Link>
       </div>
     </div>
   );
