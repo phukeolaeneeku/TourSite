@@ -175,9 +175,9 @@ const EditPackage = () => {
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                 >
-                  <option value="pakse">3 days </option>
-                  <option value="paksong">4 days</option>
-                  <option value="siphadone">4 days</option>
+                  <option value="3days">3 days </option>
+                  <option value="4days">4 days</option>
+                  <option value="5days">5 days</option>
                 </select>
               </div>
               <div className="input">

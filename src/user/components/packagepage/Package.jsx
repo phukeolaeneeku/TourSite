@@ -79,7 +79,7 @@ function Package() {
               })
               .map((i, index) => (
                 <div className="group_item_Box" key={index}>
-                  <Link to={`/details/${i.id}`} className="image">
+                  <Link to={`/details-package/${i.id}`} className="image">
                     <img src={i.image || iconImage} alt="img" />{" "}
                   </Link>
                   <div className="txt_desc">
