@@ -53,21 +53,15 @@ const EditHotel = () => {
     const files = Array.from(e.target.files);
     const newImages = files.map((file) => URL.createObjectURL(file));
     setNewImageFiles((prevFiles) => [...prevFiles, ...files]); // Add files of new images
-    setImages((prevImages) => ({
-      ...prevImages,
-      images: [...prevImages.images, ...newImages],
-    })); // Add previews of new images
+    setImages((prevImages) => [...prevImages, ...newImages]); // Add previews of new images
   };
 
   const removeImage = (index) => {
     setImages((prevImages) => prevImages.filter((_, i) => i !== index));
-    setNewImageFiles((prevFiles) => ({
-      ...prevFiles,
-      images: newImages,
-    })); // Remove the file from the list
+    setNewImageFiles((prevFiles) => prevFiles.filter((_, i) => i !== index)); // Remove the file from the list
   };
 
-  const updateGuide = async (e) => {
+  const updateHotel = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
@@ -97,10 +91,10 @@ const EditHotel = () => {
       );
 
       Swal.fire({
-        title: "Success!",
-        text: "Hotel updated successfully.",
-        icon: "success",
-        confirmButtonText: "OK",
+        title: 'Success!',
+        text: 'Hotel updated successfully.',
+        icon: 'success',
+        confirmButtonText: 'OK'
       }).then(() => {
         // Clear the form data
         setName("");
@@ -115,15 +109,12 @@ const EditHotel = () => {
       });
     } catch (error) {
       Swal.fire({
-        title: "Error!",
-        text: "There was an error updating the hotel.",
-        icon: "error",
-        confirmButtonText: "OK",
+        title: 'Error!',
+        text: 'There was an error updating the hotel.',
+        icon: 'error',
+        confirmButtonText: 'OK'
       });
-      console.error(
-        "There was an error updating the hotel:",
-        error.response.data
-      );
+      console.error("There was an error updating the hotel:", error.response.data);
     }
   };
   return (
@@ -132,7 +123,7 @@ const EditHotel = () => {
       <section id="post">
         <div className="box_container_product">
           <h2>Edit Hotel</h2>
-          <form className="edit-product-forms" onSubmit={updateGuide}>
+          <form className="edit-product-forms" onSubmit={updateHotel}>
             <div className="input-img">
               <div className="box_description">
                 <h3>Image</h3>

@@ -45,7 +45,7 @@ function Pakse() {
               .filter((res) => res.category == "pakse")
               .map((res, index) => (
                 <div className="group_item_Box_restaurant" key={index}>
-                  <Link to="/details" className="image">
+                  <Link to={`/details-res/${res.id}`} className="image">
                     <img src={res.image || iconImage} alt="img" />
                   </Link>
                   <div className="txt_desc_restaurant">

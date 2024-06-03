@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { AiOutlineDelete } from "react-icons/ai";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddRestaurant = () => {
   const [addRestaurantData, setAddRestaurantData] = useState({
@@ -101,9 +102,22 @@ const AddRestaurant = () => {
 
         setSelectedImage(null);
         setImagePreviews([]);
+
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Hotel added successfully!",
+        });
       })
       .catch((error) => {
         console.error(error);
+
+        // Show error message
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Failed to add hotel. Please try again later.",
+        });
       });
   };
 
@@ -172,12 +186,13 @@ const AddRestaurant = () => {
 
             <div className="form_input_box">
               <div className="input">
-              <select
+                <label htmlFor="category">Category</label>
+                <select
                   name="category"
                   value={addRestaurantData.category}
                   onChange={handleChange}
                 >
-                 <option value="">Select category</option>
+                  <option value="">Select category</option>
                   <option value="pakse">Pakse</option>
                   <option value="paksong">Paksong</option>
                   <option value="siphadone">Siphadone</option>
@@ -205,7 +220,8 @@ const AddRestaurant = () => {
                   value={addRestaurantData.address}
                   onChange={handleChange}
                   required
-                />              </div>
+                />{" "}
+              </div>
 
               <div className="input">
                 <label htmlFor="description">Description</label>

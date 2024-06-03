@@ -47,7 +47,7 @@ function Paksong() {
               .filter((paksong) => paksong.category == "paksong")
               .map((paksong, index) => (
                 <div className="group_item_Box_restaurant" key={index}>
-                  <Link to="/details" className="image">
+                  <Link to={`/details-res/${paksong.id}`} className="image">
                     <img src={paksong.image || iconImage} alt="img" />
                   </Link>
                   <div className="txt_desc_restaurant">
