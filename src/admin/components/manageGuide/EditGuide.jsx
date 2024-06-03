@@ -31,7 +31,7 @@ const EditGuide = () => {
         setDescription(response.data.description);
         setImage(response.data.image);
         setImages(response.data.images);
-        // setNewImageFiles(response.data.images);
+        setNewImageFiles(response.data.images);
       })
       .catch((error) => {
         console.log(error);
