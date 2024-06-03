@@ -3,6 +3,7 @@ import AdminMenu from "../adminMenu/AdminMenu";
 import "./css/addTour.css";
 import { AiOutlineDelete } from "react-icons/ai";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddTour = () => {
   const [addTourData, setAddTourData] = useState({
@@ -105,6 +106,10 @@ const AddTour = () => {
 
         setSelectedImage(null)
         setImagePreviews([])
+        Swal.fire({
+          icon: "success",
+          text: "Add tour successfully!",
+        });
       })
       .catch((error) => {
         console.error(error);
