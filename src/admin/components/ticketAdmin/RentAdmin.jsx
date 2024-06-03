@@ -120,7 +120,7 @@ function RentAdmin() {
               <p>No tours available</p>
             )}
 
-            <div className="box_container_next_product">
+            {/* <div className="box_container_next_product">
               <button className="box_prev_left_product">
                 <AiOutlineLeft id="box_icon_left_right_product" />
                 <p>Prev</p>
@@ -139,7 +139,7 @@ function RentAdmin() {
                 <p>Next</p>
                 <AiOutlineRight id="box_icon_left_right_product" />
               </button>
-            </div>
+            </div> */}
 
             {showConfirm && (
               <div className="background_addproductpopup_box">

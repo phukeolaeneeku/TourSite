@@ -119,7 +119,7 @@ const Guide_admin = () => {
               ))
             )}
 
-            <div className="box_container_next_product">
+            {/* <div className="box_container_next_product">
               <button className="box_prev_left_product">
                 <AiOutlineLeft id="box_icon_left_right_product" />
                 <p>Prev</p>
@@ -138,7 +138,7 @@ const Guide_admin = () => {
                 <p>Next</p>
                 <AiOutlineRight id="box_icon_left_right_product" />
               </button>
-            </div>
+            </div> */}
 
             {showConfirmation && (
               <div className="background_addproductpopup_box">
