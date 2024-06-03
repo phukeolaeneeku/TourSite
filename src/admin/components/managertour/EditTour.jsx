@@ -115,7 +115,7 @@ const EditTour = () => {
       <AdminMenu />
       <section id="post">
         <div className="box_container_product">
-          <h2>Edit Hotel</h2>
+          <h2>Edit Tour</h2>
           <form className="edit-product-forms" onSubmit={handleSubmit}>
             <div className="input-img">
               <div className="box_description">
