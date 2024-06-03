@@ -47,7 +47,7 @@ function Siphandone() {
               .filter((res_siphandone) => res_siphandone.category == "siphadone")
               .map((res_siphandone, index) => (
                 <div className="group_item_Box_restaurant" key={index}>
-                  <Link to="/details" className="image">
+                  <Link to={`/details-res/${res_siphandone.id}`} className="image">
                     <img src={res_siphandone.image || iconImage} alt="img" />
                   </Link>
                   <div className="txt_desc_restaurant">

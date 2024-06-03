@@ -1,38 +1,120 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { AiOutlineDelete } from "react-icons/ai";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const EditRestaurant = () => {
-  // State to store the selected image
-  const [selectedImage, setSelectedImage] = useState(null);
-  // State to store the array of selected images
-  const [images, setImages] = useState([]);
+  const { id } = useParams();
+  const [name, setName] = useState("");
+  const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
+  const [address, setAddress] = useState("");
+  const [image, setImage] = useState(null); // URL for the existing main image
+  const [newImageFile, setNewImageFile] = useState(null); // File for the new main image
+  const [images, setImages] = useState([]); // URLs for the existing images
+  const [newImageFiles, setNewImageFiles] = useState([]); // Files for the new images
 
-  // Function to handle image selection
+  useEffect(() => {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: import.meta.env.VITE_API + `/tourapi/restaurant/detail/${id}/`,
+      headers: {},
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        setName(response.data.name);
+        setAddress(response.data.address);
+        setCategory(response.data.category);
+        setDescription(response.data.description);
+        setImage(response.data.image);
+        setImages(response.data.images);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [id]);
+
   const handleImageChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      // Create a URL for the selected file
-      const imageUrl = URL.createObjectURL(e.target.files[0]);
-      setSelectedImage(imageUrl);
+    const file = e.target.files[0];
+    if (file) {
+      setNewImageFile(file); // Set the file for new image
+      setImage(URL.createObjectURL(file)); // Set the preview for the new image
     }
   };
 
-  // Function to handle image selection
-  const handleImageChangeCategory = (e) => {
-    if (e.target.files) {
-      const filesArray = Array.from(e.target.files).map((file) =>
-        URL.createObjectURL(file)
+  const handleMultipleImagesChange = (e) => {
+    const files = Array.from(e.target.files);
+    const newImages = files.map((file) => URL.createObjectURL(file));
+    setNewImageFiles((prevFiles) => [...prevFiles, ...files]); // Add files of new images
+    setImages((prevImages) => [...prevImages, ...newImages]); // Add previews of new images
+  };
+
+  const removeImage = (index) => {
+    setImages((prevImages) => prevImages.filter((_, i) => i !== index));
+    setNewImageFiles((prevFiles) => prevFiles.filter((_, i) => i !== index)); // Remove the file from the list
+  };
+
+  const updateRestaurant = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("address", address);
+    formData.append("category", category);
+    formData.append("description", description);
+
+    if (newImageFile) {
+      formData.append("image", newImageFile); // Append new main image if it exists
+    }
+
+    if (newImageFiles) {
+      newImageFiles.forEach((file, i) => formData.append(`images`, file)); // Append new images
+    }
+
+    try {
+      await axios.patch(
+        import.meta.env.VITE_API + `/tourapi/restaurant/update/${id}/`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
 
-      // Append new images to the existing array
-      setImages((prevImages) => prevImages.concat(filesArray));
-      // It's important to revoke the object URLs to avoid memory leaks
-      e.target.value = null;
+      Swal.fire({
+        title: "Success!",
+        text: "Hotel updated successfully.",
+        icon: "success",
+        confirmButtonText: "OK",
+      }).then(() => {
+        // Clear the form data
+        setName("");
+        setCategory("");
+        setDescription("");
+        setAddress("");
+        setImage(null);
+        setNewImageFile(null);
+        setImages([]);
+        setNewImageFiles([]);
+      });
+    } catch (error) {
+      Swal.fire({
+        title: "Error!",
+        text: "There was an error updating the hotel.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      console.error(
+        "There was an error updating the hotel:",
+        error.response.data
+      );
     }
-  };
-  // Function to remove an image from the array
-  const removeImage = (index) => {
-    setImages(images.filter((_, i) => i !== index));
   };
 
   return (
@@ -41,20 +123,19 @@ const EditRestaurant = () => {
       <section id="post">
         <div className="box_container_product">
           <h2>Edit restaurant</h2>
-          <form className="edit-product-forms">
+          <form className="edit-product-forms" onSubmit={updateRestaurant}>
             <div className="input-img">
               <div className="box_description">
                 <h3>Image</h3>
                 <div className="images">
-                  {/* Display the selected image, or a placeholder if not selected */}
-                  <img src={selectedImage} alt="img" />
+                  <img src={image} alt="Selected" />
+
                   <div
                     className="box_chooses_image"
                     onClick={() => document.getElementById("fileInput").click()}
                   >
                     Choose image
                   </div>
-                  {/* Hidden file input for triggering the file selection dialog */}
                   <input
                     type="file"
                     id="fileInput"
@@ -67,9 +148,9 @@ const EditRestaurant = () => {
               <div className="gallery">
                 <h3>View More Images</h3>
                 <div className="gallery-box">
-                  {images.map((image, index) => (
+                  {images.map((img, index) => (
                     <div className="gallery-box-view" key={index}>
-                      <img src={image} alt="" />
+                      <img src={img} alt="" />
                       <div
                         className="button"
                         onClick={() => removeImage(index)}
@@ -91,7 +172,7 @@ const EditRestaurant = () => {
                     type="file"
                     id="fileInputMultiple"
                     style={{ display: "none" }}
-                    onChange={handleImageChangeCategory}
+                    onChange={handleMultipleImagesChange}
                     multiple // Allow multiple file selection
                   />
                 </div>
@@ -101,25 +182,45 @@ const EditRestaurant = () => {
             <div className="form_input_box">
               <div className="input">
                 <label htmlFor="category">Category</label>
-                <select>
+                <select
+                  name="category"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
+                >
+                  <option value="">Select category</option>
                   <option value="pakse">Pakse</option>
                   <option value="paksong">Paksong</option>
                   <option value="siphadone">Siphadone</option>
+                  <option value="entertainment">Entertainment</option>
                 </select>
               </div>
               <div className="input">
                 <label htmlFor="name">Name</label>
-                <input type="text" name="name" placeholder="Name..." />
+                <input
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  type="text"
+                  name="name"
+                  placeholder="Name..."
+                />
               </div>
 
               <div className="input">
                 <label htmlFor="address">Address</label>
-                <input type="text" name="address" placeholder="Address..." />
+                <input
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  type="text"
+                  name="address"
+                  placeholder="Address..."
+                />
               </div>
 
               <div className="input">
                 <label htmlFor="description">Description</label>
                 <textarea
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                   type="text"
                   rows="10"
                   name="description"

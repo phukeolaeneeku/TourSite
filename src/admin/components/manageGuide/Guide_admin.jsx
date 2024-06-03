@@ -6,16 +6,70 @@ import { Link } from "react-router-dom";
 import korean from "../../../img/korean.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Expandable from "../../../admin/components/managertour/Expandable";
-const Guide_admin = () => {
-    const [showConfirmation, setShowConfirmation] = useState(false);
+import axios from "axios";
 
-    const handleCancelDelete = () => {
-      setShowConfirmation(false);
+const Guide_admin = () => {
+  const [datas, setDatas] = useState([]);
+  const [guideID, setGuideID] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  console.log(guideID);
+
+  const [showConfirmation, setShowConfirmation] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true); // Set loading to true before fetching data
+    try {
+      let config = {
+        method: "get",
+        maxBodyLength: Infinity,
+        url: import.meta.env.VITE_API + `/tourapi/guide/list/`,
+        headers: {},
+      };
+
+      axios
+        .request(config)
+        .then((response) => {
+          setDatas(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false); // Set loading to false after data is fetched
+    }
+  }, [datas]);
+
+  const deleteGuide = (e) => {
+    e.preventDefault();
+    const requestOptions = {
+      method: "DELETE",
+      redirect: "follow",
     };
+
+    fetch(
+      import.meta.env.VITE_API + `/tourapi/guide/delete/${guideID}/`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        alert("success");
+        setShowConfirmation(false);
+        setGuideID(null);
+      })
+      .catch((error) => console.error(error));
+  };
+
+  const handleCancelDelete = () => {
+    setShowConfirmation(false);
+  };
+
   return (
     <>
-         <AdminMenu />
-         <section>
+      <AdminMenu />
+      <section>
         <div className="box_container_guide">
           <div className="box_content_guide">
             <div className="GuideHead_content">
@@ -30,37 +84,37 @@ const Guide_admin = () => {
               </div>
             </div>
 
-            <div className="box_container_tourguide">
-              <div className="box_container_tourguide_admin">
-                <div className="container_image_tourguide">
-                <img src={korean} alt="image" />
-                </div>
-                <div className="container_desc_tourguide">
-                  <h3>Name Guide: Korean </h3>
-                  <Expandable>
-                    Description: Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Distinctio cupiditate blanditiis veniam
-                    voluptates sequi pariatur voluptatibus, natus mollitia est
-                    unde illo at nostrum, culpa labore aperiam delectus
-                    doloribus ut autem!
-                  </Expandable>
-
-                 
-                  <p className="txt_address">Address: Korea</p>
-                </div>
-                <div className="btn_delete_view">
-                  <div
-                    onClick={() => setShowConfirmation(true)}
-                    className="box_btn_saveDelete"
-                  >
-                    Delete
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : (
+              datas.map((data, index) => (
+                <div className="box_container_tourguide" key={index}>
+                  <div className="box_container_tourguide_admin">
+                    <div className="container_image_tourguide">
+                      <img src={data.image} alt="image" />
+                    </div>
+                    <div className="container_desc_tourguide">
+                      <h3>Name Guide: {data.name} </h3>
+                      <Expandable>{data.description}</Expandable>
+                    </div>
+                    <div className="btn_delete_view">
+                      <div
+                        onClick={() => {
+                          setShowConfirmation(true);
+                          setGuideID(data.id);
+                        }}
+                        className="box_btn_saveDelete"
+                      >
+                        Delete
+                      </div>
+                      <Link to={`/edit-guide/${data.id}`} className="box_btn_saveEdit">
+                        Edit
+                      </Link>
+                    </div>
                   </div>
-                  <Link to="/edit-hotel" className="box_btn_saveEdit">
-                    Edit
-                  </Link>
                 </div>
-              </div>
-            </div>
+              ))
+            )}
 
             <div className="box_container_next_product">
               <button className="box_prev_left_product">
@@ -96,7 +150,10 @@ const Guide_admin = () => {
                     >
                       No
                     </button>
-                    <button className="btn_confirm btn_addproducttxt_popup">
+                    <button
+                      className="btn_confirm btn_addproducttxt_popup"
+                      onClick={deleteGuide}
+                    >
                       Yes
                     </button>
                   </div>
@@ -107,7 +164,7 @@ const Guide_admin = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Guide_admin
+export default Guide_admin;

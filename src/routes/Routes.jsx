@@ -5,7 +5,8 @@ import Oneday from "../user/components/tourpage/Oneday";
 import Halfday from "../user/components/tourpage/Halfday";
 import Golf from "../user/components/tourpage/Golf";
 import Nightday from "../user/components/tourpage/Nightday";
-
+import DetailsHotel from "../user/components/homepage/DetailsHotel";
+import DetailsRes from "../user/components/homepage/DetailsRes";
 import HotelPakse from "../user/components/hotelpage/HotelPakse";
 import HotelPaksong from "../user/components/hotelpage/HotelPaksong";
 import HotelSiphandone from "../user/components/hotelpage/HotelSiphandone";
@@ -65,6 +66,7 @@ import AddPackage from "../admin/components/packageAdmin/AddPackage";
 import EditPackage from "../admin/components/packageAdmin/EditPackage";
 import Guide_admin from "../admin/components/manageGuide/Guide_admin";
 import AddGuide from "../admin/components/manageGuide/AddGuide";
+import EditGuide from "../admin/components/manageGuide/EditGuide";
 import EditTour from "../admin/components/managertour/EditTour";
 
 const Links = () => {
@@ -73,6 +75,8 @@ const Links = () => {
       <Routes>
         <Route exact path="/" Component={Home} />
         <Route exact path="/details/:id" Component={Details} />
+        <Route exact path="/details-hotel/:id" Component={DetailsHotel} />
+        <Route exact path="/details-res/:id" Component={DetailsRes} />
         <Route exact path="/oneday" Component={Oneday} />
         <Route exact path="/halfday" Component={Halfday} />
         <Route exact path="/golf" Component={Golf} />
@@ -125,7 +129,7 @@ const Links = () => {
         <Route path="/hotel-admin" Component={Hotel} />
         <Route path="/edit-hotel/:id" Component={Edit_Hotel} />
         <Route path="/restaurant-admin" Component={Restaurant_Admin} />
-        <Route path="/edit-restaurant" Component={EditRestaurant} />
+        <Route path="/edit-restaurant/:id" Component={EditRestaurant} />
         <Route path="/add-restaurant" Component={AddRestaurant} />
         <Route path="/package-admin" Component={PackageAdmin} />
         <Route path="/airplane-admin" Component={AirplaneAdmin} />
@@ -140,6 +144,7 @@ const Links = () => {
         <Route path="/add-hotel" Component={Add_Hotel} />
         <Route path="/guide-admin" Component={Guide_admin} />
         <Route path="/add-guide" Component={AddGuide} />
+        <Route path="/edit-guide/:id" Component={EditGuide} />
         <Route path="/edit-tour/:id" Component={EditTour} />
       </Routes>
     </Router>

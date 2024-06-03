@@ -5,9 +5,6 @@ import Header from "../header/Header";
 import Menu from "../header/Menu";
 import "./css/hotel.css";
 import { SiGooglemaps } from "react-icons/si";
-import hotel1 from "../../../img/hotel1.jpg";
-import hotel2 from "../../../img/hotel2.jpg";
-import hotel3 from "../../../img/hotel3.jpg";
 import { IoMdCart } from "react-icons/io";
 import axios from "axios";
 import Expandable from "../../../admin/components/managertour/Expandable";
@@ -21,13 +18,16 @@ function HotelSiphandone() {
     return localCart ? JSON.parse(localCart) : [];
   });
 
-  console.log("siphadone..", siphadone);
-
   useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/tourapi/hotel/",
+      url: import.meta.env.VITE_API + `/tourapi/hotel/list/`,
+      headers: {},
     };
 
     axios
@@ -38,28 +38,28 @@ function HotelSiphandone() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  };
 
-    //Add item to cart
-    useEffect(() => {
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }, [cart]);
-  
-    const handleAddToCart = (siphadone) => {
-      if (cart.some((item) => item.id === siphadone.id)) {
-        Swal.fire({
-          text: "This item is already cart!",
-          icon: "error",
-        });
-      } else {
-        setCart([...cart, siphadone]);
-  
-        Swal.fire({
-          text: "Add item to cart success!",
-          icon: "success",
-        });
-      }
-    };
+  //Add item to cart
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
+  const handleAddToCart = (siphadone) => {
+    if (cart.some((item) => item.id === siphadone.id)) {
+      Swal.fire({
+        text: "This item is already cart!",
+        icon: "error",
+      });
+    } else {
+      setCart([...cart, siphadone]);
+
+      Swal.fire({
+        text: "Add item to cart success!",
+        icon: "success",
+      });
+    }
+  };
 
   return (
     <>
@@ -74,12 +74,15 @@ function HotelSiphandone() {
           </div>
           <div className="box_container_hotels">
             {siphadone
-              .filter((sipha) => sipha.category.id === 3)
+              .filter((sipha) => sipha.category == "siphadone")
               .map((sipha, index) => (
                 <div className="box_container_body" key={index}>
-                  <div className="container_image">
+                  <Link
+                    to={`/details-hotel/${sipha.id}`}
+                    className="container_image"
+                  >
                     <img src={sipha.image || iconImage} alt="image" />
-                  </div>
+                  </Link>
                   <div className="container_des">
                     <h2>{sipha.name}</h2>
                     <Expandable>{sipha.description}</Expandable>

@@ -7,10 +7,12 @@ import recommended2 from "../../../img/recommended2.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Expandable from "../../../admin/components/managertour/Expandable";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const Restaurant_Admin = () => {
   const [showConfirm, setShowConfirm] = useState(false);
   const [datas, setDatas] = useState([]);
+  const [idToDelete, setIdToDelete] = useState(null); // Added state to hold ID of hotel to delete
 
   useEffect(() => {
     fetchData();
@@ -27,8 +29,30 @@ const Restaurant_Admin = () => {
     }
   };
 
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(
+        `http://43.202.102.25:8000/tourapi/restaurant/delete/${id}/`
+      );
+      Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "Hotel deleted successfully!",
+      });
+      fetchData();
+      setShowConfirm(false); // Close confirmation dialog
+    } catch (error) {
+      console.error("Error deleting hotel:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Failed to delete hotel. Please try again later.",
+      });
+    }
+  };
+
   const handleCancelDelete = () => {
-    setShowConfirm(!showConfirm);
+    setShowConfirm(false);
   };
 
   return (
@@ -59,21 +83,27 @@ const Restaurant_Admin = () => {
                     <div className="container_desc_tour">
                       <h3>{data.name}</h3>
                       <Expandable>{data.description}</Expandable>
-                      <div className="txt_tour">
+                      {/* <div className="txt_tour">
                         <p className="price_number_ones">
                           Prices: ${data.price}
                         </p>
-                      </div>
+                      </div> */}
                       <p className="txt_address">Address: {data.address}</p>
                     </div>
                     <div className="btn_delete_view">
                       <div
-                        onClick={handleCancelDelete}
+                        onClick={() => {
+                          setIdToDelete(data.id);
+                          setShowConfirm(true);
+                        }}
                         className="box_btn_saveDelete"
                       >
                         Delete
                       </div>
-                      <Link to="/edit-tour" className="box_btn_saveEdit">
+                      <Link
+                        to={`/edit-restaurant/${data.id}`}
+                        className="box_btn_saveEdit"
+                      >
                         Edit
                       </Link>
                     </div>
@@ -118,7 +148,10 @@ const Restaurant_Admin = () => {
                     >
                       No
                     </button>
-                    <button className="btn_confirm btn_addproducttxt_popup">
+                    <button
+                      className="btn_confirm btn_addproducttxt_popup"
+                      onClick={() => handleDelete(idToDelete)}
+                    >
                       Yes
                     </button>
                   </div>

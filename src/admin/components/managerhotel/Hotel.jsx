@@ -99,6 +99,7 @@ function Hotel() {
                         Delete
                       </div>
                       <Link
+                      
                         to={`/edit-hotel/${data.id}`}
                         className="box_btn_saveEdit"
                       >

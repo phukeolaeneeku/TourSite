@@ -18,7 +18,7 @@ function Entertainment() {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/tourapi/restaurant/",
+      url: import.meta.env.VITE_API + "/tourapi/restaurant/list/",
     };
 
     axios
@@ -44,10 +44,10 @@ function Entertainment() {
           </div>
           <div className="content_image_airplane">
             {entertainment_list
-              .filter((entertainment) => entertainment.category.id === 4)
+              .filter((entertainment) => entertainment.category == "entertainment")
               .map((entertainment, index) => (
                 <div className="group_item_Box_airplane" key={index}>
-                  <Link to="/details" className="image">
+                  <Link to={`/details-res/${entertainment.id}`} className="image">
                     <img src={entertainment.image || iconImage} alt="img" />
                   </Link>
                   <div className="txt_desc_airplane">

@@ -19,7 +19,6 @@ function HotelPakse() {
     return localCart ? JSON.parse(localCart) : [];
   });
 
- 
   useEffect(() => {
     fetchData();
   }, []);
@@ -35,7 +34,7 @@ function HotelPakse() {
     axios
       .request(config)
       .then((response) => {
-        setHotelPakse(response.data)
+        setHotelPakse(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -63,7 +62,6 @@ function HotelPakse() {
     }
   };
 
-
   return (
     <>
       <Header />
@@ -81,9 +79,9 @@ function HotelPakse() {
               .filter((pakse) => pakse.category == "pakse")
               .map((pakse, index) => (
                 <div className="box_container_body_hotel" key={index}>
-                  <div className="container_image">
+                  <Link to={`/details-hotel/${pakse.id}`} className="container_image">
                     <img src={pakse.image || iconImage} alt="image" />
-                  </div>
+                  </Link>
                   <div className="container_desc">
                     <h2>{pakse.name}</h2>
                     <Expandable>{pakse.description}</Expandable>
