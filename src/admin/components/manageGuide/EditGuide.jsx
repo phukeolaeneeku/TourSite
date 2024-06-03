@@ -85,6 +85,7 @@ const EditGuide = () => {
       );
 
       console.log("Guide updated successfully");
+      alert("Update success")
     } catch (error) {
       console.error(
         "There was an error updating the guide:",
