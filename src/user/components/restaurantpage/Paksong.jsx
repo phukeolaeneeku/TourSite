@@ -18,7 +18,7 @@ function Paksong() {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/tourapi/restaurant/",
+      url: import.meta.env.VITE_API + "/tourapi/restaurant/list/",
     };
 
     axios
@@ -44,7 +44,7 @@ function Paksong() {
           </div>
           <div className="content_image_restaurant">
             {restaurantPaksong_list
-              .filter((paksong) => paksong.category.id === 2)
+              .filter((paksong) => paksong.category == "paksong")
               .map((paksong, index) => (
                 <div className="group_item_Box_restaurant" key={index}>
                   <Link to="/details" className="image">

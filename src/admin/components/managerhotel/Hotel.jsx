@@ -1,17 +1,57 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./css/hotel.css";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { BiPlus } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import hotel2 from "../../../img/hotel2.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import Expandable from "../../../admin/components/managertour/Expandable"
+import Expandable from "../../../admin/components/managertour/Expandable";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 function Hotel() {
-  const [showConfirmation, setShowConfirmation] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [datas, setDatas] = useState([]);
+  const [idToDelete, setIdToDelete] = useState(null); // Added state to hold ID of hotel to delete
 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_API}/tourapi/hotel/list/`
+      );
+      setDatas(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleDelete = async (id) => { // Modified handleDelete to take id parameter
+    try {
+      await axios.delete(`http://43.202.102.25:8000/tourapi/hotel/delete/${id}/`);
+      Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "Hotel deleted successfully!",
+      });
+      // After successful delete, refetch data
+      fetchData();
+      setShowConfirm(false); // Close confirmation dialog
+    } catch (error) {
+      console.error("Error deleting hotel:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Failed to delete hotel. Please try again later.",
+      });
+    }
+  };
+  
   const handleCancelDelete = () => {
-    setShowConfirmation(false);
+    setShowConfirm(false);
   };
 
   return (
@@ -31,41 +71,46 @@ function Hotel() {
                 </Link>
               </div>
             </div>
-
-            <div className="box_container_tour">
-              <div className="box_container_tour_admin">
-                <div className="container_image_tour">
-                  <img src={hotel2} alt="image" />
-                </div>
-                <div className="container_desc_tour">
-                  <h3>Name: VangVeing </h3>
-                  <Expandable>
-                    Description: Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Distinctio cupiditate blanditiis veniam
-                    voluptates sequi pariatur voluptatibus, natus mollitia est
-                    unde illo at nostrum, culpa labore aperiam delectus
-                    doloribus ut autem!
-                  </Expandable>
-
-                  <div className="txt_tour">
-                    <p className="price_number_ones">Prices: $100</p>
+            {datas.length > 0 ? (
+              datas.map((data, index) => (
+                <div className="box_container_tour" key={index}>
+                  <div className="box_container_tour_admin">
+                    <div className="container_image_tour">
+                      <img src={data.image} alt="image" />
+                    </div>
+                    <div className="container_desc_tour">
+                      <h3>{data.name}</h3>
+                      <Expandable>{data.description}</Expandable>
+                      <div className="txt_tour">
+                        <p className="price_number_ones">
+                          Prices: ${data.price}
+                        </p>
+                      </div>
+                      <p className="txt_address">Address: {data.address}</p>
+                    </div>
+                    <div className="btn_delete_view">
+                      <div
+                        onClick={() => {
+                          setIdToDelete(data.id);
+                          setShowConfirm(true);
+                        }}
+                        className="box_btn_saveDelete"
+                      >
+                        Delete
+                      </div>
+                      <Link
+                        to={`/edit-hotel/${data.id}`}
+                        className="box_btn_saveEdit"
+                      >
+                        Edit
+                      </Link>
+                    </div>
                   </div>
-
-                  <p className="txt_address">Address: Vangvieg</p>
                 </div>
-                <div className="btn_delete_view">
-                  <div
-                    onClick={() => setShowConfirmation(true)}
-                    className="box_btn_saveDelete"
-                  >
-                    Delete
-                  </div>
-                  <Link to="/edit-hotel" className="box_btn_saveEdit">
-                    Edit
-                  </Link>
-                </div>
-              </div>
-            </div>
+              ))
+            ) : (
+              <p>No tours available</p>
+            )}
 
             <div className="box_container_next_product">
               <button className="box_prev_left_product">
@@ -88,7 +133,7 @@ function Hotel() {
               </button>
             </div>
 
-            {showConfirmation && (
+            {showConfirm && (
               <div className="background_addproductpopup_box">
                 <div className="hover_addproductpopup_box">
                   <div className="box_logout">
@@ -101,7 +146,10 @@ function Hotel() {
                     >
                       No
                     </button>
-                    <button className="btn_confirm btn_addproducttxt_popup">
+                    <button
+                      className="btn_confirm btn_addproducttxt_popup"
+                      onClick={() => handleDelete(idToDelete)} // Pass idToDelete to handleDelete
+                    >
                       Yes
                     </button>
                   </div>
