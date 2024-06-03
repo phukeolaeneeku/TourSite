@@ -36,3 +36,8 @@
     color: #FFF;
     cursor: pointer;  
 }
+
+.notic_available{
+    text-align: center;
+    color: #0E64D2;
+}
