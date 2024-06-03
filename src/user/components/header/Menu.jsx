@@ -9,6 +9,7 @@ const Header = () => {
   const [restaurantHovered, setRestaurantHovered] = useState(false);
   const [ticketHovered, setTicketHovered] = useState(false);
   const [packageHovered, setPackageHovered] = useState(false);
+  const [kakaoHovered, setKakaoHovered] = useState(false);
   const [ticketGuide, setTicketGuide] = useState(false);
 
   const handleTourMouseEnter = () => {
@@ -44,6 +45,12 @@ const Header = () => {
   };
   const handlePackageMouseLeave = () => {
     setPackageHovered(false);
+  };
+  const handleKakaoMouseEnter = () => {
+    setKakaoHovered(true);
+  };
+  const handleKakaoMouseLeave = () => {
+    setKakaoHovered(false);
   };
 
   const handleGuideMouseEnter = () => {
@@ -237,6 +244,33 @@ const Header = () => {
                 <li className="menu_inline">
                   <Link to="/package5days">
                     <p className="txtP">5 Days</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
+                </li>
+              </ul>
+            </div>
+          )}
+        </div>
+
+        <div
+          className="list-menu"
+          onMouseEnter={handleKakaoMouseEnter}
+          onMouseLeave={handleKakaoMouseLeave}
+        >
+          <div className="btn-menu">KAKAO</div>
+          {kakaoHovered && (
+            <div className="dropdown-menu">
+              <ul>
+                <li className="menu_inline">
+                  <Link to="/package">
+                    <p className="txtP">.......</p>
+                  </Link>
+                  <MdKeyboardArrowRight id="icon_AiOutlineRight" />
+                </li>
+                <div className="hr"></div>
+                <li className="menu_inline">
+                  <Link to="/package4days">
+                    <p className="txtP">......</p>
                   </Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight" />
                 </li>

@@ -67,7 +67,7 @@ console.log(datas)
                       <div onClick={handleDeleteClick} className="box_btn_saveDelete">
                         Delete
                       </div>
-                      <Link to="/edit-tour" className="box_btn_saveEdit">
+                      <Link to={`/edit-tour/${data.id}`} className="box_btn_saveEdit">
                         Edit
                       </Link>
                     </div>
