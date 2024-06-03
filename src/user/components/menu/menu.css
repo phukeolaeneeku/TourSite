@@ -47,6 +47,11 @@
     display: flex;
     gap: 1rem;
 }
+.foot_contentItem img{
+    width: 130px;
+    height: auto;
+    object-fit: cover;
+}
 
 .guop_btndownl {
     flex-direction: column;

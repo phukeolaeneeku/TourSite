@@ -18,6 +18,32 @@ const Header = () => {
   if (localStorage.getItem("user")) {
     store_id = JSON.parse(window.localStorage.getItem("user")).store_id;
   }
+  const [sitemain, setSitemain] = useState();
+
+  console.log("Sitemain....", sitemain);
+
+  useEffect(() => {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: import.meta.env.VITE_API + "/tourapi/sitemain/list/",
+      headers: {},
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        // console.log(JSON.stringify(response.data));
+        setSitemain(response.data[0]);
+
+        {
+          console.log(response.data);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   useEffect(() => {
     let data = JSON.stringify({
@@ -57,11 +83,15 @@ const Header = () => {
       <div className="navbar_header">
         <div className="headWithBox">
           <div className="headMenu">
-            <div className="storename">
-              <Link to="/">
-                <img src={tour_logo} alt="Logo" />
-              </Link>
-            </div>
+            {sitemain ? (
+              <div className="storename">
+                <Link to="/">
+                  <img src={sitemain.logo} alt="Logo" />
+                </Link>
+              </div>
+            ) : (
+              <p>Loading...</p>
+            )}
           </div>
 
           <div className="ulHead_box">
