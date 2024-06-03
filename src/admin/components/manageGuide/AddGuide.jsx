@@ -2,48 +2,134 @@ import React, { useEffect, useState } from "react";
 import "./css/addguide.css";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { AiOutlineDelete } from "react-icons/ai";
+import axios from "axios";
 
 const AddGuide = () => {
-  const [addtour, set_addtour] = useState();
-
-  useEffect(() => {});
+  const [datas, setDatas] = useState({
+    category: "",
+    name: "",
+    description: "",
+    image: null,
+    images: [],
+  });
 
   const [selectedImage, setSelectedImage] = useState(null);
-  const [images, setImages] = useState([]);
+  const [imagePreviews, setImagePreviews] = useState([]);
 
-  // Function to handle image selection
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setDatas((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
-      // Create a URL for the selected file
-      const imageUrl = URL.createObjectURL(e.target.files[0]);
+      const file = e.target.files[0];
+      const imageUrl = URL.createObjectURL(file);
       setSelectedImage(imageUrl);
+      setDatas((prevState) => ({
+        ...prevState,
+        image: file,
+      }));
     }
   };
 
-  // Function to handle image selection
-  const handleImageChangeImages = (e) => {
+  const handleMultipleImageChange = (e) => {
     if (e.target.files) {
-      const filesArray = Array.from(e.target.files).map((file) =>
-        URL.createObjectURL(file)
-      );
+      const filesArray = Array.from(e.target.files);
+      const previewsArray = filesArray.map((file) => URL.createObjectURL(file));
 
-      // Append new images to the existing array
-      setImages((prevImages) => prevImages.concat(filesArray));
-      // It's important to revoke the object URLs to avoid memory leaks
+      setImagePreviews((prevPreviews) => prevPreviews.concat(previewsArray));
+      setDatas((prevState) => ({
+        ...prevState,
+        images: prevState.images.concat(filesArray),
+      }));
+
       e.target.value = null;
     }
   };
-  // Function to remove an image from the array
+
   const removeImage = (index) => {
-    setImages(images.filter((_, i) => i !== index));
+    const newImages = datas.images.filter((_, i) => i !== index);
+    const newPreviews = imagePreviews.filter((_, i) => i !== index);
+
+    setDatas((prevState) => ({
+      ...prevState,
+      images: newImages,
+    }));
+    setImagePreviews(newPreviews);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("OK");
-    console.log
-  };
 
+    if (datas.name === "") {
+      alert("Please enter guide name!");
+      return;
+    }
+
+    if (datas.category === "") {
+      alert("Please choice guide nationality!");
+      return;
+    }
+
+    if (datas.description === "") {
+      alert("Please enter the description!");
+      return;
+    }
+
+    if (datas.image === null) {
+      alert("Please choice guide image!");
+      return;
+    }
+
+    if (datas.images.length === 0) {
+      alert("Please choice more images!");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("category", datas.category);
+    formData.append("name", datas.name);
+    formData.append("description", datas.description);
+    formData.append("image", datas.image);
+    datas.images.forEach((img, i) => {
+      formData.append(`images[${i}]`, img);
+    });
+
+    const config = {
+      method: "post",
+      url: import.meta.env.VITE_API + `/tourapi/guide/create/`,
+
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      data: formData,
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        console.log(JSON.stringify(response.data));
+
+        setDatas({
+          category: "",
+          name: "",
+          description: "",
+          image: null,
+          images: [],
+        });
+
+        setSelectedImage(null);
+        setImagePreviews([]);
+        alert("Success!");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <>
@@ -77,7 +163,7 @@ const AddGuide = () => {
               <div className="gallery">
                 <h3>View More Images</h3>
                 <div className="gallery-box">
-                  {images.map((image, index) => (
+                  {imagePreviews.map((image, index) => (
                     <div className="gallery-box-view" key={index}>
                       <img src={image} alt="" />
                       <div
@@ -101,7 +187,7 @@ const AddGuide = () => {
                     type="file"
                     id="fileInputMultiple"
                     style={{ display: "none" }}
-                    onChange={handleImageChangeImages}
+                    onChange={handleMultipleImageChange}
                     multiple // Allow multiple file selection
                   />
                 </div>
@@ -111,12 +197,23 @@ const AddGuide = () => {
             <div className="form_input_box">
               <div className="input">
                 <label htmlFor="name">Name Guide</label>
-                <input type="text" name="name" placeholder="Name..." />
+                <input
+                  type="text"
+                  name="name"
+                  value={datas.name}
+                  placeholder="Name..."
+                  onChange={handleChange}
+                />
               </div>
 
               <div className="input">
                 <label htmlFor="category">Guide's Nationality</label>
-                <select>
+                <select
+                  name="category"
+                  value={datas.category}
+                  onChange={handleChange}
+                >
+                  <option value=""></option>
                   <option value="Lao">Lao</option>
                   <option value="Korea">Korea</option>
                 </select>
@@ -129,6 +226,8 @@ const AddGuide = () => {
                   rows="10"
                   name="description"
                   placeholder="Description..."
+                  value={datas.description}
+                  onChange={handleChange}
                 ></textarea>
               </div>
             </div>
