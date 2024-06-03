@@ -107,7 +107,10 @@ const Guide_admin = () => {
                       >
                         Delete
                       </div>
-                      <Link to={`/edit-guide/${data.id}`} className="box_btn_saveEdit">
+                      <Link
+                        to={`/edit-guide/${data.id}`}
+                        className="box_btn_saveEdit"
+                      >
                         Edit
                       </Link>
                     </div>

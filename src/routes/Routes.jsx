@@ -141,7 +141,7 @@ const Links = () => {
         <Route path="/rent-admin" Component={RentAdmin} />
         <Route path="/massage-admin" Component={MassageAdmin} />
         <Route path="/add-rent" Component={AddRent} />
-        <Route path="/edit-rent" Component={EditRent} />
+        <Route path="/edit-rent/:id" Component={EditRent} />
         <Route path="/edit-ticket" Component={EditTicket} />
         <Route path="/add-package" Component={AddPackage} />
         <Route path="/edit-package/:id" Component={EditPackage} />

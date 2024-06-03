@@ -185,10 +185,7 @@ const AddRent = () => {
                   onChange={handleChange}
                 >
                   <option value="">Select category</option>
-                  <option value="pakse">Pakse</option>
-                  <option value="paksong">Paksong</option>
-                  <option value="siphadone">Siphadone</option>
-                  <option value="entertainment">Entertainment</option>
+                  <option value="pakse">Rent</option>
                 </select>
               </div>
               <div className="input">

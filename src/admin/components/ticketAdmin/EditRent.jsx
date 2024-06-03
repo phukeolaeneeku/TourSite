@@ -1,41 +1,118 @@
 import React, { useEffect, useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { AiOutlineDelete } from "react-icons/ai";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const EditRent = () => {
-  const [addtour, set_addtour] = useState();
+  const { id } = useParams();
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [price, setPrice] = useState("");
+  const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
+  const [brand, setBrand] = useState("");
+  const [carnumber, setCarnumber] = useState("");
+  const [image, setImage] = useState(null); // URL for the existing main image
+  const [newImageFile, setNewImageFile] = useState(null); // File for the new main image
+  const [images, setImages] = useState([]); // URLs for the existing images
+  const [newImageFiles, setNewImageFiles] = useState([]); // Files for the new images
 
-  useEffect(() => {});
+  useEffect(() => {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: import.meta.env.VITE_API + `/tourapi/ticket/detail/${id}/`,
+      headers: {},
+    };
 
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [images, setImages] = useState([]);
+    axios
+      .request(config)
+      .then((response) => {
+        setName(response.data.name);
+        setAddress(response.data.address);
+        setPrice(response.data.price);
+        setDescription(response.data.description);
+        setBrand(response.data.brand);
+        setCarnumber(response.data.carnumber);
+        setImage(response.data.image);
+        setImages(response.data.images);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [id]);
 
-  // Function to handle image selection
   const handleImageChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      // Create a URL for the selected file
-      const imageUrl = URL.createObjectURL(e.target.files[0]);
-      setSelectedImage(imageUrl);
+    const file = e.target.files[0];
+    if (file) {
+      setNewImageFile(file); // Set the file for new image
+      setImage(URL.createObjectURL(file)); // Set the preview for the new image
     }
   };
 
-  // Function to handle image selection
-  const handleImageChangeCategory = (e) => {
-    if (e.target.files) {
-      const filesArray = Array.from(e.target.files).map((file) =>
-        URL.createObjectURL(file)
+  const handleMultipleImagesChange = (e) => {
+    const files = Array.from(e.target.files);
+    const newImages = files.map((file) => URL.createObjectURL(file));
+    setNewImageFiles((prevFiles) => [...prevFiles, ...files]); // Add files of new images
+    setImages((prevImages) => [...prevImages, ...newImages]); // Add previews of new images
+  };
+
+  const removeImage = (index) => {
+    setImages((prevImages) => prevImages.filter((_, i) => i !== index));
+    setNewImageFiles((prevFiles) => prevFiles.filter((_, i) => i !== index)); // Remove the file from the list
+  };
+
+  const updateTicket = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("address", address);
+    formData.append("price", price);
+    formData.append("category", category);
+    formData.append("description", description);
+    formData.append("brand", brand);
+    formData.append("carnumber", carnumber);
+
+    if (newImageFile) {
+      formData.append("image", newImageFile); // Append new main image if it exists
+    }
+
+    if (newImageFiles) {
+      newImageFiles.forEach((file, i) => formData.append(`images`, file)); // Append new images
+    }
+
+    try {
+      await axios.patch(
+        import.meta.env.VITE_API + `/tourapi/ticket/update/${id}/`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
 
-      // Append new images to the existing array
-      setImages((prevImages) => prevImages.concat(filesArray));
-      // It's important to revoke the object URLs to avoid memory leaks
-      e.target.value = null;
+      // console.log("Guide updated successfully");
+      Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "Update  successfully!",
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Failed to delete tour. Please try again later.",
+      });
     }
   };
-  // Function to remove an image from the array
-  const removeImage = (index) => {
-    setImages(images.filter((_, i) => i !== index));
-  };
+
+  console.log("images:", images);
+  console.log("newImageFiles:", newImageFiles);
+  // console.log("images:", images);
 
   return (
     <>
@@ -43,13 +120,13 @@ const EditRent = () => {
       <section id="post">
         <div className="box_container_product">
           <h2> Edit rent car</h2>
-          <form className="edit-product-forms">
+          <form className="edit-product-forms" onSubmit={updateTicket}>
             <div className="input-img">
               <div className="box_description">
                 <h3>Image</h3>
                 <div className="images">
                   {/* Display the selected image, or a placeholder if not selected */}
-                  <img src={selectedImage} alt="img" />
+                  <img src={image} alt="Selected" />
                   <div
                     className="box_chooses_image"
                     onClick={() => document.getElementById("fileInput").click()}
@@ -93,7 +170,7 @@ const EditRent = () => {
                     type="file"
                     id="fileInputMultiple"
                     style={{ display: "none" }}
-                    onChange={handleImageChangeCategory}
+                    onChange={handleMultipleImagesChange}
                     multiple // Allow multiple file selection
                   />
                 </div>
@@ -101,27 +178,56 @@ const EditRent = () => {
             </div>
 
             <div className="form_input_box">
-             
               <div className="input">
                 <label htmlFor="name">Name</label>
-                <input type="text" name="name" placeholder="Name..." />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name..."
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
               </div>
 
               <div className="input">
                 <label htmlFor="price">Price</label>
-                <input type="text" name="price" placeholder="Price..." />
+                <input
+                  type="text"
+                  name="price"
+                  placeholder="Price..."
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                />
               </div>
               <div className="input">
                 <label htmlFor="address">Address</label>
-                <input type="text" name="address" placeholder="Address..." />
+                <input
+                  type="text"
+                  name="address"
+                  placeholder="Address..."
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
               </div>
               <div className="input">
                 <label htmlFor="brand">Brand:</label>
-                <input type="text" name="brand" placeholder="Brand..." />
+                <input
+                  type="text"
+                  name="brand"
+                  placeholder="Brand..."
+                  value={brand}
+                  onChange={(e) => setBrand(e.target.value)}
+                />
               </div>
               <div className="input">
                 <label htmlFor="number">Car number:</label>
-                <input type="text" name="number" placeholder="Car number..." />
+                <input
+                  type="text"
+                  name="carnumber"
+                  placeholder="Car number..."
+                  value={carnumber}
+                  onChange={(e) => setCarnumber(e.target.value)}
+                />
               </div>
 
               <div className="input">
@@ -131,12 +237,14 @@ const EditRent = () => {
                   rows="10"
                   name="description"
                   placeholder="Description..."
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
               </div>
             </div>
 
             <div className="submit1">
-              <button type="submit">Post</button>
+              <button type="submit">Update</button>
             </div>
           </form>
         </div>

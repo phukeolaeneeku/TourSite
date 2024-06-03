@@ -90,7 +90,6 @@ function RentAdmin() {
                       </div>
                       <div className="txt_tour">
                         <p className="txt_brand_car">
-                          
                           Car number:{data.carnumber}
                         </p>
                       </div>
@@ -106,7 +105,11 @@ function RentAdmin() {
                       >
                         Delete
                       </div>
-                      <Link to="/edit-tour" className="box_btn_saveEdit">
+
+                      <Link
+                        to={`/edit-rent/${data.id}`}
+                        className="box_btn_saveEdit"
+                      >
                         Edit
                       </Link>
                     </div>
