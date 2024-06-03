@@ -123,7 +123,7 @@ const Links = () => {
         <Route path="/add-admin" Component={Add_Admin} />
         <Route path="/edit-admin" Component={Edit_Admin} />
         <Route path="/hotel-admin" Component={Hotel} />
-        <Route path="/edit-hotel" Component={Edit_Hotel} />
+        <Route path="/edit-hotel/:id" Component={Edit_Hotel} />
         <Route path="/restaurant-admin" Component={Restaurant_Admin} />
         <Route path="/edit-restaurant" Component={EditRestaurant} />
         <Route path="/add-restaurant" Component={AddRestaurant} />

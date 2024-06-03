@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { AiOutlineDelete } from "react-icons/ai";
 import axios from "axios";
-
+import Swal from "sweetalert2";
 const AddHotel = () => {
   const [addHotelData, setAddHotelData] = useState({
     category: "",
@@ -104,9 +104,23 @@ const AddHotel = () => {
 
         setSelectedImage(null);
         setImagePreviews([]);
+
+        // Show success message
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Hotel added successfully!",
+        });
       })
       .catch((error) => {
         console.error(error);
+
+        // Show error message
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Failed to add hotel. Please try again later.",
+        });
       });
   };
 
