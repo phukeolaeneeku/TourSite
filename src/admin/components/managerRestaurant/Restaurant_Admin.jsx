@@ -73,7 +73,7 @@ const Restaurant_Admin = () => {
                       >
                         Delete
                       </div>
-                      <Link to="/edit-tour" className="box_btn_saveEdit">
+                      <Link to={`/edit-restaurant/${data.id}`} className="box_btn_saveEdit">
                         Edit
                       </Link>
                     </div>

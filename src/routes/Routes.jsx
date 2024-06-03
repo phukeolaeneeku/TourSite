@@ -5,7 +5,7 @@ import Oneday from "../user/components/tourpage/Oneday";
 import Halfday from "../user/components/tourpage/Halfday";
 import Golf from "../user/components/tourpage/Golf";
 import Nightday from "../user/components/tourpage/Nightday";
-
+import DetailsHotel from "../user/components/homepage/DetailsHotel";
 import HotelPakse from "../user/components/hotelpage/HotelPakse";
 import HotelPaksong from "../user/components/hotelpage/HotelPaksong";
 import HotelSiphandone from "../user/components/hotelpage/HotelSiphandone";
@@ -73,6 +73,7 @@ const Links = () => {
       <Routes>
         <Route exact path="/" Component={Home} />
         <Route exact path="/details/:id" Component={Details} />
+        <Route exact path="/details-hotel/:id" Component={DetailsHotel} />
         <Route exact path="/oneday" Component={Oneday} />
         <Route exact path="/halfday" Component={Halfday} />
         <Route exact path="/golf" Component={Golf} />
@@ -125,7 +126,7 @@ const Links = () => {
         <Route path="/hotel-admin" Component={Hotel} />
         <Route path="/edit-hotel/:id" Component={Edit_Hotel} />
         <Route path="/restaurant-admin" Component={Restaurant_Admin} />
-        <Route path="/edit-restaurant" Component={EditRestaurant} />
+        <Route path="/edit-restaurant/:id" Component={EditRestaurant} />
         <Route path="/add-restaurant" Component={AddRestaurant} />
         <Route path="/package-admin" Component={PackageAdmin} />
         <Route path="/airplane-admin" Component={AirplaneAdmin} />

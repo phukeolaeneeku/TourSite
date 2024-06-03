@@ -80,9 +80,9 @@ function HotelPaksong() {
               .filter((paksong) => paksong.category == "paksong")
               .map((paksong, index) => (
                 <div className="box_container_body" key={index}>
-                  <div className="container_image">
+                  <Link to={`/details-hotel/${paksong.id}`} className="container_image">
                     <img src={paksong.image || iconImage} alt="image" />
-                  </div>
+                  </Link>
                   <div className="container_des">
                     <h2>{paksong.name}</h2>
                     <Expandable>{paksong.description}</Expandable>

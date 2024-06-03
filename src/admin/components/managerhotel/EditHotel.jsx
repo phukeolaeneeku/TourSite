@@ -7,86 +7,87 @@ import Swal from "sweetalert2";
 
 const EditHotel = () => {
   const { id } = useParams();
-  const [hotelData, setHotelData] = useState({
-    category: "",
-    name: "",
-    image: null,
-    images: [],
-    description: "",
-    price: 0,
-    address: "",
-  });
+  const [name, setName] = useState("");
+  const [category, setCategory] = useState("");
+  const [description, setDescription] = useState("");
+  const [price, setPrice] = useState("");
+  const [address, setAddress] = useState("");
+  const [image, setImage] = useState(null); // URL for the existing main image
+  const [newImageFile, setNewImageFile] = useState(null); // File for the new main image
+  const [images, setImages] = useState([]); // URLs for the existing images
+  const [newImageFiles, setNewImageFiles] = useState([]); // Files for the new images
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setHotelData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  useEffect(() => {
+    let config = {
+      method: "get",
+      maxBodyLength: Infinity,
+      url: import.meta.env.VITE_API + `/tourapi/hotel/detail/${id}/`,
+      headers: {},
+    };
+
+    axios
+      .request(config)
+      .then((response) => {
+        setName(response.data.name);
+        setPrice(response.data.price);
+        setAddress(response.data.address);
+        setCategory(response.data.category);
+        setDescription(response.data.description);
+        setImage(response.data.image);
+        setImages(response.data.images);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [id]);
 
   const handleImageChange = (e) => {
-    const imageFile = e.target.files[0];
-    const imageUrl = URL.createObjectURL(imageFile);
-    setHotelData((prevData) => ({
-      ...prevData,
-      image: imageFile,
-      imageUrl: imageUrl, // Add imageUrl to state
-    }));
+    const file = e.target.files[0];
+    if (file) {
+      setNewImageFile(file); // Set the file for new image
+      setImage(URL.createObjectURL(file)); // Set the preview for the new image
+    }
   };
 
-  const handleImageChangeMultiple = (e) => {
-    const newImages = Array.from(e.target.files).map((file) => ({
-      file: file,
-      url: URL.createObjectURL(file),
-    }));
-    setHotelData((prevData) => ({
-      ...prevData,
-      images: [...prevData.images, ...newImages],
-    }));
+  const handleMultipleImagesChange = (e) => {
+    const files = Array.from(e.target.files);
+    const newImages = files.map((file) => URL.createObjectURL(file));
+    setNewImageFiles((prevFiles) => [...prevFiles, ...files]); // Add files of new images
+    setImages((prevImages) => ({
+      ...prevImages,
+      images: [...prevImages.images, ...newImages],
+    })); // Add previews of new images
   };
 
-  const handleImageDelete = (index) => {
-    const newImages = [...hotelData.images];
-    newImages.splice(index, 1);
-    setHotelData((prevData) => ({
-      ...prevData,
+  const removeImage = (index) => {
+    setImages((prevImages) => prevImages.filter((_, i) => i !== index));
+    setNewImageFiles((prevFiles) => ({
+      ...prevFiles,
       images: newImages,
-    }));
+    })); // Remove the file from the list
   };
 
-  const handleSubmit = async (e) => {
+  const updateGuide = async (e) => {
     e.preventDefault();
 
-    // Check for incomplete data
-    if (
-      !hotelData.category ||
-      !hotelData.name ||
-      !hotelData.image ||
-      hotelData.images.length === 0 ||
-      !hotelData.description ||
-      !hotelData.price ||
-      !hotelData.address
-    ) {
-      // Display alert for incomplete data
-      alert("Please complete all fields before submitting.");
-      return; // Exit early if data is incomplete
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("price", price);
+    formData.append("address", address);
+    formData.append("category", category);
+    formData.append("description", description);
+
+    if (newImageFile) {
+      formData.append("image", newImageFile); // Append new main image if it exists
+    }
+
+    if (newImageFiles) {
+      newImageFiles.forEach((file, i) => formData.append(`images`, file)); // Append new images
     }
 
     try {
-      const formData = new FormData();
-      formData.append("category", hotelData.category);
-      formData.append("name", hotelData.name);
-      formData.append("description", hotelData.description);
-      formData.append("price", hotelData.price);
-      formData.append("address", hotelData.address);
-      formData.append("image", hotelData.image);
-      hotelData.images.forEach((image) => {
-        formData.append("images", image.file); // Sending only file object, not URL
-      });
-
-      const response = await axios.put(
-        `http://43.202.102.25:8000/tourapi/hotel/update/${id}/`,
+      await axios.patch(
+        import.meta.env.VITE_API + `/tourapi/hotel/update/${id}/`,
         formData,
         {
           headers: {
@@ -95,47 +96,49 @@ const EditHotel = () => {
         }
       );
 
-      // Clear form data upon success
-      setHotelData({
-        category: "",
-        name: "",
-        image: null,
-        images: [],
-        description: "",
-        price: 0,
-        address: "",
-      });
-
       Swal.fire({
+        title: "Success!",
+        text: "Hotel updated successfully.",
         icon: "success",
-        title: "Success",
-        text: "Hotel data updated successfully!",
+        confirmButtonText: "OK",
+      }).then(() => {
+        // Clear the form data
+        setName("");
+        setCategory("");
+        setDescription("");
+        setPrice("");
+        setAddress("");
+        setImage(null);
+        setNewImageFile(null);
+        setImages([]);
+        setNewImageFiles([]);
       });
-      // Redirect to hotel details page or any other desired page
     } catch (error) {
-      console.error("Error updating hotel data:", error);
       Swal.fire({
+        title: "Error!",
+        text: "There was an error updating the hotel.",
         icon: "error",
-        title: "Error",
-        text: "Failed to update hotel data. Please try again later.",
+        confirmButtonText: "OK",
       });
+      console.error(
+        "There was an error updating the hotel:",
+        error.response.data
+      );
     }
   };
-
   return (
     <>
       <AdminMenu />
       <section id="post">
         <div className="box_container_product">
           <h2>Edit Hotel</h2>
-          <form className="edit-product-forms" onSubmit={handleSubmit}>
+          <form className="edit-product-forms" onSubmit={updateGuide}>
             <div className="input-img">
               <div className="box_description">
                 <h3>Image</h3>
                 <div className="images">
-                  {hotelData.imageUrl && (
-                    <img src={hotelData.imageUrl} alt="Hotel" />
-                  )}
+                  <img src={image} alt="Selected" />
+
                   <div
                     className="box_chooses_image"
                     onClick={() => document.getElementById("fileInput").click()}
@@ -154,12 +157,12 @@ const EditHotel = () => {
               <div className="gallery">
                 <h3>View More Images</h3>
                 <div className="gallery-box">
-                  {hotelData.images.map((image, index) => (
+                  {images.map((img, index) => (
                     <div className="gallery-box-view" key={index}>
-                      <img src={image.url} alt="" />
+                      <img src={img} alt="" />
                       <div
                         className="button"
-                        onClick={() => handleImageDelete(index)}
+                        onClick={() => removeImage(index)}
                       >
                         <AiOutlineDelete />
                       </div>
@@ -177,7 +180,7 @@ const EditHotel = () => {
                     type="file"
                     id="fileInputMultiple"
                     style={{ display: "none" }}
-                    onChange={handleImageChangeMultiple}
+                    onChange={handleMultipleImagesChange}
                     multiple
                   />
                 </div>
@@ -189,10 +192,11 @@ const EditHotel = () => {
                 <label htmlFor="category">Category</label>
                 <select
                   name="category"
-                  value={hotelData.category}
-                  onChange={handleChange}
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
                 >
                   <option value="">Select category</option>
+
                   <option value="pakse">Pakse</option>
                   <option value="paksong">Paksong</option>
                   <option value="siphadone">Siphadone</option>
@@ -203,9 +207,9 @@ const EditHotel = () => {
                 <input
                   type="text"
                   name="name"
-                  value={hotelData.name}
-                  onChange={handleChange}
                   placeholder="Name..."
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
 
@@ -214,8 +218,8 @@ const EditHotel = () => {
                 <input
                   type="text"
                   name="price"
-                  value={hotelData.price}
-                  onChange={handleChange}
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
                   placeholder="Price..."
                 />
               </div>
@@ -224,8 +228,8 @@ const EditHotel = () => {
                 <input
                   type="text"
                   name="address"
-                  value={hotelData.address}
-                  onChange={handleChange}
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
                   placeholder="Address..."
                 />
               </div>
@@ -236,8 +240,8 @@ const EditHotel = () => {
                   type="text"
                   rows="10"
                   name="description"
-                  value={hotelData.description}
-                  onChange={handleChange}
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
                   placeholder="Description..."
                 ></textarea>
               </div>
