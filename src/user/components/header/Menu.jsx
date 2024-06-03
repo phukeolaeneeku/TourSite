@@ -296,7 +296,7 @@ const Header = () => {
                 </li>
                 <div className="hr"></div>
                 <li className="menu_inline">
-                  <Link to="#">
+                  <Link to="/lao">
                     <p className="txtP">Laotian</p>
                   </Link>
                   <MdKeyboardArrowRight id="icon_AiOutlineRight" />

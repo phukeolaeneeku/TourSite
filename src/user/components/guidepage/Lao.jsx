@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../menu/Footer";
 import Header from "../header/Header";
-import "./css/korean.css";
+import "./css/lao.css";
 import { SiGooglemaps } from "react-icons/si";
 import korean from "../../../img/korean.jpg";
 import Menu from "../header/Menu";
@@ -10,8 +10,8 @@ import Expandable from "../../../admin/components/managertour/Expandable";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-function Korean() {
-  const [korea, setKorea] = useState([]);
+function Lao() {
+  const [laotain, setLaotain] = useState([]);
   const [cart, setCart] = useState(() => {
     const localCart = localStorage.getItem("cart");
     return localCart ? JSON.parse(localCart) : [];
@@ -32,39 +32,42 @@ function Korean() {
     axios
       .request(config)
       .then((response) => {
-        setKorea(response.data);
+        setLaotain(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
   return (
     <>
       <Header />
       <Menu />
-      <div className="containner_korean_body">
-        <div className="content_item_korean">
-          <div className="container_korean">
-            <h3 className="txt_span_korean">
-              <span className="span_Styles"></span>Korean
+      <div className="containner_laotian_body">
+        <div className="content_item_laotian">
+          <div className="container_laotian">
+            <h3 className="txt_span_laotian">
+              <span className="span_Styles"></span>Laotian
             </h3>
           </div>
-          {korea
-            .filter((korea) => korea.category == "Korea")
-            .map((korea, index) => (
-              <div className="box_container_korean_body" key={index}>
-                <Link
-                  to={`/details-guide/${korea.id}`}
-                  className="container_korean_image"
-                >
-                  <img src={korea.image || iconImage} alt="image" />
-                </Link>
-                <div className="container_korean_desc">
-                  <h2>{korea.name}</h2>
-                  <Expandable>{korea.description}</Expandable>
+          <div className="box_container_laotian">
+            {laotain
+              .filter((lao) => lao.category == "Lao")
+              .map((lao, index) => (
+                <div className="box_container_laotian_body" key={index}>
+                  <Link
+                    to={`/details-guide/${lao.id}`}
+                    className="container_laotian_image"
+                  >
+                    <img src={lao.image || iconImage} alt="image" />
+                  </Link>
+                  <div className="container_laotian_desc">
+                    <h2>{lao.name}</h2>
+                    <Expandable>{lao.description}</Expandable>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+          </div>
         </div>
       </div>
       <Footer />
@@ -72,4 +75,4 @@ function Korean() {
   );
 }
 
-export default Korean;
+export default Lao;

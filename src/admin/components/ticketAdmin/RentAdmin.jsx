@@ -6,10 +6,11 @@ import airplane1 from "../../../img/airplane1.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Expandable from "../managertour/Expandable";
 import axios from "axios";
-
+import Swal from "sweetalert2";
 function RentAdmin() {
   const [showConfirm, setShowConfirm] = useState(false);
   const [datas, setDatas] = useState([]);
+  const [idToDelete, setIdToDelete] = useState(null); // Added state to hold ID of hotel to delete
 
   useEffect(() => {
     fetchData();
@@ -26,8 +27,30 @@ function RentAdmin() {
     }
   };
 
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(
+        `http://43.202.102.25:8000/tourapi/ticket/delete/${id}/`
+      );
+      Swal.fire({
+        icon: "success",
+        title: "Success",
+        text: "Hotel deleted successfully!",
+      });
+      fetchData();
+      setShowConfirm(false); // Close confirmation dialog
+    } catch (error) {
+      console.error("Error deleting hotel:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Failed to delete hotel. Please try again later.",
+      });
+    }
+  };
+
   const handleCancelDelete = () => {
-    setShowConfirm(!showConfirm);
+    setShowConfirm(false);
   };
 
   return (
@@ -58,19 +81,27 @@ function RentAdmin() {
                       <h3>{data.name}</h3>
                       <Expandable>{data.description}</Expandable>
                       <div className="txt_tour">
-                        <p className="price_number_ones">Prices: $ {data.price}</p>
+                        <p className="price_number_ones">
+                          Prices: $ {data.price}
+                        </p>
                       </div>
                       <div className="txt_tour">
                         <p className="txt_brand_car">Brand: {data.brand}</p>
                       </div>
                       <div className="txt_tour">
-                        <p className="txt_brand_car"> Car number:{data.carnumber}</p>
+                        <p className="txt_brand_car">
+                          
+                          Car number:{data.carnumber}
+                        </p>
                       </div>
                       <p className="txt_address">Address: {data.address}</p>
                     </div>
                     <div className="btn_delete_view">
                       <div
-                        onClick={handleCancelDelete}
+                        onClick={() => {
+                          setIdToDelete(data.id);
+                          setShowConfirm(true);
+                        }}
                         className="box_btn_saveDelete"
                       >
                         Delete
@@ -85,8 +116,6 @@ function RentAdmin() {
             ) : (
               <p>No tours available</p>
             )}
-
-           
 
             <div className="box_container_next_product">
               <button className="box_prev_left_product">
@@ -109,7 +138,7 @@ function RentAdmin() {
               </button>
             </div>
 
-            {showConfirm&& (
+            {showConfirm && (
               <div className="background_addproductpopup_box">
                 <div className="hover_addproductpopup_box">
                   <div className="box_logout">
@@ -122,7 +151,10 @@ function RentAdmin() {
                     >
                       No
                     </button>
-                    <button className="btn_confirm btn_addproducttxt_popup">
+                    <button
+                      onClick={() => handleDelete(idToDelete)}
+                      className="btn_confirm btn_addproducttxt_popup"
+                    >
                       Yes
                     </button>
                   </div>

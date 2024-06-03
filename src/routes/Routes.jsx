@@ -7,6 +7,7 @@ import Golf from "../user/components/tourpage/Golf";
 import Nightday from "../user/components/tourpage/Nightday";
 import DetailsHotel from "../user/components/homepage/DetailsHotel";
 import DetailsRes from "../user/components/homepage/DetailsRes";
+import DetailsGuide from "../user/components/homepage/DetailsGuide";
 import HotelPakse from "../user/components/hotelpage/HotelPakse";
 import HotelPaksong from "../user/components/hotelpage/HotelPaksong";
 import HotelSiphandone from "../user/components/hotelpage/HotelSiphandone";
@@ -25,6 +26,7 @@ import Package4days from "../user/components/packagepage/Package4days";
 import Package5days from "../user/components/packagepage/Package5days";
 
 import Korean from "../user/components/guidepage/Korean";
+import Lao from "../user/components/guidepage/Lao";
 
 import AccountUser from "../user/components/accountUser/AccountUser";
 import Profile from "../user/components/accountUser/Profile";
@@ -77,6 +79,7 @@ const Links = () => {
         <Route exact path="/details/:id" Component={Details} />
         <Route exact path="/details-hotel/:id" Component={DetailsHotel} />
         <Route exact path="/details-res/:id" Component={DetailsRes} />
+        <Route exact path="/details-guide/:id" Component={DetailsGuide} />
         <Route exact path="/oneday" Component={Oneday} />
         <Route exact path="/halfday" Component={Halfday} />
         <Route exact path="/golf" Component={Golf} />
@@ -100,6 +103,7 @@ const Links = () => {
         <Route exact path="/package5days" Component={Package5days} />
 
         <Route exact path="/korean" Component={Korean} />
+        <Route exact path="/lao" Component={Lao} />
 
         <Route exact path="/account-user" Component={AccountUser} />
         <Route exact path="/profile-user" Component={Profile} />

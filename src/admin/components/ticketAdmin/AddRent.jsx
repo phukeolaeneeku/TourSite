@@ -178,6 +178,7 @@ const AddRent = () => {
 
             <div className="form_input_box">
               <div className="input">
+              <label htmlFor="category">Category</label>
                 <select
                   name="category"
                   value={addRentcarData.category}

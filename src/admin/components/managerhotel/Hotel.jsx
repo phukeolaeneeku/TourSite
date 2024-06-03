@@ -71,10 +71,11 @@ function Hotel() {
                 </Link>
               </div>
             </div>
-            {datas.length > 0 ? (
+            
+                <div className="box_container_tour" >
+                {datas.length > 0 ? (
               datas.map((data, index) => (
-                <div className="box_container_tour" key={index}>
-                  <div className="box_container_tour_admin">
+                  <div className="box_container_tour_admin" key={index}>
                     <div className="container_image_tour">
                       <img src={data.image} alt="image" />
                     </div>
@@ -107,11 +108,12 @@ function Hotel() {
                       </Link>
                     </div>
                   </div>
+                    ))
+                  ) : (
+                    <p>No tours available</p>
+                  )}
                 </div>
-              ))
-            ) : (
-              <p>No tours available</p>
-            )}
+            
 
             <div className="box_container_next_product">
               <button className="box_prev_left_product">

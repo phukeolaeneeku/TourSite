@@ -73,9 +73,9 @@ const Restaurant_Admin = () => {
               </div>
             </div>
 
-            {datas.length > 0 ? (
-              datas.map((data, index) => (
-                <div className="box_container_tour" key={index}>
+            <div className="box_container_tour">
+              {datas.length > 0 ? (
+                datas.map((data, index) => (
                   <div className="box_container_tour_admin">
                     <div className="container_image_tour">
                       <img src={data.image} alt="image" />
@@ -108,11 +108,11 @@ const Restaurant_Admin = () => {
                       </Link>
                     </div>
                   </div>
-                </div>
-              ))
-            ) : (
-              <p>No tours available</p>
-            )}
+                ))
+              ) : (
+                <p>No tours available</p>
+              )}
+            </div>
 
             <div className="box_container_next_product">
               <button className="box_prev_left_product">
