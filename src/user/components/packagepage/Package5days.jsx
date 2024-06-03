@@ -24,7 +24,7 @@ function Package5days() {
     let config = {
       method: "get",
       maxBodyLength: Infinity,
-      url: import.meta.env.VITE_API + "/tourapi/packet/",
+      url: import.meta.env.VITE_API + "/tourapi/packet/list/",
     };
 
     axios
@@ -71,10 +71,10 @@ function Package5days() {
           </div>
           <div className="content_image_Products">
             {package5_list
-              .filter((packet) => packet.category.id === 3)
+              .filter((packet) => packet.category == "5days")
               .map((packet, index) => (
                 <div className="group_item_Box" key={index}>
-                  <Link to="/details" className="image">
+                  <Link to={`/details-package/${packet.id}`}  className="image">
                     <img src={packet.image || iconImage} alt="img" />
                   </Link>
                   <div className="txt_desc">

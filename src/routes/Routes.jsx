@@ -70,6 +70,7 @@ import Guide_admin from "../admin/components/manageGuide/Guide_admin";
 import AddGuide from "../admin/components/manageGuide/AddGuide";
 import EditGuide from "../admin/components/manageGuide/EditGuide";
 import EditTour from "../admin/components/managertour/EditTour";
+import DetailsPackage from "../user/components/homepage/DetailsPackage";
 
 const Links = () => {
   return (
@@ -80,6 +81,7 @@ const Links = () => {
         <Route exact path="/details-hotel/:id" Component={DetailsHotel} />
         <Route exact path="/details-res/:id" Component={DetailsRes} />
         <Route exact path="/details-guide/:id" Component={DetailsGuide} />
+        <Route exact path="/details-package/:id" Component={DetailsPackage} />
         <Route exact path="/oneday" Component={Oneday} />
         <Route exact path="/halfday" Component={Halfday} />
         <Route exact path="/golf" Component={Golf} />

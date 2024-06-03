@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { AiOutlineDelete } from "react-icons/ai";
+import Swal from "sweetalert2";
+import axios from "axios";
 
 const AddPackage = () => {
   const [addPacketData, setAddPacketData] = useState({
@@ -67,7 +69,7 @@ const AddPackage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+  
     const formData = new FormData();
     formData.append("category", addPacketData.category);
     formData.append("name", addPacketData.name);
@@ -78,36 +80,45 @@ const AddPackage = () => {
     addPacketData.images.forEach((img, i) => {
       formData.append(`images[${i}]`, img);
     });
-
+  
     const config = {
       method: "post",
       url: import.meta.env.VITE_API + `/tourapi/packet/create/`,
-
       headers: {
         "Content-Type": "multipart/form-data",
       },
       data: formData,
     };
-
+  
     axios
       .request(config)
       .then((response) => {
-        console.log(JSON.stringify(response.data));
-
-        setAddPacketData({
-          category: "",
-          name: "",
-          price: "",
-          address: "",
-          description: "",
-          image: null,
-          images: [],
+        Swal.fire({
+          title: "Success!",
+          text: "Packet created successfully.",
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then(() => {
+          setAddPacketData({
+            category: "",
+            name: "",
+            price: "",
+            address: "",
+            description: "",
+            image: null,
+            images: [],
+          });
+          setSelectedImage(null);
+          setImagePreviews([]);
         });
-
-        setSelectedImage(null)
-        setImagePreviews([])
       })
       .catch((error) => {
+        Swal.fire({
+          title: "Error!",
+          text: "There was an error creating the packet.",
+          icon: "error",
+          confirmButtonText: "OK",
+        });
         console.error(error);
       });
   };
@@ -184,9 +195,9 @@ const AddPackage = () => {
                   onChange={handleChange}
                 >
                   <option value="">Select category</option>
-                  <option value="pakse">3 days </option>
-                  <option value="paksong">4 days</option>
-                  <option value="siphadone">5 days</option>
+                  <option value="3days">3 days </option>
+                  <option value="4days">4 days</option>
+                  <option value="5days">5 days</option>
                 </select>
               </div>
               <div className="input">
