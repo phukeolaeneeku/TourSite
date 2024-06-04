@@ -500,23 +500,23 @@ const Homepage = () => {
           </div>
         </div>
       </section> */}
-      <div className="containnerOneday_body">
-        <div className="content_item_Oneday">
-          <div className="container_txt_head">
-            <h3 className="txt_head_Oneday">
-              <span className="span_Styles"></span>Tour
+      <div className="containnerOneday_bodys">
+        <div className="content_item_Onedays">
+          <div className="container_txt_heads">
+            <h3 className="txt_head_Onedays">
+              <span className="span_Styless"></span>Tour
             </h3>
           </div>
 
-          <div className="box_container">
+          <div className="box_containers">
             {tour
               .filter((i) => {
                 console.log("Tour item:", i); // Log each tour item
                 return i.category == "one_day";
               })
               .map((i, index) => (
-                <div className="box_container_body" key={index}>
-                  <Link to={`/details/${i.id}`} className="container_image">
+                <div className="box_container_bodys" key={index}>
+                  <Link to={`/details/${i.id}`} className="container_images">
                     <img src={i.image || iconImage} alt="image" />{" "}
                     {/* Improved alt text */}
                     {/* <img src={i.image.image || recommended3} alt="image" />  */}
@@ -545,7 +545,7 @@ const Homepage = () => {
         </div>
       </div>
 
-      <div className="containnergolf_body">
+      {/* <div className="containnergolf_body">
         <div className="content_itemGolf">
           <div className="container_head">
             <h3 className="txt_head">
@@ -584,7 +584,7 @@ const Homepage = () => {
               ))}
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
