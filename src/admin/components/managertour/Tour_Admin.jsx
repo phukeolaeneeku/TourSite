@@ -7,6 +7,9 @@ import patusai from "../../../img/patusai.jpg";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import Expandable from "./Expandable";
 import axios from "axios";
+import { CiCamera } from "react-icons/ci";
+import imageicon from "../../../img/imageicon.jpg";
+import tour_banner from "../../../img/tour_banner.jpg"
 import Swal from "sweetalert2";
 
 const Tour_Admin = () => {
@@ -29,9 +32,12 @@ const Tour_Admin = () => {
     }
   };
 
-  const handleDelete = async (id) => { // Modified handleDelete to take id parameter
+  const handleDelete = async (id) => {
+    // Modified handleDelete to take id parameter
     try {
-      await axios.delete(`http://43.202.102.25:8000/tourapi/tour/delete/${id}/`);
+      await axios.delete(
+        `http://43.202.102.25:8000/tourapi/tour/delete/${id}/`
+      );
       Swal.fire({
         icon: "success",
         title: "Success",
@@ -54,6 +60,29 @@ const Tour_Admin = () => {
     setShowConfirm(false);
   };
 
+   // Choose banner image
+   const [mainImageBanner, setMainImageBanner] = useState(null);
+   const [isPopupimage, setPopupimage] = useState(false);
+
+   ///Choose image handleImageBanner
+  const handleImageBanner = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onloadend = () => {
+        setMainImageBanner([file]);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  };
+
+   const togglePopupimage = () => {
+     setPopupimage(!isPopupimage);
+   };
+
   return (
     <>
       <AdminMenu />
@@ -70,6 +99,64 @@ const Tour_Admin = () => {
                   <p>Add</p>
                 </Link>
               </div>
+            </div>
+
+            <div className="banner_no_box">
+              <div className="banner_no_box_image">
+                <div className="banner_no_box_image">
+                  <div className="box_image_banner">
+                    {mainImageBanner && mainImageBanner.length > 0 ? (
+                      <img
+                        src={URL.createObjectURL(mainImageBanner[0])}
+                        alt="Banner"
+                      />
+                    ) : (
+                      <img src={tour_banner} alt="Banner" />
+                    )}
+                  </div>
+                </div>
+              </div>
+              <div className="edit_image_banner" onClick={togglePopupimage}>
+                <CiCamera id="box_icon_camera" />
+              </div>
+
+              {isPopupimage && (
+                <form className="background_addproductpopup_box">
+                  <div className="hover_addproductpopup_box_image">
+                    <div className="box_input_image">
+                      <p>Edit banner image</p>
+
+                      <label className="popup_Border_Boximagae">
+                        {mainImageBanner && mainImageBanner.length > 0 ? (
+                          <img
+                            src={URL.createObjectURL(mainImageBanner[0])}
+                            alt="Banner"
+                          />
+                        ) : (
+                          <img src={imageicon} alt="Banner" />
+                        )}
+                        <input
+                          type="file"
+                          id="img"
+                          onChange={handleImageBanner}
+                          required
+                        />
+                      </label>
+                    </div>
+                    <div className="btn_foasdf">
+                      <button
+                        className="btn_cancel btn_addproducttxt_popup"
+                        onClick={togglePopupimage}
+                      >
+                        No
+                      </button>
+                      <button className="btn_confirm btn_addproducttxt_popup">
+                        Yes
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              )}
             </div>
 
             <div className="box_container_tour">

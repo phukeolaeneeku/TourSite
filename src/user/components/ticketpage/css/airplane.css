@@ -55,10 +55,8 @@ body {
 .group_item_Box_airplane {
     width: 100%;
     height: auto;
-    display: flex;
     border: 1px solid #eee;
     flex-direction: column;
-    align-items: center;
     border-radius: 5px;
     cursor: pointer;
     overflow: hidden;

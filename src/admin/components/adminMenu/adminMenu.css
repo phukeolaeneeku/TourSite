@@ -17,7 +17,7 @@ body {
 #dashboard .left .menu {
     margin-top: 7rem;
     display: grid;
-    gap: 2.2rem;
+    gap: 2rem;
     justify-content: center;
 }
 

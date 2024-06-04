@@ -32,14 +32,16 @@ import Swal from "sweetalert2";
 import iconImage from "../../../img/iconImage.png";
 
 const Homepage = () => {
+  //Golf page
+  const [tour_golf, setTour_golf] = useState([]);
+  console.log("tour_golf........", tour_golf);
+  //Tour page
   const [tour, setTour] = useState([]);
-
   const [cart, setCart] = useState(() => {
     const localCart = localStorage.getItem("cart");
     return localCart ? JSON.parse(localCart) : [];
   });
-
-  console.log("Tour........", tour);
+  // console.log("Tour........", tour);
 
   useEffect(() => {
     fetchData();
@@ -57,7 +59,8 @@ const Homepage = () => {
     axios
       .request(config)
       .then((response) => {
-        setTour(response.data)
+        setTour(response.data);
+        setTour_golf(response.data)
       })
       .catch((error) => {
         console.log(error);
@@ -69,14 +72,15 @@ const Homepage = () => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  const handleAddToCart = (tour) => {
-    if (cart.some((item) => item.id === tour.id)) {
+  const handleAddToCart = (tour, tour_golf) => {
+    if (cart.some((item) => item.id === tour, tour_golf.id)) {
       Swal.fire({
         text: "This item is already cart!",
         icon: "error",
       });
     } else {
       setCart([...cart, tour]);
+      setTour_golf([...cart, tour_golf]);
 
       Swal.fire({
         text: "Add item to cart success!",
@@ -84,8 +88,9 @@ const Homepage = () => {
       });
     }
   };
+
   return (
-    <div>
+    <>
       <Header />
       <Menu id="menu_barv" />
       {/* <section id="container_product">
@@ -499,7 +504,7 @@ const Homepage = () => {
         <div className="content_item_Oneday">
           <div className="container_txt_head">
             <h3 className="txt_head_Oneday">
-              <span className="span_Styles"></span>One day tour
+              <span className="span_Styles"></span>Tour
             </h3>
           </div>
 
@@ -539,7 +544,48 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-    </div>
+
+      <div className="containnergolf_body">
+        <div className="content_itemGolf">
+          <div className="container_head">
+            <h3 className="txt_head">
+              <span className="span_Style"></span>Golf
+            </h3>
+          </div>
+          <div className="content_image_Products">
+            {tour_golf
+              .filter((golf) => {
+                console.log("Tour item:", golf); // Log each tour item
+                return golf.category == "golf";
+              })
+              .map((golf, index) => (
+                <div className="group_item_Box" key={index}>
+                  <Link to="/details" className="golf_image">
+                    <img src={golf.image || iconImage} alt="img" />
+                  </Link>
+                  <div className="txt_desc">
+                    <h3>{golf.name}</h3>
+                    <Expandable>{golf.description}</Expandable>
+                    <div className="price">
+                      <p className="price_num">${golf.price}</p>
+                    </div>
+                    <p className="SiGooglemaps">
+                      <SiGooglemaps id="icon_map" /> {golf.address}
+                    </p>
+
+                    <p className="box_IoMdCart">
+                      <IoMdCart
+                        id="icon_IoMdCart"
+                        onClick={() => handleAddToCart(golf, index)}
+                      />
+                    </p>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
