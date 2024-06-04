@@ -14,6 +14,11 @@ function Hotel() {
   const [datas, setDatas] = useState([]);
   const [idToDelete, setIdToDelete] = useState(null); // Added state to hold ID of hotel to delete
 
+  const [filteredHotel, setFilteredHotel] = useState([]);
+  const [filter, setFilter] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -29,9 +34,12 @@ function Hotel() {
     }
   };
 
-  const handleDelete = async (id) => { // Modified handleDelete to take id parameter
+  const handleDelete = async (id) => {
+    // Modified handleDelete to take id parameter
     try {
-      await axios.delete(`http://43.202.102.25:8000/tourapi/hotel/delete/${id}/`);
+      await axios.delete(
+        `http://43.202.102.25:8000/tourapi/hotel/delete/${id}/`
+      );
       Swal.fire({
         icon: "success",
         title: "Success",
@@ -49,10 +57,38 @@ function Hotel() {
       });
     }
   };
-  
+
   const handleCancelDelete = () => {
     setShowConfirm(false);
   };
+
+//////////////////////
+  useEffect(() => {
+    if (datas.length > 0) {
+      if (filter === "") {
+        setFilteredHotel(datas);
+      } else {
+        const endDate = new Date();
+        const startDate = new Date(endDate);
+        startDate.setDate(startDate.getDate() - parseInt(filter));
+        const filtered = datas.filter(({ updated_at }) => {
+          const updatedAt = new Date(updated_at);
+          return updatedAt >= startDate && updatedAt <= endDate;
+        });
+        setFilteredHotel(filtered);
+      }
+    }
+  }, [datas, filter]);
+
+
+  const handlePageChange = (page) => setCurrentPage(page);
+  const totalPages = Math.ceil(filteredHotel.length / 4);
+  const startIndex = (currentPage - 1) * 4;
+  const currentHotels = filteredHotel.slice(startIndex, startIndex + 4);
+
+  const nextPage = () =>
+    setCurrentPage((prev) => (prev === totalPages ? totalPages : prev + 1));
+  const prevPage = () => setCurrentPage((prev) => (prev === 1 ? 1 : prev - 1));
 
   return (
     <>
@@ -71,10 +107,10 @@ function Hotel() {
                 </Link>
               </div>
             </div>
-            
-                <div className="box_container_tour" >
-                {datas.length > 0 ? (
-              datas.map((data, index) => (
+
+            <div className="box_container_tour">
+              {currentHotels.length > 0 ? (
+                currentHotels.map((data, index) => (
                   <div className="box_container_tour_admin" key={index}>
                     <div className="container_image_tour">
                       <img src={data.image} alt="image" />
@@ -100,7 +136,6 @@ function Hotel() {
                         Delete
                       </div>
                       <Link
-                      
                         to={`/edit-hotel/${data.id}`}
                         className="box_btn_saveEdit"
                       >
@@ -108,33 +143,44 @@ function Hotel() {
                       </Link>
                     </div>
                   </div>
-                    ))
-                  ) : (
-                    <p>No tours available</p>
-                  )}
-                </div>
-            
+                ))
+              ) : (
+                <p>No tours available</p>
+              )}
+            </div>
 
-            {/* <div className="box_container_next_product">
-              <button className="box_prev_left_product">
-                <AiOutlineLeft id="box_icon_left_right_product" />
-                <p>Prev</p>
-              </button>
-
-              <div className="box_num_product">
-                <div className="num_admin_product">
-                  <p>1</p>
-                </div>
-                <div className="num_admin_product">
-                  <p>2</p>
-                </div>
+            {filteredHotel.length > 4 && (
+              <div className="box_container_next_product">
+                <button
+                  className="box_prev_left_product"
+                  disabled={currentPage === 1}
+                  onClick={prevPage}
+                >
+                  <AiOutlineLeft id="box_icon_left_right_product" />
+                  <p>Prev</p>
+                </button>
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <div className="box_num_product" key={index}>
+                    <button
+                      className={`num_admin_product ${
+                        currentPage === index + 1 ? "active" : ""
+                      }`}
+                      onClick={() => handlePageChange(index + 1)}
+                    >
+                      {index + 1}
+                    </button>
+                  </div>
+                ))}
+                <button
+                  className="box_prev_right_product"
+                  disabled={currentPage === totalPages}
+                  onClick={nextPage}
+                >
+                  <AiOutlineRight id="box_icon_left_right_product" />
+                  <p>Next</p>
+                </button>
               </div>
-
-              <button className="box_prev_right_product">
-                <p>Next</p>
-                <AiOutlineRight id="box_icon_left_right_product" />
-              </button>
-            </div> */}
+            )}
 
             {showConfirm && (
               <div className="background_addproductpopup_box">

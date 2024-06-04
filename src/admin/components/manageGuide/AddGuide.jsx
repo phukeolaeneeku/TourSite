@@ -3,6 +3,7 @@ import "./css/addguide.css";
 import AdminMenu from "../adminMenu/AdminMenu";
 import { AiOutlineDelete } from "react-icons/ai";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddGuide = () => {
   const [datas, setDatas] = useState({
@@ -124,7 +125,12 @@ const AddGuide = () => {
 
         setSelectedImage(null);
         setImagePreviews([]);
-        alert("Success!");
+
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Guide added successfully!",
+        });
       })
       .catch((error) => {
         console.error(error);
@@ -196,17 +202,6 @@ const AddGuide = () => {
 
             <div className="form_input_box">
               <div className="input">
-                <label htmlFor="name">Name Guide</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={datas.name}
-                  placeholder="Name..."
-                  onChange={handleChange}
-                />
-              </div>
-
-              <div className="input">
                 <label htmlFor="category">Guide's Nationality</label>
                 <select
                   name="category"
@@ -217,6 +212,16 @@ const AddGuide = () => {
                   <option value="Lao">Lao</option>
                   <option value="Korea">Korea</option>
                 </select>
+              </div>
+              <div className="input">
+                <label htmlFor="name">Name Guide</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={datas.name}
+                  placeholder="Name..."
+                  onChange={handleChange}
+                />
               </div>
 
               <div className="input">

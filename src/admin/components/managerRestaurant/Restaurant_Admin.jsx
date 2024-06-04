@@ -14,6 +14,10 @@ const Restaurant_Admin = () => {
   const [datas, setDatas] = useState([]);
   const [idToDelete, setIdToDelete] = useState(null); // Added state to hold ID of hotel to delete
 
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+  const [filter, setFilter] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -28,6 +32,24 @@ const Restaurant_Admin = () => {
       console.error(error);
     }
   };
+
+///////
+  useEffect(() => {
+    if (datas.length > 0) {
+      if (filter === "") {
+        setFilteredRestaurant(datas);
+      } else {
+        const endDate = new Date();
+        const startDate = new Date(endDate);
+        startDate.setDate(startDate.getDate() - parseInt(filter));
+        const filtered = datas.filter(({ updated_at }) => {
+          const updatedAt = new Date(updated_at);
+          return updatedAt >= startDate && updatedAt <= endDate;
+        });
+        setFilteredRestaurant(filtered);
+      }
+    }
+  }, [datas, filter]);
 
   const handleDelete = async (id) => {
     try {
@@ -55,6 +77,17 @@ const Restaurant_Admin = () => {
     setShowConfirm(false);
   };
 
+
+  const handlePageChange = (page) => setCurrentPage(page);
+  const totalPages = Math.ceil(filteredRestaurant.length / 4);
+  const startIndex = (currentPage - 1) * 4;
+  const currentRestaurant = filteredRestaurant.slice(startIndex, startIndex + 4);
+
+  const nextPage = () =>
+    setCurrentPage((prev) => (prev === totalPages ? totalPages : prev + 1));
+  const prevPage = () => setCurrentPage((prev) => (prev === 1 ? 1 : prev - 1));
+
+
   return (
     <>
       <AdminMenu />
@@ -74,8 +107,8 @@ const Restaurant_Admin = () => {
             </div>
 
             <div className="box_container_tour">
-              {datas.length > 0 ? (
-                datas.map((data, index) => (
+              {currentRestaurant.length > 0 ? (
+                currentRestaurant.map((data, index) => (
                   <div className="box_container_tour_admin">
                     <div className="container_image_tour">
                       <img src={data.image} alt="image" />
@@ -113,27 +146,38 @@ const Restaurant_Admin = () => {
                 <p>No tours available</p>
               )}
             </div>
-
-            {/* <div className="box_container_next_product">
-              <button className="box_prev_left_product">
-                <AiOutlineLeft id="box_icon_left_right_product" />
-                <p>Prev</p>
-              </button>
-
-              <div className="box_num_product">
-                <div className="num_admin_product">
-                  <p>1</p>
-                </div>
-                <div className="num_admin_product">
-                  <p>2</p>
-                </div>
+            {filteredRestaurant.length > 4 && (
+              <div className="box_container_next_product">
+                <button
+                  className="box_prev_left_product"
+                  disabled={currentPage === 1}
+                  onClick={prevPage}
+                >
+                  <AiOutlineLeft id="box_icon_left_right_product" />
+                  <p>Prev</p>
+                </button>
+                {Array.from({ length: totalPages }, (_, index) => (
+                  <div className="box_num_product" key={index}>
+                    <button
+                      className={`num_admin_product ${
+                        currentPage === index + 1 ? "active" : ""
+                      }`}
+                      onClick={() => handlePageChange(index + 1)}
+                    >
+                      {index + 1}
+                    </button>
+                  </div>
+                ))}
+                <button
+                  className="box_prev_right_product"
+                  disabled={currentPage === totalPages}
+                  onClick={nextPage}
+                >
+                  <AiOutlineRight id="box_icon_left_right_product" />
+                  <p>Next</p>
+                </button>
               </div>
-
-              <button className="box_prev_right_product">
-                <p>Next</p>
-                <AiOutlineRight id="box_icon_left_right_product" />
-              </button>
-            </div> */}
+            )}
 
             {showConfirm && (
               <div className="background_addproductpopup_box">
