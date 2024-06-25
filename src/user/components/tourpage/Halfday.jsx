@@ -11,7 +11,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import iconImage from "../../../img/iconImage.png";
 
-function Oneday() {
+function Halfday() {
   const [tour_half, setTour_half] = useState([]);
   const [cart, setCart] = useState(() => {
     const localCart = localStorage.getItem("cart");
@@ -117,4 +117,4 @@ function Oneday() {
   );
 }
 
-export default Oneday;
+export default Halfday;

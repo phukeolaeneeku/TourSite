@@ -8,6 +8,7 @@ import { FaUser } from "react-icons/fa";
 import tour_logo from "../../../img/tour_logo.gif";
 import { IoMdCart } from "react-icons/io";
 import axios from "axios";
+import { RotatingLines } from "react-loader-spinner";
 
 const Header = () => {
   const token = localStorage.getItem("token");
@@ -90,7 +91,20 @@ const Header = () => {
                 </Link>
               </div>
             ) : (
-              <p>Loading...</p>
+              // <p>Loading...</p>
+              <div className="box_RotatingLines">
+                <RotatingLines
+                  visible={true}
+                  height="35"
+                  width="35"
+                  color="grey"
+                  strokeWidth="5"
+                  animationDuration="0.75"
+                  ariaLabel="rotating-lines-loading"
+                  wrapperStyle={{}}
+                  wrapperClass=""
+                />
+              </div>
             )}
           </div>
 

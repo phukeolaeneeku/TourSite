@@ -11,7 +11,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import iconImage from "../../../img/iconImage.png";
 
-function Oneday() {
+function Nightday() {
   const [tour_night, setTour_night] = useState([]);
 
   const [cart, setCart] = useState(() => {
@@ -119,4 +119,4 @@ function Oneday() {
   );
 }
 
-export default Oneday;
+export default Nightday;

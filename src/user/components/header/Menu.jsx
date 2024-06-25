@@ -278,7 +278,7 @@ const Header = () => {
             </div>
           )}
         </div>
-        <Link to="/kakao" className="list-menu">
+        <Link to="#" className="list-menu">
           <p className="btn-menu">KAKAO</p>
         </Link>
       </div>

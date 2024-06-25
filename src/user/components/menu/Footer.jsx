@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import QrdownloadApp from "../../../img/QrdownloadApp.png";
 import { HiOutlineHome } from "react-icons/hi";
 import axios from "axios";
+import { RotatingLines } from "react-loader-spinner";
 
-const Menu = () => {
+const Footer = () => {
   const [sitemain, setSitemain] = useState();
 
   console.log("Sitemain....", sitemain);
@@ -84,7 +85,19 @@ const Menu = () => {
             </div>
           </div>
         ) : (
-          <p>Loading...</p>
+          <div className="box_RotatingLines">
+            <RotatingLines
+              visible={true}
+              height="45"
+              width="45"
+              color="grey"
+              strokeWidth="5"
+              animationDuration="0.75"
+              ariaLabel="rotating-lines-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          </div>
         )}
 
         <hr className="hrfoo" />
@@ -135,4 +148,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default Footer;
